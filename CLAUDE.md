@@ -16,8 +16,10 @@
 
 ## Files
 
-- `Wappnet Home.dc.html` — homepage
+- `index.html` — homepage
+- `service.html` — AI consulting & development services page
 - `Wappnet AI Service.dc.html` — AI capability page
+- `about.html` — About page
 - `Wappnet Design System.dc.html` — the guide
 
 ## Content rules
