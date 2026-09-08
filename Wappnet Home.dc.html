@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:#333;font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:#0D0D0F;text-decoration:none}
+  a:hover{color:#C2571A}
+  h1,h2,h3,h4,h5{margin:0;font-family:"Archivo",system-ui,sans-serif;color:#141414;line-height:1.24;letter-spacing:-.02em}
+  p{margin:0}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How long does an AI project take?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A first production release usually takes 10 to 16 weeks: two weeks to frame the use case, four to six to prove it on your data, and the remainder to engineer and deploy it. Narrow automations ship sooner; regulated environments take longer because of review cycles, not build time."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do we need clean data before we start?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. We work with the data you already have and fix only what the chosen use case depends on. A full data cleanup before a first project typically delays value by a year without changing the outcome."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does a first engagement cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The two-week AI opportunity assessment is a fixed fee, and every stage after it is quoted separately. You can stop at the end of any stage without a contractual argument."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do you decide which use case to start with?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We rank candidates on business value, data readiness and effort, then start with the highest-value one your existing data already supports. Anything that needs new data collection gets sequenced later."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Who owns the code and the models?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "You do, from the first commit. Work happens in your repositories and your cloud accounts, under your licence terms, so nothing is locked behind our tooling."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Who is actually on the team?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Senior pods of three to six engineers who have shipped the same class of system before. The people on your first call stay on the account through delivery."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you work alongside our own engineers?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. We work inside your repo, ticket tracker and coding standards, and treat runbooks and architecture notes as deliverables rather than favours."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What happens after launch?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your team takes it over with documentation, or we operate it on an agreed support window with retraining schedules, drift alerts and rollback paths in place."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is Wappnet.ai certified?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. We hold ISO 27001 and SOC 2 Type II, and we have completed enterprise vendor reviews in regulated healthcare and financial services environments."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where does our data live?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "In your cloud accounts and regions. We build inside your tenancy, so data does not leave your environment for training or inference unless you explicitly ask for it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can models run without sending data to a third party?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Where data residency or privacy rules rule out a hosted API, we deploy open-weight models inside your own environment and tune them there."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do you stop an AI system failing quietly?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Every system ships with an evaluation set, a regression suite and a refusal policy, so any prompt or model change is scored before it reaches production."
+   }
+  }
+ ]
+}</script>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div data-screen-label="Home" style="overflow-x:clip">
+
+  <header ref="{{ headerRef }}" onMouseLeave="{{ closeMenu }}" style="position:fixed;top:0;left:0;right:0;z-index:80;background:transparent;border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Wappnet Home.dc.html" style="display:flex;align-items:center;flex:none"><img src="uploads/white-logo.png" alt="Wappnet.ai" style="height:26px;width:auto;display:block"></a>
+
+      <nav hidden="{{ narrow }}" style="margin-left:auto">
+       <div style="display:flex;align-items:center;gap:2px">
+        <div onMouseEnter="{{ open_services }}" style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease" style-hover="color:#fff">Services<span ref="{{ navBar_services }}" style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></div>
+        <div onMouseEnter="{{ open_solutions }}" style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease" style-hover="color:#fff">Solutions<span ref="{{ navBar_solutions }}" style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></div>
+        <div onMouseEnter="{{ open_consulting }}" style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease" style-hover="color:#fff">Consulting<span ref="{{ navBar_consulting }}" style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></div>
+        <div onMouseEnter="{{ open_industries }}" style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease" style-hover="color:#fff">Industries<span ref="{{ navBar_industries }}" style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></div>
+        <div onMouseEnter="{{ open_work }}" style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease" style-hover="color:#fff">Our Work<span ref="{{ navBar_work }}" style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></div>
+        <a href="about.html" onMouseEnter="{{ open_company }}" style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease";cursor:pointer;text-decoration:none" style-hover="color:#fff">About<span ref="{{ navBar_company }}" style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></a>
+       </div>
+      </nav>
+
+      <a hidden="{{ narrow }}" href="#contact" style="flex:none;background:#fff;color:#0D0D0F;border-radius:6px;padding:11px 20px;font-size:14.5px;font-weight:700;font-family:'Archivo',sans-serif;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);color:#0D0D0F">Contact us</a>
+
+      <button hidden="{{ wide }}" onClick="{{ toggleMobile }}" style="margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;color:#fff;padding:9px 14px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Menu</button>
+    </div>
+
+    <sc-if value="{{ menu_services }}">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div ref="{{ svcPanelRef }}" style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:18px;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:14px 24px;align-items:start;max-height:calc(100vh - 92px);overflow-y:auto;animation:panelIn .2s ease-out both">
+          <div data-promo style="background:#0D0D0F;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0;position:sticky;top:0">
+            <div style="padding:22px 22px 18px">
+              <h3 style="font-family:'Archivo',sans-serif;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:#fff;text-wrap:pretty">AI, Data &amp; ML systems that make it to <span style="color:#E8541F">production.</span></h3>
+              <p style="margin-top:12px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.66);text-wrap:pretty">From strategy and prototype to integration, analytics, security and scale — senior engineers working inside your existing technology ecosystem.</p>
+              <a href="#capabilities" style="margin-top:16px;display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:10px 16px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease" style-hover="background:#fff;color:#0D0D0F">Explore AI services <span style="font-size:16px;flex:none">→</span></a>
+            </div>
+            <div data-promo-visual style="position:relative;height:110px;flex:none;margin-top:auto"><image-slot id="menu-services-visual" shape="rect" placeholder="AI visual · 600×220px"></image-slot></div>
+          </div>
+          <div ref="{{ svcGridRef }}" style="display:grid;grid-template-columns:1fr 1fr;gap:0 26px;min-width:0">
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:none">
+              <a href="index.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI Consulting &amp; Development Services</span>
+                    <span style="background:#E8541F;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:0.04em">Featured</span>
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">End-to-end strategic AI consulting, custom model engineering, and scalable enterprise intelligence platforms.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Explore service <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:none">
+              <a href="Wappnet AI Service.dc.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="12" height="9" rx="2.4"></rect><path d="M12 6V4.2"></path><circle cx="12" cy="3.4" r="1.1"></circle><path d="M9.6 12.6h.01M14.4 12.6h.01M10 15.4h4"></path><path d="M4 12v2.6M20 12v2.6"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI Agents &amp; Workflow Automation</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build intelligent agents that reason, act and automate workflows across your business systems.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="Wappnet AI Service.dc.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5.2a2.7 2.7 0 0 0-4.9 1.5c-1.3.5-2.1 1.7-2.1 3.1 0 .9.4 1.8 1 2.4-.4.5-.6 1.2-.6 1.9 0 1.6 1.3 3 2.9 3.1h1.7M13 5.2a2.7 2.7 0 0 1 4.9 1.5c1.3.5 2.1 1.7 2.1 3.1 0 .9-.4 1.8-1 2.4.4.5.6 1.2.6 1.9 0 1.6-1.3 3-2.9 3.1h-1.7"></path><path d="M12 4v16"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Enterprise RAG &amp; Knowledge AI</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Secure AI assistants connected to your documents, databases and internal tools.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="Wappnet AI Service.dc.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Voice &amp; Conversational AI</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">AI voice and messaging agents for sales, support, scheduling and customer operations.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="#capabilities" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI-Powered Product Engineering</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build AI-native products or add AI capabilities to existing software architectures.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="#capability-depth" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Data Engineering &amp; AI-Ready Data</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build reliable pipelines, lakehouses and data foundations for analytics and AI.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="#capability-depth" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Machine Learning &amp; Predictive AI</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build ML systems for forecasting, classification, recommendation and fraud detection.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="#capabilities" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI Integration &amp; Modernization</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Connect AI with your CRM, ERP, APIs, cloud platforms and legacy applications.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="Wappnet AI Service.dc.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI Infrastructure, MLOps &amp; Security</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Deploy, monitor and secure production AI systems with governance and cost control.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="Wappnet AI Service.dc.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Computer Vision &amp; Vision AI</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Detection, inspection and document vision models for real operational environments.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="Wappnet AI Service.dc.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Generative AI &amp; LLM Engineering</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Fine-tuning, prompt systems and evaluation harnesses built for production workloads.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+            <div data-svc-card style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+              <a href="Wappnet AI Service.dc.html" style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none" style-hover="color:#141414">
+                <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path></svg></span>
+                <span style="display:block;min-width:0">
+                  <span style="display:flex;align-items:center;gap:8px">
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI POC to Production</span>
+                    
+                  </span>
+                  <span data-svc-copy style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Move from prototype to high-throughput, enterprise-grade AI production systems.</span>
+                  <span data-svc-more style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ menu_solutions }}">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+          <div style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+            <div>
+              <h3 style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">Solutions built on your own data</h3>
+              <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">Named outcomes rather than practice pages. Each one starts from data you already have.</p>
+            </div>
+            <a href="#stories" style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease" style-hover="background:#fff;color:#141414">See the work</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 36px">
+            <div>
+              <a href="Wappnet AI Service.dc.html" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">AI applications<span style="font-size:15px;flex:none">↗</span></a>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Assistants and copilots</a>
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">RAG and retrieval</a>
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Document extraction</a>
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Agentic automation</a>
+              </div>
+            </div>
+            <div>
+              <a href="#capability-depth" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Data platform<span style="font-size:15px;flex:none">↗</span></a>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Warehouse and lakehouse</a>
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Ingestion pipelines</a>
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Governance and lineage</a>
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Cost optimization</a>
+              </div>
+            </div>
+            <div>
+              <a href="#capability-depth" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Analytics<span style="font-size:15px;flex:none">↗</span></a>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">BI and reporting</a>
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Forecasting models</a>
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Recommendations</a>
+                <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Customer analytics</a>
+              </div>
+            </div>
+            <div>
+              <a href="#capabilities" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Modernization<span style="font-size:15px;flex:none">↗</span></a>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                <a href="#capabilities" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Legacy migration</a>
+                <a href="#capabilities" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Cloud replatforming</a>
+                <a href="#capabilities" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Technical debt reduction</a>
+              </div>
+            </div>
+            <div>
+              <a href="#capabilities" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Operations<span style="font-size:15px;flex:none">↗</span></a>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">MLOps and LLMOps</a>
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Monitoring and evals</a>
+                <a href="#contact" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Managed support</a>
+              </div>
+            </div>
+            <div>
+              <a href="#capabilities" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Security<span style="font-size:15px;flex:none">↗</span></a>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Private model hosting</a>
+                <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Responsible AI</a>
+                <a href="#faq" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Compliance reviews</a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ menu_consulting }}">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+          <div style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+            <div>
+              <h3 style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">Know what is worth building before you build it</h3>
+              <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">A fixed-fee assessment that ends with a ranked shortlist and an estimate on each item.</p>
+            </div>
+            <a href="#contact" style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease" style-hover="background:#fff;color:#141414">Start an assessment</a>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px 40px">
+            <a href="Wappnet AI Service.dc.html" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.8" cy="10.8" r="6.3"></circle><path d="M15.4 15.4 20 20"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">AI Readiness Assessment</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Two weeks to a ranked shortlist with estimates</span>
+              </span>
+            </a>
+            <a href="Wappnet AI Service.dc.html" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"></path><path d="M4.5 16.5 9.5 11l3.5 3 6-7.5"></path><path d="M15.5 6.5h3.5V10"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Opportunity Mapping</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Value, data readiness and effort on every use case</span>
+              </span>
+            </a>
+            <a href="Wappnet AI Service.dc.html" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 20 8l-8 4.5L4 8z"></path><path d="M4 12.5 12 17l8-4.5"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Model &amp; Architecture Selection</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">The right model, hosting and stack for your needs</span>
+              </span>
+            </a>
+            <a href="Wappnet AI Service.dc.html" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19.5 6v6c0 4.2-3.1 7-7.5 8.4C7.6 19 4.5 16.2 4.5 12V6z"></path><path d="M9.2 11.8l2.1 2.1 3.9-4"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Responsible AI &amp; Governance</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Guardrails, evaluation and explainability</span>
+              </span>
+            </a>
+            <a href="#capability-depth" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.4" rx="7" ry="2.7"></ellipse><path d="M5 6.4v11.2c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7V6.4"></path><path d="M5 12c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Data Strategy</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">What to fix first, and what to leave alone</span>
+              </span>
+            </a>
+            <a href="#capabilities" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v4M12 16.5v4M4.5 12h4M15.5 12h4M6.7 6.7l2.8 2.8M14.5 14.5l2.8 2.8M17.3 6.7l-2.8 2.8M9.5 14.5l-2.8 2.8"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Team Enablement</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Your engineers take it over with the runbook written</span>
+              </span>
+            </a>
+          </div>
+          <div style="grid-column:1/-1;margin-top:8px;padding-top:26px;border-top:1px solid #EEECE8">
+            <div style="background:linear-gradient(100deg,#F9B08C 0%,#E8541F 100%);border-radius:12px;padding:18px 20px 18px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+              <span style="font-family:'Archivo',sans-serif;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#141414">Looking for something else?</span>
+              <a href="#contact" style="background:#fff;color:#141414;border-radius:10px;padding:14px 34px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease" style-hover="transform:translateY(-2px);color:#141414">Talk to sales</a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ menu_industries }}">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+          <div style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+            <div>
+              <h3 style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">Four sectors we already speak the language of</h3>
+              <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">We know the data model, the regulator and the vocabulary before the first workshop.</p>
+            </div>
+            <a href="#industries" style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease" style-hover="background:#fff;color:#141414">All industries</a>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px 40px">
+            <a href="#industries" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7.5" width="16" height="12.5" rx="2"></rect><path d="M8.8 7.5V6a3.2 3.2 0 0 1 6.4 0v1.5"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Retail &amp; Ecommerce</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Forecasting, pricing and personalization</span>
+              </span>
+            </a>
+            <a href="#industries" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-7-9.2A4 4 0 0 1 12 8a4 4 0 0 1 7 2.8C19 15.7 12 20 12 20z"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Healthcare &amp; Life Sciences</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Claims, triage and clinical operations</span>
+              </span>
+            </a>
+            <a href="#industries" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5 12 4.5l8.5 5"></path><path d="M5.5 9.5v9M18.5 9.5v9M9.5 12v6.5M14.5 12v6.5M3.5 20.5h17"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Financial Services</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Risk, reporting and month-end close</span>
+              </span>
+            </a>
+            <a href="#industries" style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414" style-hover="background:#F7F6F4;color:#141414">
+              <span style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7.5" y="7.5" width="9" height="9" rx="1.6"></rect><path d="M10 4.5v3M14 4.5v3M10 16.5v3M14 16.5v3M4.5 10h3M4.5 14h3M16.5 10h3M16.5 14h3"></path></svg></span>
+              <span style="display:block">
+                <span style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">High-Tech</span>
+                <span style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Product analytics and platform engineering</span>
+              </span>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ menu_work }}">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+          <div style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+            <div>
+              <h3 style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">Outcomes, not logos on a wall</h3>
+              <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">Every case study leads with the number that changed and how long it took.</p>
+            </div>
+            <a href="#stories" style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease" style-hover="background:#fff;color:#141414">All case studies</a>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+            <div style="display:flex;flex-direction:column">
+            <a href="#stories" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Case studies<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#stories" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Client testimonials<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#stories" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Success metrics<span style="font-size:17px;flex:none">↗</span></a>
+            </div>
+            <div style="display:flex;flex-direction:column">
+            <a href="#insights" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Blog<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#insights" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">News<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#insights" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Events<span style="font-size:17px;flex:none">↗</span></a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ menu_company }}">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr) minmax(0,240px);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+          <div style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+            <div>
+              <h3 style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">One company, two teams</h3>
+              <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">wappnet.com builds the products. wappnet.ai builds the AI and data behind them.</p>
+            </div>
+            <a href="about.html" style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease" style-hover="background:#fff;color:#141414">About Wappnet</a>
+          </div>
+          <div style="display:flex;flex-direction:column">
+            <a href="about.html" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">About us<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Leadership team<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#stack" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Partners<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#stack" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Certifications<span style="font-size:17px;flex:none">↗</span></a>
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414" style-hover="color:#C2571A">Careers<span style="font-size:17px;flex:none">↗</span></a>
+          </div>
+          <div style="position:relative;height:300px;border-radius:12px;overflow:hidden"><image-slot id="menu-company" shape="rect" placeholder="Team photo · 480×600px"></image-slot></div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ mobileOpen }}">
+      <div style="background:#0D0D0F;border-top:1px solid rgba(255,255,255,.10);animation:panelIn .22s ease-out both">
+        <div style="max-width:1200px;margin:0 auto;padding:20px 24px 32px;display:flex;flex-direction:column;gap:2px">
+          <a href="#capabilities" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Services</a>
+          <a href="#capability-depth" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Solutions</a>
+          <a href="Wappnet AI Service.dc.html" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Consulting</a>
+          <a href="#industries" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Industries</a>
+          <a href="#stories" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Our Work</a>
+          <a href="about.html" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">About</a>
+          <a href="about.html" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Company</a>
+          <a href="#contact" style="margin-top:18px;text-align:center;background:#fff;color:#0D0D0F;border-radius:6px;padding:14px 22px;font-family:'Archivo',sans-serif;font-weight:700">Contact us</a>
+        </div>
+      </div>
+    </sc-if>
+
+  </header>
+
+  <section id="top" style="position:relative;background:#2A1436;color:#fff;padding:132px 0 84px;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 130% at 6% 8%,#3B1550 0%,rgba(59,21,80,0) 58%),radial-gradient(110% 120% at 96% 12%,#E24A3B 0%,rgba(226,74,59,0) 62%),radial-gradient(120% 130% at 88% 96%,#F7F4F1 0%,rgba(247,244,241,0) 55%),radial-gradient(120% 120% at 4% 98%,#8E6BC8 0%,rgba(142,107,200,0) 58%),linear-gradient(115deg,#3D1A5B 0%,#8A2F55 46%,#DA5638 78%,#F2D9C9 100%);pointer-events:none"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 62% at 50% 46%,rgba(28,10,38,.34) 0%,rgba(28,10,38,0) 72%);pointer-events:none"></div>
+    <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px;text-align:center">
+      <div style="display:inline-flex;align-items:center;background:rgba(255,255,255,.20);border-radius:100px;padding:5px;backdrop-filter:blur(6px)">
+        <span style="display:inline-flex;align-items:center;gap:9px;background:#fff;border-radius:100px;padding:9px 17px;font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#141414;white-space:nowrap">
+          <span style="width:9px;height:9px;border-radius:50%;background:#F4A557;flex:none"></span>AI-native company
+        </span>
+        <span style="padding:9px 20px 9px 17px;font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#fff;white-space:nowrap">Continuous modernization</span>
+      </div>
+      <h1 style="margin:34px auto 0;color:#fff;font-size:clamp(34px,5.6vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.04em;max-width:20ch;text-wrap:balance">Continuous modernization<br><span style="color:#F8D06A">for the AI era.</span></h1>
+      <p style="margin:26px auto 0;font-size:clamp(16.5px,1.4vw,19.5px);line-height:1.6;color:rgba(255,255,255,.86);max-width:62ch;text-wrap:pretty">Continuously modernize with AI to innovate and reduce cost, technical debt, and risk. Senior pods working in your cloud and your repo, shipping something demoable every fortnight.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:36px">
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:16px;background:#E8541F;color:#fff;border-radius:8px;padding:14px 16px 14px 24px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,84,31,.42);color:#fff">
+          Request a quote
+          <span style="width:30px;height:30px;border-radius:6px;background:rgba(255,255,255,.22);display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:none">→</span>
+        </a>
+        <a href="#stories" style="display:inline-flex;align-items:center;background:#fff;color:#141414;border-radius:8px;padding:14px 28px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.22);color:#141414">See what we built</a>
+      </div>
+      <div data-reveal style="margin:52px auto 0;max-width:960px;padding-top:34px;border-top:1px solid rgba(255,255,255,.22);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 0">
+        <div style="padding:0 clamp(18px,3vw,38px);text-align:center">
+          <div style="font-family:'Archivo',sans-serif;font-size:clamp(28px,3.2vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff"><span data-count="180">180</span>+</div>
+          <div style="margin-top:8px;font-size:14px;color:rgba(255,255,255,.72);white-space:nowrap">Engineers on staff</div>
+        </div>
+        <span style="width:1px;height:44px;background:rgba(255,255,255,.24);flex:none"></span>
+        <div style="padding:0 clamp(18px,3vw,38px);text-align:center">
+          <div style="font-family:'Archivo',sans-serif;font-size:clamp(28px,3.2vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff"><span data-count="400">400</span>+</div>
+          <div style="margin-top:8px;font-size:14px;color:rgba(255,255,255,.72);white-space:nowrap">Projects delivered</div>
+        </div>
+        <span style="width:1px;height:44px;background:rgba(255,255,255,.24);flex:none"></span>
+        <div style="padding:0 clamp(18px,3vw,38px);text-align:center">
+          <div style="font-family:'Archivo',sans-serif;font-size:clamp(28px,3.2vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff"><span data-count="9">9</span></div>
+          <div style="margin-top:8px;font-size:14px;color:rgba(255,255,255,.72);white-space:nowrap">Countries served</div>
+        </div>
+        <span style="width:1px;height:44px;background:rgba(255,255,255,.24);flex:none"></span>
+        <div style="padding:0 clamp(18px,3vw,38px);display:flex;align-items:center;gap:14px">
+          <div style="width:66px;height:66px;border-radius:50%;border:1px solid rgba(248,208,106,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none">
+            <span style="font-family:'Archivo',sans-serif;font-size:20px;font-weight:800;line-height:1;color:#F8D06A">12</span>
+            <span style="font-family:'Archivo',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.2em;color:rgba(248,208,106,.85);margin-top:3px">YEARS</span>
+          </div>
+          <div style="text-align:left">
+            <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#fff;white-space:nowrap">ISO 27001 &amp; SOC 2</div>
+            <div style="margin-top:4px;font-size:13.5px;color:rgba(255,255,255,.72);white-space:nowrap">Enterprise reviews passed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities" style="position:relative;overflow:clip;padding:112px 0">
+    <img src="uploads/icon1.png" alt="" aria-hidden="true" style="position:absolute;top:-40px;right:-90px;width:520px;height:auto;opacity:.09;pointer-events:none;user-select:none">
+    <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px">
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">Three ways in</div>
+          <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:24ch;text-wrap:pretty">We do three things, and we do them all the way down</h2>
+        </div>
+        <p style="max-width:44ch;color:#666;font-size:16.5px">No practice pages we cannot staff. If your problem sits outside these three, we will say so on the first call and point you somewhere better.</p>
+      </div>
+
+      <div data-reveal ref="{{ capRowRef }}" onMouseLeave="{{ clearTile }}" style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch;transition:margin-right .55s cubic-bezier(.16,1,.3,1)">
+
+        <div ref="{{ tileARef }}" onMouseEnter="{{ activateA }}" style="position:relative;flex:1 1 0%;min-width:290px;border-radius:24px;overflow:hidden;transition:flex-grow .55s cubic-bezier(.16,1,.3,1)">
+          <div style="position:absolute;inset:0"><image-slot id="cap-ai" shape="rect" placeholder="AI tile bg · 1440×1040px"></image-slot></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(100deg,#FB4159 0%,rgba(244,155,61,.92) 55%,rgba(244,155,61,.32) 100%);pointer-events:none"></div>
+          <div style="position:relative;z-index:1;min-height:520px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px;pointer-events:none">
+            <div style="width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(13,13,15,.42);display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#0D0D0F" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6.5" r="2.4"></circle><circle cx="20" cy="7.5" r="2.4"></circle><circle cx="13" cy="19.5" r="2.4"></circle><path d="M7.6 8.6 11.4 17.3M18.4 9.6 14.6 17.6M8.4 6.7h9.2"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size:clamp(34px,4vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">AI</h3>
+              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch">The model is the easy part. We build everything around it that keeps it honest.</p>
+              <sc-if value="{{ tileA }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px 34px;max-width:540px;animation:fadeUp .4s ease-out both">
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Applied AI consulting</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>LLM applications</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Forecasting and prediction</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Retrieval and search</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Evaluation and guardrails</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Model operations</div>
+                </div>
+                <a href="Wappnet AI Service.dc.html" style="margin-top:34px;display:inline-flex;align-items:center;gap:12px;border:1.5px solid #0D0D0F;color:#0D0D0F;padding:14px 22px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;pointer-events:auto;animation:fadeUp .4s ease-out both;transition:background .2s ease,color .2s ease" style-hover="background:#0D0D0F;color:#fff">Learn more <span style="font-size:16px;flex:none">→</span></a>
+              </sc-if>
+              <sc-if value="{{ notTileA }}">
+                <a href="Wappnet AI Service.dc.html" aria-label="Explore AI" style="margin-top:30px;display:inline-block;font-size:26px;line-height:1;color:#0D0D0F;pointer-events:auto" style-hover="color:#0D0D0F">→</a>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+
+        <div ref="{{ tileBRef }}" onMouseEnter="{{ activateB }}" style="position:relative;flex:1 1 0%;min-width:290px;border-radius:24px;overflow:hidden;transition:flex-grow .55s cubic-bezier(.16,1,.3,1)">
+          <div style="position:absolute;inset:0"><image-slot id="cap-data" shape="rect" placeholder="Data tile bg · 1440×1040px"></image-slot></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(100deg,#FDCE2C 0%,rgba(244,155,61,.92) 55%,rgba(244,155,61,.32) 100%);pointer-events:none"></div>
+          <div style="position:relative;z-index:1;min-height:520px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px;pointer-events:none">
+            <div style="width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(13,13,15,.42);display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#0D0D0F" stroke-width="1.4" stroke-linecap="round"><rect x="4" y="4.5" width="18" height="5.2" rx="1.6"></rect><rect x="4" y="16.3" width="18" height="5.2" rx="1.6"></rect><path d="M7.4 7.1h.01M7.4 18.9h.01"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size:clamp(34px,4vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">Data &amp; Analytics</h3>
+              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch">The layer everything else depends on, built to survive month-end and audit.</p>
+              <sc-if value="{{ tileB }}">
+                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px 34px;max-width:540px;animation:fadeUp .4s ease-out both">
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Warehouse and lakehouse builds</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Ingestion pipelines</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Reporting and BI layers</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Governance and lineage</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Migration off legacy stacks</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Warehouse cost control</div>
+                </div>
+                <a href="#contact" style="margin-top:34px;display:inline-flex;align-items:center;gap:12px;border:1.5px solid #0D0D0F;color:#0D0D0F;padding:14px 22px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;pointer-events:auto;animation:fadeUp .4s ease-out both;transition:background .2s ease,color .2s ease" style-hover="background:#0D0D0F;color:#fff">Learn more <span style="font-size:16px;flex:none">→</span></a>
+              </sc-if>
+              <sc-if value="{{ notTileB }}">
+                <a href="#contact" aria-label="Explore Data and Analytics" style="margin-top:30px;display:inline-block;font-size:26px;line-height:1;color:#0D0D0F;pointer-events:auto" style-hover="color:#0D0D0F">→</a>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+
+        <div ref="{{ tileCRef }}" onMouseEnter="{{ activateC }}" style="position:relative;flex:1 1 0%;min-width:290px;border-radius:24px;overflow:hidden;transition:flex-grow .55s cubic-bezier(.16,1,.3,1)">
+          <div style="position:absolute;inset:0"><image-slot id="cap-consulting" shape="rect" placeholder="Consulting tile bg · 1440×1040px"></image-slot></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(100deg,#20CB74 0%,rgba(140,201,106,.92) 55%,rgba(140,201,106,.32) 100%);pointer-events:none"></div>
+          <div style="position:relative;z-index:1;min-height:520px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px;pointer-events:none">
+            <div style="width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(13,13,15,.42);display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#0D0D0F" stroke-width="1.4" stroke-linecap="round"><path d="M4 20.5 9.5 13l4 3.4L21.5 6"></path><path d="M16.6 6h4.9v4.9"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size:clamp(30px,3.2vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">AI Consulting</h3>
+              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch">Before the build: what is worth doing, what it will cost, what to skip.</p>
+              <sc-if value="{{ tileC }}">
+                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px 34px;max-width:540px;animation:fadeUp .4s ease-out both">
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Use-case discovery</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Value and effort ranking</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Data readiness review</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Build or buy calls</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Pilot scoping and pricing</div>
+                  <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Team enablement</div>
+                </div>
+                <a href="Wappnet AI Service.dc.html#offerings" style="margin-top:34px;display:inline-flex;align-items:center;gap:12px;border:1.5px solid #0D0D0F;color:#0D0D0F;padding:14px 22px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;pointer-events:auto;animation:fadeUp .4s ease-out both;transition:background .2s ease,color .2s ease" style-hover="background:#0D0D0F;color:#fff">Learn more <span style="font-size:16px;flex:none">→</span></a>
+              </sc-if>
+              <sc-if value="{{ notTileC }}">
+                <a href="Wappnet AI Service.dc.html#offerings" aria-label="Explore AI consulting" style="margin-top:30px;display:inline-block;font-size:26px;line-height:1;color:#0D0D0F;pointer-events:auto" style-hover="color:#0D0D0F">→</a>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capability-depth" style="position:relative;overflow:clip;background:#F7F6F4;padding:112px 0">
+    <img src="uploads/icon1.png" alt="" aria-hidden="true" style="position:absolute;bottom:-90px;right:-120px;width:480px;height:auto;opacity:.07;transform:rotate(10deg);pointer-events:none;user-select:none">
+    <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px">
+      <div ref="{{ depthRef }}" style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px;align-items:start">
+        <div data-reveal data-reveal-delay="0ms">
+          <div style="height:3px;background:#F4A557;margin-bottom:24px"></div>
+          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:14px">Capability 01</div>
+          <h3 style="font-size:26px;font-weight:800;letter-spacing:-.02em;color:#141414">AI</h3>
+          <p style="margin-top:12px;font-size:15.5px;line-height:1.6;color:#555;max-width:34ch">The model is the easy part. We build everything around it that keeps it honest.</p>
+          <div style="margin-top:26px">
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v9.5H12l-4.5 4v-4H4z"></path><path d="M12 8.2l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Generative AI &amp; LLM apps</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Assistants, copilots and content systems built on the right model, not the trendiest one.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8.5L19 8v12.5H6z"></path><path d="M14 3.5V8h5"></path><circle cx="11.5" cy="13" r="2.6"></circle><path d="M13.5 15 15.5 17"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">RAG &amp; retrieval</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Answers grounded in your own documents and data, with sources.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="9" height="9" rx="1.6"></rect><path d="M15 9h5.5v5.5"></path><path d="M20.5 9 12.5 17"></path><rect x="7" y="16" width="5" height="4.5" rx="1.2"></rect></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">AI agents &amp; automation</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Agents that take real actions across your tools, not just chat.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"></path><circle cx="9" cy="6" r="2"></circle><circle cx="15" cy="12" r="2"></circle><circle cx="11" cy="18" r="2"></circle></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Fine-tuning &amp; training</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Custom models when an off-the-shelf one won't cut it.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 6.5 12 6.5 21.5 12 21.5 12 18 17.5 12 17.5 2.5 12 2.5 12z"></path><circle cx="12" cy="12" r="2.8"></circle></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Vision, NLP &amp; speech</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Document, image, text and voice models for real workflows.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8.5A8.4 8.4 0 0 0 4.6 9.8"></path><path d="M4 15.5A8.4 8.4 0 0 0 19.4 14.2"></path><path d="M4.6 5.5v4.3h4.3M19.4 18.5v-4.3h-4.3"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">MLOps / LLMOps</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Deployment, monitoring, evaluation and retraining so it keeps working.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div data-reveal data-reveal-delay="90ms">
+          <div style="height:3px;background:#F4A557;margin-bottom:24px"></div>
+          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:14px">Capability 02</div>
+          <h3 style="font-size:26px;font-weight:800;letter-spacing:-.02em;color:#141414">Data &amp; Analytics</h3>
+          <p style="margin-top:12px;font-size:15.5px;line-height:1.6;color:#555;max-width:34ch">The layer everything else depends on, built to survive month-end and audit.</p>
+          <div style="margin-top:26px">
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"></ellipse><path d="M4.5 6v6c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8V6"></path><path d="M4.5 12v6c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8v-6"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Data &amp; platform engineering</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Pipelines and lakehouse foundations AI can actually run on.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"></path><path d="M4.5 16.5 9.5 11l3.5 3 6-7.5"></path><path d="M15.5 6.5h3.5V10"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Predictive &amp; forecasting models</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Demand, risk and behaviour models teams trust enough to act on.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7.5 15.5v-3M12 15.5V9M16.5 15.5v-5"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">BI &amp; reporting</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Dashboards that answer the question instead of raising three more.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l2.4 5 5.4.7-4 3.7 1 5.3-4.8-2.7-4.8 2.7 1-5.3-4-3.7 5.4-.7z"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Recommendation &amp; personalization</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Ranking and recommendation systems tuned to your data.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div data-reveal data-reveal-delay="180ms">
+          <div style="height:3px;background:#F4A557;margin-bottom:24px"></div>
+          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:14px">Capability 03</div>
+          <h3 style="font-size:26px;font-weight:800;letter-spacing:-.02em;color:#141414">AI Consulting</h3>
+          <p style="margin-top:12px;font-size:15.5px;line-height:1.6;color:#555;max-width:34ch">Before the build: what is worth doing, what it will cost, what to skip.</p>
+          <div style="margin-top:26px">
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 3.2h6v2.6H9z"></path><path d="M8.8 11l1.7 1.7 3.4-3.4M8.8 16.4h6.4"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">AI readiness &amp; opportunity assessment</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Find the use cases worth doing before writing code.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6" r="2.2"></circle><circle cx="18.5" cy="7" r="2.2"></circle><circle cx="12" cy="18.5" r="2.2"></circle><path d="M7.2 7.8 10.6 16.5M16.8 8.9 13.4 16.7M7.7 6.2h8.6"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Model &amp; architecture selection</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">The right model, hosting and stack for your accuracy, cost and privacy needs.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 20 6v6c0 4.4-3.3 7.4-8 8.8-4.7-1.4-8-4.4-8-8.8V6z"></path><path d="M8.8 11.8l2.2 2.2 4.2-4.2"></path></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Responsible AI &amp; governance</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Guardrails, evaluation and explainability baked in from day one.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
+            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17.5a9 9 0 1 1 17 0"></path><path d="M12 17.5 16.6 10"></path><circle cx="12" cy="17.5" r="1.4"></circle></svg>
+            </div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Scale to production &amp; cost optimization</div>
+              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">From proof-of-concept to production, with accuracy, speed and cost under control.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" style="position:relative;overflow:clip;padding:0 0 112px">
+    <div style="position:absolute;top:-170px;right:-130px;width:640px;height:640px;pointer-events:none;background:repeating-radial-gradient(circle at 100% 0,rgba(255,255,255,0) 0 74px,rgba(251,65,89,.10) 74px 75px)"></div>
+    <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="margin-bottom:52px">
+        <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">Where we work</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+          <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:24ch;text-wrap:pretty">Four sectors we already speak the language of</h2>
+          <a href="#" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15.5px;color:#0D0D0F;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid #F4A557;padding-bottom:2px;white-space:nowrap" style-hover="color:#C2571A">All industries <span style="font-size:17px;flex:none">→</span></a>
+        </div>
+      </div>
+      <div data-reveal ref="{{ indRef }}" onMouseLeave="{{ enterBase }}" style="position:relative;border-radius:24px;overflow:hidden;background:#0D0D0F">
+        <div style="position:absolute;inset:0">
+          <div ref="{{ indBaseRef }}" style="position:absolute;inset:0;transition:opacity .5s ease"><image-slot id="ind-base" shape="rect" placeholder="Industries bg (spans all four) · 2400×1040px"></image-slot></div>
+          <div ref="{{ indRetailRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-retail" shape="rect" placeholder="Retail hover · 2400×1040px"></image-slot></div>
+          <div ref="{{ indHealthRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-health" shape="rect" placeholder="Healthcare hover · 2400×1040px"></image-slot></div>
+          <div ref="{{ indFinRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-financial" shape="rect" placeholder="Financial hover · 2400×1040px"></image-slot></div>
+          <div ref="{{ indTechRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-hightech" shape="rect" placeholder="High-tech hover · 2400×1040px"></image-slot></div>
+        </div>
+        <div ref="{{ indGridRef }}" style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr)">
+        <a href="#contact" onMouseEnter="{{ enterRetail }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%)">
+          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">Retail &amp; Ecommerce</h3>
+          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
+        </a>
+        <a href="#contact" onMouseEnter="{{ enterHealth }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%);border-left:1px solid rgba(255,255,255,.14)">
+          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">Healthcare &amp; Life Sciences</h3>
+          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
+        </a>
+        <a href="#contact" onMouseEnter="{{ enterFin }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%);border-left:1px solid rgba(255,255,255,.14)">
+          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">Financial Services</h3>
+          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
+        </a>
+        <a href="#contact" onMouseEnter="{{ enterTech }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%);border-left:1px solid rgba(255,255,255,.14)">
+          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">High-Tech</h3>
+          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
+        </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;overflow:clip;padding:0 0 112px">
+    <div style="position:absolute;left:-170px;top:-140px;width:640px;height:640px;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(251,65,89,.14),rgba(244,155,61,.09) 48%,rgba(255,255,255,0) 72%)"></div>
+    <div style="position:absolute;right:-150px;bottom:-180px;width:580px;height:580px;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(253,206,44,.16),rgba(244,155,61,.08) 50%,rgba(255,255,255,0) 74%)"></div>
+    <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="background:linear-gradient(100deg,rgba(255,255,255,.74),rgba(255,255,255,.40));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.75);border-radius:12px;padding:clamp(36px,5vw,64px)">
+        <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:22px">Why we start with consulting</div>
+        <p style="font-family:'Archivo',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.34;color:#141414;max-width:46ch;text-wrap:pretty">Our subject matter experts start with the business, not the technology. They sit with the people living the problem, work out where it actually costs you money, and build only the part that moves that number.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stories" style="padding:0 0 112px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px">
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">Proof</div>
+          <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:24ch;text-wrap:pretty">Three projects, three numbers that changed</h2>
+        </div>
+        <a href="#" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15.5px;color:#0D0D0F;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid #F49B3D;padding-bottom:2px" style-hover="color:#C2571A">All case studies <span>→</span></a>
+      </div>
+
+      <div data-reveal style="position:relative">
+        <sc-if value="{{ story0 }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;width:100%;align-items:stretch;animation:fadeUp .45s ease-out both">
+          <div style="flex:0 0 400px;min-width:300px;min-height:620px;background:linear-gradient(150deg,#F4756B 0%,#F4A557 100%);padding:44px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(13,13,15,.62)">Retail &amp; Ecommerce</div>
+              <h3 style="margin-top:22px;font-size:27px;font-weight:800;line-height:1.24;letter-spacing:-.02em;color:#0D0D0F">Demand forecasting rebuilt on a single warehouse</h3>
+              <p style="margin-top:18px;font-size:16px;line-height:1.6;color:rgba(13,13,15,.78)">Nine source systems folded into one model, then a forecast the planners trusted enough to place orders against.</p>
+              <div style="margin-top:26px;display:flex;align-items:baseline;gap:10px">
+                <span style="font-family:'Archivo',sans-serif;font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">31%</span>
+                <span style="font-size:14.5px;color:rgba(13,13,15,.7)">fewer stockouts in eight weeks</span>
+              </div>
+              <a href="#" style="margin-top:30px;display:inline-flex;align-items:center;gap:12px;border:1.5px solid #0D0D0F;color:#0D0D0F;padding:13px 20px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:background .2s ease,color .2s ease" style-hover="background:#0D0D0F;color:#fff">Learn more <span style="font-size:15px;flex:none">→</span></a>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+              <div style="display:flex;align-items:center;gap:18px">
+                <button onClick="{{ prevStory }}" aria-label="Previous story" style="background:none;border:0;padding:0;font-size:22px;line-height:1;color:#0D0D0F;cursor:pointer">←</button>
+                <span style="width:1px;height:20px;background:rgba(13,13,15,.35)"></span>
+                <button onClick="{{ nextStory }}" aria-label="Next story" style="background:none;border:0;padding:0;font-size:22px;line-height:1;color:#0D0D0F;cursor:pointer">→</button>
+              </div>
+              <div style="font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;color:rgba(13,13,15,.6)">1 <span style="opacity:.55">/ 3</span></div>
+            </div>
+          </div>
+          <div style="flex:1 1 320px;min-width:260px;align-self:flex-end;position:relative;height:500px">
+            <image-slot id="home-story-1" shape="rect" placeholder="Retail case study · 1400×1000px"></image-slot>
+          </div>
+        </div>
+        </sc-if>
+        <sc-if value="{{ story1 }}">
+        <div style="display:flex;flex-wrap:wrap;width:100%;align-items:stretch;animation:fadeUp .45s ease-out both">
+          <div style="flex:0 0 400px;min-width:300px;min-height:620px;background:linear-gradient(150deg,#F4756B 0%,#F4A557 100%);padding:44px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(13,13,15,.62)">Healthcare &amp; Life Sciences</div>
+              <h3 style="margin-top:22px;font-size:27px;font-weight:800;line-height:1.24;letter-spacing:-.02em;color:#0D0D0F">Claims triage model with a human review queue</h3>
+              <p style="margin-top:18px;font-size:16px;line-height:1.6;color:rgba(13,13,15,.78)">Straightforward claims clear on their own. Everything ambiguous reaches a reviewer with the reasoning already attached.</p>
+              <div style="margin-top:26px;display:flex;align-items:baseline;gap:10px">
+                <span style="font-family:'Archivo',sans-serif;font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">68%</span>
+                <span style="font-size:14.5px;color:rgba(13,13,15,.7)">cleared without manual review</span>
+              </div>
+              <a href="#" style="margin-top:30px;display:inline-flex;align-items:center;gap:12px;border:1.5px solid #0D0D0F;color:#0D0D0F;padding:13px 20px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:background .2s ease,color .2s ease" style-hover="background:#0D0D0F;color:#fff">Learn more <span style="font-size:15px;flex:none">→</span></a>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+              <div style="display:flex;align-items:center;gap:18px">
+                <button onClick="{{ prevStory }}" aria-label="Previous story" style="background:none;border:0;padding:0;font-size:22px;line-height:1;color:#0D0D0F;cursor:pointer">←</button>
+                <span style="width:1px;height:20px;background:rgba(13,13,15,.35)"></span>
+                <button onClick="{{ nextStory }}" aria-label="Next story" style="background:none;border:0;padding:0;font-size:22px;line-height:1;color:#0D0D0F;cursor:pointer">→</button>
+              </div>
+              <div style="font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;color:rgba(13,13,15,.6)">2 <span style="opacity:.55">/ 3</span></div>
+            </div>
+          </div>
+          <div style="flex:1 1 320px;min-width:260px;align-self:flex-end;position:relative;height:500px">
+            <image-slot id="home-story-2" shape="rect" placeholder="Healthcare case study · 1400×1000px"></image-slot>
+          </div>
+        </div>
+        </sc-if>
+        <sc-if value="{{ story2 }}">
+        <div style="display:flex;flex-wrap:wrap;width:100%;align-items:stretch;animation:fadeUp .45s ease-out both">
+          <div style="flex:0 0 400px;min-width:300px;min-height:620px;background:linear-gradient(150deg,#F4756B 0%,#F4A557 100%);padding:44px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(13,13,15,.62)">Financial Services</div>
+              <h3 style="margin-top:22px;font-size:27px;font-weight:800;line-height:1.24;letter-spacing:-.02em;color:#0D0D0F">Month-end reporting layer rewritten end to end</h3>
+              <p style="margin-top:18px;font-size:16px;line-height:1.6;color:rgba(13,13,15,.78)">One semantic layer, tested transformations, and a close that no longer runs through three private spreadsheets.</p>
+              <div style="margin-top:26px;display:flex;align-items:baseline;gap:10px">
+                <span style="font-family:'Archivo',sans-serif;font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">6→1</span>
+                <span style="font-size:14.5px;color:rgba(13,13,15,.7)">days to close the books</span>
+              </div>
+              <a href="#" style="margin-top:30px;display:inline-flex;align-items:center;gap:12px;border:1.5px solid #0D0D0F;color:#0D0D0F;padding:13px 20px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:background .2s ease,color .2s ease" style-hover="background:#0D0D0F;color:#fff">Learn more <span style="font-size:15px;flex:none">→</span></a>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+              <div style="display:flex;align-items:center;gap:18px">
+                <button onClick="{{ prevStory }}" aria-label="Previous story" style="background:none;border:0;padding:0;font-size:22px;line-height:1;color:#0D0D0F;cursor:pointer">←</button>
+                <span style="width:1px;height:20px;background:rgba(13,13,15,.35)"></span>
+                <button onClick="{{ nextStory }}" aria-label="Next story" style="background:none;border:0;padding:0;font-size:22px;line-height:1;color:#0D0D0F;cursor:pointer">→</button>
+              </div>
+              <div style="font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;color:rgba(13,13,15,.6)">3 <span style="opacity:.55">/ 3</span></div>
+            </div>
+          </div>
+          <div style="flex:1 1 320px;min-width:260px;align-self:flex-end;position:relative;height:500px">
+            <image-slot id="home-story-3" shape="rect" placeholder="Financial case study · 1400×1000px"></image-slot>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" style="padding:112px 0;border-bottom:1px solid #EEECE8">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="text-align:center">
+        <div style="display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid #E4E1DC;border-radius:100px;padding:11px 22px;box-shadow:0 8px 20px rgba(0,0,0,.05)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M9.5 8.5 6 12l3.5 3.5M14.5 8.5 18 12l-3.5 3.5"></path><rect x="3" y="4" width="18" height="16" rx="2.5"></rect></svg>
+          <span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#141414;white-space:nowrap">What we build with</span>
+        </div>
+        <h2 style="margin:26px auto 0;font-size:clamp(28px,4.2vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1.06;max-width:26ch;text-wrap:balance">We pick the right tool. You don't have to.</h2>
+        <p style="margin:22px auto 0;font-size:clamp(16.5px,1.4vw,19px);line-height:1.6;color:#666;max-width:62ch;text-wrap:pretty">Our engineers work across the modern data and AI stack every week. We choose per project — based on your data, your team, and what the system actually has to do.</p>
+      </div>
+
+      <div data-reveal style="margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:44px 20px;justify-items:center">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-azure" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Microsoft Azure</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-aws" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">AWS</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-gcp" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Google Cloud</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-databricks" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Databricks</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-snowflake" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Snowflake</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-dbt" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">dbt</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-powerbi" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Power BI</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-aoai" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Azure OpenAI</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-bedrock" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Amazon Bedrock</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-mlflow" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">MLflow</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-pytorch" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">PyTorch</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-langgraph" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">LangGraph</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-airflow" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Airflow</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:104px;height:104px;position:relative;flex:none"><image-slot id="tool-claude" shape="rounded" radius="14" placeholder="Logo · 208×208px"></image-slot></div>
+            <div style="font-size:15px;color:#333;text-align:center;line-height:1.3">Claude</div>
+          </div>
+      </div>
+
+      <div data-reveal style="margin-top:64px;display:flex;justify-content:center">
+        <a href="#contact" style="border:1px solid #141414;border-radius:100px;padding:14px 30px;font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:700;color:#141414;white-space:nowrap;transition:background .2s ease,color .2s ease" style-hover="background:#141414;color:#fff">View all tools</a>
+      </div>
+
+      <div data-reveal style="margin-top:60px;padding-top:32px;border-top:1px solid #EEECE8;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:9px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#555;white-space:nowrap">ISO 27001</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:9px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#555;white-space:nowrap">ISO 9001</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:9px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#555;white-space:nowrap">SOC 2 Type II</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:9px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#555;white-space:nowrap">CMMI Level 3</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:9px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#555;white-space:nowrap">GDPR ready</span>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ true }}">
+    <section style="position:relative;overflow:clip;padding:112px 0">
+      <div style="position:absolute;left:-200px;bottom:-280px;width:760px;height:760px;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(251,65,89,.13),rgba(244,155,61,.10) 46%,rgba(255,255,255,0) 72%)"></div>
+      <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px">
+        <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:52px">
+          <div>
+            <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">In their words</div>
+            <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:24ch;text-wrap:pretty">What it is like on the other side of the contract</h2>
+            <p style="margin-top:20px;font-size:16.5px;line-height:1.65;color:#666;max-width:52ch">The same engineers stay on your account from the first workshop to the production rollout. Clients tend to notice that more than anything on our capability list.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:700;color:#141414;white-space:nowrap">Worked with 300+ clients</div>
+              <div style="margin-top:4px;font-size:13.5px;color:#777;white-space:nowrap">Nine countries, twelve years</div>
+            </div>
+            <div style="width:1px;height:42px;background:#E9E7E3"></div>
+            <div>
+              <div style="display:flex;align-items:center;gap:9px">
+                <span style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#141414">4.9</span>
+                <span style="color:#F4A557;font-size:15px;letter-spacing:2px">★★★★★</span>
+              </div>
+              <div style="margin-top:2px;font-size:13px;color:#777;white-space:nowrap">Average client review score</div>
+            </div>
+          </div>
+        </div>
+        <div data-reveal ref="{{ voxRef }}" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:stretch">
+        <div data-span="2" style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,42%)">
+          <div style="padding:34px;display:flex;flex-direction:column;gap:24px">
+            <div style="height:64px;position:relative;width:190px"><image-slot id="vox-logo-1" shape="rect" placeholder="Logo 380×128"></image-slot></div>
+            <div style="display:flex;gap:12px">
+              <svg width="22" height="17" viewBox="0 0 22 17" fill="#F4A557" style="flex:none;margin-top:4px"><path d="M0 17V9.4C0 4.2 3.1.6 8.2 0l.8 2.9C6 3.7 4.4 5.4 4.4 7.7H8V17H0zm13 0V9.4c0-5.2 3.1-8.8 8.2-9.4l.8 2.9c-3 .8-4.6 2.5-4.6 4.8H21V17h-8z"></path></svg>
+              <p style="font-family:'Archivo',sans-serif;font-size:19px;font-weight:600;line-height:1.45;color:#141414;letter-spacing:-.01em;text-wrap:pretty">They found the two data problems actually blocking the forecast, fixed those, and talked us out of the rest of the wish list.</p>
+            </div>
+            <a href="#" style="margin-top:auto;display:inline-flex;align-items:center;gap:11px;background:#0D0D0F;color:#fff;border-radius:100px;padding:13px 22px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;white-space:nowrap;transition:transform .2s ease" style-hover="transform:translateY(-2px);color:#fff">
+              <span style="width:8px;height:10px;background:#F4A557;clip-path:polygon(0 0,100% 50%,0 100%);flex:none"></span>Watch video
+            </a>
+          </div>
+          <div style="position:relative;background:#F1EFEB;min-height:340px">
+            <image-slot id="vox-portrait-1" shape="rect" placeholder="Client portrait · 480×680px"></image-slot>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 20px;background:linear-gradient(180deg,rgba(13,13,15,0),rgba(13,13,15,.86));pointer-events:none">
+              <div style="font-family:'Archivo',sans-serif;font-size:16.5px;font-weight:700;color:#fff">Head of Supply Chain</div>
+              <div style="font-size:13.5px;color:rgba(255,255,255,.7)">National retail group</div>
+            </div>
+          </div>
+        </div>
+        <div data-span="1" style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;align-items:center;gap:14px;min-width:0">
+            <div style="width:52px;height:52px;border-radius:8px;overflow:hidden;flex:none;position:relative"><!-- export at 104×104px --><image-slot id="vox-a" shape="rect" placeholder=" "></image-slot></div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">VP Engineering</div>
+              <div style="font-size:14px;color:#777;line-height:1.4">Healthcare payments platform</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="#F4A557" style="flex:none;margin-top:4px"><path d="M0 17V9.4C0 4.2 3.1.6 8.2 0l.8 2.9C6 3.7 4.4 5.4 4.4 7.7H8V17H0zm13 0V9.4c0-5.2 3.1-8.8 8.2-9.4l.8 2.9c-3 .8-4.6 2.5-4.6 4.8H21V17h-8z"></path></svg>
+            <p style="font-size:16px;line-height:1.65;color:#333;text-wrap:pretty">The handover was the surprise. Our team picked the pipeline up in a week and has run it without us since.</p>
+          </div>
+        </div>
+        <div data-span="1" style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;align-items:center;gap:14px;min-width:0">
+            <div style="width:52px;height:52px;border-radius:8px;overflow:hidden;flex:none;position:relative"><!-- export at 104×104px --><image-slot id="vox-b" shape="rect" placeholder=" "></image-slot></div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Director of Data</div>
+              <div style="font-size:14px;color:#777;line-height:1.4">Commercial lender</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="#F4A557" style="flex:none;margin-top:4px"><path d="M0 17V9.4C0 4.2 3.1.6 8.2 0l.8 2.9C6 3.7 4.4 5.4 4.4 7.7H8V17H0zm13 0V9.4c0-5.2 3.1-8.8 8.2-9.4l.8 2.9c-3 .8-4.6 2.5-4.6 4.8H21V17h-8z"></path></svg>
+            <p style="font-size:16px;line-height:1.65;color:#333;text-wrap:pretty">Our close used to take six days. It takes one, and nobody is reconciling spreadsheets at midnight anymore.</p>
+          </div>
+        </div>
+        <div data-span="1" style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;align-items:center;gap:14px;min-width:0">
+            <div style="width:52px;height:52px;border-radius:8px;overflow:hidden;flex:none;position:relative"><!-- export at 104×104px --><image-slot id="vox-c" shape="rect" placeholder=" "></image-slot></div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Head of Product</div>
+              <div style="font-size:14px;color:#777;line-height:1.4">Logistics SaaS</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="#F4A557" style="flex:none;margin-top:4px"><path d="M0 17V9.4C0 4.2 3.1.6 8.2 0l.8 2.9C6 3.7 4.4 5.4 4.4 7.7H8V17H0zm13 0V9.4c0-5.2 3.1-8.8 8.2-9.4l.8 2.9c-3 .8-4.6 2.5-4.6 4.8H21V17h-8z"></path></svg>
+            <p style="font-size:16px;line-height:1.65;color:#333;text-wrap:pretty">They pushed back on two use cases we were attached to. That single call saved us a quarter of wasted build.</p>
+          </div>
+        </div>
+        <div data-span="1" style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;align-items:center;gap:14px;min-width:0">
+            <div style="width:52px;height:52px;border-radius:8px;overflow:hidden;flex:none;position:relative"><!-- export at 104×104px --><image-slot id="vox-d" shape="rect" placeholder=" "></image-slot></div>
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">CTO</div>
+              <div style="font-size:14px;color:#777;line-height:1.4">B2B marketplace</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="#F4A557" style="flex:none;margin-top:4px"><path d="M0 17V9.4C0 4.2 3.1.6 8.2 0l.8 2.9C6 3.7 4.4 5.4 4.4 7.7H8V17H0zm13 0V9.4c0-5.2 3.1-8.8 8.2-9.4l.8 2.9c-3 .8-4.6 2.5-4.6 4.8H21V17h-8z"></path></svg>
+            <p style="font-size:16px;line-height:1.65;color:#333;text-wrap:pretty">The evaluation harness they wrote is still what every model change gets tested against, two years later.</p>
+          </div>
+        </div>
+        <div data-span="2" style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,42%)">
+          <div style="padding:34px;display:flex;flex-direction:column;gap:24px">
+            <div style="height:64px;position:relative;width:190px"><image-slot id="vox-logo-2" shape="rect" placeholder="Logo 380×128"></image-slot></div>
+            <div style="display:flex;gap:12px">
+              <svg width="22" height="17" viewBox="0 0 22 17" fill="#F4A557" style="flex:none;margin-top:4px"><path d="M0 17V9.4C0 4.2 3.1.6 8.2 0l.8 2.9C6 3.7 4.4 5.4 4.4 7.7H8V17H0zm13 0V9.4c0-5.2 3.1-8.8 8.2-9.4l.8 2.9c-3 .8-4.6 2.5-4.6 4.8H21V17h-8z"></path></svg>
+              <p style="font-family:'Archivo',sans-serif;font-size:19px;font-weight:600;line-height:1.45;color:#141414;letter-spacing:-.01em;text-wrap:pretty">They hit the date they gave us in week one, and the runbook was written before we asked for it.</p>
+            </div>
+            <a href="#" style="margin-top:auto;display:inline-flex;align-items:center;gap:11px;background:#0D0D0F;color:#fff;border-radius:100px;padding:13px 22px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;white-space:nowrap;transition:transform .2s ease" style-hover="transform:translateY(-2px);color:#fff">
+              <span style="width:8px;height:10px;background:#F4A557;clip-path:polygon(0 0,100% 50%,0 100%);flex:none"></span>Watch video
+            </a>
+          </div>
+          <div style="position:relative;background:#F1EFEB;min-height:340px">
+            <image-slot id="vox-portrait-2" shape="rect" placeholder="Client portrait · 480×680px"></image-slot>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 20px;background:linear-gradient(180deg,rgba(13,13,15,0),rgba(13,13,15,.86));pointer-events:none">
+              <div style="font-family:'Archivo',sans-serif;font-size:16.5px;font-weight:700;color:#fff">COO</div>
+              <div style="font-size:13.5px;color:rgba(255,255,255,.7)">Health insurer</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <section id="insights" style="padding:0 0 112px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px">
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">Reading</div>
+          <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:24ch;text-wrap:pretty">What we are writing and where we will be</h2>
+        </div>
+        <a href="#" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15.5px;color:#0D0D0F;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid #F49B3D;padding-bottom:2px" style-hover="color:#C2571A">All insights <span>→</span></a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;align-items:stretch">
+        <a href="#" data-reveal style="display:flex;flex-direction:column;background:#fff;border:1px solid #E9E7E3;border-radius:12px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.10);color:#0D0D0F">
+          <div style="position:relative;height:340px">
+            <image-slot id="ins-blog" shape="rect" placeholder="Blog hero · 760×680px"></image-slot>
+            <span style="position:absolute;top:16px;left:16px;background:#fff;color:#0D0D0F;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;padding:7px 14px;pointer-events:none">Blog</span>
+          </div>
+          <div style="padding:30px;display:flex;flex-direction:column;gap:14px">
+            <div style="font-size:14px;color:#8a8a8a">12 Aug 2026</div>
+            <h3 style="font-size:22px;font-weight:700;line-height:1.34">The evaluation set is the first thing to write, not the last</h3>
+            <p style="font-size:15.5px;color:#666">On every LLM project we score before we prompt. Here is what that discipline saves you around month three.</p>
+          </div>
+        </a>
+
+        <div style="display:grid;grid-template-rows:1fr 1fr;gap:24px">
+          <a href="#" data-reveal style="display:grid;grid-template-columns:minmax(0,44%) 1fr;background:#fff;border:1px solid #E9E7E3;border-radius:12px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.10);color:#0D0D0F">
+            <div style="position:relative;min-height:210px">
+              <image-slot id="ins-news" shape="rect" placeholder="AI news image · 520×460px"></image-slot>
+              <span style="position:absolute;top:16px;left:16px;background:#fff;color:#0D0D0F;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;padding:7px 14px;pointer-events:none">AI News</span>
+            </div>
+            <div style="padding:26px;display:flex;flex-direction:column;gap:11px;justify-content:center">
+              <div style="font-size:14px;color:#8a8a8a">29 Jul 2026</div>
+              <h3 style="font-size:19px;font-weight:700;line-height:1.35">Now a Databricks partner: what it changes for you</h3>
+              <p style="font-size:15px;color:#666">Shorter procurement, direct escalation, and pricing we can pass through on lakehouse work.</p>
+            </div>
+          </a>
+          <a href="#" data-reveal style="display:grid;grid-template-columns:minmax(0,44%) 1fr;background:#fff;border:1px solid #E9E7E3;border-radius:12px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.10);color:#0D0D0F">
+            <div style="position:relative;min-height:210px">
+              <image-slot id="ins-event" shape="rect" placeholder="Event image · 520×460px"></image-slot>
+              <span style="position:absolute;top:16px;left:16px;background:#fff;color:#0D0D0F;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;padding:7px 14px;pointer-events:none">Event</span>
+            </div>
+            <div style="padding:26px;display:flex;flex-direction:column;gap:11px;justify-content:center">
+              <div style="font-size:14px;color:#8a8a8a">05 Sep 2026</div>
+              <h3 style="font-size:19px;font-weight:700;line-height:1.35">Applied AI clinic: bring a use case, leave with an estimate</h3>
+              <p style="font-size:15px;color:#666">Half a day in Ahmedabad, twelve seats, no sales deck. Engineers only.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding:0 0 112px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px 64px;align-items:start;padding-top:56px;border-top:1px solid #E4E1DC">
+        <div>
+          <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:20ch;text-wrap:pretty">Answers to questions about</h2>
+          <div style="position:relative;margin-top:6px;display:inline-block">
+            <button onClick="{{ faqMenuToggle }}" style="background:none;border:0;padding:0;display:inline-flex;align-items:center;gap:14px;cursor:pointer;font-family:'Archivo',sans-serif;font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;color:#C2571A;text-align:left">
+              <span style="text-wrap:pretty">{{ faqGroupName }}</span>
+              <span style="font-size:20px;line-height:1;flex:none">⌄</span>
+            </button>
+            <sc-if value="{{ faqMenuOpen }}">
+              <div style="position:absolute;top:calc(100% + 10px);left:0;z-index:10;background:#fff;border:1px solid #E4E1DC;border-radius:12px;box-shadow:0 24px 48px rgba(0,0,0,.12);display:flex;flex-direction:column;min-width:260px;overflow:hidden">
+            <button onClick="{{ faqSet0 }}" style="background:none;border:0;border-bottom:1px solid #EEECE8;padding:14px 18px;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15.5px;color:#333;white-space:nowrap" style-hover="background:#F7F6F4">AI projects</button>
+            <button onClick="{{ faqSet1 }}" style="background:none;border:0;border-bottom:1px solid #EEECE8;padding:14px 18px;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15.5px;color:#333;white-space:nowrap" style-hover="background:#F7F6F4">Working with us</button>
+            <button onClick="{{ faqSet2 }}" style="background:none;border:0;border-bottom:1px solid #EEECE8;padding:14px 18px;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15.5px;color:#333;white-space:nowrap" style-hover="background:#F7F6F4">Data, security and compliance</button>
+              </div>
+            </sc-if>
+          </div>
+          <p style="margin-top:24px;font-size:16px;line-height:1.65;color:#666;max-width:38ch">Still unanswered? Send the question to <a href="#contact" style="color:#C2571A;border-bottom:1px solid rgba(194,87,26,.4)">an engineer</a> rather than a form.</p>
+        </div>
+        <div>
+        <sc-if value="{{ faqGroup0 }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <button onClick="{{ faqToggle0_0 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">How long does an AI project take?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign0_0 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen0_0 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">A first production release usually takes 10 to 16 weeks: two weeks to frame the use case, four to six to prove it on your data, and the remainder to engineer and deploy it. Narrow automations ship sooner; regulated environments take longer because of review cycles, not build time.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle0_1 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">Do we need clean data before we start?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign0_1 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen0_1 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">No. We work with the data you already have and fix only what the chosen use case depends on. A full data cleanup before a first project typically delays value by a year without changing the outcome.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle0_2 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">What does a first engagement cost?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign0_2 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen0_2 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">The two-week AI opportunity assessment is a fixed fee, and every stage after it is quoted separately. You can stop at the end of any stage without a contractual argument.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle0_3 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">How do you decide which use case to start with?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign0_3 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen0_3 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">We rank candidates on business value, data readiness and effort, then start with the highest-value one your existing data already supports. Anything that needs new data collection gets sequenced later.</div>
+            </sc-if>
+          </div>
+        </sc-if>
+        <sc-if value="{{ faqGroup1 }}">
+          <div>
+            <button onClick="{{ faqToggle1_0 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">Who owns the code and the models?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign1_0 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen1_0 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">You do, from the first commit. Work happens in your repositories and your cloud accounts, under your licence terms, so nothing is locked behind our tooling.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle1_1 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">Who is actually on the team?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign1_1 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen1_1 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">Senior pods of three to six engineers who have shipped the same class of system before. The people on your first call stay on the account through delivery.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle1_2 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">Do you work alongside our own engineers?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign1_2 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen1_2 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">Yes. We work inside your repo, ticket tracker and coding standards, and treat runbooks and architecture notes as deliverables rather than favours.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle1_3 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">What happens after launch?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign1_3 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen1_3 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">Your team takes it over with documentation, or we operate it on an agreed support window with retraining schedules, drift alerts and rollback paths in place.</div>
+            </sc-if>
+          </div>
+        </sc-if>
+        <sc-if value="{{ faqGroup2 }}">
+          <div>
+            <button onClick="{{ faqToggle2_0 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">Is Wappnet.ai certified?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign2_0 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen2_0 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">Yes. We hold ISO 27001 and SOC 2 Type II, and we have completed enterprise vendor reviews in regulated healthcare and financial services environments.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle2_1 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">Where does our data live?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign2_1 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen2_1 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">In your cloud accounts and regions. We build inside your tenancy, so data does not leave your environment for training or inference unless you explicitly ask for it.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle2_2 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">Can models run without sending data to a third party?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign2_2 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen2_2 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">Yes. Where data residency or privacy rules rule out a hosted API, we deploy open-weight models inside your own environment and tune them there.</div>
+            </sc-if>
+          </div>
+          <div>
+            <button onClick="{{ faqToggle2_3 }}" style="width:100%;background:none;border:0;border-bottom:1px solid #E4E1DC;padding:26px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414;line-height:1.35">
+              <span style="text-wrap:pretty">How do you stop an AI system failing quietly?</span>
+              <span style="font-size:22px;line-height:1;color:#C2571A;flex:none">{{ faqSign2_3 }}</span>
+            </button>
+            <sc-if value="{{ faqOpen2_3 }}">
+              <div style="padding:20px 0 28px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555;max-width:70ch;text-wrap:pretty">Every system ships with an evaluation set, a regression suite and a refusal policy, so any prompt or model change is scored before it reaches production.</div>
+            </sc-if>
+          </div>
+        </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="one-company" style="background:#0D0D0F;color:#fff;padding:112px 0">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="margin-bottom:52px;max-width:52ch">
+        <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F4A557;margin-bottom:16px">Two sites, one company</div>
+        <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:24ch;text-wrap:pretty;color:#fff">One company, pointed at two different problems</h2>
+        <p style="margin-top:20px;font-size:16.5px;color:rgba(255,255,255,.6);max-width:48ch">Most clients arrive at one and end up using both. Either way it is one contract, one account team, and the same engineering standards.</p>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
+        <div style="border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:40px;display:flex;flex-direction:column;gap:24px">
+          <div>
+            <div style="background:#fff;border-radius:12px;padding:16px 22px;display:inline-flex;align-items:center">
+              <img src="uploads/wappnet-systems-trimmed.png" alt="Wappnet Systems" style="height:30px;width:auto;display:block">
+            </div>
+            <p style="margin-top:26px;font-family:'Archivo',sans-serif;font-size:19px;font-weight:600;line-height:1.35;color:#fff;max-width:26ch">The product and platform engineering side.</p>
+            <p style="margin-top:14px;font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.6);max-width:38ch">Web and mobile products, integrations, cloud and DevOps. The systems your business runs on every day.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:auto">
+            <span style="border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap">Product engineering</span>
+            <span style="border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap">Mobile apps</span>
+            <span style="border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap">Cloud &amp; DevOps</span>
+          </div>
+          <a href="https://wappnet.com" style="display:inline-flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;border:1.5px solid rgba(255,255,255,.5);padding:13px 20px;align-self:flex-start;transition:background .2s ease,color .2s ease" style-hover="background:#fff;color:#0D0D0F">Visit wappnet.com <span style="font-size:15px;flex:none">→</span></a>
+        </div>
+        <div style="border-radius:24px;padding:40px;background:linear-gradient(115deg,#F4756B 0%,#F4A557 100%);display:flex;flex-direction:column;gap:24px">
+          <div>
+            <div style="background:#fff;border-radius:12px;padding:16px 22px;display:inline-flex;align-items:center">
+              <img src="uploads/black-logo.png" alt="Wappnet.ai" style="height:30px;width:auto;display:block">
+            </div>
+            <p style="margin-top:26px;font-family:'Archivo',sans-serif;font-size:19px;font-weight:600;line-height:1.35;color:#0D0D0F;max-width:26ch">The AI and data side. You are on their site now.</p>
+            <p style="margin-top:14px;font-size:15.5px;line-height:1.6;color:rgba(13,13,15,.75);max-width:38ch">Models, pipelines and reporting layers. The work that turns what those systems record into decisions.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:auto">
+            <span style="border:1px solid rgba(13,13,15,.28);border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;color:rgba(13,13,15,.8);white-space:nowrap">AI</span>
+            <span style="border:1px solid rgba(13,13,15,.28);border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;color:rgba(13,13,15,.8);white-space:nowrap">Data &amp; analytics</span>
+            <span style="border:1px solid rgba(13,13,15,.28);border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;color:rgba(13,13,15,.8);white-space:nowrap">AI consulting</span>
+          </div>
+          <a href="#capabilities" style="display:inline-flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0D0D0F;border:1.5px solid #0D0D0F;padding:13px 20px;align-self:flex-start;transition:background .2s ease,color .2s ease" style-hover="background:#0D0D0F;color:#fff">See what we do <span style="font-size:15px;flex:none">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="position:relative;overflow:clip;background:#fff;border-top:1px solid #EEECE8">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:48px;align-items:center">
+      <div style="padding:76px 0">
+        <img src="uploads/black-logo.png" alt="Wappnet.ai" style="height:28px;width:auto;display:block;margin-bottom:36px">
+        <h2 style="font-size:clamp(30px,3.9vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.12;max-width:20ch;text-wrap:pretty">Tell us what you are trying to ship this quarter.</h2>
+        <p style="margin-top:22px;font-size:17px;line-height:1.6;color:#555;max-width:44ch">Thirty minutes with the engineers who would actually do the work. No slide deck, no discovery fee.</p>
+        <a href="#" style="margin-top:38px;display:inline-flex;align-items:center;gap:11px;background:#0D0D0F;color:#fff;border-radius:100px;padding:17px 34px;font-family:'Archivo',sans-serif;font-size:16.5px;font-weight:700;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px rgba(13,13,15,.28);color:#fff">Book the call <span style="font-size:17px;flex:none">→</span></a>
+      </div>
+      <div ref="{{ ctaVisRef }}" style="position:relative;align-self:stretch;min-height:460px">
+        <div style="position:absolute;inset:0;background:#F8D06A;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%);pointer-events:none"></div>
+        <div style="position:absolute;inset:0;background:#F4A557;clip-path:polygon(56% 0,100% 0,100% 100%,18% 100%);pointer-events:none"></div>
+        <div style="position:absolute;inset:0;clip-path:polygon(13% 0,100% 0,100% 100%,41% 100%)">
+          <image-slot id="cta-visual" shape="rect" placeholder="CTA band photo · 1600×760px"></image-slot>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- =========================================================================
+       COMMON FOOTER (From Wappnet Home)
+       ========================================================================= -->
+    <!-- =========================================================================
+       FOOTER (Exact Copy from Wappnet Home with Image Placeholders)
+       ========================================================================= -->
+    <!-- =========================================================================
+       FOOTER (Exact Match to Design Screenshot)
+       ========================================================================= -->
+  <footer style="background:#141414;color:#cfcfcf;padding:80px 0 40px;font-family:'DM Sans',sans-serif">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      
+      <!-- 1. Top Navigation Grid (5 Columns) -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;align-items:start">
+        <div>
+          <a href="Wappnet Home.dc.html" style="display:inline-block">
+            <img src="uploads/white-logo.png" alt="WAPPNET.Ai" style="height:26px;width:auto;display:block">
+          </a>
+          <p style="margin-top:22px;font-size:14.5px;line-height:1.6;color:#a0a0a0;max-width:28ch">The AI and data engineering side of Wappnet, for companies that have outgrown their reporting stack.</p>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">What we do</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="Wappnet AI Service.dc.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">AI</a>
+            <a href="index.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Applied AI consulting</a>
+            <a href="Wappnet Home.dc.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Data &amp; analytics</a>
+            <a href="Wappnet Home.dc.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Data platform engineering</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">Company</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="about.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">About us</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Leadership</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Partners</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Certifications</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">Insights</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="Wappnet Home.dc.html#stories" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Success stories</a>
+            <a href="Wappnet Home.dc.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Blog</a>
+            <a href="Wappnet Home.dc.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">News</a>
+            <a href="Wappnet Home.dc.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Events</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">Careers</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Life at Wappnet</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Current openings</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Submit your profile</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. GET IN TOUCH Section -->
+      <div style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10)">
+        <h3 style="font-family:'Archivo',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:28px">GET IN TOUCH</h3>
+        
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:start">
+          <div>
+            <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">OFFICIAL WEBSITE</div>
+            <a href="https://www.wappnet.com" target="_blank" rel="noopener" style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color .2s" style-hover="color:#F8D06A">www.wappnet.com <span style="font-size:14px">↗</span></a>
+          </div>
+          <div>
+            <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">BUSINESS QUERIES</div>
+            <a href="mailto:business@wappnet.com" style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">business@wappnet.com</a>
+          </div>
+          <div>
+            <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">CAREER INQUIRIES</div>
+            <a href="mailto:career@wappnet.com" style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">career@wappnet.com</a>
+          </div>
+          <div>
+            <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">GENERAL INFORMATION</div>
+            <a href="mailto:hr@wappnet.com" style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">hr@wappnet.com</a>
+          </div>
+          <div>
+            <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">HR NUMBER</div>
+            <a href="tel:+919173408554" style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">(+91) 9173408554</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Global Offices (5 Columns: USA, CANADA, INDIA, AUSTRALIA, DUBAI) -->
+      <div id="global-offices" style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:grid;grid-template-columns:repeat(5,1fr);gap:28px">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="flag-usa" shape="circle" placeholder="Flag 60²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">USA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">1440 W Taylor St, Chicago, Illinois 60607, US</p>
+          <a href="tel:+13126983083" style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="flag-canada" shape="circle" placeholder="Flag 60²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">CANADA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">7700 Hurontario St #503 # 2009 Brampton, ON L6Y 4M3 Canada</p>
+          <a href="tel:+13126983083" style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="flag-india" shape="circle" placeholder="Flag 60²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">INDIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">403, iSQUARE Corporate Park, Science City Rd, Sola, Ahmedabad</p>
+          <a href="tel:+916353604125" style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">(+91) 6353604125</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="flag-aus" shape="circle" placeholder="Flag 60²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">AUSTRALIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Parkway, Pakenham 3810 Melbourne, Australia</p>
+          <a href="tel:+61405050017" style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">(+61) 405 050 017</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="flag-dubai" shape="circle" placeholder="Flag 60²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">DUBAI</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+          <a href="tel:+971541618745" style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s" style-hover="color:#F8D06A">(+971) 54 161 8745</a>
+        </div>
+      </div>
+
+      <!-- 4. Ratings & Industry Certifications Badges -->
+      <div style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+        
+        <!-- Left Ratings -->
+        <div style="display:flex;align-items:center;gap:36px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-clutch" shape="rect" placeholder="Clutch 104²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.9 <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-goodfirm" shape="rect" placeholder="GoodFirm 104²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.8 <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+        </div>
+
+        <!-- Right Certifications -->
+        <div style="display:flex;align-items:center;gap:28px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27701" shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO 27701:2019</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27001" shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO 27001:2022</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-csm" shape="rect" placeholder="CSM 128²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">CSM Certified</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-aws" shape="rect" placeholder="AWS 128²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">AWS Partner</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-dnb" shape="rect" placeholder="D&amp;B 128²"></image-slot></div>
+            <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">D-U-N-S Registered</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 5. Bottom Copyright & Social Row -->
+      <div style="margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:14px;color:#7a7a7a">
+        <span>© 2026 Wappnet Systems Global. All rights reserved.</span>
+        
+        <div style="display:flex;align-items:center;gap:32px">
+          <div style="display:flex;gap:24px">
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s" style-hover="color:#fff">Privacy policy</a>
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s" style-hover="color:#fff">Disclaimer</a>
+          </div>
+          
+          <div style="display:flex;gap:10px">
+            <a href="#" aria-label="Instagram" style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4.6"></rect><circle cx="12" cy="12" r="3.6"></circle><circle cx="17.1" cy="6.9" r="1.1" fill="#141414" stroke="none"></circle></svg></a>
+            <a href="#" aria-label="Facebook" style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 8.2h1.9V5.4h-2.3c-2 0-3.2 1.3-3.2 3.3v1.6H9.1v2.8H11V20h2.9v-6.9h2l.4-2.8h-2.4V9.1c0-.6.3-.9.7-.9z" stroke="none" fill="#141414"></path></svg></a>
+            <a href="#" aria-label="LinkedIn" style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.4 10v7.2M7.4 6.9v.1M11.4 17.2V10M11.4 13.2c0-1.4.9-2.4 2.3-2.4s2.4 1 2.4 2.4v4"></path></svg></a>
+            <a href="#" aria-label="Twitter" style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6.6c-.6.4-1.3.7-2 .8a3.2 3.2 0 0 0-5.5 2.2v.7A9 9 0 0 1 5.2 6.4s-3.1 7 4 10.1a9.3 9.3 0 0 1-5.6 1.5c7.1 4 15.8 0 15.8-9.2 0-.2 0-.4-.1-.7.6-.6 1.2-1.3 1.5-2.1z"></path></svg></a>
+            <a href="#" aria-label="WhatsApp" style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.6a7.7 7.7 0 0 1-11.4 6.8L4.4 19.6l1.2-4.1A7.7 7.7 0 1 1 20 11.6z"></path><path d="M9.4 9.4c0 3 2.2 5.2 5.2 5.2"></path></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;statsCountUp&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, mobileOpen: false, tile: null, story: 0, industry: null, faqGroup: 0, faqOpen: null, faqMenuOpen: false, narrow: (typeof window !== 'undefined' && window.innerWidth < 980) };
+  headerRef = React.createRef();
+
+  caretRef = React.createRef();
+  tileARef = React.createRef();
+  tileBRef = React.createRef();
+  tileCRef = React.createRef();
+  indRef = React.createRef();
+  capRowRef = React.createRef();
+  depthRef = React.createRef();
+  indGridRef = React.createRef();
+  officesRef = React.createRef();
+  svcGridRef = React.createRef();
+  svcPanelRef = React.createRef();
+
+  syncServiceMenu = () => {
+    const w = window.innerWidth;
+    const panel = this.svcPanelRef.current;
+    const grid = this.svcGridRef.current;
+    if (!panel || !grid) return;
+    const promoW = w >= 1180 ? 290 : 250;
+    const promo = panel.querySelector('[data-promo]');
+    const promoVisual = panel.querySelector('[data-promo-visual]');
+
+    const setPromo = (show) => {
+      panel.style.gridTemplateColumns = show ? 'minmax(0,' + promoW + 'px) minmax(0,1fr)' : 'minmax(0,1fr)';
+      if (promo) promo.style.display = show ? 'flex' : 'none';
+    };
+
+    setPromo(w >= 900);
+    const cols = w < 620 ? 1 : 2;
+    grid.style.gridTemplateColumns = 'repeat(' + cols + ',minmax(0,1fr))';
+    grid.style.columnGap = '26px';
+    grid.querySelectorAll('[data-svc-card]').forEach((el, idx) => {
+      el.style.borderTop = idx >= cols ? '1px solid #EEECE8' : 'none';
+    });
+    grid.querySelectorAll('[data-svc-copy]').forEach((el) => { el.style.display = 'block'; });
+    grid.querySelectorAll('[data-svc-more]').forEach((el) => { el.style.display = 'inline-flex'; });
+    if (promoVisual) promoVisual.style.display = 'block';
+  };
+  voxRef = React.createRef();
+  indBaseRef = React.createRef();
+  indRetailRef = React.createRef();
+  indHealthRef = React.createRef();
+  indFinRef = React.createRef();
+  indTechRef = React.createRef();
+
+  setTile = (k) => () => {
+    if (this.state.tile === k) return;
+    this.setState({ tile: k });
+    this.state.tile = k;
+    this.syncTiles();
+  };
+
+  syncIndustry = () => {
+    const k = this.state.industry;
+    const map = { retail: this.indRetailRef, health: this.indHealthRef, fin: this.indFinRef, tech: this.indTechRef };
+    Object.entries(map).forEach(([key, r]) => { if (r.current) r.current.style.opacity = k === key ? '1' : '0'; });
+    if (this.indBaseRef.current) this.indBaseRef.current.style.opacity = k ? '0' : '1';
+  };
+
+  setIndustry = (k) => () => {
+    if (this.state.industry === k) return;
+    this.setState({ industry: k });
+    this.state.industry = k;
+    this.syncIndustry();
+  };
+  ctaVisRef = React.createRef();
+
+  startStoryTimer = () => {
+    clearInterval(this.storyTimer);
+    this.storyTimer = setInterval(() => this.setState((st) => ({ story: (st.story + 1) % 3 })), 5200);
+  };
+
+  goStory = (d) => () => {
+    this.setState((st) => ({ story: (st.story + d + 3) % 3 }));
+    this.startStoryTimer();
+  };
+
+  syncTiles = () => {
+    const w = window.innerWidth;
+    const wide = w >= 980;
+    const t = this.state.tile;
+    [['a', this.tileARef], ['b', this.tileBRef], ['c', this.tileCRef]].forEach(([k, r]) => {
+      if (!r.current) return;
+      r.current.style.flexBasis = wide ? '0%' : '100%';
+      r.current.style.flexGrow = wide && t === k ? '2' : '1';
+    });
+    if (this.voxRef.current) {
+      const cols = wide ? 4 : (w >= 560 ? 2 : 1);
+      this.voxRef.current.style.gridTemplateColumns = 'repeat(' + cols + ',1fr)';
+      this.voxRef.current.querySelectorAll('[data-span]').forEach((el) => {
+        const want = Math.min(parseInt(el.dataset.span, 10), cols);
+        el.style.gridColumn = 'span ' + want;
+        const inner = el.firstElementChild;
+        if (el.dataset.span === '2') el.style.gridTemplateColumns = cols === 1 ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,42%)';
+      });
+    }
+    this.syncServiceMenu();
+    this.syncNavBars();
+    if (this.officesRef.current) this.officesRef.current.style.gridTemplateColumns = 'repeat(' + (w >= 1100 ? 5 : w >= 760 ? 3 : w >= 520 ? 2 : 1) + ',minmax(0,1fr))';
+    if (this.indGridRef.current) this.indGridRef.current.style.gridTemplateColumns = wide ? 'repeat(4,1fr)' : (w >= 560 ? 'repeat(2,1fr)' : '1fr');
+    if (this.depthRef.current) this.depthRef.current.style.gridTemplateColumns = wide ? 'repeat(3,1fr)' : '1fr';
+    if (this.capRowRef.current) this.capRowRef.current.style.marginRight = (wide && t) ? 'calc(50% - 50vw - 24px - 10vw)' : '0px';
+    if (this.ctaVisRef.current) this.ctaVisRef.current.style.marginRight = wide ? 'calc(50% - 50vw - 24px)' : '0px';
+  };
+
+  menuKeys = ['services', 'solutions', 'consulting', 'industries', 'work', 'company'];
+
+  navBarRefs = {};
+
+  menuVals = (narrow, menu) => {
+    const v = {};
+    this.menuKeys.forEach((k) => {
+      if (!this.navBarRefs[k]) this.navBarRefs[k] = React.createRef();
+      v['menu_' + k] = menu === k && !narrow;
+      v['open_' + k] = this.setMenu(k);
+      v['navBar_' + k] = this.navBarRefs[k];
+    });
+    return v;
+  };
+
+  syncNavBars = () => {
+    const active = this.state.menu;
+    this.menuKeys.forEach((k) => {
+      const el = this.navBarRefs[k] && this.navBarRefs[k].current;
+      if (!el) return;
+      const on = active === k && !this.state.narrow;
+      el.style.opacity = on ? '1' : '0';
+      el.style.transform = on ? 'scaleX(1)' : 'scaleX(.4)';
+    });
+  };
+
+  setMenu = (k) => (e) => {
+    if (this.state.menu !== k) { this.state.menu = k; this.syncNavBars(); }
+    const r = e.currentTarget.getBoundingClientRect();
+    this.caretX = r.left + r.width / 2 - 8;
+    this.setState({ menu: k });
+  };
+
+  componentDidUpdate() {
+    if (this.sweepReveal) this.sweepReveal();
+    this.syncServiceMenu();
+    this.syncIndustry();
+    if (this.caretRef.current && this.caretX != null) this.caretRef.current.style.left = this.caretX + 'px';
+    this.syncTiles();
+  }
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = this.headerRef.current;
+      if (!h) return;
+      const s = window.scrollY > 20;
+      h.style.background = s ? 'rgba(13,13,15,.94)' : 'transparent';
+      h.style.backdropFilter = s ? 'saturate(160%) blur(12px)' : 'none';
+      h.style.borderBottomColor = s ? 'rgba(255,255,255,.10)' : 'transparent';
+    };
+    this.onResize = () => {
+      const n = window.innerWidth < 980;
+      if (n !== this.state.narrow) this.setState({ narrow: n, menu: null });
+      this.syncTiles();
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onScroll();
+    this.syncTiles();
+    this.startStoryTimer();
+
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    this.runCount = (root) => {
+      if (this.props.statsCountUp === false) return;
+      root.querySelectorAll('[data-count]').forEach((n) => {
+        if (n.dataset.counted) return;
+        const target = parseInt(n.getAttribute('data-count'), 10);
+        if (!target) return;
+        if (document.hidden) return;
+        n.dataset.counted = '1';
+        const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min(1, (now - t0) / 1100);
+          n.textContent = Math.round(target * ease(p)).toString();
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(() => { n.textContent = '0'; tick(performance.now()); });
+        setTimeout(() => { if (parseInt(n.textContent, 10) < target) n.textContent = String(target); }, 1400);
+      });
+    };
+    this.revealAll = () => {
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        el.dataset.revealed = '1';
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        this.runCount(el);
+      });
+    };
+    this.sweepReveal = () => {
+      let pending = 0;
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (el.dataset.revealed) return;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.94) {
+          el.dataset.revealed = '1';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          this.runCount(el);
+        } else pending++;
+      });
+      return pending;
+    };
+
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (el.dataset.revealed) { el.style.opacity = '1'; el.style.transform = 'none'; return; }
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = 'opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1)';
+        el.style.transitionDelay = el.dataset.revealDelay || '0ms';
+      });
+      this.sweepReveal();
+      this.revealTicker = setInterval(() => { if (!this.sweepReveal()) clearInterval(this.revealTicker); }, 220);
+    });
+
+    this.onVisible = () => { if (!document.hidden) document.querySelectorAll('[data-reveal][data-revealed]').forEach((el) => this.runCount(el)); };
+    document.addEventListener('visibilitychange', this.onVisible);
+    document.addEventListener('scroll', this.sweepReveal, { capture: true, passive: true });
+    window.addEventListener('scroll', this.sweepReveal, { passive: true });
+    this.revealFallback = setTimeout(this.revealAll, 2600);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    clearTimeout(this.revealFallback);
+    clearInterval(this.revealTicker);
+    if (this.onVisible) document.removeEventListener('visibilitychange', this.onVisible);
+    if (this.sweepReveal) {
+      window.removeEventListener('scroll', this.sweepReveal);
+      document.removeEventListener('scroll', this.sweepReveal, { capture: true });
+    }
+    clearInterval(this.storyTimer);
+  }
+
+  faqNames = ['AI projects', 'Working with us', 'Data, security and compliance'];
+
+  faqVals = () => {
+    const v = {
+      faqGroupName: this.faqNames[this.state.faqGroup],
+      faqMenuOpen: this.state.faqMenuOpen,
+      faqMenuToggle: () => this.setState((st) => ({ faqMenuOpen: !st.faqMenuOpen }))
+    };
+    for (let g = 0; g < 3; g++) {
+      v['faqGroup' + g] = this.state.faqGroup === g;
+      v['faqSet' + g] = this.setFaqGroup(g);
+      for (let q = 0; q < 4; q++) {
+        const open = this.state.faqOpen === g + '-' + q;
+        v['faqOpen' + g + '_' + q] = open;
+        v['faqSign' + g + '_' + q] = open ? '–' : '+';
+        v['faqToggle' + g + '_' + q] = this.toggleFaqKey(g + '-' + q);
+      }
+    }
+    return v;
+  };
+
+  setFaqGroup = (g) => () => this.setState({ faqGroup: g, faqMenuOpen: false, faqOpen: null });
+  toggleFaqKey = (k) => () => this.setState((st) => ({ faqOpen: st.faqOpen === k ? null : k }));
+
+  renderVals() {
+    const { menu, mobileOpen, narrow, tile } = this.state;
+    return {
+      headerRef: this.headerRef,
+      caretRef: this.caretRef,
+      narrow, wide: !narrow,
+      mobileOpen,
+      toggleMobile: () => this.setState((st) => ({ mobileOpen: !st.mobileOpen })),
+      closeMenu: () => { this.state.menu = null; this.syncNavBars(); this.setState({ menu: null }); },
+
+      ...this.menuVals(narrow, menu),
+      tileARef: this.tileARef,
+      tileBRef: this.tileBRef,
+      tileCRef: this.tileCRef,
+      ...this.faqVals(),
+      indRef: this.indRef,
+      indGridRef: this.indGridRef,
+      officesRef: this.officesRef,
+      svcGridRef: this.svcGridRef,
+      svcPanelRef: this.svcPanelRef,
+      voxRef: this.voxRef,
+      indBaseRef: this.indBaseRef,
+      indRetailRef: this.indRetailRef,
+      indHealthRef: this.indHealthRef,
+      indFinRef: this.indFinRef,
+      indTechRef: this.indTechRef,
+      enterRetail: this.setIndustry('retail'),
+      enterHealth: this.setIndustry('health'),
+      enterFin: this.setIndustry('fin'),
+      enterTech: this.setIndustry('tech'),
+      enterBase: this.setIndustry(null),
+      capRowRef: this.capRowRef,
+      depthRef: this.depthRef,
+      ctaVisRef: this.ctaVisRef,
+      activateA: this.setTile('a'),
+      activateB: this.setTile('b'),
+      activateC: this.setTile('c'),
+      clearTile: this.setTile(null),
+      story0: this.state.story === 0,
+      story1: this.state.story === 1,
+      story2: this.state.story === 2,
+      prevStory: this.goStory(-1),
+      nextStory: this.goStory(1),
+      tileA: tile === 'a' || narrow,
+      tileB: tile === 'b' || narrow,
+      tileC: tile === 'c' || narrow,
+      notTileA: tile !== 'a' && !narrow,
+      notTileB: tile !== 'b' && !narrow,
+      notTileC: tile !== 'c' && !narrow,
+      showTestimonials: this.props.showTestimonials !== false
+    };
+  }
+}
+</script>
+</body>
+</html>

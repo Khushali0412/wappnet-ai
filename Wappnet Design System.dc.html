@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F1EFEB;color:#333;font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:#141414;text-decoration:none}
+  a:hover{color:#C2571A}
+  h1,h2,h3,h4,h5{margin:0;font-family:"Archivo",system-ui,sans-serif;color:#141414;line-height:1.22;letter-spacing:-.02em}
+  p{margin:0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div data-screen-label="Design system" style="max-width:1240px;margin:0 auto;padding:56px 24px 120px">
+
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding-bottom:30px;border-bottom:2px solid #141414">
+    <div>
+      <div style="background:#0D0D0F;display:inline-block;padding:14px 18px;border-radius:8px"><img src="uploads/white-logo.png" alt="Wappnet.ai" style="height:22px;width:auto;display:block"></div>
+      <h1 style="margin-top:22px;font-size:clamp(28px,3.6vw,40px);font-weight:800">Wappnet.ai design system</h1>
+      <p style="margin-top:14px;color:#666;max-width:60ch;text-wrap:pretty">Every value here is taken from the live homepage and AI service page. Build new pages by composing these parts — do not introduce colours, type sizes or radii that are not on this board.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <a href="Wappnet Home.dc.html" style="background:#0D0D0F;color:#fff;border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;white-space:nowrap" style-hover="color:#fff">Homepage</a>
+      <a href="Wappnet AI Service.dc.html" style="border:1.5px solid #0D0D0F;color:#0D0D0F;border-radius:6px;padding:10.5px 20px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;white-space:nowrap" style-hover="background:#0D0D0F;color:#fff">Service page</a>
+    </div>
+  </div>
+
+  <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:8px">
+    <a href="#f-color" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">01 Colour</a>
+    <a href="#f-type" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">02 Type</a>
+    <a href="#f-space" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">03 Space &amp; shape</a>
+    <a href="#f-layout" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">04 Layout</a>
+    <a href="#c-buttons" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">05 Buttons</a>
+    <a href="#c-cards" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">06 Cards</a>
+    <a href="#c-nav" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">07 Navigation</a>
+    <a href="#c-parts" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">08 Other parts</a>
+    <a href="#c-footer" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">09 Footer</a>
+    <a href="#p-recipes" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">10 Page recipes</a>
+    <a href="#p-motion" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">11 Motion</a>
+    <a href="#p-imagery" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">12 Imagery</a>
+    <a href="#p-voice" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">13 Voice</a>
+    <a href="#p-rules" style="border:1px solid #E4E1DC;background:#fff;border-radius:100px;padding:8px 15px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#555;white-space:nowrap" style-hover="border-color:#141414;color:#141414">14 Rules</a>
+  </div>
+
+  <div id="f-color" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">01</span><h2 style="font-size:26px;font-weight:800">Colour</h2></div>
+  <p style="margin-bottom:22px;color:#666;max-width:70ch">Two ink tones carry the structure, one orange carries every action. Max two background colours per page: white and one of ink or surface.</p>
+
+  <div style="background:#fff;border-radius:12px;padding:28px">
+    <div style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#999">Core</div>
+    <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px">
+      <div><div style="height:88px;border-radius:8px;background:#0D0D0F"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Ink</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#0D0D0F · dark sections</div></div>
+      <div><div style="height:88px;border-radius:8px;background:#141414"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Heading ink</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#141414 · all headings</div></div>
+      <div><div style="height:88px;border-radius:8px;background:#151515"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Footer</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#151515</div></div>
+      <div><div style="height:88px;border-radius:8px;background:#E8541F"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Action orange</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#E8541F · primary CTA</div></div>
+      <div><div style="height:88px;border-radius:8px;background:#C2571A"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Link / eyebrow</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#C2571A · on light</div></div>
+      <div><div style="height:88px;border-radius:8px;background:#F4A557"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Accent</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#F4A557 · eyebrow on dark</div></div>
+      <div><div style="height:88px;border-radius:8px;background:#F8D06A"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Highlight</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#F8D06A · headline word, arrows</div></div>
+      <div><div style="height:88px;border-radius:8px;background:#F4756B"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Coral</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;font-variant-numeric:tabular-nums">#F4756B · gradient start only</div></div>
+    </div>
+
+    <div style="margin-top:34px;padding-top:26px;border-top:1px solid #EEECE8;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#999">Neutrals &amp; surfaces</div>
+    <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px">
+      <div><div style="height:70px;border-radius:8px;background:#F7F6F4;border:1px solid #E4E1DC"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Surface</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888">#F7F6F4</div></div>
+      <div><div style="height:70px;border-radius:8px;background:#FDECE4"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Icon tile</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888">#FDECE4</div></div>
+      <div><div style="height:70px;border-radius:8px;background:#FDEDE3"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Inline CTA band</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888">#FDEDE3</div></div>
+      <div><div style="height:70px;border-radius:8px;background:#E9E7E3"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Card border</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888">#E9E7E3</div></div>
+      <div><div style="height:70px;border-radius:8px;background:#E4E1DC"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Rule / chip border</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888">#E4E1DC · #E7E4DF · #EEECE8</div></div>
+      <div><div style="height:70px;border-radius:8px;background:#666"></div><div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Body muted</div><div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888">#666 · #7a7a7a small</div></div>
+    </div>
+
+    <div style="margin-top:34px;padding-top:26px;border-top:1px solid #EEECE8;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#999">Gradients — only these three</div>
+    <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+      <div>
+        <div style="height:120px;border-radius:12px;background:radial-gradient(120% 130% at 6% 8%,#3B1550 0%,rgba(59,21,80,0) 58%),radial-gradient(110% 120% at 96% 12%,#E24A3B 0%,rgba(226,74,59,0) 62%),radial-gradient(120% 130% at 88% 96%,#F7F4F1 0%,rgba(247,244,241,0) 55%),radial-gradient(120% 120% at 4% 98%,#8E6BC8 0%,rgba(142,107,200,0) 58%),linear-gradient(115deg,#3D1A5B 0%,#8A2F55 46%,#DA5638 78%,#F2D9C9 100%)"></div>
+        <div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Hero mesh</div>
+        <div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;line-height:1.5">Page hero only, once per page. Base #2A1436.</div>
+      </div>
+      <div>
+        <div style="height:120px;border-radius:12px;background:linear-gradient(115deg,#F4756B 0%,#F4A557 100%)"></div>
+        <div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Brand warm</div>
+        <div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;line-height:1.5">CTA bands, capability tile, story panel. 2 stops — never 3.</div>
+      </div>
+      <div>
+        <div style="height:120px;border-radius:12px;background:linear-gradient(100deg,#F9B08C 0%,#E8541F 100%)"></div>
+        <div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px">Menu strip</div>
+        <div hidden="{{ hideSpecs }}" style="font-size:12.5px;color:#888;line-height:1.5">Mega-menu "talk to sales" strip only.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:34px;padding-top:26px;border-top:1px solid #EEECE8;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#999">Industry chip pairs</div>
+    <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:12px">
+      <span style="font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#C2571A;background:#FDF3E8;border-radius:4px;padding:6px 11px;white-space:nowrap">Retail</span>
+      <span style="font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0F8B4F;background:#EAF8F1;border-radius:4px;padding:6px 11px;white-space:nowrap">Healthcare</span>
+      <span style="font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#B02C42;background:#FDECEF;border-radius:4px;padding:6px 11px;white-space:nowrap">Financial services</span>
+      <span hidden="{{ hideSpecs }}" style="font-size:13px;color:#888;align-self:center">One pair per sector, reused verbatim across every page.</span>
+    </div>
+  </div>
+
+  <div id="f-type" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">02</span><h2 style="font-size:26px;font-weight:800">Type</h2></div>
+  <p style="margin-bottom:22px;color:#666;max-width:70ch">Archivo for anything structural, DM Sans for anything read in sentences. No third family, no italics.</p>
+
+  <div style="background:#fff;border-radius:12px;padding:36px;display:flex;flex-direction:column;gap:30px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;padding-bottom:28px;border-bottom:1px solid #EEECE8">
+      <div><div style="font-family:'Archivo',sans-serif;font-size:34px;font-weight:800">Archivo</div><div style="font-size:14px;color:#666;margin-top:6px">Headings, buttons, eyebrows, numbers · 500/600/700/800</div></div>
+      <div><div style="font-family:'DM Sans',sans-serif;font-size:34px;font-weight:400">DM Sans</div><div style="font-size:14px;color:#666;margin-top:6px">Body, descriptions, nav labels · 400/500/700</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Hero H1<br>clamp(31,4.6vw,56) / 800 / -.035em / 1.04 / 24ch</span><span style="font-family:'Archivo',sans-serif;font-size:clamp(31px,4.6vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.04">Continuous modernization</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Section H2<br>clamp(26,3.4vw,36) / 800 / -.02em / 1.22 / 24ch</span><span style="font-family:'Archivo',sans-serif;font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22">Outcomes we can point at</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Pillar H3<br>26 / 800 / -.02em</span><span style="font-family:'Archivo',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em">Data &amp; Analytics</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Card title<br>20 / 700 / 1.35</span><span style="font-family:'Archivo',sans-serif;font-size:20px;font-weight:700;line-height:1.35">Claims triage with a review queue</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Row title<br>15–16.5 / 800 / -.015em</span><span style="font-family:'Archivo',sans-serif;font-size:16.5px;font-weight:800;letter-spacing:-.015em">AI Agents &amp; Workflow Automation</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Lead<br>16.5–19 / 400 / 1.6 / 52ch</span><span style="font-size:19px;color:#444;max-width:44ch;line-height:1.6">Lead paragraph under a section heading, capped near fifty characters.</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Body<br>16 / 400 / 1.65 / 70ch</span><span style="font-size:16px;color:#333;max-width:56ch">Body copy at sixteen pixels with a 1.65 line height. This is the page default and the only size used for running prose.</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Small<br>12.5–14.5 / 400 / #7a7a7a</span><span style="font-size:14px;color:#7a7a7a;max-width:56ch">Descriptions under a row title, meta lines, footnotes.</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Eyebrow<br>12.5 / 700 / .16em / upper</span><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A">Where we work</span></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px"><span hidden="{{ hideSpecs }}" style="width:150px;flex:none;font-size:12px;color:#999;line-height:1.5">Stat<br>clamp(28,3.2vw,38) / 800 / -.03em</span><span style="font-family:'Archivo',sans-serif;font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1">400+</span></div>
+    </div>
+
+    <div style="padding-top:26px;border-top:1px solid #EEECE8;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;font-size:14.5px;color:#555">
+      <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Measure</strong><div style="margin-top:6px">Headings 24ch. Leads 52ch. Body 70ch. Always with <code>text-wrap:pretty</code>; hero H1 uses <code>balance</code>.</div></div>
+      <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Never</strong><div style="margin-top:6px">Heading below 15px, body below 12.5px, uppercase on anything but eyebrows and 13px button labels.</div></div>
+      <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Numbers</strong><div style="margin-top:6px">Archivo 800 at -.03em, with <code>font-variant-numeric:tabular-nums</code> in tables.</div></div>
+    </div>
+  </div>
+
+  <div id="f-space" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">03</span><h2 style="font-size:26px;font-weight:800">Space &amp; shape</h2></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+    <div style="background:#fff;border-radius:12px;padding:30px">
+      <h3 style="font-size:18px;font-weight:700">Vertical rhythm</h3>
+      <div style="margin-top:18px;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:#555">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid #EEECE8"><span>Light section</span><code style="color:#141414">112px 0</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid #EEECE8"><span>Dark band</span><code style="color:#141414">96px 0</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid #EEECE8"><span>Logo strip</span><code style="color:#141414">88px 0</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid #EEECE8"><span>Hero</span><code style="color:#141414">132px 0 84px</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid #EEECE8"><span>CTA band</span><code style="color:#141414">clamp(64,7vw,96) 0</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px"><span>Footer</span><code style="color:#141414">80px 0 36px</code></div>
+      </div>
+      <p style="margin-top:18px;font-size:14px;color:#7a7a7a">Consecutive light sections use <code>0 0 112px</code> so the pair reads as one field.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;padding:30px">
+      <h3 style="font-size:18px;font-weight:700">Section header block</h3>
+      <div style="margin-top:20px;padding:22px;background:#F7F6F4;border-radius:8px">
+        <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A">Eyebrow</div>
+        <div style="height:16px;position:relative"><span hidden="{{ hideSpecs }}" style="position:absolute;left:0;top:2px;font-size:11px;color:#b3a99c">↕ 16px</span></div>
+        <h4 style="font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.22">Section heading</h4>
+        <div style="height:20px;position:relative"><span hidden="{{ hideSpecs }}" style="position:absolute;left:0;top:4px;font-size:11px;color:#b3a99c">↕ 20px</span></div>
+        <p style="font-size:16.5px;color:#666">Optional lead, capped at 52 characters wide.</p>
+        <div style="height:52px;position:relative"><span hidden="{{ hideSpecs }}" style="position:absolute;left:0;top:20px;font-size:11px;color:#b3a99c">↕ 52px to content</span></div>
+        <div style="height:44px;border-radius:6px;border:1px dashed #d5cfc6"></div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;padding:30px">
+      <h3 style="font-size:18px;font-weight:700">Radius</h3>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end">
+        <div style="text-align:center"><div style="width:64px;height:64px;background:#F7F6F4;border:1px solid #E4E1DC;border-radius:4px"></div><div style="margin-top:8px;font-size:12px;color:#888">4 chip</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:#F7F6F4;border:1px solid #E4E1DC;border-radius:6px"></div><div style="margin-top:8px;font-size:12px;color:#888">6 button</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:#F7F6F4;border:1px solid #E4E1DC;border-radius:9px"></div><div style="margin-top:8px;font-size:12px;color:#888">9 icon tile</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:#F7F6F4;border:1px solid #E4E1DC;border-radius:12px"></div><div style="margin-top:8px;font-size:12px;color:#888">12 card</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:#F7F6F4;border:1px solid #E4E1DC;border-radius:16px"></div><div style="margin-top:8px;font-size:12px;color:#888">16 panel</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:#F7F6F4;border:1px solid #E4E1DC;border-radius:24px"></div><div style="margin-top:8px;font-size:12px;color:#888">24 feature</div></div>
+        <div style="text-align:center"><div style="width:64px;height:36px;background:#F7F6F4;border:1px solid #E4E1DC;border-radius:100px"></div><div style="margin-top:8px;font-size:12px;color:#888">pill</div></div>
+      </div>
+      <h3 style="margin-top:30px;font-size:18px;font-weight:700">Shadow</h3>
+      <div style="margin-top:18px;display:flex;flex-direction:column;gap:12px;font-size:14px;color:#555">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid #EEECE8"><span>Card hover</span><code style="color:#141414">0 16px 40px rgba(0,0,0,.10)</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid #EEECE8"><span>Button hover</span><code style="color:#141414">0 14px 32px rgba(0,0,0,.22)</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px"><span>Mega-menu</span><code style="color:#141414">0 40px 90px rgba(13,13,15,.34)</code></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="f-layout" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">04</span><h2 style="font-size:26px;font-weight:800">Layout</h2></div>
+
+  <div style="background:#fff;border-radius:12px;padding:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px">
+    <div>
+      <h3 style="font-size:18px;font-weight:700">Container</h3>
+      <p style="margin-top:12px;font-size:15px;color:#666"><code style="color:#141414">max-width:1200px; margin:0 auto; padding:0 24px</code> on every section's inner wrapper. Full-bleed rows (industries, CTA, marquee) put the background on the section and keep text inside the container.</p>
+      <h3 style="margin-top:26px;font-size:18px;font-weight:700">Card gaps</h3>
+      <p style="margin-top:12px;font-size:15px;color:#666">24px between cards, 20px between tight tiles, 40–64px between columns of a split layout.</p>
+    </div>
+    <div>
+      <h3 style="font-size:18px;font-weight:700">Breakpoints</h3>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:11px;font-size:14.5px;color:#555">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Desktop nav / 3-up grids</span><code style="color:#141414">≥ 1180</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Mega-menu promo beside grid</span><code style="color:#141414">≥ 900</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Nav → Menu button</span><code style="color:#141414">&lt; 980</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>4-up → 2-up</span><code style="color:#141414">&lt; 980</code></div>
+        <div style="display:flex;justify-content:space-between;gap:16px"><span>2-up → 1-up</span><code style="color:#141414">&lt; 560</code></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:18px;font-weight:700">Column counts are set in JS</h3>
+      <p style="margin-top:12px;font-size:15px;color:#666">Any row that must not orphan a card (industries, capability tiles, offices, depth columns, menu grid) reads <code>window.innerWidth</code> in <code>componentDidMount</code>/<code>resize</code> and writes <code>gridTemplateColumns</code>. <code>auto-fit</code> is only for rows where a wrap is harmless.</p>
+      <p style="margin-top:12px;font-size:15px;color:#666">Every text cell in a grid gets <code>minmax(0,1fr)</code> so long labels wrap instead of overflowing.</p>
+    </div>
+  </div>
+
+  <div id="c-buttons" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">05</span><h2 style="font-size:26px;font-weight:800">Buttons &amp; links</h2></div>
+  <p style="margin-bottom:22px;color:#666;max-width:70ch">One primary per view. Every label carries <code>white-space:nowrap</code>, every arrow <code>flex:none</code>.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+    <div style="background:#fff;border-radius:12px;padding:32px">
+      <div style="font-size:12.5px;color:#999;margin-bottom:20px">On light</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <a href="#" style="display:inline-flex;align-items:center;gap:16px;background:#E8541F;color:#fff;border-radius:8px;padding:14px 16px 14px 24px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,84,31,.42);color:#fff">Request a quote <span style="width:30px;height:30px;border-radius:6px;background:rgba(255,255,255,.22);display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:none">→</span></a>
+        <a href="#" style="background:#0D0D0F;color:#fff;border-radius:6px;padding:14px 28px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap" style-hover="color:#fff">Secondary</a>
+        <a href="#" style="border:1.5px solid #0D0D0F;color:#0D0D0F;border-radius:6px;padding:12.5px 26px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap" style-hover="background:#0D0D0F;color:#fff">Outline</a>
+      </div>
+      <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:22px;align-items:center">
+        <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0D0D0F;border:1.5px solid #0D0D0F;padding:12px 20px;white-space:nowrap" style-hover="background:#0D0D0F;color:#fff">Learn more <span style="font-size:15px;flex:none">→</span></a>
+        <a href="#" style="font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:700;color:#0D0D0F;border-bottom:2px solid #F4A557;padding-bottom:2px;white-space:nowrap" style-hover="color:#C2571A">Text link →</a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;color:#E8541F;white-space:nowrap" style-hover="color:#C2571A">Inline row link <span style="font-size:15px;flex:none">→</span></a>
+      </div>
+    </div>
+    <div style="background:#0D0D0F;border-radius:12px;padding:32px">
+      <div style="font-size:12.5px;color:rgba(255,255,255,.45);margin-bottom:20px">On dark / on gradient</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#" style="background:#fff;color:#0D0D0F;border-radius:6px;padding:14px 28px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease" style-hover="transform:translateY(-2px);color:#0D0D0F">Primary</a>
+        <a href="#" style="border:1.5px solid rgba(255,255,255,.45);color:#fff;border-radius:6px;padding:12.5px 26px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap" style-hover="border-color:#fff;background:rgba(255,255,255,.08);color:#fff">Ghost</a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:11px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap" style-hover="background:#fff;color:#0D0D0F">Panel CTA <span style="font-size:15px;flex:none">→</span></a>
+      </div>
+      <p style="margin-top:22px;font-size:13.5px;color:rgba(255,255,255,.55)">On the warm gradient use ink fills, not white — white on #F4A557 fails contrast.</p>
+    </div>
+  </div>
+
+  <div id="c-cards" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">06</span><h2 style="font-size:26px;font-weight:800">Cards &amp; tiles</h2></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px">
+    <div style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:30px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.10);border-color:#F4A557">
+      <div style="width:32px;height:3px;background:linear-gradient(90deg,#F4756B,#F4A557);margin-bottom:20px"></div>
+      <h3 style="font-size:20px;font-weight:700">Offering card</h3>
+      <p style="margin-top:10px;font-size:15.5px;color:#666">Gradient rule, title, two lines. Hover lifts 4px, border turns accent.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:26px">
+      <div style="font-size:12.5px;color:#999;margin-bottom:18px">Icon row — mega-menus, depth columns</div>
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start">
+        <span style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 3.5v3.3M12 17.2v3.3M3.5 12h3.3M17.2 12h3.3M6.1 6.1l2.3 2.3M15.6 15.6l2.3 2.3M17.9 6.1l-2.3 2.3M8.4 15.6l-2.3 2.3"></path></svg></span>
+        <span style="display:block;min-width:0">
+          <span style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25">Row title</span>
+          <span style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45">One sentence of what it is, no marketing adjectives.</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:500;color:#E8541F">Learn more <span style="font-size:15px;flex:none">→</span></span>
+        </span>
+      </div>
+      <p style="margin-top:20px;font-size:13.5px;color:#888">Icon 20px stroke-1.5 in #E8541F, tile 40px #FDECE4 radius 9. Depth columns use 46px tile / 16px title.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;overflow:hidden">
+      <div style="height:130px;background:#F1EFEB;display:flex;align-items:center;justify-content:center;font-size:12.5px;color:#a8a19a">Image · 1400×1000px</div>
+      <div style="padding:24px">
+        <span style="display:inline-block;font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#C2571A;background:#FDF3E8;border-radius:4px;padding:5px 10px;white-space:nowrap">Industry chip</span>
+        <h3 style="margin-top:14px;font-size:19px;font-weight:700;line-height:1.35">Success story card</h3>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #EEECE8;display:flex;align-items:baseline;gap:9px"><span style="font-family:'Archivo',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.03em">31%</span><span style="font-size:14px;color:#666">outcome metric</span></div>
+      </div>
+    </div>
+
+    <div style="min-height:250px;padding:30px;border-radius:24px;background:linear-gradient(115deg,#F4756B 0%,#F4A557 100%);display:flex;flex-direction:column;justify-content:space-between">
+      <span style="width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(13,13,15,.4);display:inline-flex;align-items:center;justify-content:center;flex:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D0D0F" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6.5" r="2.4"></circle><circle cx="20" cy="7.5" r="2.4"></circle><circle cx="13" cy="19.5" r="2.4"></circle><path d="M7.6 8.6 11.4 17.3M18.4 9.6 14.6 17.6M8.4 6.7h9.2"></path></svg></span>
+      <div>
+        <h3 style="font-size:36px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">Capability tile</h3>
+        <p style="margin-top:12px;font-family:'Archivo',sans-serif;font-size:19px;font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F">Ring icon, oversized name, one promise. Expands to 2:1:1 on hover.</p>
+      </div>
+    </div>
+
+    <div style="background:#0D0D0F;border-radius:12px;padding:30px;display:flex;flex-direction:column;justify-content:center">
+      <div style="font-family:'Archivo',sans-serif;font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff">400+</div>
+      <div style="margin-top:12px;font-size:14px;color:rgba(255,255,255,.55)">Stat block · counts up once, skipped when the document is hidden</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E9E7E3;border-radius:12px;padding:30px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:center;gap:14px;min-width:0">
+        <div style="width:52px;height:52px;border-radius:8px;background:#F1EFEB;flex:none"></div>
+        <div><div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;line-height:1.3">Role held</div><div style="font-size:14px;color:#777;line-height:1.4">Company type, no invented names</div></div>
+      </div>
+      <div style="display:flex;gap:12px">
+        <svg width="22" height="17" viewBox="0 0 22 17" fill="#F4A557" style="flex:none;margin-top:4px"><path d="M0 17V9.4C0 4.2 3.1.6 8.2 0l.8 2.9C6 3.7 4.4 5.4 4.4 7.7H8V17H0zm13 0V9.4c0-5.2 3.1-8.8 8.2-9.4l.8 2.9c-3 .8-4.6 2.5-4.6 4.8H21V17h-8z"></path></svg>
+        <p style="font-size:16px;line-height:1.65;color:#333">Testimonial card. Orange quote glyph, never curly quotation marks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="c-nav" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">07</span><h2 style="font-size:26px;font-weight:800">Navigation</h2></div>
+
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div style="border-radius:12px;overflow:hidden;background:#0D0D0F">
+      <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:24px">
+        <img src="uploads/white-logo.png" alt="Wappnet.ai" style="height:26px;width:auto;display:block;flex:none">
+        <div style="display:flex;gap:2px;margin-left:auto;color:#fff;font-size:14.5px">
+          <span style="position:relative;padding:0 13px">Services<span style="position:absolute;left:13px;right:13px;bottom:-22px;height:2px;background:#fff;border-radius:2px"></span></span>
+          <span style="padding:0 13px">Solutions</span><span style="padding:0 13px">Consulting</span><span style="padding:0 13px">Industries</span><span style="padding:0 13px">Our Work</span><span style="padding:0 13px">Company</span>
+        </div>
+        <span style="background:#fff;color:#0D0D0F;border-radius:6px;padding:11px 20px;font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;white-space:nowrap;flex:none">Contact us</span>
+      </div>
+      <div hidden="{{ hideSpecs }}" style="border-top:1px solid rgba(255,255,255,.10);padding:14px 24px;font-size:12.5px;color:rgba(255,255,255,.5);line-height:1.6">
+        72px tall · six items · transparent over the hero, <code>rgba(13,13,15,.94)</code> + blur past 20px scroll · the open item keeps a 2px white underline that scales in from 40% · below 980px the row is replaced by a bordered Menu button.
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;padding:30px">
+      <h3 style="font-size:18px;font-weight:700">Mega-menu anatomy</h3>
+      <div style="margin-top:20px;display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:20px">
+        <div style="background:#0D0D0F;border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:200px">
+          <div>
+            <h4 style="font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1.16;color:#fff">Promo rail</h4>
+            <p style="margin-top:12px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.66)">Headline with one word in #E8541F, two-line summary, outline CTA, optional 110px image band.</p>
+          </div>
+          <span style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:10px 16px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap">Explore →</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="border:1px dashed #d5cfc6;border-radius:8px;padding:16px;font-size:14px;color:#666">Icon rows, 2 columns, hairline between rows past the first row</div>
+          <div style="background:#FDEDE3;border-radius:12px;padding:14px 18px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+            <span style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;color:#141414">Inline CTA strip</span>
+            <span style="background:#E8541F;color:#fff;border-radius:10px;padding:11px 20px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;white-space:nowrap">Talk to an expert →</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:14px;color:#666;max-width:80ch">White card, radius 24, padding 18–22, shadow <code>0 40px 90px rgba(13,13,15,.34)</code>, opens with <code>panelIn</code>. The panel is capped at <code>calc(100vh - 92px)</code> and a fit routine steps the layout down — full 2-column → drop promo image → 3-column titles only → drop promo rail — so it never scrolls. Four panel shapes exist: icon grid (Services, Consulting, Industries), grouped links (Solutions), arrow lists (Our Work), list + photo (Company).</p>
+    </div>
+  </div>
+
+  <div id="c-parts" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">08</span><h2 style="font-size:26px;font-weight:800">Other parts</h2></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+    <div style="background:#fff;border-radius:12px;padding:30px">
+      <div style="font-size:12.5px;color:#999;margin-bottom:18px">Accordion — FAQ</div>
+      <div style="border-top:1px solid #E4E1DC">
+        <div style="padding:20px 0;border-bottom:1px solid #E4E1DC;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414">Open question<span style="font-size:22px;color:#C2571A;flex:none">–</span></div>
+        <div style="padding:20px 0 26px;border-bottom:1px solid #E4E1DC;font-size:16px;line-height:1.65;color:#555">Answer leads with the direct answer in the first sentence, then the detail. That first sentence is what an AI summary lifts.</div>
+        <div style="padding:20px 0;border-bottom:1px solid #E4E1DC;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:700;color:#141414">Closed question<span style="font-size:22px;color:#C2571A;flex:none">+</span></div>
+      </div>
+      <p style="margin-top:18px;font-size:13.5px;color:#888">One open at a time. Topic switcher is an orange dropdown in the heading. Emit the same Q&amp;As as <code>FAQPage</code> JSON-LD.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;padding:30px">
+      <div style="font-size:12.5px;color:#999;margin-bottom:18px">Form</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#141414">Work email</span><input type="email" placeholder="you@company.com" style="border:1px solid #DDD9D3;border-radius:6px;padding:13px 15px;font-family:'DM Sans',sans-serif;font-size:15.5px;color:#141414;outline:none;background:#fff" style-focus="border-color:#F4A557;box-shadow:0 0 0 3px rgba(244,165,87,.18)"></label>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#141414">What are you trying to ship?</span><textarea rows="2" placeholder="A sentence is enough" style="border:1px solid #DDD9D3;border-radius:6px;padding:13px 15px;font-family:'DM Sans',sans-serif;font-size:15.5px;color:#141414;outline:none;resize:vertical;background:#fff" style-focus="border-color:#F4A557;box-shadow:0 0 0 3px rgba(244,165,87,.18)"></textarea></label>
+        <button style="background:#E8541F;color:#fff;border:0;border-radius:6px;padding:14px 28px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;cursor:pointer;align-self:flex-start;white-space:nowrap">Send it</button>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;padding:30px">
+      <div style="font-size:12.5px;color:#999;margin-bottom:18px">Pills, chips &amp; trust row</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:9px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#555;white-space:nowrap">ISO 27001</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:9px 18px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#555;white-space:nowrap">SOC 2 Type II</span>
+      </div>
+      <div style="margin-top:22px;background:#0D0D0F;border-radius:8px;padding:22px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 0">
+        <div style="padding:0 22px;text-align:center"><div style="font-family:'Archivo',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff">180+</div><div style="margin-top:7px;font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap">Engineers on staff</div></div>
+        <span style="width:1px;height:38px;background:rgba(255,255,255,.16);flex:none"></span>
+        <div style="padding:0 22px;display:flex;align-items:center;gap:12px">
+          <div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(244,165,87,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none"><span style="font-family:'Archivo',sans-serif;font-size:17px;font-weight:800;line-height:1;color:#F8D06A">12</span><span style="font-family:'Archivo',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.2em;color:rgba(248,208,106,.75);margin-top:3px">YEARS</span></div>
+          <div style="text-align:left"><div style="font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap">ISO 27001 &amp; SOC 2</div><div style="margin-top:3px;font-size:12.5px;color:rgba(255,255,255,.55);white-space:nowrap">Enterprise reviews passed</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;padding:30px 0">
+      <div style="font-size:12.5px;color:#999;margin:0 30px 18px">Logo marquee</div>
+      <div style="overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+        <div style="display:flex;gap:56px;width:max-content;animation:marquee 30s linear infinite">
+          <div style="display:flex;gap:56px;align-items:center;font-family:'Archivo',sans-serif;font-size:20px;font-weight:700;color:#B3B3B3;white-space:nowrap"><span>Microsoft Azure</span><span>AWS</span><span>Databricks</span><span>Snowflake</span><span>dbt</span><span>Google Cloud</span></div>
+          <div aria-hidden="true" style="display:flex;gap:56px;align-items:center;font-family:'Archivo',sans-serif;font-size:20px;font-weight:700;color:#B3B3B3;white-space:nowrap"><span>Microsoft Azure</span><span>AWS</span><span>Databricks</span><span>Snowflake</span><span>dbt</span><span>Google Cloud</span></div>
+        </div>
+      </div>
+      <p style="margin:18px 30px 0;font-size:13.5px;color:#888">Duplicate the track, animate to -50%, edges masked. 30s home, 28s subpages.</p>
+    </div>
+
+    <div style="border-radius:12px;background:linear-gradient(115deg,#F4756B 0%,#F4A557 100%);padding:32px;display:flex;flex-direction:column;justify-content:center;gap:18px">
+      <h3 style="font-size:28px;font-weight:800;color:#0D0D0F;letter-spacing:-.03em;max-width:20ch;text-wrap:pretty">CTA band — one per page, directly above the footer.</h3>
+      <a href="#" style="align-self:flex-start;background:#0D0D0F;color:#fff;border-radius:6px;padding:15px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap" style-hover="color:#fff">Book the call</a>
+    </div>
+
+    <div style="background:#F7F6F4;border:1px solid #E4E1DC;border-radius:12px;padding:30px">
+      <div style="font-size:12.5px;color:#999;margin-bottom:18px">Ambient motif — use at most twice per page</div>
+      <div style="position:relative;height:150px;border-radius:8px;overflow:hidden;background:#fff">
+        <div style="position:absolute;top:-70px;right:-60px;width:300px;height:300px;background:repeating-radial-gradient(circle at 100% 0,rgba(255,255,255,0) 0 74px,rgba(244,117,107,.14) 74px 75px)"></div>
+        <div style="position:absolute;left:-60px;bottom:-90px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(244,165,87,.20),rgba(255,255,255,0) 70%)"></div>
+      </div>
+      <p style="margin-top:18px;font-size:13.5px;color:#888">Concentric rings or a soft bloom at 7–14% opacity, clipped to the section, <code>pointer-events:none</code>. Never behind body copy.</p>
+    </div>
+  </div>
+
+  <div id="c-footer" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">09</span><h2 style="font-size:26px;font-weight:800">Footer</h2></div>
+
+  <div style="background:#151515;border-radius:12px;padding:44px 36px 26px;color:#cfcfcf">
+    <div style="display:flex;flex-wrap:wrap;gap:36px">
+      <div style="flex:1 1 240px">
+        <img src="uploads/white-logo.png" alt="Wappnet.ai" style="height:22px;width:auto;display:block">
+        <p style="margin-top:16px;font-size:14.5px;color:#b3b3b3;max-width:32ch">Brand blurb, then five link columns.</p>
+      </div>
+      <div style="flex:1 1 140px"><h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:14px">What we do</h5><div style="display:flex;flex-direction:column;gap:9px;font-size:14.5px;color:#b3b3b3"><span>AI</span><span>Data &amp; analytics</span></div></div>
+      <div style="flex:1 1 140px"><h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:14px">Company</h5><div style="display:flex;flex-direction:column;gap:9px;font-size:14.5px;color:#b3b3b3"><span>About us</span><span>Leadership</span></div></div>
+      <div style="flex:1 1 140px"><h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:14px">Insights</h5><div style="display:flex;flex-direction:column;gap:9px;font-size:14.5px;color:#b3b3b3"><span>Success stories</span><span>Blog</span></div></div>
+    </div>
+    <div style="margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12)">
+      <h3 style="font-family:'Archivo',sans-serif;font-size:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">Get in touch</h3>
+      <div style="margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
+        <div><div style="font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a">Business queries</div><div style="margin-top:10px;font-size:16px;color:#F4A557">business@wappnet.com</div></div>
+        <div><div style="font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a">HR number</div><div style="margin-top:10px;font-size:16px;color:#F4A557">(+91) 9173408554</div></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:28px">
+      <div style="flex:1 1 200px">
+        <div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;background:#2a2a2a;flex:none"></div><span style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff">India</span></div>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.6;color:#b3b3b3">Office address on three lines, then the local number in accent orange.</p>
+      </div>
+      <div style="flex:1 1 200px;display:flex;align-items:center;gap:20px">
+        <div style="width:60px;height:60px;border-radius:8px;background:#2a2a2a;flex:none"></div>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Archivo',sans-serif;font-size:20px;font-weight:800;color:#fff">4.9<span style="color:#F4A557;font-size:16px">★</span></span>
+        <div style="width:60px;height:60px;border-radius:8px;background:#2a2a2a;flex:none"></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:13.5px;color:#8a8a8a">
+      <span>© Wappnet Systems Global · Privacy policy · Disclaimer</span>
+      <div style="display:flex;gap:10px">
+        <span style="width:34px;height:34px;border-radius:50%;background:#fff;flex:none"></span>
+        <span style="width:34px;height:34px;border-radius:50%;background:#fff;flex:none"></span>
+        <span style="width:34px;height:34px;border-radius:50%;background:#fff;flex:none"></span>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:16px;font-size:14px;color:#666;max-width:80ch">Order is fixed: brand + link columns → GET IN TOUCH (5 contacts) → offices (5 across on one row above 1100px) → ratings and certifications → bottom bar with round white social icons. Same footer on every page, no per-page variants.</p>
+
+  <div id="p-recipes" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">10</span><h2 style="font-size:26px;font-weight:800">Page recipes</h2></div>
+  <p style="margin-bottom:22px;color:#666;max-width:70ch">Build a new page by picking a recipe and swapping content. Alternate light and dark so no two dark bands touch, and never place two gradient bands in one page.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px">
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">Service / capability page</h3>
+      <ol style="margin:16px 0 0;padding-left:20px;font-size:14.5px;color:#555;line-height:1.9">
+        <li>Hero mesh, breadcrumb, H1, lead, 2 CTAs</li>
+        <li>Problem statement — split heading + 2 paragraphs</li>
+        <li>What we build — 6 offering cards</li>
+        <li>How we work — 4 stages on a dark band</li>
+        <li>Tool marquee</li>
+        <li>Related stories — 2 cards</li>
+        <li>FAQ accordion + JSON-LD</li>
+        <li>CTA band → footer</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">Industry page</h3>
+      <ol style="margin:16px 0 0;padding-left:20px;font-size:14.5px;color:#555;line-height:1.9">
+        <li>Hero mesh with the sector chip above the H1</li>
+        <li>Where the value sits — 3 icon rows</li>
+        <li>Sector-specific offerings — 4 cards</li>
+        <li>Case study carousel (gradient panel + image)</li>
+        <li>Compliance note — surface panel</li>
+        <li>FAQ (sector questions only)</li>
+        <li>CTA band → footer</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">Case study</h3>
+      <ol style="margin:16px 0 0;padding-left:20px;font-size:14.5px;color:#555;line-height:1.9">
+        <li>Dark hero: chip, H1, headline metric</li>
+        <li>Context / brief — split layout</li>
+        <li>Full-bleed image</li>
+        <li>What we built — icon rows</li>
+        <li>Results — 3 stat blocks on ink</li>
+        <li>Client quote — testimonial card</li>
+        <li>Next case links, CTA band → footer</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">About / company</h3>
+      <ol style="margin:16px 0 0;padding-left:20px;font-size:14.5px;color:#555;line-height:1.9">
+        <li>Hero mesh + trust strip</li>
+        <li>How we work — 4 numbered points on surface</li>
+        <li>Two-sites band (wappnet.com / wappnet.ai)</li>
+        <li>Leadership grid — photo cards</li>
+        <li>Certifications + partner marquee</li>
+        <li>Careers teaser, CTA band → footer</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">Insights index &amp; article</h3>
+      <ol style="margin:16px 0 0;padding-left:20px;font-size:14.5px;color:#555;line-height:1.9">
+        <li>Compact dark header, no mesh</li>
+        <li>Filter chips: Blog / AI news / Events</li>
+        <li>Card grid, 3-up, image + kicker + title</li>
+        <li>Article body: 70ch measure, H2 at 26px, pull quotes as testimonial cards</li>
+        <li>Author line, related posts, CTA band</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">Contact</h3>
+      <ol style="margin:16px 0 0;padding-left:20px;font-size:14.5px;color:#555;line-height:1.9">
+        <li>Short dark header, one line of copy</li>
+        <li>Form left, office list right</li>
+        <li>What happens next — 3 numbered points</li>
+        <li>Certifications pill row</li>
+        <li>Footer (no CTA band — the page is the CTA)</li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="p-motion" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">11</span><h2 style="font-size:26px;font-weight:800">Motion</h2></div>
+
+  <div style="background:#fff;border-radius:12px;padding:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;font-size:14.5px;color:#555">
+    <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Scroll reveal</strong><div style="margin-top:8px">Mark a block <code>data-reveal</code>. Hidden state <code>opacity:0; translateY(22px)</code>, transition <code>.7s cubic-bezier(.16,1,.3,1)</code>. Stagger siblings with <code>data-reveal-delay="90ms"</code>. Only elements below the fold are hidden.</div></div>
+    <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Reveal plumbing</strong><div style="margin-top:8px">A sweep on scroll plus a 220ms ticker that stops when nothing is pending, <code>data-revealed</code> so re-renders cannot re-hide, and a 2.6s fallback that shows everything.</div></div>
+    <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Hover</strong><div style="margin-top:8px">Cards lift 4–6px with a shadow. Buttons lift 2px. Tiles expand 2:1:1 over <code>.55s cubic-bezier(.16,1,.3,1)</code>. Images cross-fade over <code>.5s ease</code>. Set ref styles synchronously in the handler so the paint is immediate.</div></div>
+    <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Named keyframes</strong><div style="margin-top:8px"><code>panelIn</code> .22s dropdowns · <code>fadeUp</code> .4s revealed tile content and carousel slides · <code>marquee</code> 28–30s logo strips. No other animations.</div></div>
+    <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Counters</strong><div style="margin-top:8px">Cubic ease-out over 1.1s, once per element, skipped while <code>document.hidden</code>, with a 1.4s snap to target. Static markup holds the final number.</div></div>
+    <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Carousel</strong><div style="margin-top:8px">Auto-advance every 5.2s, arrows reset the timer, an <code>n / total</code> counter is always visible.</div></div>
+  </div>
+
+  <div id="p-imagery" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">12</span><h2 style="font-size:26px;font-weight:800">Imagery</h2></div>
+
+  <div style="background:#fff;border-radius:12px;padding:30px">
+    <p style="font-size:15px;color:#666;max-width:80ch">Every image is a drop-in slot whose placeholder states the export size at 2× the rendered box. Photography is real work and real people — no stock handshakes, no 3D renders, no AI-generated abstractions.</p>
+    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px 28px;font-size:14px;color:#555">
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Industries row + hovers</span><code style="color:#141414">2400×1040</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Capability tile</span><code style="color:#141414">1440×1040</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>CTA band photo</span><code style="color:#141414">1600×760</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Case study card</span><code style="color:#141414">1400×1000</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Insight card</span><code style="color:#141414">760×680</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Menu panel photo</span><code style="color:#141414">480×600</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Client portrait</span><code style="color:#141414">480×680</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Client logo</span><code style="color:#141414">380×128</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Stack logo</span><code style="color:#141414">208×208</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Certification badge</span><code style="color:#141414">128×128</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Rating logo</span><code style="color:#141414">104×104</code></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #EEECE8"><span>Country flag</span><code style="color:#141414">60×60</code></div>
+    </div>
+    <div style="margin-top:26px;padding-top:22px;border-top:1px solid #EEECE8;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;font-size:14.5px;color:#555">
+      <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Scrims</strong><div style="margin-top:8px">Text over a photo always sits on a bottom-weighted scrim: <code>linear-gradient(180deg,transparent 0,transparent calc(100% - 230px),rgba(13,13,15,.86) 100%)</code>, applied per cell rather than per row.</div></div>
+      <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Icons</strong><div style="margin-top:8px">Line marks only, 24-unit viewBox, stroke 1.4–1.5, round caps and joins, in #E8541F on light or #fff on ink. No filled icons, no emoji.</div></div>
+      <div><strong style="font-family:'Archivo',sans-serif;color:#141414">Logos</strong><div style="margin-top:8px">Trim to the alpha bounding box before use — padded canvases make one logo look smaller than its neighbour. Coloured marks sit on a white plate, never on ink or gradient.</div></div>
+    </div>
+  </div>
+
+  <div id="p-voice" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">13</span><h2 style="font-size:26px;font-weight:800">Voice</h2></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px">
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">How we write</h3>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px;font-size:15px;color:#555">
+        <div>Concrete over abstract. Name the thing, the timebox or the number.</div>
+        <div>Headings 24 characters wide, one idea each.</div>
+        <div>Every card description is one sentence. Every FAQ answer opens with the answer.</div>
+        <div>British spelling, sentence case everywhere except eyebrows.</div>
+        <div>Numbers as digits. Timeboxes as weeks, not "rapid".</div>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">Words we avoid</h3>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:9px">
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">cutting-edge</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">seamless</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">revolutionary</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">unlock</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">empower</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">end-to-end solutions</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">synergy</span>
+        <span style="border:1px solid #E4E1DC;border-radius:100px;padding:7px 14px;font-size:13.5px;color:#888;white-space:nowrap">game-changing</span>
+      </div>
+      <h3 style="margin-top:26px;font-size:18px;font-weight:700">CTA labels in use</h3>
+      <p style="margin-top:12px;font-size:15px;color:#555">Request a quote · Talk to an AI expert · Start with one use case · Book the call · Scope a use case · Learn more · See what we built</p>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:18px;font-weight:700">Findability</h3>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px;font-size:15px;color:#555">
+        <div>One H1 per page, section H2s that read as real questions or claims.</div>
+        <div>FAQ answers front-load the answer so an AI summary can lift the first sentence.</div>
+        <div>Emit <code>FAQPage</code> JSON-LD wherever an accordion exists; <code>Organization</code> and <code>Service</code> on the relevant pages.</div>
+        <div>Every stat and claim must be attributable. Mark unverified figures as placeholders rather than shipping them.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="p-rules" style="margin-top:64px;display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;color:#C2571A">14</span><h2 style="font-size:26px;font-weight:800">Rules</h2></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+    <div style="background:#fff;border-radius:12px;padding:28px;border-left:none">
+      <h3 style="font-size:17px;font-weight:700;color:#0F8B4F">Always</h3>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#555">
+        <div>One primary CTA per view, above the fold in the hero.</div>
+        <div><code>white-space:nowrap</code> on every button label, chip and stat caption; <code>flex:none</code> on every arrow.</div>
+        <div><code>minmax(0,1fr)</code> on text cells in a grid.</div>
+        <div>Fixed column counts via JS for any row that must not orphan.</div>
+        <div>Section heading spec exactly as in section 02.</div>
+        <div>Real export sizes in every image placeholder.</div>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:28px">
+      <h3 style="font-size:17px;font-weight:700;color:#B02C42">Never</h3>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#555">
+        <div>A third gradient, or a 3-stop warm gradient.</div>
+        <div>Two dark bands touching, or two gradient bands on one page.</div>
+        <div>A new radius, shadow or type size that is not on this board.</div>
+        <div>Emoji, filled icons, drawn illustrations standing in for photography.</div>
+        <div>Invented client names, logos or metrics.</div>
+        <div>A dropdown taller than the viewport.</div>
+      </div>
+    </div>
+    <div style="background:#0D0D0F;border-radius:12px;padding:28px;color:#cfcfcf">
+      <h3 style="font-size:17px;font-weight:700;color:#fff">Before shipping a page</h3>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;font-size:15px;color:rgba(255,255,255,.7)">
+        <div>Check 1440, 1180, 980, 760 and 390 wide, and one 1366×768 laptop.</div>
+        <div>Confirm the hero CTA needs no scroll at 768px tall.</div>
+        <div>Open every dropdown at 768px tall.</div>
+        <div>Scroll once to confirm reveals fire and never re-hide.</div>
+        <div>Confirm no heading exceeds two lines at 1440.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSpecs&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Annotations&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { hideSpecs: this.props.showSpecs === false };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,2851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Wappnet.AI | Enterprise AI Solutions & Applied Intelligence</title>
+  <meta name="description"
+    content="Welcome to Wappnet.AI — premier destination for cutting-edge Artificial Intelligence and Data Analytics solutions. Reshaping industries through transformative technology and bespoke engineering.">
+  <!-- Google Fonts: Archivo & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome Icons 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./image-slot.js"></script>
+  <style>
+    /* Exact Match "HOW WE DO / We Can Help You To" Section (Matching Attached Image & Opinion CTA Background) */
+    .how-we-do-container {
+      position: relative;
+      background: linear-gradient(145deg, #1e0921 0%, #100618 45%, #07030c 100%);
+      border-radius: 28px;
+      padding: 72px 48px;
+      overflow: hidden;
+      box-shadow: 0 35px 80px -15px rgba(11, 4, 18, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .how-we-do-header-center {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .how-we-do-badge {
+      display: inline-block;
+      background: #E8541F;
+      color: #ffffff;
+      font-family: 'Archivo', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .how-we-do-h2 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .how-we-do-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .how-we-do-card {
+      padding: 0 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .how-we-do-card:first-child {
+      padding-left: 0;
+    }
+
+    .how-we-do-card:last-child {
+      padding-right: 0;
+    }
+
+    .how-we-do-card:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .how-we-do-icon {
+      font-size: 40px;
+      color: #E8541F;
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      line-height: 1;
+      height: 48px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .how-we-do-card:hover .how-we-do-icon {
+      transform: translateY(-2px);
+      color: #FF8A3D;
+    }
+
+    .how-we-do-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 14px 0;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .how-we-do-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+
+
+    /* Exact Match Overview Carousel Card Design */
+    .overview-carousel-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    /* =========================================================================
+       2B. CREATIVE BORDERLESS METRICS RIBBON
+       ========================================================================= */
+    .about-metrics-ribbon {
+      padding: 80px 0;
+      position: relative;
+      z-index: 3;
+      background: #ffffff;
+    }
+
+    .metrics-ribbon-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .metrics-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .metric-column-item {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 0 36px;
+      transition: transform 0.25s ease;
+    }
+
+    .metric-column-item:first-child {
+      padding-left: 0;
+    }
+
+    .metric-column-item:last-child {
+      padding-right: 0;
+    }
+
+    .metric-column-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .metric-column-item:hover {
+      transform: translateY(-4px);
+    }
+
+
+
+    .metric-stat-number {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(40px, 4.4vw, 54px);
+      font-weight: 800;
+      color: #141414;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin: 0 0 10px 0;
+    }
+
+    .metric-stat-number .accent-orange {
+      color: #E8541F;
+    }
+
+    .metric-stat-number .stat-symbol {
+      font-size: 34px;
+      font-weight: 700;
+      color: #E8541F;
+      vertical-align: top;
+      margin-left: 2px;
+    }
+
+    .metric-stat-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #141414;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .metrics-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 0;
+      }
+
+      .metric-column-item {
+        padding: 0 24px;
+      }
+
+      .metric-column-item:nth-child(odd) {
+        padding-left: 0;
+      }
+
+      .metric-column-item:nth-child(even) {
+        padding-right: 0;
+      }
+
+      .metric-column-item:nth-child(2)::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .metrics-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .metric-column-item {
+        padding: 0 0 28px 0;
+      }
+
+      .metric-column-item::after {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 1px;
+      }
+
+      .metric-column-item:last-child::after {
+        display: none;
+      }
+    }
+
+    /* =========================================================================
+       3. OVERVIEW / ABOUT US SECTION (Matching Reference Image)
+       ========================================================================= */
+    .overview-modern-section {
+      padding: 80px 0;
+      background: #EDEAE4;
+      position: relative;
+    }
+
+    .overview-top-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: flex-end;
+      margin-bottom: 56px;
+    }
+
+    .overview-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid #ECEAE6;
+      border-radius: 30px;
+      padding: 6px 16px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #141414;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      margin-bottom: 20px;
+    }
+
+    .overview-eyebrow-pill .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #E8541F;
+      display: inline-block;
+    }
+
+    .overview-main-heading {
+      font-family: 'Archivo', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #141414;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+
+    .overview-intro-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #555555;
+      margin: 0;
+    }
+
+    .overview-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .overview-feature-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #ECEAE6;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      padding: 30px 26px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .overview-feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(232, 84, 31, 0.10);
+      border-color: rgba(232, 84, 31, 0.35);
+    }
+
+    .overview-card-circle-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #ffffff;
+      transition: transform .25s ease;
+    }
+
+    .overview-feature-card:hover .overview-card-circle-icon {
+      transform: scale(1.08);
+    }
+
+    .overview-card-circle-icon.icon-orange {
+      background: #E8541F;
+      box-shadow: 0 8px 22px rgba(232, 84, 31, 0.32);
+    }
+
+    .overview-card-circle-icon.icon-dark {
+      background: #141414;
+      box-shadow: 0 8px 22px rgba(20, 20, 20, 0.28);
+    }
+
+    .overview-card-content {
+      flex: 1;
+    }
+
+    .overview-card-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #141414;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .overview-card-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #555555;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .overview-top-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .overview-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+
+    /* =========================================================================
+       3.5 CAREERS IMPACT BANNER (Matching Reference Image)
+       ========================================================================= */
+    .careers-impact-section {
+      padding: 80px 0;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient Background Blooms & Abstract Matrix (matching index.html) */
+    .careers-bg-glow {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .careers-glow-left {
+      top: 15%;
+      left: -8%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(232, 84, 31, 0.12) 0%, transparent 70%);
+      filter: blur(60px);
+    }
+
+    .careers-glow-right {
+      bottom: -10%;
+      right: -6%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(232, 84, 31, 0.08) 0%, transparent 70%);
+      filter: blur(80px);
+    }
+
+    .careers-abstract-dots {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background-image: radial-gradient(circle, rgba(232, 84, 31, 0.28) 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .careers-dots-top-left {
+      top: 20px;
+      left: 15px;
+    }
+
+    .careers-dots-bottom-right {
+      bottom: 25px;
+      right: 25px;
+    }
+
+    .careers-abstract-shape {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .shape-top-right {
+      top: -89px;
+      right: -6%;
+      animation: floatShapeSlow 12s ease-in-out infinite alternate;
+    }
+
+    .shape-bottom-left {
+      bottom: -20px;
+      left: 2%;
+      animation: floatShapeSlow 10s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatShapeSlow {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(-8px) rotate(4deg);
+      }
+    }
+
+    .careers-impact-banner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 480px;
+      z-index: 2;
+    }
+
+    .careers-image-wrapper {
+      position: relative;
+      width: 68%;
+      margin-left: auto;
+      height: 480px;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+      border: 1px solid #ECEAE6;
+    }
+
+    .careers-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .careers-impact-banner:hover .careers-image-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .careers-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(15, 12, 10, 0.45) 0%, rgba(15, 12, 10, 0.1) 60%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .careers-overlay-card {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 440px;
+      background: linear-gradient(145deg, #141414 0%, #1E1A18 100%);
+      border-radius: 20px;
+      padding: 42px 38px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(232, 84, 31, 0.22);
+      z-index: 2;
+      color: #ffffff;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .careers-impact-banner:hover .careers-overlay-card {
+      transform: translateY(calc(-50% - 4px));
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(232, 84, 31, 0.35);
+    }
+
+    .careers-avatar-stack {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .careers-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2.5px solid #ffffff;
+      background-image: url('images/team_avatars.jpg');
+      background-size: 200% 200%;
+      margin-left: -10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      background-color: #1a1a1a;
+      flex-shrink: 0;
+    }
+
+    .careers-avatar:first-child {
+      margin-left: 0;
+    }
+
+    .careers-avatar.avatar-1 {
+      background-position: 8% 8%;
+    }
+
+    .careers-avatar.avatar-2 {
+      background-position: 92% 8%;
+    }
+
+    .careers-avatar.avatar-3 {
+      background-position: 8% 92%;
+    }
+
+    .careers-avatar.avatar-4 {
+      background-position: 92% 92%;
+    }
+
+    .careers-card-heading {
+      font-family: 'Archivo', sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin: 0 0 16px 0;
+    }
+
+    .careers-card-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.62;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 0 0 28px 0;
+    }
+
+    .careers-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #E8541F;
+      color: #ffffff;
+      font-family: 'Archivo', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(232, 84, 31, 0.38);
+      transition: all .25s ease;
+    }
+
+    .careers-cta-btn:hover {
+      background: #FF6F3C;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(232, 84, 31, 0.55);
+      color: #ffffff;
+    }
+
+    @media (max-width: 992px) {
+      .careers-impact-banner {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .careers-image-wrapper {
+        width: 100%;
+        height: 320px;
+        margin-left: 0;
+      }
+
+      .careers-overlay-card {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-top: -36px;
+        box-sizing: border-box;
+      }
+
+      .careers-impact-banner:hover .careers-overlay-card {
+        transform: none;
+      }
+    }
+
+    /* =========================================================================
+       3.8 TESTIMONIALS SECTION (Exact Match from User Reference Image)
+       ========================================================================= */
+    .testimonials-section {
+      padding-bottom: 80px;
+      padding-top: 0px;
+      background: #ffffff;
+      position: relative;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-eyebrow {
+      font-family: 'Archivo', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #E8541F;
+      margin-bottom: 12px;
+    }
+
+    .testimonials-heading {
+      font-family: 'Archivo', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #141414;
+      letter-spacing: -0.025em;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .testimonial-card-main {
+      background: #F1F3F6;
+      border-radius: 26px 26px 0 0;
+      padding: 44px 36px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .testimonial-quote-icon {
+      color: #CBD2DF;
+      margin-bottom: 24px;
+      display: block;
+      line-height: 1;
+      transition: color .25s ease, transform .25s ease;
+    }
+
+    .testimonial-quote-icon svg {
+      width: 36px;
+      height: 26px;
+      display: block;
+    }
+
+    .testimonial-card:hover .testimonial-quote-icon {
+      color: #E8541F;
+      transform: scale(1.06);
+    }
+
+    .testimonial-quote-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.42;
+      color: #141414;
+      letter-spacing: -0.015em;
+      margin: 0;
+    }
+
+    .testimonial-card-footer {
+      display: flex;
+      height: 74px;
+      position: relative;
+    }
+
+    .testimonial-author-notch {
+      flex: 1;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px 0 0;
+      border-radius: 0 0 0 26px;
+    }
+
+    .testimonial-author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-image: url('images/team_avatars.jpg');
+      background-size: 200% 200%;
+      background-color: #141414;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .testimonial-author-avatar.avatar-1 {
+      background-position: 8% 8%;
+    }
+
+    .testimonial-author-avatar.avatar-2 {
+      background-position: 8% 92%;
+    }
+
+    .testimonial-author-avatar.avatar-3 {
+      background-position: 92% 8%;
+    }
+
+    .testimonial-author-name {
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #141414;
+      line-height: 1.2;
+    }
+
+    .testimonial-author-handle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12.5px;
+      color: #7a7a7a;
+      margin-top: 2px;
+    }
+
+    .testimonial-card-tab {
+      width: 40%;
+      background: #F1F3F6;
+      border-radius: 0 0 26px 26px;
+      position: relative;
+    }
+
+    .testimonial-card-tab::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -22px;
+      width: 22px;
+      height: 22px;
+      background: transparent;
+      border-top-right-radius: 22px;
+      box-shadow: 6px -6px 0 0 #F1F3F6;
+      pointer-events: none;
+    }
+
+    .testimonials-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 52px;
+    }
+
+    .testimonial-dot {
+      height: 4px;
+      border-radius: 4px;
+      background: #E2E6ED;
+      transition: all .25s ease;
+      display: inline-block;
+    }
+
+    .testimonial-dot.active {
+      width: 28px;
+      background: #141414;
+    }
+
+    .testimonial-dot:not(.active) {
+      width: 8px;
+    }
+
+    @media (max-width: 992px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .how-we-do-container {
+        padding: 40px 24px;
+      }
+
+      .how-we-do-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .how-we-do-card {
+        padding: 0 0 32px 0;
+      }
+
+      .how-we-do-card:not(:last-child)::after {
+        right: 0;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="site-header" class="site-header"
+    style="position:fixed;top:0;left:0;right:0;z-index:80;background:transparent;border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease">
+    <div
+      style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Wappnet Home.dc.html" style="display:flex;align-items:center;flex:none"><img src="uploads/white-logo.png"
+          alt="Wappnet.ai" style="height:26px;width:auto;display:block"></a>
+
+      <nav class="site-desktop-nav" style="margin-left:auto">
+        <div style="display:flex;align-items:center;gap:2px">
+          <div data-menu-target="services" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Services<span class="site-nav-bar" data-nav-bar="services"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="solutions" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Solutions<span class="site-nav-bar" data-nav-bar="solutions"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="consulting" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Consulting<span class="site-nav-bar" data-nav-bar="consulting"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="industries" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Industries<span class="site-nav-bar" data-nav-bar="industries"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="work" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Our Work<span class="site-nav-bar" data-nav-bar="work"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <a href="about.html" data-menu-target="company" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            ;cursor:pointer;text-decoration:none" style-hover="color:#fff">About<span class="site-nav-bar"
+              data-nav-bar="company"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></a>
+        </div>
+      </nav>
+
+      <a class="site-nav-contact-btn" href="#contact"
+        style="flex:none;background:#fff;color:#0D0D0F;border-radius:6px;padding:11px 20px;font-size:14.5px;font-weight:700;font-family:'Archivo',sans-serif;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease"
+        style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);color:#0D0D0F">Contact us</a>
+
+      <button class="site-mobile-menu-btn" id="site-mobile-toggle" aria-label="Toggle Navigation Menu"
+        style="margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;color:#fff;padding:9px 14px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Menu</button>
+    </div>
+
+    <div class="site-mega-menu-wrapper" data-menu-panel="services">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div id="svc-panel-container"
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:18px;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:14px 24px;align-items:start;max-height:calc(100vh - 92px);overflow-y:auto;animation:panelIn .2s ease-out both">
+            <div data-promo
+              style="background:#0D0D0F;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0;position:sticky;top:0">
+              <div style="padding:22px 22px 18px">
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:#fff;text-wrap:pretty">
+                  AI, Data &amp; ML systems that make it to <span style="color:#E8541F">production.</span></h3>
+                <p
+                  style="margin-top:12px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.66);text-wrap:pretty">
+                  From strategy and prototype to integration, analytics, security and scale — senior engineers working
+                  inside your existing technology ecosystem.</p>
+                <a href="#capabilities"
+                  style="margin-top:16px;display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:10px 16px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                  style-hover="background:#fff;color:#0D0D0F">Explore AI services <span
+                    style="font-size:16px;flex:none">→</span></a>
+              </div>
+              <div data-promo-visual style="position:relative;height:110px;flex:none;margin-top:auto"><image-slot
+                  id="menu-services-visual" shape="rect" placeholder="AI visual · 600×220px"></image-slot></div>
+            </div>
+            <div id="svc-grid-container" style="display:grid;grid-template-columns:1fr 1fr;gap:0 26px;min-width:0">
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:none">
+                <a href="index.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI
+                        Consulting &amp; Development Services</span>
+                      <span
+                        style="background:#E8541F;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:0.04em">Featured</span>
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">End-to-end
+                      strategic AI consulting, custom model engineering, and scalable enterprise intelligence
+                      platforms.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Explore
+                      service <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:none">
+                <a href="Wappnet AI Service.dc.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="6" y="9" width="12" height="9" rx="2.4"></rect>
+                      <path d="M12 6V4.2"></path>
+                      <circle cx="12" cy="3.4" r="1.1"></circle>
+                      <path d="M9.6 12.6h.01M14.4 12.6h.01M10 15.4h4"></path>
+                      <path d="M4 12v2.6M20 12v2.6"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI
+                        Agents &amp; Workflow Automation</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build
+                      intelligent agents that reason, act and automate workflows across your business systems.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="Wappnet AI Service.dc.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M11 5.2a2.7 2.7 0 0 0-4.9 1.5c-1.3.5-2.1 1.7-2.1 3.1 0 .9.4 1.8 1 2.4-.4.5-.6 1.2-.6 1.9 0 1.6 1.3 3 2.9 3.1h1.7M13 5.2a2.7 2.7 0 0 1 4.9 1.5c1.3.5 2.1 1.7 2.1 3.1 0 .9-.4 1.8-1 2.4.4.5.6 1.2.6 1.9 0 1.6-1.3 3-2.9 3.1h-1.7">
+                      </path>
+                      <path d="M12 4v16"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Enterprise
+                        RAG &amp; Knowledge AI</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Secure
+                      AI assistants connected to your documents, databases and internal tools.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="Wappnet AI Service.dc.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"></path>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Voice
+                        &amp; Conversational AI</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">AI
+                      voice and messaging agents for sales, support, scheduling and customer operations.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="#capabilities"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI-Powered
+                        Product Engineering</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build
+                      AI-native products or add AI capabilities to existing software architectures.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="#capability-depth"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Data
+                        Engineering &amp; AI-Ready Data</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build
+                      reliable pipelines, lakehouses and data foundations for analytics and AI.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="#capability-depth"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 3v18h18"></path>
+                      <path d="m19 9-5 5-4-4-3 3"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Machine
+                        Learning &amp; Predictive AI</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Build
+                      ML systems for forecasting, classification, recommendation and fraud detection.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="#capabilities"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18" cy="18" r="3"></circle>
+                      <circle cx="6" cy="6" r="3"></circle>
+                      <path d="M6 21V9a9 9 0 0 0 9 9"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI
+                        Integration &amp; Modernization</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Connect
+                      AI with your CRM, ERP, APIs, cloud platforms and legacy applications.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="Wappnet AI Service.dc.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect>
+                      <rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect>
+                      <line x1="6" x2="6.01" y1="6" y2="6"></line>
+                      <line x1="6" x2="6.01" y1="18" y2="18"></line>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI
+                        Infrastructure, MLOps &amp; Security</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Deploy,
+                      monitor and secure production AI systems with governance and cost control.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="Wappnet AI Service.dc.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Computer
+                        Vision &amp; Vision AI</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Detection,
+                      inspection and document vision models for real operational environments.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="Wappnet AI Service.dc.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z">
+                      </path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">Generative
+                        AI &amp; LLM Engineering</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Fine-tuning,
+                      prompt systems and evaluation harnesses built for production workloads.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+              <div data-svc-card
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0;border-top:1px solid #EEECE8">
+                <a href="Wappnet AI Service.dc.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none"
+                  style-hover="color:#141414">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                      </path>
+                      <path
+                        d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                      </path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;text-wrap:pretty;color:#141414">AI
+                        POC to Production</span>
+
+                    </span>
+                    <span data-svc-copy
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45;text-wrap:pretty">Move
+                      from prototype to high-throughput, enterprise-grade AI production systems.</span>
+                    <span data-svc-more
+                      style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:#E8541F">Learn
+                      more <span style="font-size:15px;flex:none">→</span></span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mega-menu-wrapper" data-menu-panel="solutions">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+            <div
+              style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+              <div>
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">
+                  Solutions built on your own data</h3>
+                <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">
+                  Named outcomes rather than practice pages. Each one starts from data you already have.</p>
+              </div>
+              <a href="#stories"
+                style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                style-hover="background:#fff;color:#141414">See the work</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 36px">
+              <div>
+                <a href="Wappnet AI Service.dc.html"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">AI applications<span style="font-size:15px;flex:none">↗</span></a>
+                <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Assistants and copilots</a>
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">RAG and retrieval</a>
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Document extraction</a>
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Agentic automation</a>
+                </div>
+              </div>
+              <div>
+                <a href="#capability-depth"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Data platform<span style="font-size:15px;flex:none">↗</span></a>
+                <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Warehouse
+                    and lakehouse</a>
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Ingestion
+                    pipelines</a>
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Governance and lineage</a>
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Cost
+                    optimization</a>
+                </div>
+              </div>
+              <div>
+                <a href="#capability-depth"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Analytics<span style="font-size:15px;flex:none">↗</span></a>
+                <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">BI and
+                    reporting</a>
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Forecasting models</a>
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Recommendations</a>
+                  <a href="#capability-depth" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Customer
+                    analytics</a>
+                </div>
+              </div>
+              <div>
+                <a href="#capabilities"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Modernization<span style="font-size:15px;flex:none">↗</span></a>
+                <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                  <a href="#capabilities" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Legacy
+                    migration</a>
+                  <a href="#capabilities" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Cloud
+                    replatforming</a>
+                  <a href="#capabilities" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Technical
+                    debt reduction</a>
+                </div>
+              </div>
+              <div>
+                <a href="#capabilities"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Operations<span style="font-size:15px;flex:none">↗</span></a>
+                <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">MLOps and LLMOps</a>
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Monitoring and evals</a>
+                  <a href="#contact" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Managed
+                    support</a>
+                </div>
+              </div>
+              <div>
+                <a href="#capabilities"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Security<span style="font-size:15px;flex:none">↗</span></a>
+                <div style="margin-top:14px;display:flex;flex-direction:column;gap:11px">
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Private model hosting</a>
+                  <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
+                    style-hover="color:#141414">Responsible AI</a>
+                  <a href="#faq" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Compliance reviews</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mega-menu-wrapper" data-menu-panel="consulting">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+            <div
+              style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+              <div>
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">
+                  Know what is worth building before you build it</h3>
+                <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">A
+                  fixed-fee assessment that ends with a ranked shortlist and an estimate on each item.</p>
+              </div>
+              <a href="#contact"
+                style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                style-hover="background:#fff;color:#141414">Start an assessment</a>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px 40px">
+              <a href="Wappnet AI Service.dc.html"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="10.8" cy="10.8" r="6.3"></circle>
+                    <path d="M15.4 15.4 20 20"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">AI
+                    Readiness Assessment</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Two
+                    weeks to a ranked shortlist with estimates</span>
+                </span>
+              </a>
+              <a href="Wappnet AI Service.dc.html"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3.5 20.5h17"></path>
+                    <path d="M4.5 16.5 9.5 11l3.5 3 6-7.5"></path>
+                    <path d="M15.5 6.5h3.5V10"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Opportunity
+                    Mapping</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Value,
+                    data readiness and effort on every use case</span>
+                </span>
+              </a>
+              <a href="Wappnet AI Service.dc.html"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3.5 20 8l-8 4.5L4 8z"></path>
+                    <path d="M4 12.5 12 17l8-4.5"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Model
+                    &amp; Architecture Selection</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">The
+                    right model, hosting and stack for your needs</span>
+                </span>
+              </a>
+              <a href="Wappnet AI Service.dc.html"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3.5 19.5 6v6c0 4.2-3.1 7-7.5 8.4C7.6 19 4.5 16.2 4.5 12V6z"></path>
+                    <path d="M9.2 11.8l2.1 2.1 3.9-4"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Responsible
+                    AI &amp; Governance</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Guardrails,
+                    evaluation and explainability</span>
+                </span>
+              </a>
+              <a href="#capability-depth"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="12" cy="6.4" rx="7" ry="2.7"></ellipse>
+                    <path d="M5 6.4v11.2c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7V6.4"></path>
+                    <path d="M5 12c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Data
+                    Strategy</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">What
+                    to fix first, and what to leave alone</span>
+                </span>
+              </a>
+              <a href="#capabilities"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M12 3.5v4M12 16.5v4M4.5 12h4M15.5 12h4M6.7 6.7l2.8 2.8M14.5 14.5l2.8 2.8M17.3 6.7l-2.8 2.8M9.5 14.5l-2.8 2.8">
+                    </path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Team
+                    Enablement</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Your
+                    engineers take it over with the runbook written</span>
+                </span>
+              </a>
+            </div>
+            <div style="grid-column:1/-1;margin-top:8px;padding-top:26px;border-top:1px solid #EEECE8">
+              <div
+                style="background:linear-gradient(100deg,#F9B08C 0%,#E8541F 100%);border-radius:12px;padding:18px 20px 18px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+                <span
+                  style="font-family:'Archivo',sans-serif;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#141414">Looking
+                  for something else?</span>
+                <a href="#contact"
+                  style="background:#fff;color:#141414;border-radius:10px;padding:14px 34px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease"
+                  style-hover="transform:translateY(-2px);color:#141414">Talk to sales</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mega-menu-wrapper" data-menu-panel="industries">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+            <div
+              style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+              <div>
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">
+                  Four sectors we already speak the language of</h3>
+                <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">
+                  We know the data model, the regulator and the vocabulary before the first workshop.</p>
+              </div>
+              <a href="#industries"
+                style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                style-hover="background:#fff;color:#141414">All industries</a>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px 40px">
+              <a href="#industries"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="7.5" width="16" height="12.5" rx="2"></rect>
+                    <path d="M8.8 7.5V6a3.2 3.2 0 0 1 6.4 0v1.5"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Retail
+                    &amp; Ecommerce</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Forecasting,
+                    pricing and personalization</span>
+                </span>
+              </a>
+              <a href="#industries"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20s-7-4.3-7-9.2A4 4 0 0 1 12 8a4 4 0 0 1 7 2.8C19 15.7 12 20 12 20z"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Healthcare
+                    &amp; Life Sciences</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Claims,
+                    triage and clinical operations</span>
+                </span>
+              </a>
+              <a href="#industries"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3.5 9.5 12 4.5l8.5 5"></path>
+                    <path d="M5.5 9.5v9M18.5 9.5v9M9.5 12v6.5M14.5 12v6.5M3.5 20.5h17"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">Financial
+                    Services</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Risk,
+                    reporting and month-end close</span>
+                </span>
+              </a>
+              <a href="#industries"
+                style="display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:12px;margin:-12px;border-radius:12px;color:#141414"
+                style-hover="background:#F7F6F4;color:#141414">
+                <span
+                  style="width:44px;height:44px;border-radius:10px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                    width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="7.5" y="7.5" width="9" height="9" rx="1.6"></rect>
+                    <path d="M10 4.5v3M14 4.5v3M10 16.5v3M14 16.5v3M4.5 10h3M4.5 14h3M16.5 10h3M16.5 14h3"></path>
+                  </svg></span>
+                <span style="display:block">
+                  <span
+                    style="display:block;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3">High-Tech</span>
+                  <span
+                    style="display:block;margin-top:5px;font-size:14.5px;color:#7a7a7a;line-height:1.5;text-wrap:pretty">Product
+                    analytics and platform engineering</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mega-menu-wrapper" data-menu-panel="work">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+            <div
+              style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+              <div>
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">
+                  Outcomes, not logos on a wall</h3>
+                <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">
+                  Every case study leads with the number that changed and how long it took.</p>
+              </div>
+              <a href="#stories"
+                style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                style-hover="background:#fff;color:#141414">All case studies</a>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+              <div style="display:flex;flex-direction:column">
+                <a href="#stories"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Case studies<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="#stories"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Client testimonials<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="#stories"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Success metrics<span style="font-size:17px;flex:none">↗</span></a>
+              </div>
+              <div style="display:flex;flex-direction:column">
+                <a href="#insights"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Blog<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="#insights"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">News<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="#insights"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Events<span style="font-size:17px;flex:none">↗</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mega-menu-wrapper" data-menu-panel="company">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr) minmax(0,240px);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+            <div
+              style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+              <div>
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">
+                  One company, two teams</h3>
+                <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">
+                  wappnet.com builds the products. wappnet.ai builds the AI and data behind them.</p>
+              </div>
+              <a href="about.html"
+                style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                style-hover="background:#fff;color:#141414">About Wappnet</a>
+            </div>
+            <div style="display:flex;flex-direction:column">
+              <a href="about.html"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">About us<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="#"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Leadership team<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="#stack"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Partners<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="#stack"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Certifications<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="#"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Careers<span style="font-size:17px;flex:none">↗</span></a>
+            </div>
+            <div style="position:relative;height:300px;border-radius:12px;overflow:hidden"><image-slot id="menu-company"
+                shape="rect" placeholder="Team photo · 480×600px"></image-slot></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mobile-drawer" id="site-mobile-drawer">
+      <div style="background:#0D0D0F;border-top:1px solid rgba(255,255,255,.10);animation:panelIn .22s ease-out both">
+        <div style="max-width:1200px;margin:0 auto;padding:20px 24px 32px;display:flex;flex-direction:column;gap:2px">
+          <a href="index.html"
+            style="color:#E8541F;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">AI Consulting &amp; Development Services</a>
+          <a href="#capabilities"
+            style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">Services</a>
+          <a href="#capability-depth"
+            style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">Solutions</a>
+          <a href="Wappnet AI Service.dc.html"
+            style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">Consulting</a>
+          <a href="#industries"
+            style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">Industries</a>
+          <a href="#stories"
+            style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">Our Work</a>
+          <a href="about.html"
+            style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">Company</a>
+          <a href="#contact"
+            style="margin-top:18px;text-align:center;background:#fff;color:#0D0D0F;border-radius:6px;padding:14px 22px;font-family:'Archivo',sans-serif;font-weight:700">Contact
+            us</a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- =========================================================================
+       1. ABOUT HERO / BANNER SECTION (Using Wappnet.AI Content)
+       ========================================================================= -->
+  <section class="hero-wrapper" id="about-hero"
+    style="min-height:75vh;padding-top:130px;padding-bottom:100px;position:relative;background:radial-gradient(circle at 12% 45%, rgba(200, 48, 36, 0.85) 0%, rgba(135, 26, 52, 0.6) 35%, transparent 68%), radial-gradient(circle at 88% 42%, rgba(24, 48, 145, 0.85) 0%, rgba(55, 20, 85, 0.6) 40%, transparent 70%), linear-gradient(105deg, #9b2229 0%, #6e183d 24%, #3a124a 48%, #1f1446 72%, #142865 100%);display:flex;align-items:center">
+
+    <div class="hero-bg-container">
+      <div class="bg-glow bg-glow-left"></div>
+      <div class="bg-glow bg-glow-center"></div>
+      <div class="bg-glow bg-glow-right"></div>
+      <div class="ai-circuit-grid" aria-hidden="true"></div>
+      <div class="ai-neural-wave wave-2" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-container"
+      style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;width:100%">
+      <div style="max-width:860px;margin:0 auto;text-align:center">
+
+        <h1
+          style="font-family:'Archivo',sans-serif;font-size:clamp(34px, 5.6vw, 68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:#fff;text-wrap:pretty;margin-bottom:24px">
+          Pioneering <span style="color:rgb(248, 208, 106)">Enterprise AI</span> &amp; Data-Driven Intelligence
+        </h1>
+
+        <p
+          style="font-size:clamp(16.5px, 1.4vw, 19.5px);line-height:1.65;color:rgba(255,255,255,0.88);text-wrap:pretty;margin-bottom:38px;max-width:760px;margin-left:auto;margin-right:auto">
+          Welcome to Wappnet.AI, your premier destination for cutting-edge Artificial Intelligence and Data Analytics
+          solutions. We empower businesses to embrace disruptive change by harnessing AI to craft connected experiences
+          and yield tangible outcomes.
+        </p>
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px">
+          <a href="index.html#contact" class="btn-talk-expert"
+            style="display:inline-flex;align-items:center;gap:10px;background:rgb(232,84,31);color:#fff;border-radius:8px;padding:14px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(232,84,31,0.35)"
+            style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,84,31,0.45)">
+            Talk to our expert <i class="fa-solid fa-arrow-right" style="font-size:14px"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       1B. QUICK METRICS RIBBON (Clean, Typography-Driven with Column Dividers)
+       ========================================================================= -->
+  <section class="about-metrics-ribbon">
+    <div class="metrics-ribbon-container">
+      <div class="metrics-cards-grid">
+
+        <!-- Column 1: Top 100 Global -->
+        <div class="metric-column-item">
+          <div class="metric-stat-number">
+            Top <span class="accent-orange">100</span>
+          </div>
+          <h3 class="metric-stat-title">Software Company Global</h3>
+        </div>
+
+        <!-- Column 2: Top 20 AI Products -->
+        <div class="metric-column-item">
+          <div class="metric-stat-number">
+            Top <span class="accent-orange">20</span>
+          </div>
+          <h3 class="metric-stat-title">Software Products &amp; AI</h3>
+        </div>
+
+        <!-- Column 3: 150+ Specialists -->
+        <div class="metric-column-item">
+          <div class="metric-stat-number">
+            150<span class="stat-symbol">+</span>
+          </div>
+          <h3 class="metric-stat-title">AI &amp; Data Specialists</h3>
+        </div>
+
+        <!-- Column 4: 100% Commitment -->
+        <div class="metric-column-item">
+          <div class="metric-stat-number">
+            100<span class="stat-symbol">%</span>
+          </div>
+          <h3 class="metric-stat-title">Client Commitment</h3>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. OVERVIEW SECTION (Matching Reference Image)
+       Styled in Our Brand Theme Colors & Typography
+       ========================================================================= -->
+  <section id="overview" class="overview-modern-section">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- Top Header Row matching Reference Image -->
+      <div class="overview-top-grid">
+
+        <!-- Left Column: 2-Line Heading -->
+        <div>
+          <div class="section-eyebrow-tag">About Wappnet AI</div>
+          <h2 class="overview-main-heading">
+            Introduction To Best<br>AI Innovation!
+          </h2>
+        </div>
+
+        <!-- Right Column: Top Description -->
+        <div>
+          <p class="overview-intro-text">
+            Pioneering autonomous intelligence and strategic AI architectures to elevate enterprise capabilities
+            worldwide. We streamline operations, maximize efficiency, and enhance high-velocity decision-making.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: 3 Floating Feature Cards matching Reference Image -->
+      <div class="overview-cards-grid">
+
+        <!-- Card 1: Mission (Orange Circle Icon) -->
+        <div class="overview-feature-card">
+          <div class="overview-card-circle-icon icon-orange">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <div class="overview-card-content">
+            <h3 class="overview-card-title">Mission</h3>
+            <p class="overview-card-desc">
+              An innovative framework that empowers enterprises to streamline operations, enhance decision-making, and
+              deploy custom machine learning with zero data leakage.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Vision (Dark Circle Icon) -->
+        <div class="overview-feature-card">
+          <div class="overview-card-circle-icon icon-dark">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div class="overview-card-content">
+            <h3 class="overview-card-title">Vision</h3>
+            <p class="overview-card-desc">
+              A forward-looking ecosystem where businesses operate with autonomous AI agents that reason, plan, and
+              orchestrate complex multi-step workflows.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Values (Orange Circle Icon) -->
+        <div class="overview-feature-card">
+          <div class="overview-card-circle-icon icon-orange">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <div class="overview-card-content">
+            <h3 class="overview-card-title">Values</h3>
+            <p class="overview-card-desc">
+              Built on integrity, technical precision, continuous research, and ISO-grade security governance designed
+              to yield measurable enterprise outcomes.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. EXACT MATCH SECTION: "HOW WE DO / We Can Help You To"
+       Styled in Our Brand Theme Colors & Typography (Matching Reference Image)
+       ========================================================================= -->
+  <section id="how-we-do" style="padding:80px 0;background:#ffffff;position:relative">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <div class="how-we-do-container">
+
+        <!-- Atmospheric Studio Lighting Backdrop (matching opinion-cta-section in index.html) -->
+        <div class="opinion-card-bg" aria-hidden="true">
+          <div class="opinion-spotlight-top"></div>
+          <div class="opinion-glow-bottom-left"></div>
+          <div class="opinion-glow-bottom-right"></div>
+          <div class="opinion-grid-lattice"></div>
+        </div>
+
+        <!-- Center Header: Badge and Section Heading -->
+        <div class="how-we-do-header-center">
+          <div class="section-eyebrow-tag center-tag dark-tag">How We Do</div>
+          <h2 class="how-we-do-h2">We Can Help You To</h2>
+        </div>
+
+        <!-- 3-Column Grid matching Attached Image -->
+        <div class="how-we-do-grid">
+
+          <!-- Column 1: Expertise & innovation -->
+          <div class="how-we-do-card">
+            <div class="how-we-do-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <h3 class="how-we-do-title">Expertise &amp; innovation</h3>
+            <p class="how-we-do-desc">
+              We pride ourselves staying at the front innovation, constantly pushing boundaries and redefining what is
+              possible.
+            </p>
+          </div>
+
+          <!-- Column 2: Transparent process -->
+          <div class="how-we-do-card">
+            <div class="how-we-do-icon">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+            </div>
+            <h3 class="how-we-do-title">Transparent process</h3>
+            <p class="how-we-do-desc">
+              Our transparent process is designed to demystify the journey from concept to delivery.
+            </p>
+          </div>
+
+          <!-- Column 3: Client approach -->
+          <div class="how-we-do-card">
+            <div class="how-we-do-icon">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <h3 class="how-we-do-title">Client approach</h3>
+            <p class="how-we-do-desc">
+              Our dedicated team takes the time to listen and collaborate, ensuring every interaction is a step toward
+              success.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3.5 CAREERS IMPACT BANNER (Matching Reference Image)
+       Styled in Our Brand Theme Colors & Typography
+       ========================================================================= -->
+  <section class="careers-impact-section">
+    <!-- Abstract Ambient Glow & Geometric Elements (matching index.html) -->
+    <div class="careers-bg-glow careers-glow-left" aria-hidden="true"></div>
+    <div class="careers-bg-glow careers-glow-right" aria-hidden="true"></div>
+    <div class="careers-abstract-dots careers-dots-top-left" aria-hidden="true"></div>
+    <div class="careers-abstract-dots careers-dots-bottom-right" aria-hidden="true"></div>
+    <!-- Abstract Cybernetic Matrix & Sparkle Shapes (matching index.html) -->
+    <div class="careers-abstract-shape shape-top-right" aria-hidden="true">
+      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 60L100 20L180 60L180 160L100 200L20 160Z" stroke="rgba(232,84,31,0.22)" stroke-width="1.5"
+          stroke-dasharray="4 4" />
+        <path d="M100 20V200" stroke="rgba(232,84,31,0.15)" stroke-width="1.2" />
+        <path d="M20 60L180 160" stroke="rgba(232,84,31,0.12)" stroke-width="1.2" />
+        <path d="M20 160L180 60" stroke="rgba(232,84,31,0.12)" stroke-width="1.2" />
+        <polygon points="100,50 150,75 150,135 100,160 50,135 50,75" stroke="rgba(20,20,20,0.08)" stroke-width="1.2" />
+        <circle cx="100" cy="20" r="4" fill="#E8541F" />
+        <circle cx="180" cy="60" r="3.5" fill="#E8541F" />
+        <circle cx="180" cy="160" r="3" fill="#E8541F" opacity="0.6" />
+        <circle cx="100" cy="200" r="4" fill="#E8541F" />
+        <circle cx="20" cy="160" r="3.5" fill="#E8541F" />
+        <circle cx="20" cy="60" r="3" fill="#E8541F" opacity="0.6" />
+        <circle cx="100" cy="110" r="5" fill="#E8541F" opacity="0.8" />
+      </svg>
+    </div>
+
+    <div class="careers-abstract-shape shape-bottom-left" aria-hidden="true">
+      <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="90" y1="10" x2="90" y2="170" stroke="rgba(232,84,31,0.18)" stroke-width="1.2"
+          stroke-dasharray="3 3" />
+        <line x1="10" y1="90" x2="170" y2="90" stroke="rgba(232,84,31,0.18)" stroke-width="1.2"
+          stroke-dasharray="3 3" />
+        <rect x="90" y="42" width="68" height="68" transform="rotate(45 90 42)" stroke="rgba(20,20,20,0.08)"
+          stroke-width="1.2" />
+        <path d="M90 35C90 65 65 90 35 90C65 90 90 115 90 145C90 115 115 90 145 90C115 90 90 65 90 35Z"
+          fill="url(#sparkleGrad)" opacity="0.85" />
+        <defs>
+          <linearGradient id="sparkleGrad" x1="35" y1="35" x2="145" y2="145" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8A3D" />
+            <stop offset="1" stop-color="#E8541F" />
+          </linearGradient>
+        </defs>
+        <circle cx="90" cy="90" r="4" fill="#ffffff" />
+      </svg>
+    </div>
+
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2">
+
+      <div class="careers-impact-banner">
+
+        <!-- Background Image Container -->
+        <div class="careers-image-wrapper">
+          <img src="images/careers_tech_team.jpg" alt="Wappnet AI Engineering Team" loading="lazy">
+          <div class="careers-image-overlay"></div>
+        </div>
+
+        <!-- Overlapping Floating Dark Card -->
+        <div class="careers-overlay-card">
+
+          <!-- Avatar Stack of 4 Team Portraits -->
+          <div class="careers-avatar-stack">
+            <div class="careers-avatar avatar-1" title="Engineering Lead"></div>
+            <div class="careers-avatar avatar-2" title="AI Researcher"></div>
+            <div class="careers-avatar avatar-3" title="MLOps Architect"></div>
+            <div class="careers-avatar avatar-4" title="Solutions Director"></div>
+          </div>
+
+          <!-- Card Heading -->
+          <h2 class="careers-card-heading">
+            Create Meaningful Impact Through Technology Careers
+          </h2>
+
+          <!-- Card Description -->
+          <p class="careers-card-desc">
+            Join our world-class team of engineers, researchers, and AI architects pioneering autonomous enterprise
+            solutions and next-generation intelligence.
+          </p>
+
+          <!-- Action Button -->
+          <a href="index.html#contact" class="careers-cta-btn">
+            JOIN OUR TEAM
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3.8 TESTIMONIALS SECTION (Matching Reference Image)
+       Styled in Our Brand Theme Colors & Typography
+       ========================================================================= -->
+  <section class="testimonials-section">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- Section Header -->
+      <div class="testimonials-header">
+        <div class="section-eyebrow-tag center-tag">Testimonials</div>
+        <h2 class="testimonials-heading">Transformative Client Experiences</h2>
+      </div>
+
+      <!-- 3 Testimonial Cards Grid -->
+      <div class="testimonials-grid">
+
+        <!-- Card 1: Guy Hawkins -->
+        <div class="testimonial-card">
+          <div class="testimonial-card-main">
+            <div class="testimonial-quote-icon">
+              <svg viewBox="0 0 38 28" fill="currentColor">
+                <path
+                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
+              </svg>
+            </div>
+            <p class="testimonial-quote-text">
+              Impressed by the professionalism and attention to detail.
+            </p>
+          </div>
+          <div class="testimonial-card-footer">
+            <div class="testimonial-author-notch">
+              <div class="testimonial-author-avatar avatar-1"></div>
+              <div>
+                <div class="testimonial-author-name">Guy Hawkins</div>
+                <div class="testimonial-author-handle">@guyhawkins</div>
+              </div>
+            </div>
+            <div class="testimonial-card-tab"></div>
+          </div>
+        </div>
+
+        <!-- Card 2: Karla Lynn -->
+        <div class="testimonial-card">
+          <div class="testimonial-card-main">
+            <div class="testimonial-quote-icon">
+              <svg viewBox="0 0 38 28" fill="currentColor">
+                <path
+                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
+              </svg>
+            </div>
+            <p class="testimonial-quote-text">
+              A seamless experience from start to finish. Highly recommend!
+            </p>
+          </div>
+          <div class="testimonial-card-footer">
+            <div class="testimonial-author-notch">
+              <div class="testimonial-author-avatar avatar-2"></div>
+              <div>
+                <div class="testimonial-author-name">Karla Lynn</div>
+                <div class="testimonial-author-handle">@karlalynn98</div>
+              </div>
+            </div>
+            <div class="testimonial-card-tab"></div>
+          </div>
+        </div>
+
+        <!-- Card 3: Jane Cooper -->
+        <div class="testimonial-card">
+          <div class="testimonial-card-main">
+            <div class="testimonial-quote-icon">
+              <svg viewBox="0 0 38 28" fill="currentColor">
+                <path
+                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
+              </svg>
+            </div>
+            <p class="testimonial-quote-text">
+              Reliable and trustworthy. Made my life so much easier!
+            </p>
+          </div>
+          <div class="testimonial-card-footer">
+            <div class="testimonial-author-notch">
+              <div class="testimonial-author-avatar avatar-3"></div>
+              <div>
+                <div class="testimonial-author-name">Jane Cooper</div>
+                <div class="testimonial-author-handle">@janecooper</div>
+              </div>
+            </div>
+            <div class="testimonial-card-tab"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Dots Indicator -->
+      <div class="testimonials-dots">
+        <span class="testimonial-dot active"></span>
+        <span class="testimonial-dot"></span>
+        <span class="testimonial-dot"></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION (Matching index.html)
+       ========================================================================= -->
+  <section class="faq-section" id="faq" style="padding: 80px 0;">
+    <div class="container-wide" style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- Top Header Area (Centered) -->
+      <div class="faq-header-center">
+        <div class="section-eyebrow-tag center-tag">Got Questions?</div>
+
+        <h2 class="faq-main-title"
+          style="font-family:'Archivo',sans-serif;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#141414;line-height:1.2;margin:0 0 14px 0">
+          Frequently Asked Questions.
+        </h2>
+
+        <p class="faq-subtitle"
+          style="font-family:'DM Sans',sans-serif;font-size:16px;color:#555555;line-height:1.65;margin:0;max-width:620px">
+          Everything you need to know about our enterprise AI consulting, proof-of-concept timelines, tech stack, data
+          compliance, and production SLAs.
+        </p>
+      </div>
+
+      <!-- Bottom Accordion Container (Centered Max-Width) -->
+      <div class="faq-content-wrapper">
+        <div class="faq-accordion-list">
+
+          <!-- Item 1 (Open by default) -->
+          <div class="faq-item active" id="faq-item-1">
+            <button class="faq-question-btn" aria-expanded="true" aria-controls="faq-answer-1">
+              <div class="faq-q-left">
+                <span class="faq-num">01</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">What services does Wappnet.AI specialize in?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-1">
+              <div class="faq-answer-content">
+                <p>Wappnet.AI specializes in providing cutting-edge AI solutions tailored to meet the unique needs of
+                  businesses across various industries. We offer services such as natural language processing (NLP),
+                  computer vision, generative AI, deep learning, enterprise RAG, predictive machine learning, and
+                  comprehensive data engineering services.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item" id="faq-item-2">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-2">
+              <div class="faq-q-left">
+                <span class="faq-num">02</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">How does Wappnet.AI develop custom AI solutions for clients?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-2">
+              <div class="faq-answer-content">
+                <p>Our team of experts works closely with clients to understand their specific challenges and goals. We
+                  develop custom AI solutions that streamline processes, enhance decision-making, and drive innovation,
+                  ultimately helping businesses achieve greater efficiency, security, and market competitiveness.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item" id="faq-item-3">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-3">
+              <div class="faq-q-left">
+                <span class="faq-num">03</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">What industries does Wappnet.AI serve?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-3">
+              <div class="faq-answer-content">
+                <p>We serve a diverse range of industries, including Healthcare, Finance, Retail &amp; E-commerce,
+                  Manufacturing &amp; Supply Chain, Entertainment, Private Equity &amp; Principal Investment, Real
+                  Estate, Automotive, and High-Tech. Our adaptable AI solutions can be tailored to suit the unique
+                  requirements of any business environment.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item" id="faq-item-4">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-4">
+              <div class="faq-q-left">
+                <span class="faq-num">04</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">How does Wappnet.AI ensure data privacy and security?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-4">
+              <div class="faq-answer-content">
+                <p>Data privacy and security are top priorities at Wappnet.AI. We adhere to strict protocols, ISO
+                  compliance standards, and industry best practices to safeguard client data throughout the development
+                  and deployment process. Our systems are designed with zero data retention for training and secure
+                  sovereign VPC deployments.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-item" id="faq-item-5">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-5">
+              <div class="faq-q-left">
+                <span class="faq-num">05</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">Does Wappnet.AI provide ongoing support and maintenance?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-5">
+              <div class="faq-answer-content">
+                <p>Yes, we provide comprehensive support and maintenance services to ensure that your AI solutions
+                  continue to perform optimally over time. Our team is available to address any questions or concerns,
+                  monitor model performance, and provide upgrades as new foundation models and technologies emerge.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer style="background:#141414;color:#cfcfcf;padding:80px 0 40px;font-family:'DM Sans',sans-serif">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- 1. Top Navigation Grid (5 Columns) -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;align-items:start">
+        <div>
+          <a href="Wappnet Home.dc.html" style="display:inline-block">
+            <img src="uploads/white-logo.png" alt="WAPPNET.Ai" style="height:26px;width:auto;display:block">
+          </a>
+          <p style="margin-top:22px;font-size:14.5px;line-height:1.6;color:#a0a0a0;max-width:28ch">The AI and data
+            engineering side of Wappnet, for companies that have outgrown their reporting stack.</p>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">What
+            we do</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="Wappnet AI Service.dc.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">AI</a>
+            <a href="index.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Applied AI consulting</a>
+            <a href="Wappnet Home.dc.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Data &amp; analytics</a>
+            <a href="Wappnet Home.dc.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Data platform engineering</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Company</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="about.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">About us</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Leadership</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Partners</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Certifications</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Insights</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="Wappnet Home.dc.html#stories" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Success stories</a>
+            <a href="Wappnet Home.dc.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Blog</a>
+            <a href="Wappnet Home.dc.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">News</a>
+            <a href="Wappnet Home.dc.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Events</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Careers</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Life at
+              Wappnet</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Current
+              openings</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Submit
+              your profile</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. GET IN TOUCH Section -->
+      <div style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10)">
+        <h3
+          style="font-family:'Archivo',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:28px">
+          GET IN TOUCH</h3>
+
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:start">
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              OFFICIAL WEBSITE</div>
+            <a href="https://www.wappnet.com" target="_blank" rel="noopener"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color .2s"
+              style-hover="color:#F8D06A">www.wappnet.com <span style="font-size:14px">↗</span></a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              BUSINESS QUERIES</div>
+            <a href="mailto:business@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">business@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              CAREER INQUIRIES</div>
+            <a href="mailto:career@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">career@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              GENERAL INFORMATION</div>
+            <a href="mailto:hr@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">hr@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              HR NUMBER</div>
+            <a href="tel:+919173408554"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">(+91) 9173408554</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Global Offices (5 Columns: USA, CANADA, INDIA, AUSTRALIA, DUBAI) -->
+      <div id="global-offices"
+        style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:grid;grid-template-columns:repeat(5,1fr);gap:28px">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-usa" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">USA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">1440 W Taylor St,
+            Chicago, Illinois 60607, US</p>
+          <a href="tel:+13126983083"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-canada" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">CANADA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">7700 Hurontario St
+            #503 # 2009 Brampton, ON L6Y 4M3 Canada</p>
+          <a href="tel:+13126983083"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-india" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">INDIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">403, iSQUARE
+            Corporate Park, Science City Rd, Sola, Ahmedabad</p>
+          <a href="tel:+916353604125"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+91) 6353604125</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-aus" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">AUSTRALIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Parkway, Pakenham
+            3810 Melbourne, Australia</p>
+          <a href="tel:+61405050017"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+61) 405 050 017</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-dubai" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">DUBAI</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Meydan Grandstand,
+            6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+          <a href="tel:+971541618745"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+971) 54 161 8745</a>
+        </div>
+      </div>
+
+      <!-- 4. Ratings & Industry Certifications Badges -->
+      <div
+        style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+
+        <!-- Left Ratings -->
+        <div style="display:flex;align-items:center;gap:36px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-clutch" shape="rect"
+                placeholder="Clutch 104²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.9
+              <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-goodfirm" shape="rect"
+                placeholder="GoodFirm 104²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.8
+              <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+        </div>
+
+        <!-- Right Certifications -->
+        <div style="display:flex;align-items:center;gap:28px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27701"
+                shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO
+              27701:2019</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27001"
+                shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO
+              27001:2022</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-csm" shape="rect"
+                placeholder="CSM 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">CSM
+              Certified</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-aws" shape="rect"
+                placeholder="AWS 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">AWS
+              Partner</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-dnb" shape="rect"
+                placeholder="D&amp;B 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">D-U-N-S
+              Registered</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 5. Bottom Copyright & Social Row -->
+      <div
+        style="margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:14px;color:#7a7a7a">
+        <span>© 2026 Wappnet Systems Global. All rights reserved.</span>
+
+        <div style="display:flex;align-items:center;gap:32px">
+          <div style="display:flex;gap:24px">
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s" style-hover="color:#fff">Privacy
+              policy</a>
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Disclaimer</a>
+          </div>
+
+          <div style="display:flex;gap:10px">
+            <a href="#" aria-label="Instagram"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="4.6"></rect>
+                <circle cx="12" cy="12" r="3.6"></circle>
+                <circle cx="17.1" cy="6.9" r="1.1" fill="#141414" stroke="none"></circle>
+              </svg></a>
+            <a href="#" aria-label="Facebook"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M14.6 8.2h1.9V5.4h-2.3c-2 0-3.2 1.3-3.2 3.3v1.6H9.1v2.8H11V20h2.9v-6.9h2l.4-2.8h-2.4V9.1c0-.6.3-.9.7-.9z"
+                  stroke="none" fill="#141414"></path>
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.4 10v7.2M7.4 6.9v.1M11.4 17.2V10M11.4 13.2c0-1.4.9-2.4 2.3-2.4s2.4 1 2.4 2.4v4"></path>
+              </svg></a>
+            <a href="#" aria-label="Twitter"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20 6.6c-.6.4-1.3.7-2 .8a3.2 3.2 0 0 0-5.5 2.2v.7A9 9 0 0 1 5.2 6.4s-3.1 7 4 10.1a9.3 9.3 0 0 1-5.6 1.5c7.1 4 15.8 0 15.8-9.2 0-.2 0-.4-.1-.7.6-.6 1.2-1.3 1.5-2.1z">
+                </path>
+              </svg></a>
+            <a href="#" aria-label="WhatsApp"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 11.6a7.7 7.7 0 0 1-11.4 6.8L4.4 19.6l1.2-4.1A7.7 7.7 0 1 1 20 11.6z"></path>
+                <path d="M9.4 9.4c0 3 2.2 5.2 5.2 5.2"></path>
+              </svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       1. SITE HEADER & MEGA MENU INTERACTIVITY (Matching Other Pages)
+       ========================================================================= */
+    const siteHeader = document.getElementById('site-header');
+    const navItems = document.querySelectorAll('.site-nav-item[data-menu-target]');
+    const navBars = document.querySelectorAll('.site-nav-bar[data-nav-bar]');
+    const menuPanels = document.querySelectorAll('.site-mega-menu-wrapper[data-menu-panel]');
+    const mobileToggle = document.getElementById('site-mobile-toggle');
+    const mobileDrawer = document.getElementById('site-mobile-drawer');
+
+    let currentActiveMenu = null;
+
+    function updateHeaderVisualState() {
+      if (!siteHeader) return;
+      const isScrolled = window.scrollY > 20;
+
+      if (isScrolled) {
+        siteHeader.style.background = 'rgba(13, 13, 15, 0.94)';
+        siteHeader.style.backdropFilter = 'saturate(160%) blur(12px)';
+        siteHeader.style.webkitBackdropFilter = 'saturate(160%) blur(12px)';
+        siteHeader.style.borderBottomColor = 'rgba(255, 255, 255, 0.10)';
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.style.background = 'transparent';
+        siteHeader.style.backdropFilter = 'none';
+        siteHeader.style.webkitBackdropFilter = 'none';
+        siteHeader.style.borderBottomColor = 'transparent';
+        siteHeader.classList.remove('scrolled');
+      }
+    }
+
+    function openMenu(menuKey) {
+      currentActiveMenu = menuKey;
+      menuPanels.forEach(panel => {
+        if (panel.getAttribute('data-menu-panel') === menuKey) {
+          panel.classList.add('is-active');
+        } else {
+          panel.classList.remove('is-active');
+        }
+      });
+
+      navBars.forEach(bar => {
+        if (bar.getAttribute('data-nav-bar') === menuKey) {
+          bar.style.opacity = '1';
+          bar.style.transform = 'scaleX(1)';
+        } else {
+          bar.style.opacity = '0';
+          bar.style.transform = 'scaleX(0.4)';
+        }
+      });
+
+      updateHeaderVisualState();
+    }
+
+    function closeMenu() {
+      currentActiveMenu = null;
+      menuPanels.forEach(panel => panel.classList.remove('is-active'));
+      navBars.forEach(bar => {
+        bar.style.opacity = '0';
+        bar.style.transform = 'scaleX(0.4)';
+      });
+      updateHeaderVisualState();
+    }
+
+    navItems.forEach(item => {
+      const target = item.getAttribute('data-menu-target');
+      item.addEventListener('mouseenter', () => openMenu(target));
+      item.addEventListener('focus', () => openMenu(target));
+    });
+
+    if (siteHeader) {
+      siteHeader.addEventListener('mouseleave', closeMenu);
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (siteHeader && !siteHeader.contains(e.target)) {
+        closeMenu();
+        if (mobileDrawer) {
+          mobileDrawer.classList.remove('is-open');
+          updateHeaderVisualState();
+        }
+      }
+    });
+
+    // Mobile Menu Drawer Toggle
+    if (mobileToggle && mobileDrawer) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileDrawer.classList.toggle('is-open');
+        updateHeaderVisualState();
+      });
+    }
+
+    // Scroll listener for header background
+    window.addEventListener('scroll', updateHeaderVisualState, { passive: true });
+    updateHeaderVisualState();
+
+    // Universal dynamic hover styling for elements with style-hover attribute
+    document.querySelectorAll('[style-hover]').forEach(el => {
+      const originalStyle = el.getAttribute('style') || '';
+      const hoverStyleStr = el.getAttribute('style-hover');
+
+      const hoverRules = hoverStyleStr.split(';').filter(r => r.trim());
+
+      el.addEventListener('mouseenter', () => {
+        hoverRules.forEach(rule => {
+          const [prop, val] = rule.split(':');
+          if (prop && val) {
+            el.style.setProperty(prop.trim(), val.trim());
+          }
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.setAttribute('style', originalStyle);
+      });
+    });
+
+    /* =========================================================================
+       2. FAQ ACCORDION INTERACTION (Matching index.html)
+       ========================================================================= */
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item) => {
+      const btn = item.querySelector('.faq-question-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach((other) => {
+            other.classList.remove('active');
+            const otherBtn = other.querySelector('.faq-question-btn');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>
