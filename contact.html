@@ -4,148 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Wappnet.AI | Enterprise AI Solutions & Applied Intelligence</title>
+  <title>Contact Us — Wappnet.AI | Enterprise AI Solutions & Consulting</title>
   <meta name="description"
-    content="Welcome to Wappnet.AI — premier destination for cutting-edge Artificial Intelligence and Data Analytics solutions. Reshaping industries through transformative technology and bespoke engineering.">
+    content="Connect with Wappnet.AI's senior AI architects and engineers. Schedule a 30-minute scoping call, request an NDA, or discuss your enterprise AI & data engineering requirements.">
+
   <!-- Google Fonts: Archivo & DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;700&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
+
   <!-- Font Awesome Icons 6.5.2 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="./image-slot.js"></script>
+
   <style>
-    /* Exact Match "HOW WE DO / We Can Help You To" Section (Matching Attached Image & Opinion CTA Background) */
-    .how-we-do-container {
-      position: relative;
-      background: linear-gradient(145deg, #1e0921 0%, #100618 45%, #07030c 100%);
-      border-radius: 28px;
-      padding: 72px 48px;
-      overflow: hidden;
-      box-shadow: 0 35px 80px -15px rgba(11, 4, 18, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
-    }
-
-    .how-we-do-header-center {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .how-we-do-badge {
-      display: inline-block;
-      background: #E8541F;
-      color: #ffffff;
-      font-family: 'Archivo', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .how-we-do-h2 {
-      font-family: 'Archivo', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .how-we-do-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    .how-we-do-card {
-      padding: 0 36px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      position: relative;
-    }
-
-    .how-we-do-card:first-child {
-      padding-left: 0;
-    }
-
-    .how-we-do-card:last-child {
-      padding-right: 0;
-    }
-
-    .how-we-do-card:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .how-we-do-icon {
-      font-size: 40px;
-      color: #E8541F;
-      margin-bottom: 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-start;
-      line-height: 1;
-      height: 48px;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .how-we-do-card:hover .how-we-do-icon {
-      transform: translateY(-2px);
-      color: #FF8A3D;
-    }
-
-    .how-we-do-title {
-      font-family: 'Archivo', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0 0 14px 0;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    .how-we-do-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      color: rgba(255, 255, 255, 0.7);
-      margin: 0;
-    }
-
-
-
-    /* Exact Match Overview Carousel Card Design */
-    .overview-carousel-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 28px;
+    /* Contact Page Specific Styles */
+    :root {
+      --contact-orange: #E8541F;
+      --contact-orange-hover: #d24614;
+      --contact-accent: #F4A557;
+      --contact-highlight: #F8D06A;
+      --contact-dark: #0D0D0F;
+      --contact-surface: #F7F6F4;
+      --contact-border: #E9E7E3;
     }
 
     /* =========================================================================
-       2B. CREATIVE BORDERLESS METRICS RIBBON
+       HERO & METRICS RIBBON (Exact Match to About Page Design)
        ========================================================================= */
     .about-metrics-ribbon {
-      padding: 80px 0;
+      padding: 80px 0 80px;
       position: relative;
       z-index: 3;
       background: #ffffff;
+      border-bottom: 1px solid #EEECE8;
     }
 
     .metrics-ribbon-container {
@@ -191,16 +86,14 @@
       transform: translateY(-4px);
     }
 
-
-
     .metric-stat-number {
       font-family: 'Archivo', sans-serif;
-      font-size: clamp(40px, 4.4vw, 54px);
+      font-size: clamp(38px, 4.2vw, 52px);
       font-weight: 800;
       color: #141414;
       letter-spacing: -0.035em;
       line-height: 1.05;
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
     }
 
     .metric-stat-number .accent-orange {
@@ -208,7 +101,7 @@
     }
 
     .metric-stat-number .stat-symbol {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 700;
       color: #E8541F;
       vertical-align: top;
@@ -217,11 +110,19 @@
 
     .metric-stat-title {
       font-family: 'Archivo', sans-serif;
-      font-size: 16.5px;
+      font-size: 16px;
       font-weight: 700;
       color: #141414;
       line-height: 1.35;
       letter-spacing: -0.01em;
+      margin: 0 0 4px 0;
+    }
+
+    .metric-stat-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      color: #666666;
+      line-height: 1.45;
       margin: 0;
     }
 
@@ -272,623 +173,852 @@
       }
     }
 
-    /* =========================================================================
-       3. OVERVIEW / ABOUT US SECTION (Matching Reference Image)
-       ========================================================================= */
-    .overview-modern-section {
-      padding: 80px 0;
-      background: #EDEAE4;
-      position: relative;
-    }
-
-    .overview-top-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 48px;
-      align-items: flex-end;
-      margin-bottom: 56px;
-    }
-
-    .overview-eyebrow-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ffffff;
-      border: 1px solid #ECEAE6;
-      border-radius: 30px;
-      padding: 6px 16px;
-      font-family: 'Archivo', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #141414;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-      margin-bottom: 20px;
-    }
-
-    .overview-eyebrow-pill .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #E8541F;
-      display: inline-block;
-    }
-
-    .overview-main-heading {
-      font-family: 'Archivo', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: #141414;
-      line-height: 1.18;
-      letter-spacing: -0.025em;
-      margin: 0;
-    }
-
-    .overview-intro-text {
+    .contact-guarantee-sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
-      color: #555555;
-      margin: 0;
-    }
-
-    .overview-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .overview-feature-card {
-      background: #ffffff;
-      border-radius: 20px;
-      border: 1px solid #ECEAE6;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
-      padding: 30px 26px;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      position: relative;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .overview-feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 50px rgba(232, 84, 31, 0.10);
-      border-color: rgba(232, 84, 31, 0.35);
-    }
-
-    .overview-card-circle-icon {
-      width: 56px;
-      height: 56px;
-      min-width: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: #ffffff;
-      transition: transform .25s ease;
-    }
-
-    .overview-feature-card:hover .overview-card-circle-icon {
-      transform: scale(1.08);
-    }
-
-    .overview-card-circle-icon.icon-orange {
-      background: #E8541F;
-      box-shadow: 0 8px 22px rgba(232, 84, 31, 0.32);
-    }
-
-    .overview-card-circle-icon.icon-dark {
-      background: #141414;
-      box-shadow: 0 8px 22px rgba(20, 20, 20, 0.28);
-    }
-
-    .overview-card-content {
-      flex: 1;
-    }
-
-    .overview-card-title {
-      font-family: 'Archivo', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #141414;
-      margin: 0 0 8px 0;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-
-    .overview-card-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14.5px;
-      line-height: 1.6;
-      color: #555555;
-      margin: 0;
-    }
-
-    @media (max-width: 1024px) {
-      .overview-top-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-bottom: 40px;
-      }
-
-      .overview-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-    }
-
-    /* =========================================================================
-       3.5 CAREERS IMPACT BANNER (Matching Reference Image)
-       ========================================================================= */
-    .careers-impact-section {
-      padding: 80px 0;
-      background: #ffffff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Ambient Background Blooms & Abstract Matrix (matching index.html) */
-    .careers-bg-glow {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .careers-glow-left {
-      top: 15%;
-      left: -8%;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(232, 84, 31, 0.12) 0%, transparent 70%);
-      filter: blur(60px);
-    }
-
-    .careers-glow-right {
-      bottom: -10%;
-      right: -6%;
-      width: 520px;
-      height: 520px;
-      background: radial-gradient(circle, rgba(232, 84, 31, 0.08) 0%, transparent 70%);
-      filter: blur(80px);
-    }
-
-    .careers-abstract-dots {
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      background-image: radial-gradient(circle, rgba(232, 84, 31, 0.28) 1.5px, transparent 1.5px);
-      background-size: 16px 16px;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .careers-dots-top-left {
-      top: 20px;
-      left: 15px;
-    }
-
-    .careers-dots-bottom-right {
-      bottom: 25px;
-      right: 25px;
-    }
-
-    .careers-abstract-shape {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .shape-top-right {
-      top: -89px;
-      right: -6%;
-      animation: floatShapeSlow 12s ease-in-out infinite alternate;
-    }
-
-    .shape-bottom-left {
-      bottom: -20px;
-      left: 2%;
-      animation: floatShapeSlow 10s ease-in-out infinite alternate-reverse;
-    }
-
-    @keyframes floatShapeSlow {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      100% {
-        transform: translateY(-8px) rotate(4deg);
-      }
-    }
-
-    .careers-impact-banner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      min-height: 480px;
-      z-index: 2;
-    }
-
-    .careers-image-wrapper {
-      position: relative;
-      width: 68%;
-      margin-left: auto;
-      height: 480px;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
-      border: 1px solid #ECEAE6;
-    }
-
-    .careers-image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .careers-impact-banner:hover .careers-image-wrapper img {
-      transform: scale(1.03);
-    }
-
-    .careers-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(15, 12, 10, 0.45) 0%, rgba(15, 12, 10, 0.1) 60%, transparent 100%);
-      pointer-events: none;
-    }
-
-    .careers-overlay-card {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 440px;
-      background: linear-gradient(145deg, #141414 0%, #1E1A18 100%);
-      border-radius: 20px;
-      padding: 42px 38px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(232, 84, 31, 0.22);
-      z-index: 2;
-      color: #ffffff;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .careers-impact-banner:hover .careers-overlay-card {
-      transform: translateY(calc(-50% - 4px));
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(232, 84, 31, 0.35);
-    }
-
-    .careers-avatar-stack {
-      display: flex;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    .careers-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2.5px solid #ffffff;
-      background-image: url('images/team_avatars.jpg');
-      background-size: 200% 200%;
-      margin-left: -10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-      background-color: #1a1a1a;
-      flex-shrink: 0;
-    }
-
-    .careers-avatar:first-child {
-      margin-left: 0;
-    }
-
-    .careers-avatar.avatar-1 {
-      background-position: 8% 8%;
-    }
-
-    .careers-avatar.avatar-2 {
-      background-position: 92% 8%;
-    }
-
-    .careers-avatar.avatar-3 {
-      background-position: 8% 92%;
-    }
-
-    .careers-avatar.avatar-4 {
-      background-position: 92% 92%;
-    }
-
-    .careers-card-heading {
-      font-family: 'Archivo', sans-serif;
-      font-size: 27px;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-      margin: 0 0 16px 0;
-    }
-
-    .careers-card-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      line-height: 1.62;
-      color: rgba(255, 255, 255, 0.72);
-      margin: 0 0 28px 0;
-    }
-
-    .careers-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #E8541F;
-      color: #ffffff;
-      font-family: 'Archivo', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 13px 28px;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(232, 84, 31, 0.38);
-      transition: all .25s ease;
-    }
-
-    .careers-cta-btn:hover {
-      background: #FF6F3C;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(232, 84, 31, 0.55);
-      color: #ffffff;
-    }
-
-    @media (max-width: 992px) {
-      .careers-impact-banner {
-        flex-direction: column;
-        min-height: auto;
-      }
-
-      .careers-image-wrapper {
-        width: 100%;
-        height: 320px;
-        margin-left: 0;
-      }
-
-      .careers-overlay-card {
-        position: static;
-        transform: none;
-        width: 100%;
-        margin-top: -36px;
-        box-sizing: border-box;
-      }
-
-      .careers-impact-banner:hover .careers-overlay-card {
-        transform: none;
-      }
-    }
-
-    /* =========================================================================
-       3.8 TESTIMONIALS SECTION (Exact Match from User Reference Image)
-       ========================================================================= */
-    .testimonials-section {
-      padding-bottom: 80px;
-      padding-top: 0px;
-      background: #ffffff;
-      position: relative;
-    }
-
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .testimonials-eyebrow {
-      font-family: 'Archivo', sans-serif;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #E8541F;
-      margin-bottom: 12px;
-    }
-
-    .testimonials-heading {
-      font-family: 'Archivo', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: #141414;
-      letter-spacing: -0.025em;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-
-    .testimonial-card {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .testimonial-card-main {
-      background: #F1F3F6;
-      border-radius: 26px 26px 0 0;
-      padding: 44px 36px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 240px;
-      position: relative;
-      box-sizing: border-box;
-    }
-
-    .testimonial-quote-icon {
-      color: #CBD2DF;
-      margin-bottom: 24px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.6);
       display: block;
-      line-height: 1;
-      transition: color .25s ease, transform .25s ease;
-    }
-
-    .testimonial-quote-icon svg {
-      width: 36px;
-      height: 26px;
-      display: block;
-    }
-
-    .testimonial-card:hover .testimonial-quote-icon {
-      color: #E8541F;
-      transform: scale(1.06);
-    }
-
-    .testimonial-quote-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 21px;
-      font-weight: 700;
-      line-height: 1.42;
-      color: #141414;
-      letter-spacing: -0.015em;
-      margin: 0;
-    }
-
-    .testimonial-card-footer {
-      display: flex;
-      height: 74px;
-      position: relative;
-    }
-
-    .testimonial-author-notch {
-      flex: 1;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 12px 0 0;
-      border-radius: 0 0 0 26px;
-    }
-
-    .testimonial-author-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-image: url('images/team_avatars.jpg');
-      background-size: 200% 200%;
-      background-color: #141414;
-      flex-shrink: 0;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .testimonial-author-avatar.avatar-1 {
-      background-position: 8% 8%;
-    }
-
-    .testimonial-author-avatar.avatar-2 {
-      background-position: 8% 92%;
-    }
-
-    .testimonial-author-avatar.avatar-3 {
-      background-position: 92% 8%;
-    }
-
-    .testimonial-author-name {
-      font-family: 'Archivo', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: #141414;
-      line-height: 1.2;
-    }
-
-    .testimonial-author-handle {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12.5px;
-      color: #7a7a7a;
       margin-top: 2px;
     }
 
-    .testimonial-card-tab {
-      width: 40%;
-      background: #F1F3F6;
-      border-radius: 0 0 26px 26px;
+    /* =========================================================================
+       2. REACH & GET IN TOUCH SECTION (ATTACHED DESIGN LAYOUT)
+       ========================================================================= */
+    .reach-touch-section {
+      padding: 80px 0 80px;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reach-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
       position: relative;
     }
 
-    .testimonial-card-tab::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -22px;
-      width: 22px;
-      height: 22px;
-      background: transparent;
-      border-top-right-radius: 22px;
-      box-shadow: 6px -6px 0 0 #F1F3F6;
-      pointer-events: none;
+    .reach-main-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      position: relative;
     }
 
-    .testimonials-dots {
+    /* 1. Left Column: Floating Orange Live Chat Card */
+    .reach-chat-card {
+      flex: 0 0 280px;
+      background: #E8541F;
+      border-radius: 26px;
+      padding: 42px 26px 40px;
+      color: #ffffff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 24px 50px rgba(232, 84, 31, 0.32);
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .reach-chat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px rgba(232, 84, 31, 0.42);
+    }
+
+    .reach-chat-icon {
+      width: 66px;
+      height: 66px;
+      background: #ffffff;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin-top: 52px;
+      color: #E8541F;
+      font-size: 26px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
     }
 
-    .testimonial-dot {
-      height: 4px;
-      border-radius: 4px;
-      background: #E2E6ED;
-      transition: all .25s ease;
+    .reach-chat-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .reach-chat-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .reach-chat-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #141414;
+      font-family: 'Archivo', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 13px 30px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      transition: all 0.25s ease;
+    }
+
+    .reach-chat-btn:hover {
+      background: #141414;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 2. Middle Column: Robot Image (Clean, no background added, as requested) */
+    .reach-robot-wrapper {
+      flex: 1 1 360px;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: -421px;
+      margin-right: 51px;
+    }
+
+    .reach-robot-img {
+      width: 133%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .reach-robot-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* 3. Right Column: Form */
+    .reach-form-wrapper {
+      flex: 1 1 480px;
+      max-width: 520px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reach-badge-wrap {
+      margin-bottom: 14px;
+    }
+
+    .reach-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #141414;
+      text-transform: uppercase;
+    }
+
+    .reach-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #E8541F;
       display: inline-block;
     }
 
-    .testimonial-dot.active {
-      width: 28px;
-      background: #141414;
+    .reach-heading {
+      font-family: 'Archivo', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: #141414;
+      line-height: 1.16;
+      letter-spacing: -0.025em;
+      margin-bottom: 26px;
     }
 
-    .testimonial-dot:not(.active) {
-      width: 8px;
+    .reach-heading .text-orange {
+      color: #E8541F;
     }
 
-    @media (max-width: 992px) {
-      .testimonials-grid {
-        grid-template-columns: 1fr;
+    .reach-inputs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .reach-input-field {
+      position: relative;
+    }
+
+    .reach-input {
+      width: 100%;
+      background: #F4F4F6;
+      border: 1.5px solid transparent;
+      border-radius: 12px;
+      padding: 15px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: #141414;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .reach-input::placeholder {
+      color: #9E9EA7;
+    }
+
+    .reach-input:focus {
+      background: #ffffff;
+      border-color: #E8541F;
+      box-shadow: 0 0 0 4px rgba(232, 84, 31, 0.1);
+    }
+
+    .reach-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 14px;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    .reach-select option {
+      background: #ffffff;
+      color: #141414;
+    }
+
+    .reach-file-field {
+      position: relative;
+    }
+
+    .reach-file-input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .reach-file-label {
+      width: 100%;
+      height: 100%;
+      background: #F4F4F6;
+      border: 1.5px dashed #D6D5DB;
+      border-radius: 12px;
+      padding: 13px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin: 0;
+    }
+
+    .reach-file-field:hover .reach-file-label,
+    .reach-file-input:focus+.reach-file-label {
+      background: #ffffff;
+      border-color: #E8541F;
+      box-shadow: 0 0 0 4px rgba(232, 84, 31, 0.1);
+    }
+
+    .reach-file-icon {
+      color: #E8541F;
+      font-size: 16px;
+      flex: none;
+    }
+
+    .reach-file-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      color: #71717A;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .reach-textarea-field {
+      margin-bottom: 24px;
+    }
+
+    .reach-textarea {
+      width: 100%;
+      background: #F4F4F6;
+      border: 1.5px solid transparent;
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: #141414;
+      outline: none;
+      resize: vertical;
+      min-height: 130px;
+      transition: all 0.25s ease;
+    }
+
+    .reach-textarea::placeholder {
+      color: #9E9EA7;
+    }
+
+    .reach-textarea:focus {
+      background: #ffffff;
+      border-color: #E8541F;
+      box-shadow: 0 0 0 4px rgba(232, 84, 31, 0.1);
+    }
+
+    .reach-btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .reach-submit-btn {
+      background: #E8541F;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 30px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(232, 84, 31, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .reach-submit-btn:hover {
+      background: #d24614;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(232, 84, 31, 0.45);
+    }
+
+    .reach-submit-btn i {
+      transition: transform 0.2s ease;
+    }
+
+    .reach-submit-btn:hover i {
+      transform: translateX(3px);
+    }
+
+    /* Success State */
+    .reach-success-state {
+      display: none;
+      text-align: center;
+      padding: 36px 24px;
+      background: #FAF9F8;
+      border-radius: 16px;
+      border: 1px solid #ECEAE5;
+    }
+
+    .reach-success-state.active {
+      display: block;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .reach-success-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #FDECE4;
+      color: #E8541F;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .reach-success-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #141414;
+      margin-bottom: 8px;
+    }
+
+    .reach-success-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: #555;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .reach-reset-btn {
+      background: none;
+      border: none;
+      color: #E8541F;
+      font-family: 'Archivo', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1120px) {
+      .reach-main-layout {
         gap: 24px;
       }
+
+      .reach-chat-card {
+        flex: 0 0 250px;
+        padding: 32px 20px;
+      }
+
+      .reach-robot-wrapper {
+        flex: 1 1 300px;
+      }
+
+      .reach-heading {
+        font-size: 34px;
+      }
     }
 
-    @media (max-width: 900px) {
-      .how-we-do-container {
-        padding: 40px 24px;
+    @media (max-width: 980px) {
+      .reach-main-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
       }
 
-      .how-we-do-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-
-      .how-we-do-card {
-        padding: 0 0 32px 0;
-      }
-
-      .how-we-do-card:not(:last-child)::after {
-        right: 0;
-        top: auto;
-        bottom: 0;
+      .reach-form-wrapper {
         width: 100%;
-        height: 1px;
+        max-width: 600px;
+        order: 1;
+      }
+
+      .reach-robot-wrapper {
+        width: 100%;
+        max-width: 360px;
+        order: 2;
+      }
+
+      .reach-chat-card {
+        width: 100%;
+        max-width: 480px;
+        order: 3;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .reach-inputs-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .reach-heading {
+        font-size: 28px;
+      }
+
+      .reach-submit-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Right Sidebar Cards */
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .booking-cta-card {
+      background: #0D0D0F;
+      border-radius: 24px;
+      padding: 36px;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 50px rgba(13, 13, 15, 0.25);
+    }
+
+    .booking-cta-card::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 84, 31, 0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .booking-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      color: #F8D06A;
+      font-family: 'Archivo', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .booking-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .booking-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 24px;
+    }
+
+    .booking-perks-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .booking-perk-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .booking-perk-item i {
+      color: #E8541F;
+      font-size: 14px;
+      flex: none;
+    }
+
+    .btn-schedule-call {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #ffffff;
+      color: #0D0D0F;
+      border-radius: 8px;
+      padding: 14px 22px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-schedule-call:hover {
+      background: #F4A557;
+      color: #0D0D0F;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(244, 165, 87, 0.3);
+    }
+
+    /* Direct Contact Inquiries Card */
+    .direct-channels-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px;
+      border: 1px solid #E9E7E3;
+      box-shadow: 0 10px 30px rgba(13, 13, 15, 0.04);
+    }
+
+    .direct-channel-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .direct-channel-item:not(:last-child) {
+      border-bottom: 1px solid #F0EEEA;
+    }
+
+    .direct-channel-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #FDECE4;
+      color: #E8541F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex: none;
+    }
+
+    .direct-channel-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .direct-channel-label {
+      font-family: 'Archivo', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #7a7a7a;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 3px;
+    }
+
+    .direct-channel-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #141414;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .direct-channel-link:hover {
+      color: #E8541F;
+    }
+
+    .live-status-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 10px 14px;
+      background: #EDF7EE;
+      border: 1px solid #C8E6C9;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: #2E7D32;
+      font-weight: 500;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2E7D32;
+      animation: pulseLive 1.8s infinite;
+    }
+
+    @keyframes pulseLive {
+      0% {
+        box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.6);
+      }
+
+      70% {
+        box-shadow: 0 0 0 6px rgba(46, 125, 50, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+      }
+    }
+
+
+
+
+
+
+
+    /* =========================================================================
+       DIRECT CONTACT DETAILS SECTION (Matching 2x2 Clean Layout)
+       ========================================================================= */
+    .direct-channels-section {
+      padding: 80px 0 80px;
+      background: #FFFFFF;
+      border-top: 1px solid #ECEAE5;
+      border-bottom: 1px solid #ECEAE5;
+      position: relative;
+    }
+
+    .direct-channels-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 52px auto;
+    }
+
+    .direct-channels-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(30px, 3.2vw, 38px);
+      font-weight: 800;
+      color: #141414;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 14px 0 12px 0;
+    }
+
+    .direct-channels-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.6;
+      margin: 0 auto;
+    }
+
+    .direct-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 64px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .direct-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      text-decoration: none;
+      color: inherit;
+      padding: 14px 18px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .direct-detail-item:hover {
+      transform: translateX(6px);
+      background: #FFFDFB;
+      border-color: #F9CFBE;
+      box-shadow: 0 10px 30px rgba(232, 84, 31, 0.06);
+    }
+
+    .direct-detail-icon {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F99E38 0%, #E8541F 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex: none;
+      box-shadow: 0 8px 22px rgba(232, 84, 31, 0.28);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .direct-detail-item:hover .direct-detail-icon {
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: 0 12px 28px rgba(232, 84, 31, 0.4);
+    }
+
+    .direct-detail-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .direct-detail-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #E8541F;
+      margin-bottom: 5px;
+      display: block;
+      letter-spacing: 0.02em;
+    }
+
+    .direct-detail-value {
+      font-family: 'Archivo', sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      color: #141414;
+      line-height: 1.32;
+      letter-spacing: -0.02em;
+      word-break: break-word;
+      transition: color 0.2s ease;
+      margin: 0;
+    }
+
+    .direct-detail-item:hover .direct-detail-value {
+      color: #E8541F;
+    }
+
+    .direct-detail-value.address-text {
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 860px) {
+      .direct-details-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 0 10px;
+      }
+
+      .direct-detail-item {
+        padding: 10px 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .direct-channels-section {
+        padding: 60px 0;
+      }
+
+      .direct-detail-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
+      }
+
+      .direct-detail-value {
+        font-size: 18px;
+      }
+
+      .direct-detail-value.address-text {
+        font-size: 15.5px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -896,6 +1026,9 @@
 
 <body>
 
+  <!-- =========================================================================
+       HEADER NAVIGATION (Consistent across Wappnet.AI)
+       ========================================================================= -->
   <header id="site-header" class="site-header"
     style="position:fixed;top:0;left:0;right:0;z-index:80;background:transparent;border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease">
     <div
@@ -931,14 +1064,13 @@
               style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
           </div>
           <a href="about.html" data-menu-target="company" class="site-nav-item"
-            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
-            ;cursor:pointer;text-decoration:none" style-hover="color:#fff">About<span class="site-nav-bar"
-              data-nav-bar="company"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:pointer;white-space:nowrap;transition:color .2s ease;text-decoration:none"
+            style-hover="color:#fff">About<span class="site-nav-bar" data-nav-bar="company"
               style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></a>
         </div>
       </nav>
 
-      <a class="site-nav-contact-btn" href="contact.html"
+      <a class="site-nav-contact-btn" href="#reach-section"
         style="flex:none;background:#fff;color:#0D0D0F;border-radius:6px;padding:11px 20px;font-size:14.5px;font-weight:700;font-family:'Archivo',sans-serif;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease;text-decoration:none"
         style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);color:#0D0D0F">Contact us</a>
 
@@ -1800,7 +1932,7 @@
           <a href="about.html"
             style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
             style-hover="color:#F4A557">Company</a>
-          <a href="contact.html"
+          <a href="#reach-section"
             style="margin-top:18px;text-align:center;background:#fff;color:#0D0D0F;border-radius:6px;padding:14px 22px;font-family:'Archivo',sans-serif;font-weight:700;text-decoration:none">Contact
             us</a>
         </div>
@@ -1810,9 +1942,9 @@
   </header>
 
   <!-- =========================================================================
-       1. ABOUT HERO / BANNER SECTION (Using Wappnet.AI Content)
+       1. CONTACT HERO / BANNER SECTION (Exact Match to About Page Design)
        ========================================================================= -->
-  <section class="hero-wrapper" id="about-hero"
+  <section class="hero-wrapper" id="contact-hero"
     style="padding-top:150px;padding-bottom:150px;position:relative;background:radial-gradient(circle at 12% 45%, rgba(200, 48, 36, 0.85) 0%, rgba(135, 26, 52, 0.6) 35%, transparent 68%), radial-gradient(circle at 88% 42%, rgba(24, 48, 145, 0.85) 0%, rgba(55, 20, 85, 0.6) 40%, transparent 70%), linear-gradient(105deg, #9b2229 0%, #6e183d 24%, #3a124a 48%, #1f1446 72%, #142865 100%);display:flex;align-items:center">
 
     <div class="hero-bg-container">
@@ -1825,25 +1957,30 @@
 
     <div class="hero-container"
       style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;width:100%">
-      <div style="max-width:860px;margin:0 auto;text-align:center">
+      <div style="max-width:880px;margin:0 auto;text-align:center">
 
         <h1
           style="font-family:'Archivo',sans-serif;font-size:clamp(34px, 5.6vw, 68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:#fff;text-wrap:pretty;margin-bottom:24px">
-          Pioneering <span style="color:rgb(248, 208, 106)">Enterprise AI</span> &amp; Data-Driven Intelligence
+          Let’s Engineer <span style="color:rgb(248, 208, 106)">Enterprise AI</span> That Ships &amp; Scales
         </h1>
 
         <p
           style="font-size:clamp(16.5px, 1.4vw, 19.5px);line-height:1.65;color:rgba(255,255,255,0.88);text-wrap:pretty;margin-bottom:38px;max-width:760px;margin-left:auto;margin-right:auto">
-          Welcome to Wappnet.AI, your premier destination for cutting-edge Artificial Intelligence and Data Analytics
-          solutions. We empower businesses to embrace disruptive change by harnessing AI to craft connected experiences
-          and yield tangible outcomes.
+          Connect directly with our senior AI architects and data engineers. Whether scoping a new LLM application,
+          auditing an existing ML pipeline, or building enterprise data infrastructure — we’re ready to partner with
+          you.
         </p>
 
-        <div style="display:flex;align-items:center;justify-content:center;gap:18px">
-          <a href="service.html#contact" class="btn-talk-expert"
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap">
+          <a href="#reach-section" class="btn-talk-expert"
             style="display:inline-flex;align-items:center;gap:10px;background:rgb(232,84,31);color:#fff;border-radius:8px;padding:14px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(232,84,31,0.35)"
             style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,84,31,0.45)">
-            Talk to our expert <i class="fa-solid fa-arrow-right" style="font-size:14px"></i>
+            Send inquiry brief <i class="fa-solid fa-arrow-down" style="font-size:14px"></i>
+          </a>
+          <a href="tel:+13126983083"
+            style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.35);color:#fff;border-radius:8px;padding:14px 26px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:background .2s,border-color .2s;backdrop-filter:blur(8px)"
+            style-hover="background:#fff;color:#141414">
+            <i class="fa-solid fa-phone" style="color:rgb(248, 208, 106);font-size:14px"></i> (+1) 312-698-3083
           </a>
         </div>
 
@@ -1852,26 +1989,28 @@
   </section>
 
   <!-- =========================================================================
-       1B. QUICK METRICS RIBBON (Clean, Typography-Driven with Column Dividers)
+       1B. QUICK METRICS & GUARANTEES RIBBON (Matching About Page Style)
        ========================================================================= -->
   <section class="about-metrics-ribbon">
     <div class="metrics-ribbon-container">
       <div class="metrics-cards-grid">
 
-        <!-- Column 1: Top 100 Global -->
+        <!-- Column 1: < 24hr Response -->
         <div class="metric-column-item">
           <div class="metric-stat-number">
-            Top <span class="accent-orange">100</span>
+            &lt;<span class="accent-orange">24</span><span class="stat-symbol">hr</span>
           </div>
-          <h3 class="metric-stat-title">Software Company Global</h3>
+          <h3 class="metric-stat-title">Response Time Guarantee</h3>
+          <p class="metric-stat-desc">Senior technical architect reply within 1 business day</p>
         </div>
 
-        <!-- Column 2: Top 20 AI Products -->
+        <!-- Column 2: 100% Mutual NDA -->
         <div class="metric-column-item">
           <div class="metric-stat-number">
-            Top <span class="accent-orange">20</span>
+            100<span class="stat-symbol">%</span>
           </div>
-          <h3 class="metric-stat-title">Software Products &amp; AI</h3>
+          <h3 class="metric-stat-title">Mutual NDA First</h3>
+          <p class="metric-stat-desc">Complete IP protection and enterprise confidentiality</p>
         </div>
 
         <!-- Column 3: 150+ Specialists -->
@@ -1880,14 +2019,16 @@
             150<span class="stat-symbol">+</span>
           </div>
           <h3 class="metric-stat-title">AI &amp; Data Specialists</h3>
+          <p class="metric-stat-desc">Senior engineers working directly inside your repos</p>
         </div>
 
-        <!-- Column 4: 100% Commitment -->
+        <!-- Column 4: 0 Discovery Fee -->
         <div class="metric-column-item">
           <div class="metric-stat-number">
-            100<span class="stat-symbol">%</span>
+            <span class="accent-orange">0</span><span class="stat-symbol">$</span>
           </div>
-          <h3 class="metric-stat-title">Client Commitment</h3>
+          <h3 class="metric-stat-title">Initial Scoping Fee</h3>
+          <p class="metric-stat-desc">30-min discovery call &amp; feasibility assessment included</p>
         </div>
 
       </div>
@@ -1895,236 +2036,150 @@
   </section>
 
   <!-- =========================================================================
-       2. OVERVIEW SECTION (Matching Reference Image)
-       Styled in Our Brand Theme Colors & Typography
+       2. REACH & GET IN TOUCH SECTION (Exact Match to User Reference Design)
        ========================================================================= -->
-  <section id="overview" class="overview-modern-section">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+  <section class="reach-touch-section" id="reach-section">
+    <div class="reach-container">
 
-      <!-- Top Header Row matching Reference Image -->
-      <div class="overview-top-grid">
+      <div class="reach-main-layout">
 
-        <!-- Left Column: 2-Line Heading -->
-        <div>
-          <div class="section-eyebrow-tag">About Wappnet AI</div>
-          <h2 class="overview-main-heading">
-            Introduction To Best<br>AI Innovation!
-          </h2>
-        </div>
-
-        <!-- Right Column: Top Description -->
-        <div>
-          <p class="overview-intro-text">
-            Pioneering autonomous intelligence and strategic AI architectures to elevate enterprise capabilities
-            worldwide. We streamline operations, maximize efficiency, and enhance high-velocity decision-making.
+        <!-- Left Column: Orange Floating Live Advisory Card -->
+        <div class="reach-chat-card">
+          <div class="reach-chat-icon">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h3 class="reach-chat-title">Talk To An AI Expert !</h3>
+          <p class="reach-chat-desc" style="margin-bottom:0">
+            Get direct technical answers, evaluate project feasibility, and explore custom architectures tailored to
+            your business goals.
           </p>
         </div>
 
-      </div>
-
-      <!-- Bottom Row: 3 Floating Feature Cards matching Reference Image -->
-      <div class="overview-cards-grid">
-
-        <!-- Card 1: Mission (Orange Circle Icon) -->
-        <div class="overview-feature-card">
-          <div class="overview-card-circle-icon icon-orange">
-            <i class="fa-solid fa-bullseye"></i>
-          </div>
-          <div class="overview-card-content">
-            <h3 class="overview-card-title">Mission</h3>
-            <p class="overview-card-desc">
-              An innovative framework that empowers enterprises to streamline operations, enhance decision-making, and
-              deploy custom machine learning with zero data leakage.
-            </p>
-          </div>
+        <!-- Middle Column: Robot Image (Exact contact-robot.png, no background added, as requested) -->
+        <div class="reach-robot-wrapper">
+          <img src="images/contact-robot.png" alt="Wappnet AI Robot Consultant" class="reach-robot-img">
         </div>
 
-        <!-- Card 2: Vision (Dark Circle Icon) -->
-        <div class="overview-feature-card">
-          <div class="overview-card-circle-icon icon-dark">
-            <i class="fa-solid fa-eye"></i>
-          </div>
-          <div class="overview-card-content">
-            <h3 class="overview-card-title">Vision</h3>
-            <p class="overview-card-desc">
-              A forward-looking ecosystem where businesses operate with autonomous AI agents that reason, plan, and
-              orchestrate complex multi-step workflows.
-            </p>
-          </div>
-        </div>
+        <!-- Right Column: Reach & Get In Touch Form -->
+        <div class="reach-form-wrapper" id="reach-form-wrapper">
 
-        <!-- Card 3: Values (Orange Circle Icon) -->
-        <div class="overview-feature-card">
-          <div class="overview-card-circle-icon icon-orange">
-            <i class="fa-solid fa-gem"></i>
-          </div>
-          <div class="overview-card-content">
-            <h3 class="overview-card-title">Values</h3>
-            <p class="overview-card-desc">
-              Built on integrity, technical precision, continuous research, and ISO-grade security governance designed
-              to yield measurable enterprise outcomes.
-            </p>
-          </div>
-        </div>
+          <div class="section-eyebrow-tag">Contact Us</div>
 
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       3. EXACT MATCH SECTION: "HOW WE DO / We Can Help You To"
-       Styled in Our Brand Theme Colors & Typography (Matching Reference Image)
-       ========================================================================= -->
-  <section id="how-we-do" style="padding:80px 0;background:#ffffff;position:relative">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-
-      <div class="how-we-do-container">
-
-        <!-- Atmospheric Studio Lighting Backdrop (matching opinion-cta-section in index.html) -->
-        <div class="opinion-card-bg" aria-hidden="true">
-          <div class="opinion-spotlight-top"></div>
-          <div class="opinion-glow-bottom-left"></div>
-          <div class="opinion-glow-bottom-right"></div>
-          <div class="opinion-grid-lattice"></div>
-        </div>
-
-        <!-- Center Header: Badge and Section Heading -->
-        <div class="how-we-do-header-center">
-          <div class="section-eyebrow-tag center-tag dark-tag">How We Do</div>
-          <h2 class="how-we-do-h2">We Can Help You To</h2>
-        </div>
-
-        <!-- 3-Column Grid matching Attached Image -->
-        <div class="how-we-do-grid">
-
-          <!-- Column 1: Expertise & innovation -->
-          <div class="how-we-do-card">
-            <div class="how-we-do-icon">
-              <i class="fa-solid fa-lightbulb"></i>
-            </div>
-            <h3 class="how-we-do-title">Expertise &amp; innovation</h3>
-            <p class="how-we-do-desc">
-              We pride ourselves staying at the front innovation, constantly pushing boundaries and redefining what is
-              possible.
-            </p>
-          </div>
-
-          <!-- Column 2: Transparent process -->
-          <div class="how-we-do-card">
-            <div class="how-we-do-icon">
-              <i class="fa-solid fa-magnifying-glass-chart"></i>
-            </div>
-            <h3 class="how-we-do-title">Transparent process</h3>
-            <p class="how-we-do-desc">
-              Our transparent process is designed to demystify the journey from concept to delivery.
-            </p>
-          </div>
-
-          <!-- Column 3: Client approach -->
-          <div class="how-we-do-card">
-            <div class="how-we-do-icon">
-              <i class="fa-solid fa-handshake-angle"></i>
-            </div>
-            <h3 class="how-we-do-title">Client approach</h3>
-            <p class="how-we-do-desc">
-              Our dedicated team takes the time to listen and collaborate, ensuring every interaction is a step toward
-              success.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       3.5 CAREERS IMPACT BANNER (Matching Reference Image)
-       Styled in Our Brand Theme Colors & Typography
-       ========================================================================= -->
-  <section class="careers-impact-section">
-    <!-- Abstract Ambient Glow & Geometric Elements (matching index.html) -->
-    <div class="careers-bg-glow careers-glow-left" aria-hidden="true"></div>
-    <div class="careers-bg-glow careers-glow-right" aria-hidden="true"></div>
-    <div class="careers-abstract-dots careers-dots-top-left" aria-hidden="true"></div>
-    <div class="careers-abstract-dots careers-dots-bottom-right" aria-hidden="true"></div>
-    <!-- Abstract Cybernetic Matrix & Sparkle Shapes (matching index.html) -->
-    <div class="careers-abstract-shape shape-top-right" aria-hidden="true">
-      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 60L100 20L180 60L180 160L100 200L20 160Z" stroke="rgba(232,84,31,0.22)" stroke-width="1.5"
-          stroke-dasharray="4 4" />
-        <path d="M100 20V200" stroke="rgba(232,84,31,0.15)" stroke-width="1.2" />
-        <path d="M20 60L180 160" stroke="rgba(232,84,31,0.12)" stroke-width="1.2" />
-        <path d="M20 160L180 60" stroke="rgba(232,84,31,0.12)" stroke-width="1.2" />
-        <polygon points="100,50 150,75 150,135 100,160 50,135 50,75" stroke="rgba(20,20,20,0.08)" stroke-width="1.2" />
-        <circle cx="100" cy="20" r="4" fill="#E8541F" />
-        <circle cx="180" cy="60" r="3.5" fill="#E8541F" />
-        <circle cx="180" cy="160" r="3" fill="#E8541F" opacity="0.6" />
-        <circle cx="100" cy="200" r="4" fill="#E8541F" />
-        <circle cx="20" cy="160" r="3.5" fill="#E8541F" />
-        <circle cx="20" cy="60" r="3" fill="#E8541F" opacity="0.6" />
-        <circle cx="100" cy="110" r="5" fill="#E8541F" opacity="0.8" />
-      </svg>
-    </div>
-
-    <div class="careers-abstract-shape shape-bottom-left" aria-hidden="true">
-      <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="90" y1="10" x2="90" y2="170" stroke="rgba(232,84,31,0.18)" stroke-width="1.2"
-          stroke-dasharray="3 3" />
-        <line x1="10" y1="90" x2="170" y2="90" stroke="rgba(232,84,31,0.18)" stroke-width="1.2"
-          stroke-dasharray="3 3" />
-        <rect x="90" y="42" width="68" height="68" transform="rotate(45 90 42)" stroke="rgba(20,20,20,0.08)"
-          stroke-width="1.2" />
-        <path d="M90 35C90 65 65 90 35 90C65 90 90 115 90 145C90 115 115 90 145 90C115 90 90 65 90 35Z"
-          fill="url(#sparkleGrad)" opacity="0.85" />
-        <defs>
-          <linearGradient id="sparkleGrad" x1="35" y1="35" x2="145" y2="145" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF8A3D" />
-            <stop offset="1" stop-color="#E8541F" />
-          </linearGradient>
-        </defs>
-        <circle cx="90" cy="90" r="4" fill="#ffffff" />
-      </svg>
-    </div>
-
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2">
-
-      <div class="careers-impact-banner">
-
-        <!-- Background Image Container -->
-        <div class="careers-image-wrapper">
-          <img src="images/careers_tech_team.jpg" alt="Wappnet AI Engineering Team" loading="lazy">
-          <div class="careers-image-overlay"></div>
-        </div>
-
-        <!-- Overlapping Floating Dark Card -->
-        <div class="careers-overlay-card">
-
-          <!-- Avatar Stack of 4 Team Portraits -->
-          <div class="careers-avatar-stack">
-            <div class="careers-avatar avatar-1" title="Engineering Lead"></div>
-            <div class="careers-avatar avatar-2" title="AI Researcher"></div>
-            <div class="careers-avatar avatar-3" title="MLOps Architect"></div>
-            <div class="careers-avatar avatar-4" title="Solutions Director"></div>
-          </div>
-
-          <!-- Card Heading -->
-          <h2 class="careers-card-heading">
-            Create Meaningful Impact Through Technology Careers
+          <h2 class="reach-heading">Reach &amp; Get In Touch With Us !
           </h2>
 
-          <!-- Card Description -->
-          <p class="careers-card-desc">
-            Join our world-class team of engineers, researchers, and AI architects pioneering autonomous enterprise
-            solutions and next-generation intelligence.
-          </p>
+          <!-- Form Fields Matching wappnet.ai/get-a-quote/ -->
+          <form id="reach-contact-form" onsubmit="handleReachSubmit(event)" enctype="multipart/form-data">
 
-          <!-- Action Button -->
-          <a href="service.html#contact" class="careers-cta-btn">
-            JOIN OUR TEAM
-          </a>
+            <div class="reach-inputs-grid">
+              <!-- Your Name -->
+              <div class="reach-input-field">
+                <input type="text" id="reach-name" name="name" class="reach-input" placeholder="Your Name *" required>
+              </div>
+
+              <!-- Email Address -->
+              <div class="reach-input-field">
+                <input type="email" id="reach-email" name="email" class="reach-input" placeholder="Email Address *"
+                  required>
+              </div>
+
+              <!-- Phone -->
+              <div class="reach-input-field">
+                <input type="tel" id="reach-phone" name="phone" class="reach-input" placeholder="Phone Number *"
+                  required>
+              </div>
+
+              <!-- File Upload -->
+              <div class="reach-input-field reach-file-field">
+                <input type="file" id="reach-file" name="file" class="reach-file-input" accept=".pdf,.doc,.docx"
+                  onchange="handleReachFileChange(this)">
+                <label class="reach-file-label" for="reach-file">
+                  <i class="fa-solid fa-cloud-arrow-up reach-file-icon"></i>
+                  <span class="reach-file-text" id="reachFileText">Attach File (.pdf, .doc, .docx)</span>
+                </label>
+              </div>
+
+              <!-- Services -->
+              <div class="reach-input-field">
+                <select id="reach-services" name="services" class="reach-input reach-select" required>
+                  <option value="" disabled selected>Services *</option>
+                  <option value="AI Consulting and Dev Service">AI Consulting and Dev Service</option>
+                  <option value="Computer vision services">Computer vision services</option>
+                  <option value="Data Engineering Services">Data Engineering Services</option>
+                  <option value="NLP Service">NLP Service</option>
+                  <option value="Cloud-Powered AI Solutions">Cloud-Powered AI Solutions</option>
+                  <option value="Generative AI Solutions">Generative AI Solutions</option>
+                  <option value="Deep Learning Development">Deep Learning Development</option>
+                  <option value="AI Chatbots">AI Chatbots</option>
+                  <option value="AI powered app development">AI powered app development</option>
+                  <option value="Big Data Analytics Solution">Big Data Analytics Solution</option>
+                  <option value="Consulting and Strategy">Consulting and Strategy</option>
+                  <option value="Cloud-Based Analytics">Cloud-Based Analytics</option>
+                  <option value="Data Visualization Solution">Data Visualization Solution</option>
+                  <option value="Real-time Data Analytics">Real-time Data Analytics</option>
+                </select>
+              </div>
+
+              <!-- Requirement -->
+              <div class="reach-input-field">
+                <select id="reach-requirement" name="requirement" class="reach-input reach-select" required>
+                  <option value="" disabled selected>Requirement *</option>
+                  <option value="New Project">New Project</option>
+                  <option value="Existing Project">Existing Project</option>
+                  <option value="Maintenance Project">Maintenance Project</option>
+                  <option value="Hire Dedicated Resources">Hire Dedicated Resources</option>
+                </select>
+              </div>
+
+              <!-- Project Budget -->
+              <div class="reach-input-field">
+                <select id="reach-budget" name="budget" class="reach-input reach-select" required>
+                  <option value="" disabled selected>Project Budget *</option>
+                  <option value="Below $10K">Below $10K</option>
+                  <option value="$10K to $25K">$10K to $25K</option>
+                  <option value="$25K to $50K">$25K to $50K</option>
+                  <option value="$50K+">$50K+</option>
+                </select>
+              </div>
+
+              <!-- How soon you want to start -->
+              <div class="reach-input-field">
+                <select id="reach-timeline" name="timeline" class="reach-input reach-select" required>
+                  <option value="" disabled selected>How soon you want to start? *</option>
+                  <option value="Immediate">Immediate</option>
+                  <option value="Within 15 Days">Within 15 Days</option>
+                  <option value="Within 1 Month">Within 1 Month</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Brief about the project -->
+            <div class="reach-textarea-field">
+              <textarea id="reach-message" name="message" class="reach-textarea" rows="4"
+                placeholder="Brief about the project? *" required></textarea>
+            </div>
+
+            <div class="reach-btn-row">
+              <button type="submit" class="reach-submit-btn" id="reachSubmitBtn">
+                <span>SUBMIT NOW</span> <i class="fa-solid fa-arrow-right" style="font-size:13px"></i>
+              </button>
+            </div>
+
+          </form>
+
+          <!-- Success Feedback State -->
+          <div class="reach-success-state" id="reachSuccessState">
+            <div class="reach-success-icon">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="reach-success-title">Message Sent Successfully!</h3>
+            <p class="reach-success-desc">
+              Thank you for reaching out. We have received your inquiry and our team will get back to you shortly.
+            </p>
+            <button type="button" onclick="resetReachForm()" class="reach-reset-btn">
+              Send Another Message
+            </button>
+          </div>
 
         </div>
 
@@ -2134,110 +2189,76 @@
   </section>
 
   <!-- =========================================================================
-       3.8 TESTIMONIALS SECTION (Matching Reference Image)
-       Styled in Our Brand Theme Colors & Typography
+       4B. DIRECT CONTACT CHANNELS SECTION (Above FAQ)
        ========================================================================= -->
-  <section class="testimonials-section">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+  <section class="direct-channels-section" id="direct-contact">
+    <div class="container-wide" style="max-width:1200px;margin:0 auto;padding:0 24px">
 
       <!-- Section Header -->
-      <div class="testimonials-header">
-        <div class="section-eyebrow-tag center-tag">Testimonials</div>
-        <h2 class="testimonials-heading">Transformative Client Experiences</h2>
+      <div class="direct-channels-header">
+        <div class="section-eyebrow-tag center-tag" style="margin-bottom:16px;">Direct Lines</div>
+        <h2 class="direct-channels-title">Instant Access to Our AI & Executive Teams.</h2>
+        <p class="direct-channels-subtitle">
+          Whether you require urgent technical assistance, wish to submit an enterprise RFP, or plan to visit our
+          Chicago headquarters, connect directly through our dedicated lines.
+        </p>
       </div>
 
-      <!-- 3 Testimonial Cards Grid -->
-      <div class="testimonials-grid">
+      <!-- 4 Details 2x2 Grid (Matching attached layout) -->
+      <div class="direct-details-grid">
 
-        <!-- Card 1: Guy Hawkins -->
-        <div class="testimonial-card">
-          <div class="testimonial-card-main">
-            <div class="testimonial-quote-icon">
-              <svg viewBox="0 0 38 28" fill="currentColor">
-                <path
-                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
-              </svg>
-            </div>
-            <p class="testimonial-quote-text">
-              Impressed by the professionalism and attention to detail.
-            </p>
+        <!-- Item 1: Phone -->
+        <a href="tel:+13126983083" class="direct-detail-item">
+          <div class="direct-detail-icon">
+            <i class="fa-solid fa-phone"></i>
           </div>
-          <div class="testimonial-card-footer">
-            <div class="testimonial-author-notch">
-              <div class="testimonial-author-avatar avatar-1"></div>
-              <div>
-                <div class="testimonial-author-name">Guy Hawkins</div>
-                <div class="testimonial-author-handle">@guyhawkins</div>
-              </div>
-            </div>
-            <div class="testimonial-card-tab"></div>
+          <div class="direct-detail-content">
+            <span class="direct-detail-label">For urgent help</span>
+            <div class="direct-detail-value">(+1)312-698-3083</div>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 2: Karla Lynn -->
-        <div class="testimonial-card">
-          <div class="testimonial-card-main">
-            <div class="testimonial-quote-icon">
-              <svg viewBox="0 0 38 28" fill="currentColor">
-                <path
-                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
-              </svg>
-            </div>
-            <p class="testimonial-quote-text">
-              A seamless experience from start to finish. Highly recommend!
-            </p>
+        <!-- Item 2: Business Mail -->
+        <a href="mailto:business@wappnet.com" class="direct-detail-item">
+          <div class="direct-detail-icon">
+            <i class="fa-solid fa-envelope"></i>
           </div>
-          <div class="testimonial-card-footer">
-            <div class="testimonial-author-notch">
-              <div class="testimonial-author-avatar avatar-2"></div>
-              <div>
-                <div class="testimonial-author-name">Karla Lynn</div>
-                <div class="testimonial-author-handle">@karlalynn98</div>
-              </div>
-            </div>
-            <div class="testimonial-card-tab"></div>
+          <div class="direct-detail-content">
+            <span class="direct-detail-label">Mail us 24/7</span>
+            <div class="direct-detail-value">business@wappnet.com</div>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 3: Jane Cooper -->
-        <div class="testimonial-card">
-          <div class="testimonial-card-main">
-            <div class="testimonial-quote-icon">
-              <svg viewBox="0 0 38 28" fill="currentColor">
-                <path
-                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
-              </svg>
-            </div>
-            <p class="testimonial-quote-text">
-              Reliable and trustworthy. Made my life so much easier!
-            </p>
+        <!-- Item 3: Address -->
+        <a href="https://maps.google.com/?q=1440+W+Taylor+St,+Chicago,+Illinois+60607,+US" target="_blank"
+          rel="noopener noreferrer" class="direct-detail-item">
+          <div class="direct-detail-icon">
+            <i class="fa-solid fa-location-dot"></i>
           </div>
-          <div class="testimonial-card-footer">
-            <div class="testimonial-author-notch">
-              <div class="testimonial-author-avatar avatar-3"></div>
-              <div>
-                <div class="testimonial-author-name">Jane Cooper</div>
-                <div class="testimonial-author-handle">@janecooper</div>
-              </div>
-            </div>
-            <div class="testimonial-card-tab"></div>
+          <div class="direct-detail-content">
+            <span class="direct-detail-label">Address</span>
+            <div class="direct-detail-value address-text">1440 W Taylor St, Chicago, Illinois 60607, US</div>
           </div>
-        </div>
+        </a>
 
-      </div>
+        <!-- Item 4: General / AI Mail -->
+        <a href="mailto:info@wappnet.ai" class="direct-detail-item">
+          <div class="direct-detail-icon">
+            <i class="fa-solid fa-envelope-open-text"></i>
+          </div>
+          <div class="direct-detail-content">
+            <span class="direct-detail-label">Mail us 24/7</span>
+            <div class="direct-detail-value">info@wappnet.ai</div>
+          </div>
+        </a>
 
-      <!-- Carousel Dots Indicator -->
-      <div class="testimonials-dots">
-        <span class="testimonial-dot active"></span>
-        <span class="testimonial-dot"></span>
-        <span class="testimonial-dot"></span>
       </div>
 
     </div>
   </section>
 
   <!-- =========================================================================
-       4. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION (Matching index.html)
+       5. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION (Matching about.html & service.html)
        ========================================================================= -->
   <section class="faq-section" id="faq" style="padding: 80px 0;">
     <div class="container-wide" style="max-width:1200px;margin:0 auto;padding:0 24px">
@@ -2252,7 +2273,7 @@
         </h2>
 
         <p class="faq-subtitle"
-          style="font-family:'DM Sans',sans-serif;font-size:16px;color:#555555;line-height:1.65;margin:0;max-width:620px">
+          style="font-family:'DM Sans',sans-serif;font-size:16px;color:#555555;line-height:1.65;margin:0 auto;max-width:620px">
           Everything you need to know about our enterprise AI consulting, proof-of-concept timelines, tech stack, data
           compliance, and production SLAs.
         </p>
@@ -2375,12 +2396,37 @@
             </div>
           </div>
 
+          <!-- Item 6 -->
+          <div class="faq-item" id="faq-item-6">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-6">
+              <div class="faq-q-left">
+                <span class="faq-num">06</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">Can you work directly within our existing cloud and GitHub repositories?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-6">
+              <div class="faq-answer-content">
+                <p>Yes. Our engineers routinely integrate directly into clients' existing AWS, Azure, GCP, Databricks,
+                  Snowflake, and GitLab/GitHub environments, adhering to your internal IAM, SOC2, and compliance
+                  standards.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- =========================================================================
+       6. GLOBAL FOOTER (Matching Wappnet Standard)
+       ========================================================================= -->
   <footer style="background:#141414;color:#cfcfcf;padding:80px 0 40px;font-family:'DM Sans',sans-serif">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
 
@@ -2499,8 +2545,8 @@
         </div>
       </div>
 
-      <!-- 3. Global Offices (5 Columns: USA, CANADA, INDIA, AUSTRALIA, DUBAI) -->
-      <div id="global-offices"
+      <!-- 3. Global Offices in Footer -->
+      <div
         style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:grid;grid-template-columns:repeat(5,1fr);gap:28px">
         <div>
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
@@ -2649,68 +2695,28 @@
       <!-- 5. Bottom Copyright & Social Row -->
       <div
         style="margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:14px;color:#7a7a7a">
-        <span>© 2026 Wappnet Systems Global. All rights reserved.</span>
-
-        <div style="display:flex;align-items:center;gap:32px">
-          <div style="display:flex;gap:24px">
-            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s" style-hover="color:#fff">Privacy
-              policy</a>
-            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s"
-              style-hover="color:#fff">Disclaimer</a>
-          </div>
-
-          <div style="display:flex;gap:10px">
-            <a href="#" aria-label="Instagram"
-              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
-              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="4" width="16" height="16" rx="4.6"></rect>
-                <circle cx="12" cy="12" r="3.6"></circle>
-                <circle cx="17.1" cy="6.9" r="1.1" fill="#141414" stroke="none"></circle>
-              </svg></a>
-            <a href="#" aria-label="Facebook"
-              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
-              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M14.6 8.2h1.9V5.4h-2.3c-2 0-3.2 1.3-3.2 3.3v1.6H9.1v2.8H11V20h2.9v-6.9h2l.4-2.8h-2.4V9.1c0-.6.3-.9.7-.9z"
-                  stroke="none" fill="#141414"></path>
-              </svg></a>
-            <a href="#" aria-label="LinkedIn"
-              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
-              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7.4 10v7.2M7.4 6.9v.1M11.4 17.2V10M11.4 13.2c0-1.4.9-2.4 2.3-2.4s2.4 1 2.4 2.4v4"></path>
-              </svg></a>
-            <a href="#" aria-label="Twitter"
-              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
-              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M20 6.6c-.6.4-1.3.7-2 .8a3.2 3.2 0 0 0-5.5 2.2v.7A9 9 0 0 1 5.2 6.4s-3.1 7 4 10.1a9.3 9.3 0 0 1-5.6 1.5c7.1 4 15.8 0 15.8-9.2 0-.2 0-.4-.1-.7.6-.6 1.2-1.3 1.5-2.1z">
-                </path>
-              </svg></a>
-            <a href="#" aria-label="WhatsApp"
-              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
-              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 11.6a7.7 7.7 0 0 1-11.4 6.8L4.4 19.6l1.2-4.1A7.7 7.7 0 1 1 20 11.6z"></path>
-                <path d="M9.4 9.4c0 3 2.2 5.2 5.2 5.2"></path>
-              </svg></a>
-          </div>
+        <div>&copy; 2026 Wappnet.AI. All rights reserved. Enterprise AI &amp; Applied Intelligence.</div>
+        <div style="display:flex;gap:24px">
+          <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Privacy
+            Policy</a>
+          <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Terms
+            of Service</a>
+          <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Security
+            Compliance</a>
         </div>
       </div>
 
     </div>
   </footer>
 
+  <!-- =========================================================================
+       PAGE JAVASCRIPT & INTERACTIONS
+       ========================================================================= -->
   <script>
-    /* =========================================================================
-       1. SITE HEADER & MEGA MENU INTERACTIVITY (Matching Other Pages)
-       ========================================================================= */
+    /* 1. Header Scroll Background & Mega Menu Logic (Exact Match to about.html / service.html) */
     const siteHeader = document.getElementById('site-header');
-    const navItems = document.querySelectorAll('.site-nav-item[data-menu-target]');
-    const navBars = document.querySelectorAll('.site-nav-bar[data-nav-bar]');
+    const navItems = document.querySelectorAll('.site-nav-item');
+    const navBars = document.querySelectorAll('.site-nav-bar');
     const menuPanels = document.querySelectorAll('.site-mega-menu-wrapper[data-menu-panel]');
     const mobileToggle = document.getElementById('site-mobile-toggle');
     const mobileDrawer = document.getElementById('site-mobile-drawer');
@@ -2803,29 +2809,54 @@
     window.addEventListener('scroll', updateHeaderVisualState, { passive: true });
     updateHeaderVisualState();
 
-    // Universal dynamic hover styling for elements with style-hover attribute
-    document.querySelectorAll('[style-hover]').forEach(el => {
-      const originalStyle = el.getAttribute('style') || '';
-      const hoverStyleStr = el.getAttribute('style-hover');
+    /* 2. Reach Contact Form Submission & State Management */
+    function handleReachFileChange(input) {
+      const labelText = document.getElementById('reachFileText');
+      if (input.files && input.files[0]) {
+        labelText.textContent = input.files[0].name;
+        labelText.style.color = '#141414';
+      } else {
+        labelText.textContent = 'Attach File (.pdf, .doc, .docx)';
+        labelText.style.color = '#71717A';
+      }
+    }
 
-      const hoverRules = hoverStyleStr.split(';').filter(r => r.trim());
+    function handleReachSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('reach-contact-form');
+      const submitBtn = document.getElementById('reachSubmitBtn');
+      const successState = document.getElementById('reachSuccessState');
 
-      el.addEventListener('mouseenter', () => {
-        hoverRules.forEach(rule => {
-          const [prop, val] = rule.split(':');
-          if (prop && val) {
-            el.style.setProperty(prop.trim(), val.trim());
-          }
-        });
-      });
+      // Button loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> <span>SENDING...</span>';
 
-      el.addEventListener('mouseleave', () => {
-        el.setAttribute('style', originalStyle);
-      });
-    });
+      setTimeout(() => {
+        form.style.display = 'none';
+        successState.classList.add('active');
+        document.getElementById('reach-form-wrapper').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 700);
+    }
+
+    function resetReachForm() {
+      const form = document.getElementById('reach-contact-form');
+      const submitBtn = document.getElementById('reachSubmitBtn');
+      const successState = document.getElementById('reachSuccessState');
+      const labelText = document.getElementById('reachFileText');
+
+      form.reset();
+      if (labelText) {
+        labelText.textContent = 'Attach File (.pdf, .doc, .docx)';
+        labelText.style.color = '#71717A';
+      }
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>SUBMIT NOW</span> <i class="fa-solid fa-arrow-right" style="font-size:13px"></i>';
+      form.style.display = 'block';
+      successState.classList.remove('active');
+    }
 
     /* =========================================================================
-       2. FAQ ACCORDION INTERACTION (Matching index.html)
+       4. FAQ ACCORDION INTERACTION (Matching about.html & service.html)
        ========================================================================= */
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach((item) => {
@@ -2844,6 +2875,26 @@
           }
         });
       }
+    });
+
+    /* 5. Universal style-hover support */
+    document.querySelectorAll('[style-hover]').forEach(el => {
+      const originalStyle = el.getAttribute('style') || '';
+      const hoverStyleStr = el.getAttribute('style-hover');
+      const hoverRules = hoverStyleStr.split(';').filter(r => r.trim());
+
+      el.addEventListener('mouseenter', () => {
+        hoverRules.forEach(rule => {
+          const [prop, val] = rule.split(':');
+          if (prop && val) {
+            el.style.setProperty(prop.trim(), val.trim());
+          }
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.setAttribute('style', originalStyle);
+      });
     });
   </script>
 

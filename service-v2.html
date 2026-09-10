@@ -4,895 +4,400 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Wappnet.AI | Enterprise AI Solutions & Applied Intelligence</title>
-  <meta name="description"
-    content="Welcome to Wappnet.AI — premier destination for cutting-edge Artificial Intelligence and Data Analytics solutions. Reshaping industries through transformative technology and bespoke engineering.">
-  <!-- Google Fonts: Archivo & DM Sans -->
+  <title>Wappnet.AI — The AI Content Platform</title>
+  <!-- Google Fonts: Archivo & DM Sans (Matching Wappnet Home) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
     rel="stylesheet">
   <!-- Font Awesome Icons 6.5.2 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-v2.css">
   <script src="./image-slot.js"></script>
+
   <style>
-    /* Exact Match "HOW WE DO / We Can Help You To" Section (Matching Attached Image & Opinion CTA Background) */
-    .how-we-do-container {
-      position: relative;
-      background: linear-gradient(145deg, #1e0921 0%, #100618 45%, #07030c 100%);
-      border-radius: 28px;
-      padding: 72px 48px;
-      overflow: hidden;
-      box-shadow: 0 35px 80px -15px rgba(11, 4, 18, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
-    }
-
-    .how-we-do-header-center {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .how-we-do-badge {
-      display: inline-block;
-      background: #E8541F;
-      color: #ffffff;
-      font-family: 'Archivo', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .how-we-do-h2 {
-      font-family: 'Archivo', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .how-we-do-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    .how-we-do-card {
-      padding: 0 36px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      position: relative;
-    }
-
-    .how-we-do-card:first-child {
-      padding-left: 0;
-    }
-
-    .how-we-do-card:last-child {
-      padding-right: 0;
-    }
-
-    .how-we-do-card:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .how-we-do-icon {
-      font-size: 40px;
-      color: #E8541F;
-      margin-bottom: 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-start;
-      line-height: 1;
-      height: 48px;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .how-we-do-card:hover .how-we-do-icon {
-      transform: translateY(-2px);
-      color: #FF8A3D;
-    }
-
-    .how-we-do-title {
-      font-family: 'Archivo', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0 0 14px 0;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    .how-we-do-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      color: rgba(255, 255, 255, 0.7);
-      margin: 0;
-    }
-
-
-
-    /* Exact Match Overview Carousel Card Design */
-    .overview-carousel-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 28px;
-    }
-
     /* =========================================================================
-       2B. CREATIVE BORDERLESS METRICS RIBBON
+       WAPPNET.AI THEME HARMONIZATION SYSTEM (Exact Match to index.html)
        ========================================================================= */
-    .about-metrics-ribbon {
-      padding: 80px 0;
-      position: relative;
-      z-index: 3;
-      background: #ffffff;
-    }
+    :root {
+      --color-brand-orange: #E8541F;
+      --color-brand-orange-hover: #C2571A;
+      --color-brand-peach: #F4A557;
+      --color-brand-gold: #F8D06A;
+      --color-tag-bg: #FDECE4;
+      --color-tag-text: #E8541F;
+      --color-tag-eyebrow: #C2571A;
+      --color-surface-white: #FFFFFF;
+      --color-surface-warm: #F4F5F7;
+      --color-surface-paper: #F4F5F7;
+      --color-border-subtle: #EEECE8;
+      --color-border-warm: #E7E4DF;
+      --color-border-light: #E4E1DC;
+      --color-text-heading: #141414;
+      --color-text-body: #555555;
+      --color-text-muted: #7a7a7a;
+      --color-dark-surface: #141414;
+      --color-dark-base: #0D0D0F;
+    }
 
-    .metrics-ribbon-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
+    body {
+      background-color: #FFFFFF !important;
+      color: #333333 !important;
+      font-family: "DM Sans", system-ui, sans-serif !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Archivo", system-ui, sans-serif !important;
+      color: #141414 !important;
+      letter-spacing: -0.02em !important;
     }
-
-    .metrics-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      position: relative;
+
+    /* Section Eyebrow Tag across all sections */
+    .section-eyebrow-tag {
+      font-family: "Archivo", sans-serif !important;
+      font-size: 12.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.16em !important;
+      text-transform: uppercase !important;
+      color: #C2571A !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin-bottom: 14px !important;
+      display: inline-block !important;
     }
 
-    .metric-column-item {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding: 0 36px;
-      transition: transform 0.25s ease;
+    .section-eyebrow-tag.center-tag {
+      text-align: center !important;
+      width: 100% !important;
     }
 
-    .metric-column-item:first-child {
-      padding-left: 0;
+    .section-eyebrow-tag.dark-tag {
+      color: #C2571A !important;
     }
 
-    .metric-column-item:last-child {
-      padding-right: 0;
+    /* Section Background Rhythm Matching index.html */
+    .tech-marquee-section {
+      background: #F4F5F7 !important;
+      border-top: 1px solid #EEECE8 !important;
+      border-bottom: 1px solid #EEECE8 !important;
+      padding: 24px 0 !important;
     }
 
-    .metric-column-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 10px;
-      bottom: 10px;
-      width: 1px;
-      background: rgba(0, 0, 0, 0.08);
+    .agency-stats-section {
+      background: #FFFFFF !important;
+      border-bottom: 1px solid #EEECE8 !important;
+      padding: 60px 0 !important;
     }
 
-    .metric-column-item:hover {
-      transform: translateY(-4px);
+    .stat-number {
+      font-family: 'Archivo', sans-serif !important;
+      font-weight: 800 !important;
+      color: #141414 !important;
+      letter-spacing: -0.03em !important;
     }
-
 
-
-    .metric-stat-number {
-      font-family: 'Archivo', sans-serif;
-      font-size: clamp(40px, 4.4vw, 54px);
-      font-weight: 800;
-      color: #141414;
-      letter-spacing: -0.035em;
-      line-height: 1.05;
-      margin: 0 0 10px 0;
+    .stat-plus {
+      color: #E8541F !important;
     }
 
-    .metric-stat-number .accent-orange {
-      color: #E8541F;
+    .stat-title {
+      font-family: 'Archivo', sans-serif !important;
+      color: #141414 !important;
+      font-weight: 700 !important;
     }
 
-    .metric-stat-number .stat-symbol {
-      font-size: 34px;
-      font-weight: 700;
-      color: #E8541F;
-      vertical-align: top;
-      margin-left: 2px;
+    .stat-subtext {
+      color: #7a7a7a !important;
     }
 
-    .metric-stat-title {
-      font-family: 'Archivo', sans-serif;
-      font-size: 16.5px;
-      font-weight: 700;
-      color: #141414;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-      margin: 0;
-    }
+    .about-service-section {
+      background: #F4F5F7 !important;
+      padding: 80px 0 !important;
+    }
 
-    @media (max-width: 1024px) {
-      .metrics-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px 0;
-      }
-
-      .metric-column-item {
-        padding: 0 24px;
-      }
+    .bullet-check-icon {
+      background: #FDECE4 !important;
+      color: #E8541F !important;
+      border-radius: 50% !important;
+      width: 26px !important;
+      height: 26px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 11px !important;
+      flex: none !important;
+    }
 
-      .metric-column-item:nth-child(odd) {
-        padding-left: 0;
-      }
+    .services-discovery-section {
+      background: #FFFFFF !important;
+      padding: 80px 0 !important;
+    }
 
-      .metric-column-item:nth-child(even) {
-        padding-right: 0;
-      }
-
-      .metric-column-item:nth-child(2)::after {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .metrics-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .metric-column-item {
-        padding: 0 0 28px 0;
-      }
-
-      .metric-column-item::after {
-        top: auto;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 1px;
-      }
-
-      .metric-column-item:last-child::after {
-        display: none;
-      }
-    }
-
-    /* =========================================================================
-       3. OVERVIEW / ABOUT US SECTION (Matching Reference Image)
-       ========================================================================= */
-    .overview-modern-section {
-      padding: 80px 0;
-      background: #EDEAE4;
-      position: relative;
-    }
-
-    .overview-top-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 48px;
-      align-items: flex-end;
-      margin-bottom: 56px;
-    }
-
-    .overview-eyebrow-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ffffff;
-      border: 1px solid #ECEAE6;
-      border-radius: 30px;
-      padding: 6px 16px;
-      font-family: 'Archivo', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #141414;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-      margin-bottom: 20px;
-    }
-
-    .overview-eyebrow-pill .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #E8541F;
-      display: inline-block;
-    }
-
-    .overview-main-heading {
-      font-family: 'Archivo', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: #141414;
-      line-height: 1.18;
-      letter-spacing: -0.025em;
-      margin: 0;
-    }
-
-    .overview-intro-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
-      color: #555555;
-      margin: 0;
-    }
-
-    .overview-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .overview-feature-card {
-      background: #ffffff;
-      border-radius: 20px;
-      border: 1px solid #ECEAE6;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
-      padding: 30px 26px;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      position: relative;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .overview-feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 50px rgba(232, 84, 31, 0.10);
-      border-color: rgba(232, 84, 31, 0.35);
-    }
-
-    .overview-card-circle-icon {
-      width: 56px;
-      height: 56px;
-      min-width: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: #ffffff;
-      transition: transform .25s ease;
-    }
-
-    .overview-feature-card:hover .overview-card-circle-icon {
-      transform: scale(1.08);
-    }
-
-    .overview-card-circle-icon.icon-orange {
-      background: #E8541F;
-      box-shadow: 0 8px 22px rgba(232, 84, 31, 0.32);
-    }
-
-    .overview-card-circle-icon.icon-dark {
-      background: #141414;
-      box-shadow: 0 8px 22px rgba(20, 20, 20, 0.28);
-    }
-
-    .overview-card-content {
-      flex: 1;
-    }
-
-    .overview-card-title {
-      font-family: 'Archivo', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #141414;
-      margin: 0 0 8px 0;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-
-    .overview-card-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14.5px;
-      line-height: 1.6;
-      color: #555555;
-      margin: 0;
+    .service-feature-card {
+      background: #F4F5F7 !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 18px !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03) !important;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
     }
-
-    @media (max-width: 1024px) {
-      .overview-top-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-bottom: 40px;
-      }
 
-      .overview-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-    }
-
-    /* =========================================================================
-       3.5 CAREERS IMPACT BANNER (Matching Reference Image)
-       ========================================================================= */
-    .careers-impact-section {
-      padding: 80px 0;
-      background: #ffffff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Ambient Background Blooms & Abstract Matrix (matching index.html) */
-    .careers-bg-glow {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
+    .service-feature-card:hover {
+      transform: translateY(-4px) !important;
+      border-color: #F4A557 !important;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07) !important;
     }
 
-    .careers-glow-left {
-      top: 15%;
-      left: -8%;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(232, 84, 31, 0.12) 0%, transparent 70%);
-      filter: blur(60px);
+    .service-card-title {
+      color: #141414 !important;
+      font-family: 'Archivo', sans-serif !important;
+      font-weight: 700 !important;
     }
-
-    .careers-glow-right {
-      bottom: -10%;
-      right: -6%;
-      width: 520px;
-      height: 520px;
-      background: radial-gradient(circle, rgba(232, 84, 31, 0.08) 0%, transparent 70%);
-      filter: blur(80px);
-    }
-
-    .careers-abstract-dots {
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      background-image: radial-gradient(circle, rgba(232, 84, 31, 0.28) 1.5px, transparent 1.5px);
-      background-size: 16px 16px;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .careers-dots-top-left {
-      top: 20px;
-      left: 15px;
+
+    .service-card-desc {
+      color: #666666 !important;
+      font-size: 14.5px !important;
     }
-
-    .careers-dots-bottom-right {
-      bottom: 25px;
-      right: 25px;
-    }
-
-    .careers-abstract-shape {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .shape-top-right {
-      top: -89px;
-      right: -6%;
-      animation: floatShapeSlow 12s ease-in-out infinite alternate;
-    }
-
-    .shape-bottom-left {
-      bottom: -20px;
-      left: 2%;
-      animation: floatShapeSlow 10s ease-in-out infinite alternate-reverse;
+
+    .exclusive-services-section {
+      background: #F4F5F7 !important;
+      padding: 80px 0 !important;
     }
 
-    @keyframes floatShapeSlow {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
+    .exclusive-service-card {
+      background: #FFFFFF !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 20px !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03) !important;
+    }
 
-      100% {
-        transform: translateY(-8px) rotate(4deg);
-      }
+    .exclusive-service-card:hover {
+      border-color: #F4A557 !important;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08) !important;
     }
 
-    .careers-impact-banner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      min-height: 480px;
-      z-index: 2;
+    .exclusive-card-title {
+      color: #141414 !important;
+      font-family: 'Archivo', sans-serif !important;
+      font-weight: 800 !important;
     }
 
-    .careers-image-wrapper {
-      position: relative;
-      width: 68%;
-      margin-left: auto;
-      height: 480px;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
-      border: 1px solid #ECEAE6;
+    .exclusive-card-desc {
+      color: #666666 !important;
+      font-size: 14.5px !important;
     }
 
-    .careers-image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    .exclusive-icon-bubble {
+      background: #FDECE4 !important;
+      color: #E8541F !important;
+      border: 1px solid #F9CFBE !important;
     }
 
-    .careers-impact-banner:hover .careers-image-wrapper img {
-      transform: scale(1.03);
-    }
-
-    .careers-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(15, 12, 10, 0.45) 0%, rgba(15, 12, 10, 0.1) 60%, transparent 100%);
-      pointer-events: none;
+    /* Second Opinion / CTA Banner matching index.html hero atmosphere */
+    .opinion-cta-section {
+      background: #FFFFFF !important;
+      padding: 40px 0 90px !important;
     }
-
-    .careers-overlay-card {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 440px;
-      background: linear-gradient(145deg, #141414 0%, #1E1A18 100%);
-      border-radius: 20px;
-      padding: 42px 38px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(232, 84, 31, 0.22);
-      z-index: 2;
-      color: #ffffff;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .careers-impact-banner:hover .careers-overlay-card {
-      transform: translateY(calc(-50% - 4px));
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(232, 84, 31, 0.35);
-    }
-
-    .careers-avatar-stack {
-      display: flex;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    .careers-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2.5px solid #ffffff;
-      background-image: url('images/team_avatars.jpg');
-      background-size: 200% 200%;
-      margin-left: -10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-      background-color: #1a1a1a;
-      flex-shrink: 0;
-    }
-
-    .careers-avatar:first-child {
-      margin-left: 0;
-    }
-
-    .careers-avatar.avatar-1 {
-      background-position: 8% 8%;
-    }
-
-    .careers-avatar.avatar-2 {
-      background-position: 92% 8%;
-    }
-
-    .careers-avatar.avatar-3 {
-      background-position: 8% 92%;
-    }
-
-    .careers-avatar.avatar-4 {
-      background-position: 92% 92%;
-    }
-
-    .careers-card-heading {
-      font-family: 'Archivo', sans-serif;
-      font-size: 27px;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-      margin: 0 0 16px 0;
-    }
-
-    .careers-card-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      line-height: 1.62;
-      color: rgba(255, 255, 255, 0.72);
-      margin: 0 0 28px 0;
-    }
-
-    .careers-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #E8541F;
-      color: #ffffff;
-      font-family: 'Archivo', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 13px 28px;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(232, 84, 31, 0.38);
-      transition: all .25s ease;
-    }
-
-    .careers-cta-btn:hover {
-      background: #FF6F3C;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(232, 84, 31, 0.55);
-      color: #ffffff;
-    }
-
-    @media (max-width: 992px) {
-      .careers-impact-banner {
-        flex-direction: column;
-        min-height: auto;
-      }
-
-      .careers-image-wrapper {
-        width: 100%;
-        height: 320px;
-        margin-left: 0;
-      }
 
-      .careers-overlay-card {
-        position: static;
-        transform: none;
-        width: 100%;
-        margin-top: -36px;
-        box-sizing: border-box;
-      }
+    .opinion-cta-card {
+      background: linear-gradient(115deg, #3D1A5B 0%, #8A2F55 46%, #DA5638 78%, #F2D9C9 100%) !important;
+      border: none !important;
+      border-radius: 28px !important;
+      box-shadow: 0 24px 60px rgba(61, 26, 91, 0.28) !important;
+    }
 
-      .careers-impact-banner:hover .careers-overlay-card {
-        transform: none;
-      }
+    .opinion-main-title {
+      color: #FFFFFF !important;
+      font-family: 'Archivo', sans-serif !important;
+      font-weight: 800 !important;
     }
 
-    /* =========================================================================
-       3.8 TESTIMONIALS SECTION (Exact Match from User Reference Image)
-       ========================================================================= */
-    .testimonials-section {
-      padding-bottom: 80px;
-      padding-top: 0px;
-      background: #ffffff;
-      position: relative;
+    .opinion-subtitle {
+      color: rgba(255, 255, 255, 0.88) !important;
+      font-size: 16px !important;
     }
 
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .testimonials-eyebrow {
-      font-family: 'Archivo', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #E8541F;
-      margin-bottom: 12px;
+    .opinion-btn-primary {
+      background: #FFFFFF !important;
+      color: #141414 !important;
+      font-family: 'Archivo', sans-serif !important;
+      font-weight: 700 !important;
+      border-radius: 8px !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
     }
 
-    .testimonials-heading {
-      font-family: 'Archivo', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: #141414;
-      letter-spacing: -0.025em;
-      margin: 0;
-      line-height: 1.2;
+    .opinion-btn-primary:hover {
+      background: #E8541F !important;
+      color: #FFFFFF !important;
     }
 
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+    .process-steps-section {
+      background: #F4F5F7 !important;
+      padding: 80px 0 !important;
     }
 
-    .testimonial-card {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1);
+    .process-step-card {
+      background: #FFFFFF !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 20px !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03) !important;
     }
 
-    .testimonial-card:hover {
-      transform: translateY(-6px);
+    .process-step-card:hover {
+      border-color: #F4A557 !important;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07) !important;
     }
 
-    .testimonial-card-main {
-      background: #F1F3F6;
-      border-radius: 26px 26px 0 0;
-      padding: 44px 36px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 240px;
-      position: relative;
-      box-sizing: border-box;
+    .step-number-pill {
+      color: #E8541F !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
     }
 
-    .testimonial-quote-icon {
-      color: #CBD2DF;
-      margin-bottom: 24px;
-      display: block;
-      line-height: 1;
-      transition: color .25s ease, transform .25s ease;
+    .step-icon-box {
+      color: #E8541F !important;
+      background: #F4F5F7 !important;
+      border: 1px solid #E7E4DF !important;
     }
 
-    .testimonial-quote-icon svg {
-      width: 36px;
-      height: 26px;
-      display: block;
+    .step-item-title {
+      color: #141414 !important;
+      font-family: 'Archivo', sans-serif !important;
+      font-weight: 800 !important;
     }
 
-    .testimonial-card:hover .testimonial-quote-icon {
-      color: #E8541F;
-      transform: scale(1.06);
+    .step-item-desc {
+      color: #666666 !important;
+      font-size: 14px !important;
     }
 
-    .testimonial-quote-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 21px;
-      font-weight: 700;
-      line-height: 1.42;
-      color: #141414;
-      letter-spacing: -0.015em;
-      margin: 0;
+    .use-cases-section {
+      background: #0D0D0F !important;
+      color: #FFFFFF !important;
+      padding: 88px 0 !important;
     }
 
-    .testimonial-card-footer {
-      display: flex;
-      height: 74px;
-      position: relative;
+    .comparison-section {
+      background: #F4F5F7 !important;
+      padding: 80px 0 !important;
     }
 
-    .testimonial-author-notch {
-      flex: 1;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 12px 0 0;
-      border-radius: 0 0 0 26px;
+    .header-col-title {
+      color: #cbd5e1 !important;
+      font-size: 1.08rem !important;
+      font-weight: 700 !important;
+      font-family: 'Archivo', sans-serif !important;
     }
 
-    .testimonial-author-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-image: url('images/team_avatars.jpg');
-      background-size: 200% 200%;
-      background-color: #141414;
-      flex-shrink: 0;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+    .comparison-card-wrapper {
+      background: #FFFFFF !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 24px !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
     }
 
-    .testimonial-author-avatar.avatar-1 {
-      background-position: 8% 8%;
+    .technologies-overlap-section {
+      background: #FFFFFF !important;
+      padding: 80px 0 !important;
     }
 
-    .testimonial-author-avatar.avatar-2 {
-      background-position: 8% 92%;
+    .technologies-card-wrapper {
+      background: #F4F5F7 !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 28px !important;
     }
 
-    .testimonial-author-avatar.avatar-3 {
-      background-position: 92% 8%;
+    .tech-item-card {
+      background: #FFFFFF !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 16px !important;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03) !important;
     }
 
-    .testimonial-author-name {
-      font-family: 'Archivo', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: #141414;
-      line-height: 1.2;
+    .tech-item-card:hover {
+      border-color: #F4A557 !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07) !important;
     }
 
-    .testimonial-author-handle {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12.5px;
-      color: #7a7a7a;
-      margin-top: 2px;
+    .industries-section {
+      background: #F4F5F7 !important;
+      padding: 80px 0 !important;
     }
 
-    .testimonial-card-tab {
-      width: 40%;
-      background: #F1F3F6;
-      border-radius: 0 0 26px 26px;
-      position: relative;
+    .industry-pill-card {
+      background: #FFFFFF !important;
+      border: 1px solid #E7E4DF !important;
+      color: #141414 !important;
+      border-radius: 100px !important;
+      padding: 12px 24px !important;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03) !important;
+      transition: all 0.25s ease !important;
     }
 
-    .testimonial-card-tab::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -22px;
-      width: 22px;
-      height: 22px;
-      background: transparent;
-      border-top-right-radius: 22px;
-      box-shadow: 6px -6px 0 0 #F1F3F6;
-      pointer-events: none;
+    .industry-pill-card:hover {
+      background: #FDECE4 !important;
+      color: #E8541F !important;
+      border-color: #F9CFBE !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 20px rgba(232, 84, 31, 0.15) !important;
     }
 
-    .testimonials-dots {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 52px;
+    .why-choose-section {
+      background: #FFFFFF !important;
+      padding: 80px 0 !important;
     }
 
-    .testimonial-dot {
-      height: 4px;
-      border-radius: 4px;
-      background: #E2E6ED;
-      transition: all .25s ease;
-      display: inline-block;
+    .why-feature-card {
+      background: #F4F5F7 !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 18px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
     }
 
-    .testimonial-dot.active {
-      width: 28px;
-      background: #141414;
+    .why-feature-card .feature-card-icon {
+      background: #FDECE4 !important;
+      color: #E8541F !important;
     }
 
-    .testimonial-dot:not(.active) {
-      width: 8px;
+    .why-feature-card .feature-card-title {
+      color: #141414 !important;
+      font-family: 'Archivo', sans-serif !important;
     }
 
-    @media (max-width: 992px) {
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
+    .why-feature-card .feature-card-desc {
+      color: #666666 !important;
     }
 
-    @media (max-width: 900px) {
-      .how-we-do-container {
-        padding: 40px 24px;
-      }
+    .usecase-cta-section {
+      background: #FFFFFF !important;
+      padding: 40px 0 90px !important;
+    }
 
-      .how-we-do-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
+    .usecase-cta-card {
+      background: linear-gradient(115deg, #3D1A5B 0%, #8A2F55 46%, #DA5638 78%, #F2D9C9 100%) !important;
+      border: none !important;
+      border-radius: 28px !important;
+      box-shadow: 0 24px 60px rgba(61, 26, 91, 0.28) !important;
+    }
 
-      .how-we-do-card {
-        padding: 0 0 32px 0;
-      }
+    .faq-section {
+      background: #F4F5F7 !important;
+      padding: 80px 0 !important;
+    }
 
-      .how-we-do-card:not(:last-child)::after {
-        right: 0;
-        top: auto;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-      }
+    .faq-item {
+      background: #FFFFFF !important;
+      border: 1px solid #E7E4DF !important;
+      border-radius: 14px !important;
     }
   </style>
-</head>
 
 <body>
 
@@ -1412,8 +917,7 @@
                     style-hover="color:#141414">MLOps and LLMOps</a>
                   <a href="Wappnet AI Service.dc.html" style="font-size:15px;color:#7a7a7a"
                     style-hover="color:#141414">Monitoring and evals</a>
-                  <a href="contact.html" style="font-size:15px;color:#7a7a7a;text-decoration:none"
-                    style-hover="color:#141414">Managed
+                  <a href="contact.html" style="font-size:15px;color:#7a7a7a" style-hover="color:#141414">Managed
                     support</a>
                 </div>
               </div>
@@ -1799,6 +1303,9 @@
             style-hover="color:#F4A557">Our Work</a>
           <a href="about.html"
             style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
+            style-hover="color:#F4A557">About</a>
+          <a href="about.html"
+            style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)"
             style-hover="color:#F4A557">Company</a>
           <a href="contact.html"
             style="margin-top:18px;text-align:center;background:#fff;color:#0D0D0F;border-radius:6px;padding:14px 22px;font-family:'Archivo',sans-serif;font-weight:700;text-decoration:none">Contact
@@ -1809,453 +1316,1357 @@
 
   </header>
 
+
+
+
   <!-- =========================================================================
-       1. ABOUT HERO / BANNER SECTION (Using Wappnet.AI Content)
+       2. HERO / BANNER SECTION (Exact Match to Wappnet AI Service.dc.html)
        ========================================================================= -->
-  <section class="hero-wrapper" id="about-hero"
-    style="padding-top:150px;padding-bottom:150px;position:relative;background:radial-gradient(circle at 12% 45%, rgba(200, 48, 36, 0.85) 0%, rgba(135, 26, 52, 0.6) 35%, transparent 68%), radial-gradient(circle at 88% 42%, rgba(24, 48, 145, 0.85) 0%, rgba(55, 20, 85, 0.6) 40%, transparent 70%), linear-gradient(105deg, #9b2229 0%, #6e183d 24%, #3a124a 48%, #1f1446 72%, #142865 100%);display:flex;align-items:center">
-
-    <div class="hero-bg-container">
-      <div class="bg-glow bg-glow-left"></div>
-      <div class="bg-glow bg-glow-center"></div>
-      <div class="bg-glow bg-glow-right"></div>
-      <div class="ai-circuit-grid" aria-hidden="true"></div>
-      <div class="ai-neural-wave wave-2" aria-hidden="true"></div>
+  <section id="hero-banner"
+    style="position:relative;background:#2A1436;color:#fff;padding:142px 0 88px;overflow:hidden">
+    <div
+      style="position:absolute;inset:0;background:radial-gradient(120% 130% at 6% 8%,#3B1550 0%,rgba(59,21,80,0) 58%),radial-gradient(110% 120% at 96% 12%,#E24A3B 0%,rgba(226,74,59,0) 62%),radial-gradient(120% 130% at 88% 96%,#F7F4F1 0%,rgba(247,244,241,0) 55%),radial-gradient(120% 120% at 4% 98%,#8E6BC8 0%,rgba(142,107,200,0) 58%),linear-gradient(115deg,#3D1A5B 0%,#8A2F55 46%,#DA5638 78%,#F2D9C9 100%);pointer-events:none">
     </div>
+    <div
+      style="position:absolute;inset:0;background:radial-gradient(70% 62% at 50% 46%,rgba(28,10,38,.34) 0%,rgba(28,10,38,0) 72%);pointer-events:none">
+    </div>
+    <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px">
 
-    <div class="hero-container"
-      style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;width:100%">
-      <div style="max-width:860px;margin:0 auto;text-align:center">
-
+      <div style="max-width:880px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center">
         <h1
-          style="font-family:'Archivo',sans-serif;font-size:clamp(34px, 5.6vw, 68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:#fff;text-wrap:pretty;margin-bottom:24px">
-          Pioneering <span style="color:rgb(248, 208, 106)">Enterprise AI</span> &amp; Data-Driven Intelligence
-        </h1>
-
+          style="color:#fff !important;font-size:clamp(32px,4.4vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.035em;max-width:24ch;margin:0 auto;text-align:center">
+          AI Development <span style="color:#F8D06A">Services</span></h1>
         <p
-          style="font-size:clamp(16.5px, 1.4vw, 19.5px);line-height:1.65;color:rgba(255,255,255,0.88);text-wrap:pretty;margin-bottom:38px;max-width:760px;margin-left:auto;margin-right:auto">
-          Welcome to Wappnet.AI, your premier destination for cutting-edge Artificial Intelligence and Data Analytics
-          solutions. We empower businesses to embrace disruptive change by harnessing AI to craft connected experiences
-          and yield tangible outcomes.
+          style="margin-top:22px;font-size:clamp(16.5px,1.4vw,19.5px);line-height:1.6;color:rgba(255,255,255,.86);max-width:64ch;margin-left:auto;margin-right:auto;text-align:center">
+          You don't need another AI pilot that stalls after the demo. You need AI that works in the real world. Turn
+          proven AI ideas into production-ready solutions with our AI development services. Automate workflows, boost
+          productivity, and turn AI into measurable business value.</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:34px">
+          <a href="contact.html"
+            style="display:inline-flex;align-items:center;gap:14px;background:#E8541F;color:#fff;border-radius:8px;padding:14px 22px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease;text-decoration:none"
+            style-hover="transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,84,31,.42);color:#fff">
+            Talk to an Expert
+            <span
+              style="width:26px;height:26px;border-radius:6px;background:rgba(255,255,255,.22);display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:none">→</span>
+          </a>
+          <a href="#about-service"
+            style="display:inline-flex;align-items:center;background:#fff;color:#141414;border-radius:8px;padding:14px 26px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease;text-decoration:none"
+            style-hover="transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.22);color:#141414">Explore
+            Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology & Partner Logos Scrolling Marquee Section -->
+  <section class="tech-marquee-section">
+    <div class="tech-marquee-container">
+      <div class="tech-marquee-track">
+        <!-- Group 1 -->
+        <div class="tech-marquee-group">
+          <div class="tech-logo-item">
+            <img src="images/aws.svg" alt="AWS" class="tech-logo-img logo-aws" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/kaggel.webp" alt="Kaggle" class="tech-logo-img logo-kaggle" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Apache_Spark_logo.svg" alt="Apache Spark" class="tech-logo-img logo-spark" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Qlik_Logo.svg" alt="Qlik" class="tech-logo-img logo-qlik" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/aws.svg" alt="AWS" class="tech-logo-img logo-aws" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/kaggel.webp" alt="Kaggle" class="tech-logo-img logo-kaggle" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Apache_Spark_logo.svg" alt="Apache Spark" class="tech-logo-img logo-spark" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Qlik_Logo.svg" alt="Qlik" class="tech-logo-img logo-qlik" />
+          </div>
+        </div>
+
+        <!-- Group 2 (Duplicate for Continuous Seamless Infinite Scroll) -->
+        <div class="tech-marquee-group" aria-hidden="true">
+          <div class="tech-logo-item">
+            <img src="images/aws.svg" alt="AWS" class="tech-logo-img logo-aws" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/kaggel.webp" alt="Kaggle" class="tech-logo-img logo-kaggle" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Apache_Spark_logo.svg" alt="Apache Spark" class="tech-logo-img logo-spark" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Qlik_Logo.svg" alt="Qlik" class="tech-logo-img logo-qlik" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/aws.svg" alt="AWS" class="tech-logo-img logo-aws" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/kaggel.webp" alt="Kaggle" class="tech-logo-img logo-kaggle" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Apache_Spark_logo.svg" alt="Apache Spark" class="tech-logo-img logo-spark" />
+          </div>
+          <div class="tech-logo-item">
+            <img src="images/Qlik_Logo.svg" alt="Qlik" class="tech-logo-img logo-qlik" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Statistics Performance Section -->
+  <section class="agency-stats-section">
+    <div class="container-wide">
+      <div class="stats-grid-wrapper">
+
+        <!-- Stat Item 1: Years Experience -->
+        <div class="stat-card-item">
+          <div class="stat-number-wrap">
+            <span class="stat-number">10<span class="stat-plus">+</span></span>
+          </div>
+          <div class="stat-info-text">
+            <h3 class="stat-title">Years Experience</h3>
+            <p class="stat-subtext">Delivering cutting-edge digital excellence</p>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <!-- Stat Item 2: Projects Delivered -->
+        <div class="stat-card-item">
+          <div class="stat-number-wrap">
+            <span class="stat-number">500<span class="stat-plus">+</span></span>
+          </div>
+          <div class="stat-info-text">
+            <h3 class="stat-title">Projects Delivered</h3>
+            <p class="stat-subtext">Across AI, Web &amp; Enterprise Cloud</p>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <!-- Stat Item 3: Industries Served -->
+        <div class="stat-card-item">
+          <div class="stat-number-wrap">
+            <span class="stat-number">25<span class="stat-plus">+</span></span>
+          </div>
+          <div class="stat-info-text">
+            <h3 class="stat-title">Industries Served</h3>
+            <p class="stat-subtext">Healthcare, Fintech, Retail &amp; More</p>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <!-- Stat Item 4: Countries Served -->
+        <div class="stat-card-item">
+          <div class="stat-number-wrap">
+            <span class="stat-number">30<span class="stat-plus">+</span></span>
+          </div>
+          <div class="stat-info-text">
+            <h3 class="stat-title">Countries Served</h3>
+            <p class="stat-subtext">Global enterprise client footprint</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What Is [Service]? / About Section -->
+  <section class="about-service-section" id="about-service">
+
+    <div class="container-wide about-service-grid">
+
+      <!-- Left: Visual Showcase (Image) -->
+      <div class="about-visual-col">
+        <div class="about-image-wrapper">
+          <!-- Main Team Collaboration Image -->
+          <div class="about-main-img-box">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop&q=80"
+              alt="AI Team Collaboration" class="about-main-img" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content Column (Headings, Highlight, Paragraphs & Contact Info) -->
+      <div class="about-content-col">
+        <div class="section-eyebrow-tag">About Wappnet AI</div>
+        <h2 class="about-section-heading">
+          What Do AI Development Services Include?
+        </h2>
+        <p class="about-paragraph">
+          AI development services turn your business challenges into practical, production-ready AI solutions that fit
+          the way your team already works. The goal is simple: use AI where it can save time, improve decisions, and
+          create measurable business value.
         </p>
 
-        <div style="display:flex;align-items:center;justify-content:center;gap:18px">
-          <a href="service.html#contact" class="btn-talk-expert"
-            style="display:inline-flex;align-items:center;gap:10px;background:rgb(232,84,31);color:#fff;border-radius:8px;padding:14px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(232,84,31,0.35)"
-            style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,84,31,0.45)">
-            Talk to our expert <i class="fa-solid fa-arrow-right" style="font-size:14px"></i>
-          </a>
-        </div>
+        <p class="about-highlight-lead">
+          A successful AI implementation moves through four connected disciplines:
+        </p>
 
+        <!-- Discipline Bullet Points -->
+        <ul class="about-bullet-list">
+          <li class="about-bullet-item">
+            <span class="bullet-check-icon">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <span class="bullet-text">Find the AI opportunities that can deliver the greatest ROI for your
+              business.</span>
+          </li>
+          <li class="about-bullet-item">
+            <span class="bullet-check-icon">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <span class="bullet-text">Get your data ready for reliable, scalable AI solutions.</span>
+          </li>
+          <li class="about-bullet-item">
+            <span class="bullet-check-icon">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <span class="bullet-text">Build AI around the workflows your team depends on every day.</span>
+          </li>
+          <li class="about-bullet-item">
+            <span class="bullet-check-icon">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <span class="bullet-text">Integrate AI into your existing tools without disrupting how your team
+              works.</span>
+          </li>
+        </ul>
       </div>
+
     </div>
   </section>
 
   <!-- =========================================================================
-       1B. QUICK METRICS RIBBON (Clean, Typography-Driven with Column Dividers)
+       12. SERVICES DISCOVERY SECTION (Exact Design in Wappnet AI Theme)
        ========================================================================= -->
-  <section class="about-metrics-ribbon">
-    <div class="metrics-ribbon-container">
-      <div class="metrics-cards-grid">
+  <section class="services-discovery-section" id="services-discovery">
+    <div class="container-wide">
+      <div class="services-discovery-grid">
 
-        <!-- Column 1: Top 100 Global -->
-        <div class="metric-column-item">
-          <div class="metric-stat-number">
-            Top <span class="accent-orange">100</span>
-          </div>
-          <h3 class="metric-stat-title">Software Company Global</h3>
-        </div>
-
-        <!-- Column 2: Top 20 AI Products -->
-        <div class="metric-column-item">
-          <div class="metric-stat-number">
-            Top <span class="accent-orange">20</span>
-          </div>
-          <h3 class="metric-stat-title">Software Products &amp; AI</h3>
-        </div>
-
-        <!-- Column 3: 150+ Specialists -->
-        <div class="metric-column-item">
-          <div class="metric-stat-number">
-            150<span class="stat-symbol">+</span>
-          </div>
-          <h3 class="metric-stat-title">AI &amp; Data Specialists</h3>
-        </div>
-
-        <!-- Column 4: 100% Commitment -->
-        <div class="metric-column-item">
-          <div class="metric-stat-number">
-            100<span class="stat-symbol">%</span>
-          </div>
-          <h3 class="metric-stat-title">Client Commitment</h3>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       2. OVERVIEW SECTION (Matching Reference Image)
-       Styled in Our Brand Theme Colors & Typography
-       ========================================================================= -->
-  <section id="overview" class="overview-modern-section">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-
-      <!-- Top Header Row matching Reference Image -->
-      <div class="overview-top-grid">
-
-        <!-- Left Column: 2-Line Heading -->
-        <div>
-          <div class="section-eyebrow-tag">About Wappnet AI</div>
-          <h2 class="overview-main-heading">
-            Introduction To Best<br>AI Innovation!
+        <!-- Top Left: Section Header Block -->
+        <div class="services-header-card">
+          <div class="section-eyebrow-tag">Business Value</div>
+          <h2 class="services-main-title">
+            Why Businesses Invest in AI Development Services
           </h2>
         </div>
 
-        <!-- Right Column: Top Description -->
-        <div>
-          <p class="overview-intro-text">
-            Pioneering autonomous intelligence and strategic AI architectures to elevate enterprise capabilities
-            worldwide. We streamline operations, maximize efficiency, and enhance high-velocity decision-making.
+        <!-- Card 1: Use-Case Discipline (Target Crosshairs) -->
+        <div class="service-feature-card">
+          <div class="service-card-header">
+            <h3 class="service-card-title">You're Flying Blind Without an AI Roadmap</h3>
+          </div>
+          <p class="service-card-desc">
+            Without a strategy tied to real business outcomes, AI experiments stay experiments; most never graduate into
+            a system you can actually rely on. That's the gap professional AI development services are built to close.
+          </p>
+        </div>
+
+        <!-- Card 2: Faster Time to a Working System (Rocket Deployment) -->
+        <div class="service-feature-card">
+          <div class="service-card-header">
+            <h3 class="service-card-title">Your Team Is Buried in Manual Work</h3>
+          </div>
+          <p class="service-card-desc">
+            Repetitive tasks across support, operations, and reporting quietly eat up hours your team could spend on
+            higher-value work. The right AI solutions can automate this work and give those hours back.
+          </p>
+        </div>
+
+        <!-- Card 3: Lower Total Cost of Ownership (Financial Dollar Optimization) -->
+        <div class="service-feature-card">
+          <div class="service-card-header">
+            <h3 class="service-card-title">Your Data Is Scattered Across Disconnected Systems</h3>
+          </div>
+          <p class="service-card-desc">
+            Valuable data sitting in separate CRMs, spreadsheets, and internal tools is nearly impossible to act on. AI
+            integration brings it into one system your models can actually learn from.
+          </p>
+        </div>
+
+        <!-- Card 4: Governance From Day One (Shield Check) -->
+        <div class="service-feature-card">
+          <div class="service-card-header">
+            <h3 class="service-card-title">Generic Tools Don't Fit How You Actually Work</h3>
+          </div>
+          <p class="service-card-desc">
+            Off-the-shelf AI apps solve generic problems for generic businesses. When your workflows are specific to
+            you, custom AI development is what closes the gap.
+          </p>
+        </div>
+
+        <!-- Card 5: Access to Current Technical Depth (AI CPU Chip) -->
+        <div class="service-feature-card">
+          <div class="service-card-header">
+            <h3 class="service-card-title">Competitors Are Moving Faster Than You</h3>
+          </div>
+          <p class="service-card-desc">
+            Without dedicated AI engineering capacity, it's hard to ship AI-powered features at the pace the market
+            expects, and every quarter of delay widens that gap.
           </p>
         </div>
 
       </div>
-
-      <!-- Bottom Row: 3 Floating Feature Cards matching Reference Image -->
-      <div class="overview-cards-grid">
-
-        <!-- Card 1: Mission (Orange Circle Icon) -->
-        <div class="overview-feature-card">
-          <div class="overview-card-circle-icon icon-orange">
-            <i class="fa-solid fa-bullseye"></i>
-          </div>
-          <div class="overview-card-content">
-            <h3 class="overview-card-title">Mission</h3>
-            <p class="overview-card-desc">
-              An innovative framework that empowers enterprises to streamline operations, enhance decision-making, and
-              deploy custom machine learning with zero data leakage.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 2: Vision (Dark Circle Icon) -->
-        <div class="overview-feature-card">
-          <div class="overview-card-circle-icon icon-dark">
-            <i class="fa-solid fa-eye"></i>
-          </div>
-          <div class="overview-card-content">
-            <h3 class="overview-card-title">Vision</h3>
-            <p class="overview-card-desc">
-              A forward-looking ecosystem where businesses operate with autonomous AI agents that reason, plan, and
-              orchestrate complex multi-step workflows.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 3: Values (Orange Circle Icon) -->
-        <div class="overview-feature-card">
-          <div class="overview-card-circle-icon icon-orange">
-            <i class="fa-solid fa-gem"></i>
-          </div>
-          <div class="overview-card-content">
-            <h3 class="overview-card-title">Values</h3>
-            <p class="overview-card-desc">
-              Built on integrity, technical precision, continuous research, and ISO-grade security governance designed
-              to yield measurable enterprise outcomes.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
     </div>
   </section>
 
   <!-- =========================================================================
-       3. EXACT MATCH SECTION: "HOW WE DO / We Can Help You To"
-       Styled in Our Brand Theme Colors & Typography (Matching Reference Image)
+       13. EXCLUSIVE BUSINESS SERVICES SECTION (Exact Design in Wappnet Theme)
        ========================================================================= -->
-  <section id="how-we-do" style="padding:80px 0;background:#ffffff;position:relative">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+  <section class="exclusive-services-section" id="exclusive-services">
+    <div class="container-wide">
 
-      <div class="how-we-do-container">
+      <!-- Section Header: Centered Headline -->
+      <div class="exclusive-header-block">
+        <div class="section-eyebrow-tag center-tag">What We Offer</div>
+        <h2 class="exclusive-section-title">
+          AI Development Solutions Built for Your Business
+        </h2>
+      </div>
 
-        <!-- Atmospheric Studio Lighting Backdrop (matching opinion-cta-section in index.html) -->
+      <!-- 3 Exclusive Service Cards Grid -->
+      <div class="exclusive-cards-grid">
+
+        <!-- Card 1: AI Strategy & Opportunity Assessment (Compass / Strategic Direction) -->
+        <div class="exclusive-service-card">
+          <div class="card-circuit-pattern"></div>
+
+          <div class="exclusive-card-inner">
+            <h3 class="exclusive-card-title">AI Strategy & Consulting</h3>
+            <div class="exclusive-card-divider"></div>
+            <p class="exclusive-card-desc">
+              We pinpoint where AI will actually move the needle for your business, check whether your data can support
+              it, and build a roadmap ranked by ROI before any code gets written.
+            </p>
+          </div>
+
+          <div class="exclusive-icon-notch">
+            <div class="exclusive-icon-bubble">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Generative AI & LLM Solution Development (Sparkles / GenAI) -->
+        <div class="exclusive-service-card">
+          <div class="card-circuit-pattern"></div>
+
+          <div class="exclusive-card-inner">
+            <h3 class="exclusive-card-title">Generative AI Development</h3>
+            <div class="exclusive-card-divider"></div>
+            <p class="exclusive-card-desc">
+              From internal knowledge assistants to document automation, our generative AI development work runs on
+              retrieval-augmented pipelines tuned to your own data, not generic prompts.
+            </p>
+          </div>
+
+          <div class="exclusive-icon-notch">
+            <div class="exclusive-icon-bubble">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Agentic AI & Multi-Agent System Development (Network / Agent Swarm) -->
+        <div class="exclusive-service-card">
+          <div class="card-circuit-pattern"></div>
+
+          <div class="exclusive-card-inner">
+            <h3 class="exclusive-card-title">AI Agent Development</h3>
+            <div class="exclusive-card-divider"></div>
+            <p class="exclusive-card-desc">
+              Our AI agent development turns multi-step, judgment-heavy workflows like triage, qualification, or
+              reconciliation into systems that run with minimal human handoff.
+            </p>
+          </div>
+
+          <div class="exclusive-icon-notch">
+            <div class="exclusive-icon-bubble">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: AI Data Engineering & Readiness (Database / Pipeline Store) -->
+        <div class="exclusive-service-card">
+          <div class="card-circuit-pattern"></div>
+
+          <div class="exclusive-card-inner">
+            <h3 class="exclusive-card-title">Machine Learning Development</h3>
+            <div class="exclusive-card-divider"></div>
+            <p class="exclusive-card-desc">
+              We design, train, and deploy machine learning models for forecasting, computer vision, NLP, and other
+              business applications, built around the data you already have.
+            </p>
+          </div>
+
+          <div class="exclusive-icon-notch">
+            <div class="exclusive-icon-bubble">
+              <i class="fa-solid fa-database"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: MLOps & AI Infrastructure Engineering (Infinity / Continuous MLOps Lifecycle) -->
+        <div class="exclusive-service-card">
+          <div class="card-circuit-pattern"></div>
+
+          <div class="exclusive-card-inner">
+            <h3 class="exclusive-card-title">AI Integration & AI Chatbot Development</h3>
+            <div class="exclusive-card-divider"></div>
+            <p class="exclusive-card-desc">
+              We connect AI into your CRM, ERP, and internal tools, from AI chatbot and AI copilot development to AI
+              voice agent development where it fits your workflow.
+            </p>
+          </div>
+
+          <div class="exclusive-icon-notch">
+            <div class="exclusive-icon-bubble">
+              <i class="fa-solid fa-infinity"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: AI Governance, Risk & Responsible AI Advisory (Scale / Ethics & Compliance) -->
+        <div class="exclusive-service-card">
+          <div class="card-circuit-pattern"></div>
+
+          <div class="exclusive-card-inner">
+            <h3 class="exclusive-card-title">Enterprise AI Governance</h3>
+            <div class="exclusive-card-divider"></div>
+            <p class="exclusive-card-desc">
+              As your AI footprint grows, we help you manage it responsibly, with governance for data privacy, model
+              bias, and compliance built into enterprise AI solutions from day one.
+            </p>
+          </div>
+
+          <div class="exclusive-icon-notch">
+            <div class="exclusive-icon-bubble">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       14. SECOND OPINION / CTA BANNER SECTION (Exact Reference in Wappnet AI Theme)
+       ========================================================================= -->
+  <section class="opinion-cta-section" id="second-opinion-cta">
+    <div class="container-wide">
+      <div class="opinion-cta-card">
+
+        <!-- Atmospheric Studio Lighting Backdrop: Top Spotlight, Ambient Glows & Cyber Lattice -->
         <div class="opinion-card-bg" aria-hidden="true">
+          <!-- Ambient Spotlight & Corner Glows -->
           <div class="opinion-spotlight-top"></div>
           <div class="opinion-glow-bottom-left"></div>
           <div class="opinion-glow-bottom-right"></div>
+
+          <!-- Fine Perspective Cyber Lattice Grid -->
           <div class="opinion-grid-lattice"></div>
         </div>
 
-        <!-- Center Header: Badge and Section Heading -->
-        <div class="how-we-do-header-center">
-          <div class="section-eyebrow-tag center-tag dark-tag">How We Do</div>
-          <h2 class="how-we-do-h2">We Can Help You To</h2>
-        </div>
+        <!-- Main Centered Content -->
+        <div class="opinion-content-wrapper">
 
-        <!-- 3-Column Grid matching Attached Image -->
-        <div class="how-we-do-grid">
-
-          <!-- Column 1: Expertise & innovation -->
-          <div class="how-we-do-card">
-            <div class="how-we-do-icon">
-              <i class="fa-solid fa-lightbulb"></i>
-            </div>
-            <h3 class="how-we-do-title">Expertise &amp; innovation</h3>
-            <p class="how-we-do-desc">
-              We pride ourselves staying at the front innovation, constantly pushing boundaries and redefining what is
-              possible.
-            </p>
-          </div>
-
-          <!-- Column 2: Transparent process -->
-          <div class="how-we-do-card">
-            <div class="how-we-do-icon">
-              <i class="fa-solid fa-magnifying-glass-chart"></i>
-            </div>
-            <h3 class="how-we-do-title">Transparent process</h3>
-            <p class="how-we-do-desc">
-              Our transparent process is designed to demystify the journey from concept to delivery.
-            </p>
-          </div>
-
-          <!-- Column 3: Client approach -->
-          <div class="how-we-do-card">
-            <div class="how-we-do-icon">
-              <i class="fa-solid fa-handshake-angle"></i>
-            </div>
-            <h3 class="how-we-do-title">Client approach</h3>
-            <p class="how-we-do-desc">
-              Our dedicated team takes the time to listen and collaborate, ensuring every interaction is a step toward
-              success.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       3.5 CAREERS IMPACT BANNER (Matching Reference Image)
-       Styled in Our Brand Theme Colors & Typography
-       ========================================================================= -->
-  <section class="careers-impact-section">
-    <!-- Abstract Ambient Glow & Geometric Elements (matching index.html) -->
-    <div class="careers-bg-glow careers-glow-left" aria-hidden="true"></div>
-    <div class="careers-bg-glow careers-glow-right" aria-hidden="true"></div>
-    <div class="careers-abstract-dots careers-dots-top-left" aria-hidden="true"></div>
-    <div class="careers-abstract-dots careers-dots-bottom-right" aria-hidden="true"></div>
-    <!-- Abstract Cybernetic Matrix & Sparkle Shapes (matching index.html) -->
-    <div class="careers-abstract-shape shape-top-right" aria-hidden="true">
-      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 60L100 20L180 60L180 160L100 200L20 160Z" stroke="rgba(232,84,31,0.22)" stroke-width="1.5"
-          stroke-dasharray="4 4" />
-        <path d="M100 20V200" stroke="rgba(232,84,31,0.15)" stroke-width="1.2" />
-        <path d="M20 60L180 160" stroke="rgba(232,84,31,0.12)" stroke-width="1.2" />
-        <path d="M20 160L180 60" stroke="rgba(232,84,31,0.12)" stroke-width="1.2" />
-        <polygon points="100,50 150,75 150,135 100,160 50,135 50,75" stroke="rgba(20,20,20,0.08)" stroke-width="1.2" />
-        <circle cx="100" cy="20" r="4" fill="#E8541F" />
-        <circle cx="180" cy="60" r="3.5" fill="#E8541F" />
-        <circle cx="180" cy="160" r="3" fill="#E8541F" opacity="0.6" />
-        <circle cx="100" cy="200" r="4" fill="#E8541F" />
-        <circle cx="20" cy="160" r="3.5" fill="#E8541F" />
-        <circle cx="20" cy="60" r="3" fill="#E8541F" opacity="0.6" />
-        <circle cx="100" cy="110" r="5" fill="#E8541F" opacity="0.8" />
-      </svg>
-    </div>
-
-    <div class="careers-abstract-shape shape-bottom-left" aria-hidden="true">
-      <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="90" y1="10" x2="90" y2="170" stroke="rgba(232,84,31,0.18)" stroke-width="1.2"
-          stroke-dasharray="3 3" />
-        <line x1="10" y1="90" x2="170" y2="90" stroke="rgba(232,84,31,0.18)" stroke-width="1.2"
-          stroke-dasharray="3 3" />
-        <rect x="90" y="42" width="68" height="68" transform="rotate(45 90 42)" stroke="rgba(20,20,20,0.08)"
-          stroke-width="1.2" />
-        <path d="M90 35C90 65 65 90 35 90C65 90 90 115 90 145C90 115 115 90 145 90C115 90 90 65 90 35Z"
-          fill="url(#sparkleGrad)" opacity="0.85" />
-        <defs>
-          <linearGradient id="sparkleGrad" x1="35" y1="35" x2="145" y2="145" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF8A3D" />
-            <stop offset="1" stop-color="#E8541F" />
-          </linearGradient>
-        </defs>
-        <circle cx="90" cy="90" r="4" fill="#ffffff" />
-      </svg>
-    </div>
-
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2">
-
-      <div class="careers-impact-banner">
-
-        <!-- Background Image Container -->
-        <div class="careers-image-wrapper">
-          <img src="images/careers_tech_team.jpg" alt="Wappnet AI Engineering Team" loading="lazy">
-          <div class="careers-image-overlay"></div>
-        </div>
-
-        <!-- Overlapping Floating Dark Card -->
-        <div class="careers-overlay-card">
-
-          <!-- Avatar Stack of 4 Team Portraits -->
-          <div class="careers-avatar-stack">
-            <div class="careers-avatar avatar-1" title="Engineering Lead"></div>
-            <div class="careers-avatar avatar-2" title="AI Researcher"></div>
-            <div class="careers-avatar avatar-3" title="MLOps Architect"></div>
-            <div class="careers-avatar avatar-4" title="Solutions Director"></div>
-          </div>
-
-          <!-- Card Heading -->
-          <h2 class="careers-card-heading">
-            Create Meaningful Impact Through Technology Careers
+          <!-- Eyebrow & Main Title -->
+          <div class="section-eyebrow-tag center-tag dark-tag">Direct Advisory</div>
+          <h2 class="opinion-main-title">
+            Already Have an AI Plan? Let’s Validate It.
           </h2>
 
-          <!-- Card Description -->
-          <p class="careers-card-desc">
-            Join our world-class team of engineers, researchers, and AI architects pioneering autonomous enterprise
-            solutions and next-generation intelligence.
+          <!-- Subtitle / Paragraph -->
+          <p class="opinion-subtitle">
+            SGet an honest review of your AI plan, risks, feasibility, and next steps before you invest.
           </p>
 
-          <!-- Action Button -->
-          <a href="service.html#contact" class="careers-cta-btn">
-            JOIN OUR TEAM
-          </a>
+          <!-- Action Row -->
+          <div class="opinion-action-group">
+            <a href="#schedule-call" class="opinion-btn-primary">
+              <span>Get a Free AI Plan Review</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
 
         </div>
 
       </div>
-
     </div>
   </section>
 
   <!-- =========================================================================
-       3.8 TESTIMONIALS SECTION (Matching Reference Image)
-       Styled in Our Brand Theme Colors & Typography
+       15. PROCESS STEPS SECTION (Connected Process Flow with Dotted Lines)
        ========================================================================= -->
-  <section class="testimonials-section">
+  <section class="process-steps-section" id="process-steps">
+    <div class="container-wide">
+
+      <!-- Header Row -->
+      <div class="process-header-row">
+        <div class="process-header-left">
+          <div class="section-eyebrow-tag dark-tag">How We Work</div>
+          <h2 class="process-main-title">
+            Our AI Development Process
+          </h2>
+        </div>
+        <div class="process-header-right">
+          <p class="process-sub-title">
+            From your business goals to a production-ready AI solution, we guide you through every stage with a clear
+            focus on measurable outcomes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Process Steps Grid with Connecting Dotted Line -->
+      <div class="process-steps-grid">
+
+        <!-- Step 1 -->
+        <div class="process-step-card" data-step="1">
+          <div class="step-card-top-row">
+            <span class="step-number-pill">STEP 01</span>
+            <div class="step-icon-box">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+            </div>
+          </div>
+          <div class="step-card-visual">
+            <image-slot id="step-img-1" shape="rect" placeholder="Discovery &amp; Data Audit · 360×120"></image-slot>
+          </div>
+          <h3 class="step-item-title">Understanding Your Business & Data</h3>
+          <p class="step-item-desc">
+            We map your current workflows, data sources, and goals to define exactly what the AI solution needs to
+            deliver.
+          </p>
+          <div class="step-card-footer-line"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step-card" data-step="2">
+          <div class="step-card-top-row">
+            <span class="step-number-pill">STEP 02</span>
+            <div class="step-icon-box">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+          </div>
+          <div class="step-card-visual">
+            <image-slot id="step-img-2" shape="rect" placeholder="Strategy &amp; Scorecards · 360×120"></image-slot>
+          </div>
+          <h3 class="step-item-title">AI Strategy & Solution Design</h3>
+          <p class="step-item-desc">
+            We define the architecture, model approach, and success metrics, and prioritize use cases by ROI.
+          </p>
+          <div class="step-card-footer-line"></div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step-card" data-step="3">
+          <div class="step-card-top-row">
+            <span class="step-number-pill">STEP 03</span>
+            <div class="step-icon-box">
+              <i class="fa-solid fa-sitemap"></i>
+            </div>
+          </div>
+          <div class="step-card-visual">
+            <image-slot id="step-img-3" shape="rect" placeholder="Architecture &amp; Data Prep · 360×120"></image-slot>
+          </div>
+          <h3 class="step-item-title">Data Engineering & Model Development</h3>
+          <p class="step-item-desc">
+            We prepare, structure, and validate your data, then build or fine-tune the models the solution needs.
+          </p>
+          <div class="step-card-footer-line"></div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step-card" data-step="4">
+          <div class="step-card-top-row">
+            <span class="step-number-pill">STEP 04</span>
+            <div class="step-icon-box">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <div class="step-card-visual">
+            <image-slot id="step-img-4" shape="rect" placeholder="Model Training &amp; Code · 360×120"></image-slot>
+          </div>
+          <h3 class="step-item-title">Integration, Testing & Deployment</h3>
+          <p class="step-item-desc">
+            The solution is integrated into your existing systems, rigorously tested, and deployed to production.
+          </p>
+          <div class="step-card-footer-line"></div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="process-step-card" data-step="5">
+          <div class="step-card-top-row">
+            <span class="step-number-pill">STEP 05</span>
+            <div class="step-icon-box">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+          </div>
+          <div class="step-card-visual">
+            <image-slot id="step-img-5" shape="rect" placeholder="API &amp; Integration Deploy · 360×120"></image-slot>
+          </div>
+          <h3 class="step-item-title">Monitoring, Optimization & Support</h3>
+          <p class="step-item-desc">
+            We track model performance post-launch and continuously retrain as your data and business needs evolve.
+          </p>
+          <div class="step-card-footer-line"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       16. AI USE CASES SECTION (Exact Design Matching Wappnet AI Service)
+       ========================================================================= -->
+  <section class="use-cases-section" id="use-cases" style="background:#0D0D0F;color:#fff;padding:88px 0">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal style="margin-bottom:52px">
+        <div
+          style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F4A557;margin-bottom:16px">
+          Where AI Delivers</div>
+        <h2
+          style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;text-wrap:pretty;color:#fff !important">
+          AI Development Services: Use Cases</h2>
+        <p style="margin-top:16px;font-size:16px;line-height:1.6;color:rgba(255,255,255,.65);max-width:62ch">Every
+          business has different challenges. Explore practical AI use cases that help your team automate work, work
+          smarter, and create measurable business value.</p>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px 32px">
+        <div style="padding-top:26px;border-top:2px solid #FB4159">
+          <div
+            style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:#FB4159">
+            01 — GENERATIVE AI</div>
+          <h4
+            style="margin-top:14px;font-size:19px;font-weight:700;color:#fff;font-family:'Archivo',sans-serif;letter-spacing:-.01em">
+            Generative AI Solutions</h4>
+          <p style="margin-top:10px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.6)">Build AI applications
+            that work with your business data, documents, content, and knowledge to help teams find information, create
+            content, and complete tasks faster.</p>
+        </div>
+        <div style="padding-top:26px;border-top:2px solid #F49B3D">
+          <div
+            style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:#F49B3D">
+            02 — WORKFLOW AUTOMATION</div>
+          <h4
+            style="margin-top:14px;font-size:19px;font-weight:700;color:#fff;font-family:'Archivo',sans-serif;letter-spacing:-.01em">
+            AI Agents &amp; Workflow Automation</h4>
+          <p style="margin-top:10px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.6)">Automate repetitive,
+            multi-step workflows such as lead qualification, customer support, data processing, and back-office
+            operations with intelligent AI agents.</p>
+        </div>
+        <div style="padding-top:26px;border-top:2px solid #FDCE2C">
+          <div
+            style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:#FDCE2C">
+            03 — VIRTUAL ASSISTANTS</div>
+          <h4
+            style="margin-top:14px;font-size:19px;font-weight:700;color:#fff;font-family:'Archivo',sans-serif;letter-spacing:-.01em">
+            AI Chatbots &amp; Virtual Assistants</h4>
+          <p style="margin-top:10px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.6)">Deploy intelligent
+            conversational assistants that provide instant answers, handle routine requests, and support customers and
+            employees around the clock.</p>
+        </div>
+        <div style="padding-top:26px;border-top:2px solid #20CB74">
+          <div
+            style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:#20CB74">
+            04 — PREDICTIVE ANALYTICS</div>
+          <h4
+            style="margin-top:14px;font-size:19px;font-weight:700;color:#fff;font-family:'Archivo',sans-serif;letter-spacing:-.01em">
+            Predictive Analytics &amp; Machine Learning</h4>
+          <p style="margin-top:10px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.6)">Use your business data to
+            identify patterns, predict outcomes, detect risks, and generate insights that help your teams make faster,
+            more informed decisions.</p>
+        </div>
+        <div style="padding-top:26px;border-top:2px solid #29B6F6">
+          <div
+            style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:#29B6F6">
+            05 — COMPUTER VISION</div>
+          <h4
+            style="margin-top:14px;font-size:19px;font-weight:700;color:#fff;font-family:'Archivo',sans-serif;letter-spacing:-.01em">
+            Computer Vision &amp; Intelligent Document Processing</h4>
+          <p style="margin-top:10px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.6)">Extract information from
+            documents, analyze images, classify data, and automate time-consuming processes that traditionally require
+            manual effort.</p>
+        </div>
+        <div style="padding-top:26px;border-top:2px solid #B388FF">
+          <div
+            style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:#B388FF">
+            06 — INDUSTRY SOLUTIONS</div>
+          <h4
+            style="margin-top:14px;font-size:19px;font-weight:700;color:#fff;font-family:'Archivo',sans-serif;letter-spacing:-.01em">
+            Industry-Specific AI Solutions</h4>
+          <p style="margin-top:10px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.6)">Build AI solutions around
+            your industry's workflows, data, regulations, and customer needs across healthcare, BFSI, retail,
+            manufacturing, and other sectors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       17. CUSTOM AI VS OFF-THE-SHELF COMPARISON SECTION (Creative Interactive Matrix)
+       ========================================================================= -->
+  <section class="comparison-section" id="ai-difference">
+    <!-- Ambient Background Lighting Blooms -->
+    <div class="comparison-bloom bloom-left" aria-hidden="true"></div>
+    <div class="comparison-bloom bloom-right" aria-hidden="true"></div>
+
+    <div class="container-wide">
 
       <!-- Section Header -->
-      <div class="testimonials-header">
-        <div class="section-eyebrow-tag center-tag">Testimonials</div>
-        <h2 class="testimonials-heading">Transformative Client Experiences</h2>
+      <div class="comparison-header">
+        <div class="section-eyebrow-tag center-tag">Build vs. Buy</div>
+        <h2 class="comparison-main-title">
+          Custom AI Development vs. Off-the-Shelf AI Tools
+        </h2>
+        <p class="comparison-subtitle">
+          Off-the-shelf AI tools can be a practical starting point for common needs. Custom AI development makes more
+          sense when your workflows, data, security requirements, or growth plans demand greater control and
+          flexibility.
+        </p>
       </div>
 
-      <!-- 3 Testimonial Cards Grid -->
-      <div class="testimonials-grid">
+      <!-- Creative Comparison Matrix Card Shell -->
+      <div class="comparison-card-wrapper">
+        <div class="comparison-table">
 
-        <!-- Card 1: Guy Hawkins -->
-        <div class="testimonial-card">
-          <div class="testimonial-card-main">
-            <div class="testimonial-quote-icon">
-              <svg viewBox="0 0 38 28" fill="currentColor">
-                <path
-                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
-              </svg>
+          <!-- Table Header Row -->
+          <div class="comparison-row comparison-header-row">
+            <div class="comparison-cell col-factor header-factor-cell">
+              <span class="header-col-title">Evaluation Factor</span>
             </div>
-            <p class="testimonial-quote-text">
-              Impressed by the professionalism and attention to detail.
-            </p>
-          </div>
-          <div class="testimonial-card-footer">
-            <div class="testimonial-author-notch">
-              <div class="testimonial-author-avatar avatar-1"></div>
-              <div>
-                <div class="testimonial-author-name">Guy Hawkins</div>
-                <div class="testimonial-author-handle">@guyhawkins</div>
+
+            <div class="comparison-cell col-custom highlight-header">
+              <div class="header-highlight-content">
+                <h3 class="header-col-title">Custom AI Development</h3>
               </div>
             </div>
-            <div class="testimonial-card-tab"></div>
-          </div>
-        </div>
 
-        <!-- Card 2: Karla Lynn -->
-        <div class="testimonial-card">
-          <div class="testimonial-card-main">
-            <div class="testimonial-quote-icon">
-              <svg viewBox="0 0 38 28" fill="currentColor">
-                <path
-                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
-              </svg>
-            </div>
-            <p class="testimonial-quote-text">
-              A seamless experience from start to finish. Highly recommend!
-            </p>
-          </div>
-          <div class="testimonial-card-footer">
-            <div class="testimonial-author-notch">
-              <div class="testimonial-author-avatar avatar-2"></div>
-              <div>
-                <div class="testimonial-author-name">Karla Lynn</div>
-                <div class="testimonial-author-handle">@karlalynn98</div>
+            <div class="comparison-cell col-offtheshelf header-shelf-cell">
+              <div class="header-shelf-content">
+                <h3 class="header-col-title">Off-the-Shelf AI Tools</h3>
               </div>
             </div>
-            <div class="testimonial-card-tab"></div>
           </div>
-        </div>
 
-        <!-- Card 3: Jane Cooper -->
-        <div class="testimonial-card">
-          <div class="testimonial-card-main">
-            <div class="testimonial-quote-icon">
-              <svg viewBox="0 0 38 28" fill="currentColor">
-                <path
-                  d="M0 16.8C0 7.5 5.8 1.4 14.8 0L17 4.2C10.8 5.6 7.6 8.8 7.2 13.2H16V28H0V16.8ZM21 16.8C21 7.5 26.8 1.4 35.8 0L38 4.2C31.8 5.6 28.6 8.8 28.2 13.2H37V28H21V16.8Z" />
-              </svg>
+          <!-- Row 1: Fit to Business Process -->
+          <div class="comparison-row">
+            <div class="comparison-cell col-factor">
+              <div class="factor-icon-wrap">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+              <span class="factor-title">Fit to Business Processes</span>
             </div>
-            <p class="testimonial-quote-text">
-              Reliable and trustworthy. Made my life so much easier!
-            </p>
-          </div>
-          <div class="testimonial-card-footer">
-            <div class="testimonial-author-notch">
-              <div class="testimonial-author-avatar avatar-3"></div>
-              <div>
-                <div class="testimonial-author-name">Jane Cooper</div>
-                <div class="testimonial-author-handle">@janecooper</div>
+
+            <div class="comparison-cell col-custom highlight-cell">
+              <div class="cell-status-indicator positive">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="cell-body">
+                <p class="custom-text-highlight">Built around your workflows, data, and business requirements</p>
               </div>
             </div>
-            <div class="testimonial-card-tab"></div>
+
+            <div class="comparison-cell col-offtheshelf">
+              <div class="cell-status-indicator neutral">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <div class="cell-body">
+                <p>You adapt your processes to the tool's capabilities</p>
+              </div>
+            </div>
           </div>
+
+          <!-- Row 2: Data Ownership & Security -->
+          <div class="comparison-row">
+            <div class="comparison-cell col-factor">
+              <div class="factor-icon-wrap">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <span class="factor-title">Data Control & Security</span>
+            </div>
+
+            <div class="comparison-cell col-custom highlight-cell">
+              <div class="cell-status-indicator positive">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="cell-body">
+                <p class="custom-text-highlight">Greater control over how your data is stored, processed, and accessed
+                </p>
+              </div>
+            </div>
+
+            <div class="comparison-cell col-offtheshelf">
+              <div class="cell-status-indicator neutral">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <div class="cell-body">
+                <p>Data handling depends on the provider's policies and infrastructure</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: Scalability -->
+          <div class="comparison-row">
+            <div class="comparison-cell col-factor">
+              <div class="factor-icon-wrap">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <span class="factor-title">Scalability & Flexibility</span>
+            </div>
+
+            <div class="comparison-cell col-custom highlight-cell">
+              <div class="cell-status-indicator positive">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="cell-body">
+                <p class="custom-text-highlight">Architecture can evolve with your usage and business requirements</p>
+              </div>
+            </div>
+
+            <div class="comparison-cell col-offtheshelf">
+              <div class="cell-status-indicator neutral">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <div class="cell-body">
+                <p>Capabilities and limits depend on the provider's plans and roadmap</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4: Total Cost of Ownership -->
+          <div class="comparison-row">
+            <div class="comparison-cell col-factor">
+              <div class="factor-icon-wrap">
+                <i class="fa-solid fa-coins"></i>
+              </div>
+              <span class="factor-title">Total Cost of Ownership</span>
+            </div>
+
+            <div class="comparison-cell col-custom highlight-cell">
+              <div class="cell-status-indicator positive">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="cell-body">
+                <p class="custom-text-highlight">Higher initial investment, with costs shaped around your solution and
+                  usage</p>
+              </div>
+            </div>
+
+            <div class="comparison-cell col-offtheshelf">
+              <div class="cell-status-indicator neutral">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <div class="cell-body">
+                <p>Lower initial cost, but ongoing subscription and usage fees can increase over time</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5: Competitive Differentiation -->
+          <div class="comparison-row">
+            <div class="comparison-cell col-factor">
+              <div class="factor-icon-wrap">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <span class="factor-title">Competitive Differentiation</span>
+            </div>
+
+            <div class="comparison-cell col-custom highlight-cell">
+              <div class="cell-status-indicator positive">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="cell-body">
+                <p class="custom-text-highlight">Build capabilities tailored to your unique business needs</p>
+              </div>
+            </div>
+
+            <div class="comparison-cell col-offtheshelf">
+              <div class="cell-status-indicator neutral">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <div class="cell-body">
+                <p>The same core capabilities may be available to many businesses</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 6: Vendor Dependency -->
+          <div class="comparison-row">
+            <div class="comparison-cell col-factor">
+              <div class="factor-icon-wrap">
+                <i class="fa-solid fa-key"></i>
+              </div>
+              <span class="factor-title">Vendor Dependency</span>
+            </div>
+
+            <div class="comparison-cell col-custom highlight-cell">
+              <div class="cell-status-indicator positive">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="cell-body">
+                <p class="custom-text-highlight">Greater control over your technology stack and roadmap</p>
+              </div>
+            </div>
+
+            <div class="comparison-cell col-offtheshelf">
+              <div class="cell-status-indicator neutral">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <div class="cell-body">
+                <p>Product changes, pricing, and availability depend on the provider</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Summary Verdict Strip -->
+          <div class="comparison-verdict-strip">
+            <div class="verdict-left">
+              <span class="verdict-icon-badge"><i class="fa-solid fa-lightbulb"></i></span>
+              <div class="verdict-text">
+                <strong>Key Takeaway:</strong> Custom AI development gives you greater control over how AI fits your
+                business, while off-the-shelf tools can be faster for common, well-defined needs.
+              </div>
+            </div>
+          </div>
+
         </div>
-
-      </div>
-
-      <!-- Carousel Dots Indicator -->
-      <div class="testimonials-dots">
-        <span class="testimonial-dot active"></span>
-        <span class="testimonial-dot"></span>
-        <span class="testimonial-dot"></span>
       </div>
 
     </div>
   </section>
 
   <!-- =========================================================================
-       4. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION (Matching index.html)
+       18. WHAT TECHNOLOGIES WE USE SECTION (Creative & Attractive)
        ========================================================================= -->
-  <section class="faq-section" id="faq" style="padding: 80px 0;">
-    <div class="container-wide" style="max-width:1200px;margin:0 auto;padding:0 24px">
+  <section class="technologies-overlap-section" id="technologies">
+    <div class="container-wide">
+      <div class="technologies-card-wrapper">
+
+        <!-- Background Ambient Grid -->
+        <div class="tech-ambient-grid" aria-hidden="true"></div>
+
+        <!-- Section Header Block -->
+        <div class="tech-header-block">
+          <div class="section-eyebrow-tag dark-tag center-tag">What We Build With</div>
+          <h2 class="tech-main-heading">
+            What Technologies We Use
+          </h2>
+          <p class="tech-sub-desc">
+            We architect and deploy battle-tested enterprise AI systems on world-class cloud infrastructure, distributed
+            data pipelines, and sub-millisecond real-time runtimes.
+          </p>
+        </div>
+
+        <!-- 12 Technology Brand Cards (6 per row x 2 rows) -->
+        <div class="technologies-grid" id="techCardsGrid">
+
+          <!-- Card 1: Java -->
+          <div class="tech-item-card card-brand-java">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" alt="Java"
+                class="tech-card-logo" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 2: Amazon DynamoDB -->
+          <div class="tech-item-card card-brand-dynamodb">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <div class="tech-custom-logo dynamodb-logo">
+                <svg viewBox="0 0 32 32" class="tech-svg-icon" fill="none">
+                  <ellipse cx="16" cy="7" rx="12" ry="4.5" fill="#2E73B8" />
+                  <path d="M4 7v6c0 2.48 5.37 4.5 12 4.5s12-2.02 12-4.5V7" fill="#1B4F8A" />
+                  <ellipse cx="16" cy="13" rx="12" ry="4.5" fill="#3B82F6" />
+                  <path d="M4 13v6c0 2.48 5.37 4.5 12 4.5s12-2.02 12-4.5v-6" fill="#1E40AF" />
+                  <ellipse cx="16" cy="19" rx="12" ry="4.5" fill="#60A5FA" />
+                  <path d="M4 19v6c0 2.48 5.37 4.5 12 4.5s12-2.02 12-4.5v-6" fill="#1D4ED8" />
+                </svg>
+                <div class="tech-logo-text-stack">
+                  <span class="tech-brand-sub">amazon</span>
+                  <span class="tech-brand-main">DynamoDB</span>
+                </div>
+              </div>
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 3: Amazon Redshift -->
+          <div class="tech-item-card card-brand-redshift">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <div class="tech-custom-logo redshift-logo">
+                <svg viewBox="0 0 32 32" class="tech-svg-icon" fill="none">
+                  <rect x="5" y="5" width="10" height="10" rx="2" fill="#2563EB" />
+                  <rect x="17" y="5" width="10" height="10" rx="2" fill="#3B82F6" />
+                  <rect x="5" y="17" width="10" height="10" rx="2" fill="#1D4ED8" />
+                  <rect x="17" y="17" width="10" height="10" rx="2" fill="#60A5FA" />
+                </svg>
+                <div class="tech-logo-text-stack">
+                  <span class="tech-brand-sub">amazon</span>
+                  <span class="tech-brand-main">REDSHIFT</span>
+                </div>
+              </div>
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 4: AWS -->
+          <div class="tech-item-card card-brand-aws">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="images/aws.svg" alt="AWS" class="tech-card-logo aws-logo-img" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 5: Apache Storm -->
+          <div class="tech-item-card card-brand-storm">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <div class="tech-custom-logo storm-logo">
+                <svg viewBox="0 0 36 28" class="tech-svg-icon storm-svg" fill="none">
+                  <path d="M10 17a6 6 0 0 1-2-11.66 8 8 0 0 1 15.66 2 5 5 0 0 1 4.34 7.66" stroke="#0284C7"
+                    stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M15 12l-4 7h5l-2 6 7-9h-4.5l2.5-4z" fill="#F59E0B" />
+                </svg>
+                <div class="tech-logo-text-stack">
+                  <span class="tech-brand-sub">APACHE</span>
+                  <span class="tech-brand-main storm-text">STORM</span>
+                </div>
+              </div>
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 6: Docker -->
+          <div class="tech-item-card card-brand-docker">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg"
+                alt="Docker" class="tech-card-logo" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 7: TensorFlow -->
+          <div class="tech-item-card card-brand-tensorflow">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original-wordmark.svg"
+                alt="TensorFlow" class="tech-card-logo" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 8: Node.js -->
+          <div class="tech-item-card card-brand-nodejs">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"
+                alt="Node.js" class="tech-card-logo" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 9: Oracle -->
+          <div class="tech-item-card card-brand-oracle">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"
+                class="tech-card-logo oracle-logo-img" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 10: Apache JMeter -->
+          <div class="tech-item-card card-brand-jmeter">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <div class="tech-custom-logo jmeter-logo">
+                <svg viewBox="0 0 32 32" class="tech-svg-icon" fill="none">
+                  <path d="M7 25L23 5C25 3 27 6 25 9L11 27C9 29 6 27 7 25Z" fill="url(#jmeterGrad)" />
+                  <defs>
+                    <linearGradient id="jmeterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#DC2626" />
+                      <stop offset="50%" stop-color="#7C3AED" />
+                      <stop offset="100%" stop-color="#2563EB" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="tech-logo-text-stack">
+                  <span class="tech-brand-sub">APACHE</span>
+                  <span class="tech-brand-main jmeter-text">JMeter<span class="tm-sup">™</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 11: MongoDB -->
+          <div class="tech-item-card card-brand-mongodb">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg"
+                alt="MongoDB" class="tech-card-logo" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+          <!-- Card 12: MySQL -->
+          <div class="tech-item-card card-brand-mysql">
+            <div class="tech-card-ambient-aura"></div>
+            <div class="tech-card-inner">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
+                alt="MySQL" class="tech-card-logo" />
+            </div>
+            <div class="tech-card-glow-bar"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       19. INDUSTRIES WE SERVE SECTION (Reference Sector Pills Design)
+       ========================================================================= -->
+  <section class="industries-section" id="industries">
+    <div class="container-wide industry-content-container">
+
+      <!-- Centered Header Block -->
+      <div class="industry-header-center">
+        <div class="section-eyebrow-tag center-tag">Where We Work</div>
+        <h2 class="industry-main-title">
+          IT services for your sector
+        </h2>
+      </div>
+
+      <!-- Centered Staggered Industry Sector Pills Cloud (Exact 3-Row Layout from Reference) -->
+      <div class="industry-pills-cloud">
+
+        <!-- Row 1: 4 Industry Sectors -->
+        <div class="industry-pills-row">
+          <!-- 1. Banking & Finance -->
+          <a href="#contact" class="industry-pill-card">
+            <div class="industry-pill-icon">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <span class="industry-pill-name">Banking & Financial Services</span>
+          </a>
+
+          <!-- 2. Automotive Manufacturing -->
+          <a href="#contact" class="industry-pill-card">
+            <div class="industry-pill-icon">
+              <i class="fa-solid fa-car-side"></i>
+            </div>
+            <span class="industry-pill-name">Healthcare & Life Sciences</span>
+          </a>
+
+          <!-- 3. Textiles and Apparel -->
+          <a href="#contact" class="industry-pill-card">
+            <div class="industry-pill-icon">
+              <i class="fa-solid fa-shirt"></i>
+            </div>
+            <span class="industry-pill-name">Retail & E-Commerce</span>
+          </a>
+
+          <!-- 4. Steel and Metal Manufacture -->
+          <a href="#contact" class="industry-pill-card">
+            <div class="industry-pill-icon">
+              <i class="fa-solid fa-industry"></i>
+            </div>
+            <span class="industry-pill-name">Insurance</span>
+          </a>
+        </div>
+
+        <!-- Row 2: 4 Industry Sectors -->
+        <div class="industry-pills-row">
+          <!-- 5. Commercial Construction -->
+          <a href="#contact" class="industry-pill-card">
+            <div class="industry-pill-icon">
+              <i class="fa-solid fa-helmet-safety"></i>
+            </div>
+            <span class="industry-pill-name">Manufacturing & Supply Chain</span>
+          </a>
+
+          <!-- 6. Electricity Generation -->
+          <a href="#contact" class="industry-pill-card">
+            <div class="industry-pill-icon">
+              <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <span class="industry-pill-name">Legal Technology</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       20. WHY CHOOSE WAPPNET AI SECTION (Exact Layout from Reference Image)
+       ========================================================================= -->
+  <section class="why-choose-section" id="why-choose">
+    <div class="container-wide">
+      <div class="why-choose-grid">
+
+        <!-- Left Column: Visual Showcase Image -->
+        <div class="why-visual-col">
+          <div class="why-image-showcase">
+            <!-- Main Tech Engineers / Server Facility Image -->
+            <div class="why-main-img-box">
+              <img src="images/professional_team_meeting.jpg"
+                alt="Professional AI Consultants and Engineers Working on Laptops in Modern Corporate Office"
+                class="why-main-img" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Content, Title, Description and 2 Highlight Cards (Content from Image 2) -->
+        <div class="why-content-col">
+          <div class="section-eyebrow-tag dark-tag">Why Wappnet</div>
+          <h2 class="why-main-title">
+            Why Choose Wappnet AI as Your AI Development Company?
+          </h2>
+
+          <p class="why-description">
+            Choosing an AI development company is a long-term decision. You need a team that understands your business
+            goals, not just the technology. Here’s what you can expect when you work with us.
+          </p>
+
+          <!-- 2 Side-by-Side Highlight Cards (Unified Theme Color & Typography) -->
+          <div class="why-bottom-cards">
+
+            <!-- Card 1: Global positioning -->
+            <div class="why-feature-card">
+              <div class="feature-card-icon">
+                <i class="fa-solid fa-globe"></i>
+              </div>
+              <h4 class="feature-card-title">Deep AI & Data Expertise</h4>
+              <p class="feature-card-desc">
+                Work with engineers, data scientists, and architects who bring hands-on experience to your AI project
+                not just theoretical knowledge.
+              </p>
+            </div>
+
+            <!-- Card 2: Innovation and Scalability -->
+            <div class="why-feature-card">
+              <div class="feature-card-icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+              <h4 class="feature-card-title">A Track Record You Can Verify</h4>
+              <p class="feature-card-desc">
+                Build with confidence backed by 500+ delivered projects across 25+ industries, including solutions
+                deployed in real production environments.
+              </p>
+            </div>
+            <!-- Card 3: Innovation and Scalability -->
+            <div class="why-feature-card">
+              <div class="feature-card-icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+              <h4 class="feature-card-title">No Black-Box Hand-Offs</h4>
+              <p class="feature-card-desc">
+                Stay connected to the engineers building your solution, with clear milestones, direct communication, and
+                visibility throughout development.
+              </p>
+            </div>
+            <!-- Card 4: Innovation and Scalability -->
+            <div class="why-feature-card">
+              <div class="feature-card-icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+              <h4 class="feature-card-title">Security Built In From the Start</h4>
+              <p class="feature-card-desc">
+                Protect your data with AI architectures designed around security, scalability, and enterprise
+                requirements from day one.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- =========================================================================
+       22. UNCERTAIN USE CASE CTA SECTION (Out-of-the-Box 3D Robot & Interactive CTA)
+       ========================================================================= -->
+  <section class="usecase-cta-section" id="usecase-cta">
+    <div class="container-wide">
+      <div class="usecase-cta-card">
+
+        <!-- Grid Accent Overlay -->
+        <div class="cta-grid-overlay"></div>
+
+        <div class="usecase-cta-content">
+
+          <!-- Left Column: Out-of-the-box 3D AI Robot Image Showcase -->
+          <div class="cta-visual-col">
+            <div class="cta-robot-wrapper">
+              <img src="images/robot-cta-2.png" alt="AI Robot Assistant Mascot" class="cta-robot-img" />
+            </div>
+          </div>
+
+          <!-- Right Column: Copywriting & Action Button -->
+          <div class="cta-text-col">
+            <div class="section-eyebrow-tag">Start a Conversation</div>
+            <h2 class="cta-main-title">
+              Have an AI Idea but Don't Know Where to Start?
+            </h2>
+
+            <p class="cta-subtitle">
+              Share your business challenge with our AI experts. We'll help you identify the right AI approach,
+              potential value, and practical next steps.
+            </p>
+
+            <div class="cta-action-wrapper">
+              <a href="#contact" class="cta-schedule-btn">
+                <span>Discuss Your AI Use Case</span>
+                <span class="btn-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- =========================================================================
+       25. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION (Clean Monochrome / Theme Design)
+       ========================================================================= -->
+  <section class="faq-section" id="faq">
+    <div class="container-wide">
 
       <!-- Top Header Area (Centered) -->
       <div class="faq-header-center">
         <div class="section-eyebrow-tag center-tag">Got Questions?</div>
 
-        <h2 class="faq-main-title"
-          style="font-family:'Archivo',sans-serif;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#141414;line-height:1.2;margin:0 0 14px 0">
-          Frequently Asked Questions.
+        <h2 class="faq-main-title">
+          Frequently Asked Questions
         </h2>
-
-        <p class="faq-subtitle"
-          style="font-family:'DM Sans',sans-serif;font-size:16px;color:#555555;line-height:1.65;margin:0;max-width:620px">
-          Everything you need to know about our enterprise AI consulting, proof-of-concept timelines, tech stack, data
-          compliance, and production SLAs.
-        </p>
       </div>
 
       <!-- Bottom Accordion Container (Centered Max-Width) -->
@@ -2268,7 +2679,7 @@
               <div class="faq-q-left">
                 <span class="faq-num">01</span>
                 <div class="faq-q-text-wrap">
-                  <h3 class="faq-question">What services does Wappnet.AI specialize in?</h3>
+                  <h3 class="faq-question">What do AI development services actually include?</h3>
                 </div>
               </div>
               <div class="faq-toggle-icon">
@@ -2277,10 +2688,9 @@
             </button>
             <div class="faq-answer-wrap" id="faq-answer-1">
               <div class="faq-answer-content">
-                <p>Wappnet.AI specializes in providing cutting-edge AI solutions tailored to meet the unique needs of
-                  businesses across various industries. We offer services such as natural language processing (NLP),
-                  computer vision, generative AI, deep learning, enterprise RAG, predictive machine learning, and
-                  comprehensive data engineering services.</p>
+                <p>AI development services cover the full lifecycle, from AI strategy and consulting to building
+                  generative AI, machine learning, and AI agent solutions, then integrating and deploying them into your
+                  existing systems.</p>
               </div>
             </div>
           </div>
@@ -2291,7 +2701,8 @@
               <div class="faq-q-left">
                 <span class="faq-num">02</span>
                 <div class="faq-q-text-wrap">
-                  <h3 class="faq-question">How does Wappnet.AI develop custom AI solutions for clients?</h3>
+                  <h3 class="faq-question">How is Wappnet.ai different from other AI development companies?
+                  </h3>
                 </div>
               </div>
               <div class="faq-toggle-icon">
@@ -2300,9 +2711,9 @@
             </button>
             <div class="faq-answer-wrap" id="faq-answer-2">
               <div class="faq-answer-content">
-                <p>Our team of experts works closely with clients to understand their specific challenges and goals. We
-                  develop custom AI solutions that streamline processes, enhance decision-making, and drive innovation,
-                  ultimately helping businesses achieve greater efficiency, security, and market competitiveness.</p>
+                <p>Wappnet.ai works across the full stack, including AI consulting, generative AI, AI agents, machine
+                  learning, and AI integration, so the solution we recommend fits your use case instead of being built
+                  around one product.</p>
               </div>
             </div>
           </div>
@@ -2313,7 +2724,8 @@
               <div class="faq-q-left">
                 <span class="faq-num">03</span>
                 <div class="faq-q-text-wrap">
-                  <h3 class="faq-question">What industries does Wappnet.AI serve?</h3>
+                  <h3 class="faq-question">Do we need clean, structured data before starting an AI development project?
+                  </h3>
                 </div>
               </div>
               <div class="faq-toggle-icon">
@@ -2322,10 +2734,8 @@
             </button>
             <div class="faq-answer-wrap" id="faq-answer-3">
               <div class="faq-answer-content">
-                <p>We serve a diverse range of industries, including Healthcare, Finance, Retail &amp; E-commerce,
-                  Manufacturing &amp; Supply Chain, Entertainment, Private Equity &amp; Principal Investment, Real
-                  Estate, Automotive, and High-Tech. Our adaptable AI solutions can be tailored to suit the unique
-                  requirements of any business environment.</p>
+                <p>No. Assessing your data is part of our discovery phase, and we build a data preparation plan into the
+                  AI development services engagement itself.</p>
               </div>
             </div>
           </div>
@@ -2336,7 +2746,7 @@
               <div class="faq-q-left">
                 <span class="faq-num">04</span>
                 <div class="faq-q-text-wrap">
-                  <h3 class="faq-question">How does Wappnet.AI ensure data privacy and security?</h3>
+                  <h3 class="faq-question">Should we build a custom AI solution or use an off-the-shelf AI tool?</h3>
                 </div>
               </div>
               <div class="faq-toggle-icon">
@@ -2345,10 +2755,8 @@
             </button>
             <div class="faq-answer-wrap" id="faq-answer-4">
               <div class="faq-answer-content">
-                <p>Data privacy and security are top priorities at Wappnet.AI. We adhere to strict protocols, ISO
-                  compliance standards, and industry best practices to safeguard client data throughout the development
-                  and deployment process. Our systems are designed with zero data retention for training and secure
-                  sovereign VPC deployments.</p>
+                <p>It depends on your use case. Off-the-shelf tools suit narrow, generic tasks, while custom AI
+                  development fits solutions that need deep integration or a real competitive edge.</p>
               </div>
             </div>
           </div>
@@ -2359,7 +2767,7 @@
               <div class="faq-q-left">
                 <span class="faq-num">05</span>
                 <div class="faq-q-text-wrap">
-                  <h3 class="faq-question">Does Wappnet.AI provide ongoing support and maintenance?</h3>
+                  <h3 class="faq-question">Can you integrate AI into our existing CRM, ERP, or internal tools?</h3>
                 </div>
               </div>
               <div class="faq-toggle-icon">
@@ -2368,19 +2776,91 @@
             </button>
             <div class="faq-answer-wrap" id="faq-answer-5">
               <div class="faq-answer-content">
-                <p>Yes, we provide comprehensive support and maintenance services to ensure that your AI solutions
-                  continue to perform optimally over time. Our team is available to address any questions or concerns,
-                  monitor model performance, and provide upgrades as new foundation models and technologies emerge.</p>
+                <p>Yes. AI integration into your existing platforms, rather than replacing them, is one of our most
+                  common AI development services engagements.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="faq-item" id="faq-item-6">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-6">
+              <div class="faq-q-left">
+                <span class="faq-num">06</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">Which industries can benefit from AI development services?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-6">
+              <div class="faq-answer-content">
+                <p>Most data-driven industries benefit, including healthcare, BFSI, retail, manufacturing, logistics,
+                  and education, where AI development services automate workflows and improve decision-making.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7 -->
+          <div class="faq-item" id="faq-item-7">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-7">
+              <div class="faq-q-left">
+                <span class="faq-num">07</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">How long does a typical AI development project take?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-7">
+              <div class="faq-answer-content">
+                <p>Timelines vary by scope. A strategy engagement can take a few weeks, while a full custom AI product
+                  typically takes several months from discovery to deployment.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8 -->
+          <div class="faq-item" id="faq-item-8">
+            <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-8">
+              <div class="faq-q-left">
+                <span class="faq-num">08</span>
+                <div class="faq-q-text-wrap">
+                  <h3 class="faq-question">What happens after our AI solution is deployed?</h3>
+                </div>
+              </div>
+              <div class="faq-toggle-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </button>
+            <div class="faq-answer-wrap" id="faq-answer-8">
+              <div class="faq-answer-content">
+                <p>We don't stop at deployment. Ongoing monitoring, retraining, and optimization keep your AI solution
+                  accurate as your data and business evolve.</p>
               </div>
             </div>
           </div>
 
         </div>
+
       </div>
 
     </div>
   </section>
 
+  <!-- =========================================================================
+       COMMON FOOTER (From Wappnet Home)
+       ========================================================================= -->
+  <!-- =========================================================================
+       FOOTER (Exact Copy from Wappnet Home with Image Placeholders)
+       ========================================================================= -->
+  <!-- =========================================================================
+       FOOTER (Exact Match to Design Screenshot)
+       ========================================================================= -->
   <footer style="background:#141414;color:#cfcfcf;padding:80px 0 40px;font-family:'DM Sans',sans-serif">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
 
@@ -2705,145 +3185,151 @@
   </footer>
 
   <script>
-    /* =========================================================================
-       1. SITE HEADER & MEGA MENU INTERACTIVITY (Matching Other Pages)
-       ========================================================================= */
-    const siteHeader = document.getElementById('site-header');
-    const navItems = document.querySelectorAll('.site-nav-item[data-menu-target]');
-    const navBars = document.querySelectorAll('.site-nav-bar[data-nav-bar]');
-    const menuPanels = document.querySelectorAll('.site-mega-menu-wrapper[data-menu-panel]');
-    const mobileToggle = document.getElementById('site-mobile-toggle');
-    const mobileDrawer = document.getElementById('site-mobile-drawer');
+    document.addEventListener('DOMContentLoaded', () => {
 
-    let currentActiveMenu = null;
 
-    function updateHeaderVisualState() {
-      if (!siteHeader) return;
-      const isScrolled = window.scrollY > 20;
+      /* =========================================================================
+         SITE HEADER & MEGA MENU INTERACTIVITY (Matching Wappnet Home Exact Behavior)
+         ========================================================================= */
+      const siteHeader = document.getElementById('site-header');
+      const navItems = document.querySelectorAll('.site-nav-item[data-menu-target]');
+      const navBars = document.querySelectorAll('.site-nav-bar[data-nav-bar]');
+      const menuPanels = document.querySelectorAll('.site-mega-menu-wrapper[data-menu-panel]');
+      const mobileToggle = document.getElementById('site-mobile-toggle');
+      const mobileDrawer = document.getElementById('site-mobile-drawer');
 
-      if (isScrolled) {
-        siteHeader.style.background = 'rgba(13, 13, 15, 0.94)';
-        siteHeader.style.backdropFilter = 'saturate(160%) blur(12px)';
-        siteHeader.style.webkitBackdropFilter = 'saturate(160%) blur(12px)';
-        siteHeader.style.borderBottomColor = 'rgba(255, 255, 255, 0.10)';
-        siteHeader.classList.add('scrolled');
-      } else {
-        siteHeader.style.background = 'transparent';
-        siteHeader.style.backdropFilter = 'none';
-        siteHeader.style.webkitBackdropFilter = 'none';
-        siteHeader.style.borderBottomColor = 'transparent';
-        siteHeader.classList.remove('scrolled');
-      }
-    }
+      let currentActiveMenu = null;
 
-    function openMenu(menuKey) {
-      currentActiveMenu = menuKey;
-      menuPanels.forEach(panel => {
-        if (panel.getAttribute('data-menu-panel') === menuKey) {
-          panel.classList.add('is-active');
+      function updateHeaderVisualState() {
+        if (!siteHeader) return;
+        const isScrolled = window.scrollY > 20;
+
+        if (isScrolled) {
+          siteHeader.style.background = 'rgba(13, 13, 15, 0.94)';
+          siteHeader.style.backdropFilter = 'saturate(160%) blur(12px)';
+          siteHeader.style.webkitBackdropFilter = 'saturate(160%) blur(12px)';
+          siteHeader.style.borderBottomColor = 'rgba(255, 255, 255, 0.10)';
+          siteHeader.classList.add('scrolled');
         } else {
-          panel.classList.remove('is-active');
+          siteHeader.style.background = 'transparent';
+          siteHeader.style.backdropFilter = 'none';
+          siteHeader.style.webkitBackdropFilter = 'none';
+          siteHeader.style.borderBottomColor = 'transparent';
+          siteHeader.classList.remove('scrolled');
         }
-      });
+      }
 
-      navBars.forEach(bar => {
-        if (bar.getAttribute('data-nav-bar') === menuKey) {
-          bar.style.opacity = '1';
-          bar.style.transform = 'scaleX(1)';
-        } else {
+      function openMenu(menuKey) {
+        currentActiveMenu = menuKey;
+        menuPanels.forEach(panel => {
+          if (panel.getAttribute('data-menu-panel') === menuKey) {
+            panel.classList.add('is-active');
+          } else {
+            panel.classList.remove('is-active');
+          }
+        });
+
+        navBars.forEach(bar => {
+          if (bar.getAttribute('data-nav-bar') === menuKey) {
+            bar.style.opacity = '1';
+            bar.style.transform = 'scaleX(1)';
+          } else {
+            bar.style.opacity = '0';
+            bar.style.transform = 'scaleX(0.4)';
+          }
+        });
+
+        updateHeaderVisualState();
+      }
+
+      function closeMenu() {
+        currentActiveMenu = null;
+        menuPanels.forEach(panel => panel.classList.remove('is-active'));
+        navBars.forEach(bar => {
           bar.style.opacity = '0';
           bar.style.transform = 'scaleX(0.4)';
-        }
-      });
-
-      updateHeaderVisualState();
-    }
-
-    function closeMenu() {
-      currentActiveMenu = null;
-      menuPanels.forEach(panel => panel.classList.remove('is-active'));
-      navBars.forEach(bar => {
-        bar.style.opacity = '0';
-        bar.style.transform = 'scaleX(0.4)';
-      });
-      updateHeaderVisualState();
-    }
-
-    navItems.forEach(item => {
-      const target = item.getAttribute('data-menu-target');
-      item.addEventListener('mouseenter', () => openMenu(target));
-      item.addEventListener('focus', () => openMenu(target));
-    });
-
-    if (siteHeader) {
-      siteHeader.addEventListener('mouseleave', closeMenu);
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (siteHeader && !siteHeader.contains(e.target)) {
-        closeMenu();
-        if (mobileDrawer) {
-          mobileDrawer.classList.remove('is-open');
-          updateHeaderVisualState();
-        }
-      }
-    });
-
-    // Mobile Menu Drawer Toggle
-    if (mobileToggle && mobileDrawer) {
-      mobileToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        mobileDrawer.classList.toggle('is-open');
+        });
         updateHeaderVisualState();
+      }
+
+      navItems.forEach(item => {
+        const target = item.getAttribute('data-menu-target');
+        item.addEventListener('mouseenter', () => openMenu(target));
+        item.addEventListener('focus', () => openMenu(target));
       });
-    }
 
-    // Scroll listener for header background
-    window.addEventListener('scroll', updateHeaderVisualState, { passive: true });
-    updateHeaderVisualState();
+      if (siteHeader) {
+        siteHeader.addEventListener('mouseleave', closeMenu);
+      }
 
-    // Universal dynamic hover styling for elements with style-hover attribute
-    document.querySelectorAll('[style-hover]').forEach(el => {
-      const originalStyle = el.getAttribute('style') || '';
-      const hoverStyleStr = el.getAttribute('style-hover');
-
-      const hoverRules = hoverStyleStr.split(';').filter(r => r.trim());
-
-      el.addEventListener('mouseenter', () => {
-        hoverRules.forEach(rule => {
-          const [prop, val] = rule.split(':');
-          if (prop && val) {
-            el.style.setProperty(prop.trim(), val.trim());
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (siteHeader && !siteHeader.contains(e.target)) {
+          closeMenu();
+          if (mobileDrawer) {
+            mobileDrawer.classList.remove('is-open');
+            updateHeaderVisualState();
           }
-        });
+        }
       });
 
-      el.addEventListener('mouseleave', () => {
-        el.setAttribute('style', originalStyle);
-      });
-    });
-
-    /* =========================================================================
-       2. FAQ ACCORDION INTERACTION (Matching index.html)
-       ========================================================================= */
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach((item) => {
-      const btn = item.querySelector('.faq-question-btn');
-      if (btn) {
-        btn.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
-          faqItems.forEach((other) => {
-            other.classList.remove('active');
-            const otherBtn = other.querySelector('.faq-question-btn');
-            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-          });
-          if (!isActive) {
-            item.classList.add('active');
-            btn.setAttribute('aria-expanded', 'true');
-          }
+      // Mobile Menu Drawer Toggle
+      if (mobileToggle && mobileDrawer) {
+        mobileToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          mobileDrawer.classList.toggle('is-open');
+          updateHeaderVisualState();
         });
       }
+
+      // Exact scroll listener matching Wappnet Home.dc.html
+      window.addEventListener('scroll', updateHeaderVisualState, { passive: true });
+      updateHeaderVisualState();
+
+      // Universal dynamic hover styling for elements with style-hover attribute
+      document.querySelectorAll('[style-hover]').forEach(el => {
+        const originalStyle = el.getAttribute('style') || '';
+        const hoverStyleStr = el.getAttribute('style-hover');
+
+        // Parse hover styles
+        const hoverRules = hoverStyleStr.split(';').filter(r => r.trim());
+
+        el.addEventListener('mouseenter', () => {
+          hoverRules.forEach(rule => {
+            const [prop, val] = rule.split(':');
+            if (prop && val) {
+              el.style.setProperty(prop.trim(), val.trim());
+            }
+          });
+        });
+
+        el.addEventListener('mouseleave', () => {
+          el.setAttribute('style', originalStyle);
+        });
+      });
+
+      // FAQ Accordion Interactive Click Handler
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item) => {
+        const btn = item.querySelector('.faq-question-btn');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const isCurrentlyActive = item.classList.contains('active');
+
+            // Optional: close other items for clean accordion behavior
+            faqItems.forEach((other) => {
+              other.classList.remove('active');
+              const otherBtn = other.querySelector('.faq-question-btn');
+              if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isCurrentlyActive) {
+              item.classList.add('active');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+      });
     });
   </script>
 

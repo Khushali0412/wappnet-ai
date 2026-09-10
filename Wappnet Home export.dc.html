@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
   *{box-sizing:border-box}
   body{margin:0;background:#fff;color:#333;font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -34,6 +35,24 @@
   @keyframes panelIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
   @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .cap-header-reveal{opacity:0;transform:translateY(35px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+  .cap-header-reveal.is-revealed{opacity:1;transform:translateY(0)}
+  .cap-col-card{opacity:0;transform:translateY(60px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1),box-shadow .3s ease;will-change:opacity,transform}
+  .cap-col-card.is-revealed{opacity:1;transform:translateY(0)}
+  .cap-col-card.is-revealed:hover{transform:translateY(-8px)!important;box-shadow:0 24px 48px rgba(0,0,0,.09)!important}
+  /* Where We Work - Sticky Scroll & Hover Cards */
+  .industries-scroll-section{position:relative;background:#08080A;min-height:270vh}
+  .industries-sticky-viewport{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .industries-center-title{position:absolute;z-index:1;text-align:center;max-width:920px;padding:0 24px;pointer-events:none;user-select:none}
+  .industries-cards-track{position:absolute;inset:0;z-index:2;pointer-events:none;max-width:1360px;margin:0 auto;width:100%;height:100%}
+  .industry-scroll-card{position:absolute;top:0;pointer-events:auto;width:clamp(340px,35vw,510px);height:clamp(255px,24vw,345px);border-radius:24px;overflow:hidden;cursor:pointer;will-change:transform;transition:box-shadow .35s ease,transform .35s cubic-bezier(.16,1,.3,1);box-shadow:0 24px 50px rgba(0,0,0,.55);text-decoration:none;display:block}
+  .industry-scroll-card:hover{box-shadow:0 34px 70px rgba(0,0,0,.8);z-index:10}
+  .industry-card-inner{position:relative;width:100%;height:100%;padding:clamp(26px,2.6vw,38px);box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+  .industry-default-view{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;opacity:1;transform:translateY(0);transition:opacity .32s ease,transform .32s ease}
+  .industry-scroll-card:hover .industry-default-view{opacity:0;transform:translateY(-12px);pointer-events:none}
+  .industry-hover-view{position:absolute;inset:0;z-index:3;padding:clamp(26px,2.6vw,38px);display:flex;flex-direction:column;justify-content:flex-start;opacity:0;transform:translateY(12px);transition:opacity .32s cubic-bezier(.16,1,.3,1),transform .32s cubic-bezier(.16,1,.3,1);pointer-events:none;box-sizing:border-box}
+  .industry-scroll-card:hover .industry-hover-view{opacity:1;transform:translateY(0);pointer-events:auto}
+  @media(max-width:768px){.industry-scroll-card{width:calc(100% - 36px)!important;left:18px!important;right:auto!important}}
 </style>
 <script type="application/ld+json">{
  "@context": "https://schema.org",
@@ -157,7 +176,7 @@
        </div>
       </nav>
 
-      <a hidden="{{ narrow }}" href="#contact" style="flex:none;background:#fff;color:#0D0D0F;border-radius:6px;padding:11px 20px;font-size:14.5px;font-weight:700;font-family:'Archivo',sans-serif;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);color:#0D0D0F">Contact us</a>
+      <a hidden="{{ narrow }}" href="contact.html" style="flex:none;background:#fff;color:#0D0D0F;border-radius:6px;padding:11px 20px;font-size:14.5px;font-weight:700;font-family:'Archivo',sans-serif;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease;text-decoration:none" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);color:#0D0D0F">Contact us</a>
 
       <button hidden="{{ wide }}" onClick="{{ toggleMobile }}" style="margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;color:#fff;padding:9px 14px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Menu</button>
     </div>
@@ -472,7 +491,7 @@
           <a href="#stories" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Our Work</a>
           <a href="about.html" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">About</a>
           <a href="about.html" style="color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)" style-hover="color:#F4A557">Company</a>
-          <a href="#contact" style="margin-top:18px;text-align:center;background:#fff;color:#0D0D0F;border-radius:6px;padding:14px 22px;font-family:'Archivo',sans-serif;font-weight:700">Contact us</a>
+          <a href="contact.html" style="margin-top:18px;text-align:center;background:#fff;color:#0D0D0F;border-radius:6px;padding:14px 22px;font-family:'Archivo',sans-serif;font-weight:700;text-decoration:none">Contact us</a>
         </div>
       </div>
     </sc-if>
@@ -489,8 +508,8 @@
         </span>
         <span style="padding:9px 20px 9px 17px;font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#fff;white-space:nowrap">Continuous modernization</span>
       </div>
-      <h1 style="margin:34px auto 0;color:#fff;font-size:clamp(34px,5.6vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.04em;max-width:20ch;text-wrap:balance">Continuous modernization<br><span style="color:#F8D06A">for the AI era.</span></h1>
-      <p style="margin:26px auto 0;font-size:clamp(16.5px,1.4vw,19.5px);line-height:1.6;color:rgba(255,255,255,.86);max-width:62ch;text-wrap:pretty">Continuously modernize with AI to innovate and reduce cost, technical debt, and risk. Senior pods working in your cloud and your repo, shipping something demoable every fortnight.</p>
+      <h1 style="margin:34px auto 0;color:#fff;font-size:clamp(34px,5.6vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.04em;max-width:26ch;text-wrap:balance">Continuous modernization<br><span style="color:#F8D06A">for the AI era.</span></h1>
+      <p style="margin:26px auto 0;font-size:clamp(16.5px,1.4vw,19.5px);line-height:1.6;color:rgba(255,255,255,.86);max-width:66ch;text-wrap:pretty">Continuously modernize with AI to innovate and reduce cost, technical debt, and risk. Senior pods working in your cloud and your repo, shipping something demoable every fortnight.</p>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:36px">
         <a href="#contact" style="display:inline-flex;align-items:center;gap:16px;background:#E8541F;color:#fff;border-radius:8px;padding:14px 16px 14px 24px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,84,31,.42);color:#fff">
           Request a quote
@@ -539,20 +558,20 @@
         <p style="max-width:44ch;color:#666;font-size:16.5px">No practice pages we cannot staff. If your problem sits outside these three, we will say so on the first call and point you somewhere better.</p>
       </div>
 
-      <div data-reveal ref="{{ capRowRef }}" onMouseLeave="{{ clearTile }}" style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch;transition:margin-right .55s cubic-bezier(.16,1,.3,1)">
+      <div data-reveal ref="{{ capRowRef }}" onMouseLeave="{{ clearTile }}" style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch;transition:margin-right .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1)">
 
         <div ref="{{ tileARef }}" onMouseEnter="{{ activateA }}" style="position:relative;flex:1 1 0%;min-width:290px;border-radius:24px;overflow:hidden;transition:flex-grow .55s cubic-bezier(.16,1,.3,1)">
-          <div style="position:absolute;inset:0"><image-slot id="cap-ai" shape="rect" placeholder="AI tile bg · 1440×1040px"></image-slot></div>
+          <div style="position:absolute;inset:0;opacity:0.5"><image-slot id="cap-ai" shape="rect" placeholder="AI tile bg · 1440×1040px"></image-slot></div>
           <div style="position:absolute;inset:0;background:linear-gradient(100deg,#FB4159 0%,rgba(244,155,61,.92) 55%,rgba(244,155,61,.32) 100%);pointer-events:none"></div>
           <div style="position:relative;z-index:1;min-height:520px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px;pointer-events:none">
             <div style="width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(13,13,15,.42);display:flex;align-items:center;justify-content:center;flex:none">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#0D0D0F" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6.5" r="2.4"></circle><circle cx="20" cy="7.5" r="2.4"></circle><circle cx="13" cy="19.5" r="2.4"></circle><path d="M7.6 8.6 11.4 17.3M18.4 9.6 14.6 17.6M8.4 6.7h9.2"></path></svg>
+              <i class="fa-solid fa-brain" style="font-size:24px;color:#0D0D0F"></i>
             </div>
             <div>
-              <h3 style="font-size:clamp(34px,4vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">AI</h3>
-              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch">The model is the easy part. We build everything around it that keeps it honest.</p>
+              <h3 style="font-size:clamp(34px,4vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F;transition:max-width .55s cubic-bezier(.16,1,.3,1)">AI</h3>
+              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch;transition:max-width .55s cubic-bezier(.16,1,.3,1)">The model is the easy part. We build everything around it that keeps it honest.</p>
               <sc-if value="{{ tileA }}" hint-placeholder-val="{{ true }}">
-                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px 34px;max-width:540px;animation:fadeUp .4s ease-out both">
+                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1px 25px;max-width:540px;animation:fadeUp .4s ease-out both">
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Applied AI consulting</div>
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>LLM applications</div>
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Forecasting and prediction</div>
@@ -570,17 +589,17 @@
         </div>
 
         <div ref="{{ tileBRef }}" onMouseEnter="{{ activateB }}" style="position:relative;flex:1 1 0%;min-width:290px;border-radius:24px;overflow:hidden;transition:flex-grow .55s cubic-bezier(.16,1,.3,1)">
-          <div style="position:absolute;inset:0"><image-slot id="cap-data" shape="rect" placeholder="Data tile bg · 1440×1040px"></image-slot></div>
+          <div style="position:absolute;inset:0;opacity:0.5"><image-slot id="cap-data" shape="rect" placeholder="Data tile bg · 1440×1040px"></image-slot></div>
           <div style="position:absolute;inset:0;background:linear-gradient(100deg,#FDCE2C 0%,rgba(244,155,61,.92) 55%,rgba(244,155,61,.32) 100%);pointer-events:none"></div>
           <div style="position:relative;z-index:1;min-height:520px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px;pointer-events:none">
             <div style="width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(13,13,15,.42);display:flex;align-items:center;justify-content:center;flex:none">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#0D0D0F" stroke-width="1.4" stroke-linecap="round"><rect x="4" y="4.5" width="18" height="5.2" rx="1.6"></rect><rect x="4" y="16.3" width="18" height="5.2" rx="1.6"></rect><path d="M7.4 7.1h.01M7.4 18.9h.01"></path></svg>
+              <i class="fa-solid fa-database" style="font-size:24px;color:#0D0D0F"></i>
             </div>
             <div>
-              <h3 style="font-size:clamp(34px,4vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">Data &amp; Analytics</h3>
-              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch">The layer everything else depends on, built to survive month-end and audit.</p>
+              <h3 style="font-size:clamp(34px,4vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F;transition:max-width .55s cubic-bezier(.16,1,.3,1)">Data &amp; Analytics</h3>
+              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch;transition:max-width .55s cubic-bezier(.16,1,.3,1)">The layer everything else depends on, built to survive month-end and audit.</p>
               <sc-if value="{{ tileB }}">
-                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px 34px;max-width:540px;animation:fadeUp .4s ease-out both">
+                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1px 25px;max-width:540px;animation:fadeUp .4s ease-out both">
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Warehouse and lakehouse builds</div>
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Ingestion pipelines</div>
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Reporting and BI layers</div>
@@ -598,17 +617,17 @@
         </div>
 
         <div ref="{{ tileCRef }}" onMouseEnter="{{ activateC }}" style="position:relative;flex:1 1 0%;min-width:290px;border-radius:24px;overflow:hidden;transition:flex-grow .55s cubic-bezier(.16,1,.3,1)">
-          <div style="position:absolute;inset:0"><image-slot id="cap-consulting" shape="rect" placeholder="Consulting tile bg · 1440×1040px"></image-slot></div>
+          <div style="position:absolute;inset:0;opacity:0.5"><image-slot id="cap-consulting" shape="rect" placeholder="Consulting tile bg · 1440×1040px"></image-slot></div>
           <div style="position:absolute;inset:0;background:linear-gradient(100deg,#20CB74 0%,rgba(140,201,106,.92) 55%,rgba(140,201,106,.32) 100%);pointer-events:none"></div>
           <div style="position:relative;z-index:1;min-height:520px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px;pointer-events:none">
             <div style="width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(13,13,15,.42);display:flex;align-items:center;justify-content:center;flex:none">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#0D0D0F" stroke-width="1.4" stroke-linecap="round"><path d="M4 20.5 9.5 13l4 3.4L21.5 6"></path><path d="M16.6 6h4.9v4.9"></path></svg>
+              <i class="fa-solid fa-chart-line" style="font-size:24px;color:#0D0D0F"></i>
             </div>
             <div>
-              <h3 style="font-size:clamp(30px,3.2vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F">AI Consulting</h3>
-              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch">Before the build: what is worth doing, what it will cost, what to skip.</p>
+              <h3 style="font-size:clamp(30px,3.2vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#0D0D0F;transition:max-width .55s cubic-bezier(.16,1,.3,1)">AI Consulting</h3>
+              <p style="margin-top:16px;font-family:'Archivo',sans-serif;font-size:clamp(19px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.32;color:#0D0D0F;max-width:24ch;transition:max-width .55s cubic-bezier(.16,1,.3,1)">Before the build: what is worth doing, what it will cost, what to skip.</p>
               <sc-if value="{{ tileC }}">
-                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px 34px;max-width:540px;animation:fadeUp .4s ease-out both">
+                <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1px 25px;max-width:540px;animation:fadeUp .4s ease-out both">
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Use-case discovery</div>
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Value and effort ranking</div>
                   <div style="display:flex;align-items:center;gap:11px;font-size:16.5px;color:#0D0D0F"><span style="width:7px;height:7px;border-radius:50%;background:#0D0D0F;flex:none"></span>Data readiness review</div>
@@ -628,200 +647,373 @@
     </div>
   </section>
 
-  <section id="capability-depth" style="position:relative;overflow:clip;background:#F7F6F4;padding:112px 0">
-    <img src="uploads/icon1.png" alt="" aria-hidden="true" style="position:absolute;bottom:-90px;right:-120px;width:480px;height:auto;opacity:.07;transform:rotate(10deg);pointer-events:none;user-select:none">
+  <!-- Key Statistics Section -->
+  <section id="key-stats" style="position:relative;overflow:clip;background:#fff;padding-bottom:72px">
     <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px">
-      <div ref="{{ depthRef }}" style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px;align-items:start">
-        <div data-reveal data-reveal-delay="0ms">
-          <div style="height:3px;background:#F4A557;margin-bottom:24px"></div>
-          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:14px">Capability 01</div>
-          <h3 style="font-size:26px;font-weight:800;letter-spacing:-.02em;color:#141414">AI</h3>
-          <p style="margin-top:12px;font-size:15.5px;line-height:1.6;color:#555;max-width:34ch">The model is the easy part. We build everything around it that keeps it honest.</p>
-          <div style="margin-top:26px">
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v9.5H12l-4.5 4v-4H4z"></path><path d="M12 8.2l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Generative AI &amp; LLM apps</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Assistants, copilots and content systems built on the right model, not the trendiest one.</p>
-            </div>
+      <div style="height:2px;width:60%;max-width:720px;margin:0 auto 56px;background:linear-gradient(90deg,#FB4159 0%,#FDCE2C 50%,#20CB74 100%);border-radius:2px"></div>
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px 32px;justify-content:center;justify-items:center;text-align:center">
+        
+        <!-- Stat 1: 50+ AI & data engineers -->
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="font-family:'Archivo',sans-serif;font-size:clamp(42px,4.5vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1;color:#0D0D0F">
+            <span data-count="50">50</span><span style="color:#E8541F">+</span>
           </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8.5L19 8v12.5H6z"></path><path d="M14 3.5V8h5"></path><circle cx="11.5" cy="13" r="2.6"></circle><path d="M13.5 15 15.5 17"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">RAG &amp; retrieval</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Answers grounded in your own documents and data, with sources.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="9" height="9" rx="1.6"></rect><path d="M15 9h5.5v5.5"></path><path d="M20.5 9 12.5 17"></path><rect x="7" y="16" width="5" height="4.5" rx="1.2"></rect></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">AI agents &amp; automation</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Agents that take real actions across your tools, not just chat.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"></path><circle cx="9" cy="6" r="2"></circle><circle cx="15" cy="12" r="2"></circle><circle cx="11" cy="18" r="2"></circle></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Fine-tuning &amp; training</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Custom models when an off-the-shelf one won't cut it.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 6.5 12 6.5 21.5 12 21.5 12 18 17.5 12 17.5 2.5 12 2.5 12z"></path><circle cx="12" cy="12" r="2.8"></circle></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Vision, NLP &amp; speech</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Document, image, text and voice models for real workflows.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8.5A8.4 8.4 0 0 0 4.6 9.8"></path><path d="M4 15.5A8.4 8.4 0 0 0 19.4 14.2"></path><path d="M4.6 5.5v4.3h4.3M19.4 18.5v-4.3h-4.3"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">MLOps / LLMOps</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Deployment, monitoring, evaluation and retraining so it keeps working.</p>
-            </div>
-          </div>
-          </div>
+          <p style="margin:0;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;color:#555;line-height:1.4;text-align:center">
+            AI &amp; data engineers
+          </p>
         </div>
-        <div data-reveal data-reveal-delay="90ms">
-          <div style="height:3px;background:#F4A557;margin-bottom:24px"></div>
-          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:14px">Capability 02</div>
-          <h3 style="font-size:26px;font-weight:800;letter-spacing:-.02em;color:#141414">Data &amp; Analytics</h3>
-          <p style="margin-top:12px;font-size:15.5px;line-height:1.6;color:#555;max-width:34ch">The layer everything else depends on, built to survive month-end and audit.</p>
-          <div style="margin-top:26px">
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"></ellipse><path d="M4.5 6v6c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8V6"></path><path d="M4.5 12v6c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8v-6"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Data &amp; platform engineering</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Pipelines and lakehouse foundations AI can actually run on.</p>
-            </div>
+
+        <!-- Stat 2: 300+ AI & data projects shipped -->
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="font-family:'Archivo',sans-serif;font-size:clamp(42px,4.5vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1;color:#0D0D0F">
+            <span data-count="300">300</span><span style="color:#E8541F">+</span>
           </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"></path><path d="M4.5 16.5 9.5 11l3.5 3 6-7.5"></path><path d="M15.5 6.5h3.5V10"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Predictive &amp; forecasting models</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Demand, risk and behaviour models teams trust enough to act on.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7.5 15.5v-3M12 15.5V9M16.5 15.5v-5"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">BI &amp; reporting</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Dashboards that answer the question instead of raising three more.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l2.4 5 5.4.7-4 3.7 1 5.3-4.8-2.7-4.8 2.7 1-5.3-4-3.7 5.4-.7z"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Recommendation &amp; personalization</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Ranking and recommendation systems tuned to your data.</p>
-            </div>
-          </div>
-          </div>
+          <p style="margin:0;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;color:#555;line-height:1.4;text-align:center">
+            AI &amp; data projects shipped
+          </p>
         </div>
-        <div data-reveal data-reveal-delay="180ms">
-          <div style="height:3px;background:#F4A557;margin-bottom:24px"></div>
-          <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:14px">Capability 03</div>
-          <h3 style="font-size:26px;font-weight:800;letter-spacing:-.02em;color:#141414">AI Consulting</h3>
-          <p style="margin-top:12px;font-size:15.5px;line-height:1.6;color:#555;max-width:34ch">Before the build: what is worth doing, what it will cost, what to skip.</p>
-          <div style="margin-top:26px">
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 3.2h6v2.6H9z"></path><path d="M8.8 11l1.7 1.7 3.4-3.4M8.8 16.4h6.4"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">AI readiness &amp; opportunity assessment</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Find the use cases worth doing before writing code.</p>
-            </div>
+
+        <!-- Stat 3: 5 Countries served -->
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="font-family:'Archivo',sans-serif;font-size:clamp(42px,4.5vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1;color:#0D0D0F">
+            <span data-count="5">5</span><span style="color:#E8541F">+</span>
           </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6" r="2.2"></circle><circle cx="18.5" cy="7" r="2.2"></circle><circle cx="12" cy="18.5" r="2.2"></circle><path d="M7.2 7.8 10.6 16.5M16.8 8.9 13.4 16.7M7.7 6.2h8.6"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Model &amp; architecture selection</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">The right model, hosting and stack for your accuracy, cost and privacy needs.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 20 6v6c0 4.4-3.3 7.4-8 8.8-4.7-1.4-8-4.4-8-8.8V6z"></path><path d="M8.8 11.8l2.2 2.2 4.2-4.2"></path></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Responsible AI &amp; governance</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">Guardrails, evaluation and explainability baked in from day one.</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0;border-top:1px solid #E7E4DF">
-            <div style="width:40px;height:40px;border-radius:10px;border:1px solid #E4E1DC;background:#fff;display:flex;align-items:center;justify-content:center">
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F4A557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17.5a9 9 0 1 1 17 0"></path><path d="M12 17.5 16.6 10"></path><circle cx="12" cy="17.5" r="1.4"></circle></svg>
-            </div>
-            <div>
-              <div style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#141414;line-height:1.3">Scale to production &amp; cost optimization</div>
-              <p style="margin-top:7px;font-size:14.5px;line-height:1.6;color:#666;text-wrap:pretty">From proof-of-concept to production, with accuracy, speed and cost under control.</p>
-            </div>
-          </div>
-          </div>
+          <p style="margin:0;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;color:#555;line-height:1.4;text-align:center">
+            Countries served
+          </p>
         </div>
+
+        <!-- Stat 4: 10 YEARS -->
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="font-family:'Archivo',sans-serif;font-size:clamp(42px,4.5vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1;color:#0D0D0F">
+            <span data-count="10">10</span><span style="color:#E8541F">+</span>
+          </div>
+          <p style="margin:0;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:#555;line-height:1.4;letter-spacing:.04em;text-transform:uppercase;text-align:center">
+            YEARS
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section id="industries" style="position:relative;overflow:clip;padding:0 0 112px">
-    <div style="position:absolute;top:-170px;right:-130px;width:640px;height:640px;pointer-events:none;background:repeating-radial-gradient(circle at 100% 0,rgba(255,255,255,0) 0 74px,rgba(251,65,89,.10) 74px 75px)"></div>
+  <section id="capability-depth" style="position:relative;overflow:clip;background:#F8F8F6;padding:100px 0">
     <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px">
-      <div data-reveal style="margin-bottom:52px">
-        <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">Where we work</div>
-        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
-          <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.22;max-width:24ch;text-wrap:pretty">Four sectors we already speak the language of</h2>
-          <a href="#" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15.5px;color:#0D0D0F;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid #F4A557;padding-bottom:2px;white-space:nowrap" style-hover="color:#C2571A">All industries <span style="font-size:17px;flex:none">→</span></a>
+      
+      <div class="cap-header-reveal" style="text-align:center;margin:0 auto 60px">
+        <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">
+          End-To-End Capabilities
         </div>
+        <h2 style="font-size:clamp(28px,3.4vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.2;color:#0D0D0F">
+          Comprehensive AI and data engineering in detail
+        </h2>
       </div>
-      <div data-reveal ref="{{ indRef }}" onMouseLeave="{{ enterBase }}" style="position:relative;border-radius:24px;overflow:hidden;background:#0D0D0F">
-        <div style="position:absolute;inset:0">
-          <div ref="{{ indBaseRef }}" style="position:absolute;inset:0;transition:opacity .5s ease"><image-slot id="ind-base" shape="rect" placeholder="Industries bg (spans all four) · 2400×1040px"></image-slot></div>
-          <div ref="{{ indRetailRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-retail" shape="rect" placeholder="Retail hover · 2400×1040px"></image-slot></div>
-          <div ref="{{ indHealthRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-health" shape="rect" placeholder="Healthcare hover · 2400×1040px"></image-slot></div>
-          <div ref="{{ indFinRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-financial" shape="rect" placeholder="Financial hover · 2400×1040px"></image-slot></div>
-          <div ref="{{ indTechRef }}" style="position:absolute;inset:0;opacity:0;transition:opacity .5s ease"><image-slot id="ind-hightech" shape="rect" placeholder="High-tech hover · 2400×1040px"></image-slot></div>
+
+      <div ref="{{ depthRef }}" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:stretch">
+        
+        <!-- Column 1: AI Development -->
+        <div class="cap-col-card" data-col="1"
+          style="background:#fff;border-radius:24px;padding:36px 30px;border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 30px rgba(0,0,0,.03);display:flex;flex-direction:column;transition-delay:0ms">
+          <div style="height:4px;background:linear-gradient(90deg,#FB4159,#F49B3D);border-radius:4px;margin-bottom:22px"></div>
+          <div style="margin-bottom:24px;min-height:120px;display:flex;flex-direction:column">
+            <div
+              style="display:inline-flex;align-items:center;align-self:flex-start;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E8541F;background:rgba(251,65,89,.08);padding:4px 10px;border-radius:12px;margin-bottom:12px">
+              Capability 01</div>
+            <h3 style="font-size:24px;font-weight:800;letter-spacing:-.03em;color:#0D0D0F;margin:0">AI</h3>
+            <p style="margin:10px 0 0;font-size:14.5px;line-height:1.55;color:#666">AI technologies and engineering capabilities for building intelligent products and workflows.</p>
+          </div>
+          
+          <div style="display:flex;flex-direction:column;margin-top:auto">
+            
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(251,65,89,.08);border:1px solid rgba(251,65,89,.15);display:flex;align-items:center;justify-content:center;flex:none;color:#FB4159">
+                <i class="fa-solid fa-wand-magic-sparkles" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Generative AI &amp; LLM Apps</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Intelligent applications, copilots, and AI assistants.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(251,65,89,.08);border:1px solid rgba(251,65,89,.15);display:flex;align-items:center;justify-content:center;flex:none;color:#FB4159">
+                <i class="fa-solid fa-magnifying-glass" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">RAG &amp; Retrieval</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Grounded AI using your business data and knowledge.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(251,65,89,.08);border:1px solid rgba(251,65,89,.15);display:flex;align-items:center;justify-content:center;flex:none;color:#FB4159">
+                <i class="fa-solid fa-gears" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">AI Agents &amp; Automation</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Autonomous systems that execute real business workflows.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(251,65,89,.08);border:1px solid rgba(251,65,89,.15);display:flex;align-items:center;justify-content:center;flex:none;color:#FB4159">
+                <i class="fa-solid fa-sliders" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Fine-tuning &amp; Training</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Custom models for specialized domains and use cases.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div ref="{{ indGridRef }}" style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr)">
-        <a href="#contact" onMouseEnter="{{ enterRetail }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%)">
-          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">Retail &amp; Ecommerce</h3>
-          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
-        </a>
-        <a href="#contact" onMouseEnter="{{ enterHealth }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%);border-left:1px solid rgba(255,255,255,.14)">
-          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">Healthcare &amp; Life Sciences</h3>
-          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
-        </a>
-        <a href="#contact" onMouseEnter="{{ enterFin }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%);border-left:1px solid rgba(255,255,255,.14)">
-          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">Financial Services</h3>
-          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
-        </a>
-        <a href="#contact" onMouseEnter="{{ enterTech }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:520px;padding:30px 26px;background:linear-gradient(180deg,rgba(13,13,15,0) 0%,rgba(13,13,15,0) calc(100% - 230px),rgba(13,13,15,.55) calc(100% - 120px),rgba(13,13,15,.86) 100%);border-left:1px solid rgba(255,255,255,.14)">
-          <h3 style="font-size:clamp(20px,1.8vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-wrap:pretty">High-Tech</h3>
-          <div style="margin-top:14px;font-size:20px;line-height:1;color:#F8D06A">→</div>
-        </a>
+
+        <!-- Column 2: Data & Analytics -->
+        <div class="cap-col-card" data-col="2"
+          style="background:#fff;border-radius:24px;padding:36px 30px;border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 30px rgba(0,0,0,.03);display:flex;flex-direction:column;transition-delay:150ms">
+          <div style="height:4px;background:linear-gradient(90deg,#FDCE2C,#F49B3D);border-radius:4px;margin-bottom:22px"></div>
+          <div style="margin-bottom:24px;min-height:120px;display:flex;flex-direction:column">
+            <div
+              style="display:inline-flex;align-items:center;align-self:flex-start;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C2571A;background:rgba(253,206,44,.18);padding:4px 10px;border-radius:12px;margin-bottom:12px">
+              Capability 02</div>
+            <h3 style="font-size:24px;font-weight:800;letter-spacing:-.03em;color:#0D0D0F;margin:0">Data &amp; Analytics</h3>
+            <p style="margin:10px 0 0;font-size:14.5px;line-height:1.55;color:#666">Data engineering and analytics capabilities that make business data usable and actionable.</p>
+          </div>
+          
+          <div style="display:flex;flex-direction:column;margin-top:auto">
+            
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(253,206,44,.12);border:1px solid rgba(244,155,61,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#D97706">
+                <i class="fa-solid fa-database" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Data &amp; Platform Engineering</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Scalable data platforms, pipelines, warehouses, and lakehouses.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(253,206,44,.12);border:1px solid rgba(244,155,61,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#D97706">
+                <i class="fa-solid fa-chart-line" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Predictive &amp; Forecasting Models</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Models for forecasting demand, risk, and business outcomes.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(253,206,44,.12);border:1px solid rgba(244,155,61,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#D97706">
+                <i class="fa-solid fa-chart-pie" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">BI &amp; Reporting</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Dashboards and reporting for faster, clearer decisions.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(253,206,44,.12);border:1px solid rgba(244,155,61,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#D97706">
+                <i class="fa-solid fa-bullseye" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Recommendation &amp; Personalization</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Data-driven recommendations and personalized experiences.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        <!-- Column 3: AI Consulting -->
+        <div class="cap-col-card" data-col="3"
+          style="background:#fff;border-radius:24px;padding:36px 30px;border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 30px rgba(0,0,0,.03);display:flex;flex-direction:column;transition-delay:300ms">
+          <div style="height:4px;background:linear-gradient(90deg,#20CB74,#8CC96A);border-radius:4px;margin-bottom:22px"></div>
+          <div style="margin-bottom:24px;min-height:120px;display:flex;flex-direction:column">
+            <div
+              style="display:inline-flex;align-items:center;align-self:flex-start;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#16a34a;background:rgba(32,203,116,.12);padding:4px 10px;border-radius:12px;margin-bottom:12px">
+              Capability 03</div>
+            <h3 style="font-size:24px;font-weight:800;letter-spacing:-.03em;color:#0D0D0F;margin:0">AI Consulting</h3>
+            <p style="margin:10px 0 0;font-size:14.5px;line-height:1.55;color:#666">Strategic guidance to identify, prioritize, build, and scale the right AI initiatives.</p>
+          </div>
+          
+          <div style="display:flex;flex-direction:column;margin-top:auto">
+            
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(32,203,116,.10);border:1px solid rgba(32,203,116,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#16a34a">
+                <i class="fa-solid fa-clipboard-check" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">AI Readiness &amp; Opportunity Assessment</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Identify and prioritize high-value AI opportunities.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(32,203,116,.10);border:1px solid rgba(32,203,116,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#16a34a">
+                <i class="fa-solid fa-layer-group" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Model &amp; Architecture Selection</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Choose the right models, stack, and architecture.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(32,203,116,.10);border:1px solid rgba(32,203,116,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#16a34a">
+                <i class="fa-solid fa-shield-halved" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Responsible AI &amp; Governance</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Guardrails, evaluation, security, and responsible AI practices.</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #F0EEEA;min-height:86px;box-sizing:border-box">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(32,203,116,.10);border:1px solid rgba(32,203,116,.2);display:flex;align-items:center;justify-content:center;flex:none;color:#16a34a">
+                <i class="fa-solid fa-gauge-high" style="font-size:15px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:700;color:#0D0D0F;line-height:1.3">Scale to Production &amp; Cost Optimization</div>
+                <p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#666">Improve AI performance, scalability, reliability, and cost.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="industries-scroll-section">
+    <!-- Ambient atmospheric glows -->
+    <div style="position:absolute;top:5%;left:-120px;width:600px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(251,65,89,.14) 0%,rgba(0,0,0,0) 70%);filter:blur(60px)"></div>
+    <div style="position:absolute;bottom:10%;right:-120px;width:650px;height:650px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(37,99,235,.14) 0%,rgba(0,0,0,0) 70%);filter:blur(60px)"></div>
+
+    <div class="industries-sticky-viewport">
+      <!-- Sticky Section Title (Visible alone initially) -->
+      <div class="industries-center-title">
+        <div style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C2571A;margin-bottom:16px">Where we work</div>
+        <h2 style="font-size:clamp(36px,5.2vw,68px);font-weight:800;letter-spacing:-.03em;line-height:1.14;color:#fff;text-wrap:pretty;margin:0 auto;max-width:19ch">
+          Four sectors we already speak the language of
+        </h2>
+      </div>
+
+      <!-- Upward Scrolling Floating Cards Layer -->
+      <div class="industries-cards-track">
+        
+        <!-- Card 1: Retail & Ecommerce -->
+        <div class="industry-scroll-card" data-card="0" style="left:clamp(16px,3.5vw,44px);background:linear-gradient(135deg,#FB4159 0%,#E8541F 100%);border:1px solid rgba(255,255,255,.22)">
+          <div class="industry-card-inner">
+            <!-- Retail: Interconnected commerce flowlines & node network -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.25;pointer-events:none" viewBox="0 0 450 320" preserveAspectRatio="none">
+              <path d="M-30,220 C80,100 160,260 280,110 C360,10 420,180 480,90" fill="none" stroke="#fff" stroke-width="1.8"></path>
+              <path d="M-10,90 C120,40 190,240 330,70 C390,-20 440,120 480,50" fill="none" stroke="#fff" stroke-width="1.4"></path>
+              <circle cx="190" cy="170" r="42" fill="none" stroke="#fff" stroke-width="1.4"></circle>
+              <circle cx="190" cy="170" r="18" fill="none" stroke="#fff" stroke-width="1"></circle>
+              <circle cx="330" cy="70" r="28" fill="none" stroke="#fff" stroke-width="1.2"></circle>
+              <path d="M190,170 L330,70" stroke="#fff" stroke-width="1.2" stroke-dasharray="5 5"></path>
+              <circle cx="90" cy="230" r="14" fill="none" stroke="#fff" stroke-width="1"></circle>
+            </svg>
+
+            <div class="industry-default-view">
+              <h3 style="font-family:'Archivo',sans-serif;font-size:clamp(25px,2.6vw,34px);font-weight:800;letter-spacing:-.025em;line-height:1.2;color:#fff;margin:0">
+                Retail &amp; Ecommerce
+              </h3>
+            </div>
+
+            <div class="industry-hover-view" style="background:linear-gradient(135deg,#E8541F 0%,#C2410C 100%)">
+              <p style="font-family:'DM Sans',sans-serif;font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.65;color:#fff;font-weight:500;margin:0">
+                Demand forecasting, dynamic pricing engines, automated inventory rebalancing, and hyper-personalized customer recommendations engineered to scale reliably in production.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Healthcare & Life Sciences -->
+        <div class="industry-scroll-card" data-card="1" style="right:clamp(16px,3.5vw,44px);background:linear-gradient(135deg,#8A2F55 0%,#FB4159 100%);border:1px solid rgba(255,255,255,.22)">
+          <div class="industry-card-inner">
+            <!-- Healthcare: Organic biological contours, pulse arcs & cellular topography -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.25;pointer-events:none" viewBox="0 0 450 320" preserveAspectRatio="none">
+              <path d="M220,40 C330,20 430,80 410,190 C390,280 290,310 180,270 C80,230 30,160 80,80 C120,30 180,50 220,40 Z" fill="none" stroke="#fff" stroke-width="1.8"></path>
+              <path d="M240,70 C310,50 380,100 360,170 C340,230 270,250 190,220 C130,190 90,140 130,80 Z" fill="none" stroke="#fff" stroke-width="1.3"></path>
+              <path d="M-20,150 Q100,290 240,130 T480,170" fill="none" stroke="#fff" stroke-width="1.4"></path>
+              <path d="M-20,220 Q120,70 270,230 T480,80" fill="none" stroke="#fff" stroke-width="1.2"></path>
+              <circle cx="370" cy="180" r="34" fill="none" stroke="#fff" stroke-width="1.2"></circle>
+            </svg>
+
+            <div class="industry-default-view">
+              <h3 style="font-family:'Archivo',sans-serif;font-size:clamp(25px,2.6vw,34px);font-weight:800;letter-spacing:-.025em;line-height:1.2;color:#fff;margin:0">
+                Healthcare &amp; Life Sciences
+              </h3>
+            </div>
+
+            <div class="industry-hover-view" style="background:linear-gradient(135deg,#702444 0%,#E11D48 100%)">
+              <p style="font-family:'DM Sans',sans-serif;font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.65;color:#fff;font-weight:500;margin:0">
+                HIPAA-compliant clinical triage, medical claims processing automation, electronic health record synthesis, and diagnostic pipeline acceleration with rigorous data safety.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Financial Services -->
+        <div class="industry-scroll-card" data-card="2" style="left:clamp(24px,6vw,96px);background:linear-gradient(135deg,#B45309 0%,#D97706 50%,#F59E0B 100%);border:1px solid rgba(255,255,255,.22)">
+          <div class="industry-card-inner">
+            <!-- Finance: Algorithmic precision arcs, geometric radar & data trajectory lines -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.25;pointer-events:none" viewBox="0 0 450 320" preserveAspectRatio="none">
+              <circle cx="390" cy="70" r="145" fill="none" stroke="#fff" stroke-width="1.6"></circle>
+              <circle cx="390" cy="70" r="100" fill="none" stroke="#fff" stroke-width="1.3"></circle>
+              <circle cx="390" cy="70" r="55" fill="none" stroke="#fff" stroke-width="1"></circle>
+              <path d="M-30,270 L170,160 L270,220 L430,80 L480,110" fill="none" stroke="#fff" stroke-width="1.6"></path>
+              <path d="M-30,200 L150,110 L260,170 L420,40" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="6 4"></path>
+              <circle cx="170" cy="160" r="6" fill="#fff"></circle>
+              <circle cx="270" cy="220" r="6" fill="#fff"></circle>
+              <circle cx="430" cy="80" r="6" fill="#fff"></circle>
+            </svg>
+
+            <div class="industry-default-view">
+              <h3 style="font-family:'Archivo',sans-serif;font-size:clamp(25px,2.6vw,34px);font-weight:800;letter-spacing:-.025em;line-height:1.2;color:#fff;margin:0">
+                Financial Services
+              </h3>
+            </div>
+
+            <div class="industry-hover-view" style="background:linear-gradient(135deg,#92400E 0%,#B45309 100%)">
+              <p style="font-family:'DM Sans',sans-serif;font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.65;color:#fff;font-weight:500;margin:0">
+                Real-time fraud detection, automated regulatory compliance, quantitative portfolio risk analytics, and algorithmic decision intelligence deployed inside your secure cloud perimeter.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: High-Tech & SaaS -->
+        <div class="industry-scroll-card" data-card="3" style="right:clamp(24px,6vw,96px);background:linear-gradient(135deg,#3D1A5B 0%,#6D28D9 60%,#8E6BC8 100%);border:1px solid rgba(255,255,255,.22)">
+          <div class="industry-card-inner">
+            <!-- High-Tech: Layered cybernetic topography & neural vector circuit matrix -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.25;pointer-events:none" viewBox="0 0 450 320" preserveAspectRatio="none">
+              <path d="M-40,80 C60,160 140,30 260,120 C340,180 390,70 490,140" fill="none" stroke="#fff" stroke-width="1.8"></path>
+              <path d="M-40,140 C70,220 150,90 270,180 C350,240 400,130 490,200" fill="none" stroke="#fff" stroke-width="1.5"></path>
+              <path d="M-40,200 C80,280 160,150 280,240 C360,300 410,190 490,260" fill="none" stroke="#fff" stroke-width="1.2"></path>
+              <rect x="230" y="70" width="85" height="85" rx="18" fill="none" stroke="#fff" stroke-width="1.4" transform="rotate(22 270 110)"></rect>
+              <circle cx="110" cy="180" r="26" fill="none" stroke="#fff" stroke-width="1.2"></circle>
+              <circle cx="110" cy="180" r="5" fill="#fff"></circle>
+              <line x1="110" y1="180" x2="230" y2="105" stroke="#fff" stroke-width="1" stroke-dasharray="4 4"></line>
+            </svg>
+
+            <div class="industry-default-view">
+              <h3 style="font-family:'Archivo',sans-serif;font-size:clamp(25px,2.6vw,34px);font-weight:800;letter-spacing:-.025em;line-height:1.2;color:#fff;margin:0">
+                High-Tech &amp; SaaS
+              </h3>
+            </div>
+
+            <div class="industry-hover-view" style="background:linear-gradient(135deg,#2E1065 0%,#4C1D95 100%)">
+              <p style="font-family:'DM Sans',sans-serif;font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.65;color:#fff;font-weight:500;margin:0">
+                Autonomous AI agent platforms, low-latency LLM inference pipelines, multi-tenant vector retrieval, and scalable real-time telemetry built for enterprise software products.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1649,8 +1841,13 @@ class Component extends DCLogic {
     const t = this.state.tile;
     [['a', this.tileARef], ['b', this.tileBRef], ['c', this.tileCRef]].forEach(([k, r]) => {
       if (!r.current) return;
+      const isActive = wide && t === k;
       r.current.style.flexBasis = wide ? '0%' : '100%';
-      r.current.style.flexGrow = wide && t === k ? '2' : '1';
+      r.current.style.flexGrow = isActive ? '2' : '1';
+      const h3 = r.current.querySelector('h3');
+      const p = r.current.querySelector('p');
+      if (h3) h3.style.maxWidth = isActive ? '35ch' : 'none';
+      if (p) p.style.maxWidth = isActive ? '34ch' : '24ch';
     });
     if (this.voxRef.current) {
       const cols = wide ? 4 : (w >= 560 ? 2 : 1);
@@ -1664,7 +1861,10 @@ class Component extends DCLogic {
     }
     if (this.indGridRef.current) this.indGridRef.current.style.gridTemplateColumns = wide ? 'repeat(4,1fr)' : (w >= 560 ? 'repeat(2,1fr)' : '1fr');
     if (this.depthRef.current) this.depthRef.current.style.gridTemplateColumns = wide ? 'repeat(3,1fr)' : '1fr';
-    if (this.capRowRef.current) this.capRowRef.current.style.marginRight = (wide && t) ? 'calc(50% - 50vw - 24px - 10vw)' : '0px';
+    if (this.capRowRef.current) {
+      this.capRowRef.current.style.marginRight = (wide && t) ? 'calc(50% - 50vw - 24px - 10vw)' : '0px';
+      this.capRowRef.current.style.transform = (wide && t === 'c') ? 'translateX(calc(50% - 50vw - 24px - 10vw))' : 'none';
+    }
     if (this.ctaVisRef.current) this.ctaVisRef.current.style.marginRight = wide ? 'calc(50% - 50vw - 24px)' : '0px';
   };
 
@@ -1860,5 +2060,89 @@ class Component extends DCLogic {
   }
 }
 </script>
+  <script>
+    (function () {
+      function initCapScrollAnimation() {
+        var elements = document.querySelectorAll('.cap-col-card, .cap-header-reveal');
+        if (!elements.length) return;
+
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+          });
+
+          elements.forEach(function (el) {
+            observer.observe(el);
+          });
+        } else {
+          elements.forEach(function (el) {
+            el.classList.add('is-revealed');
+          });
+        }
+      }
+
+      function syncIndustriesScroll() {
+        var sec = document.getElementById('industries');
+        if (!sec) return;
+        var rect = sec.getBoundingClientRect();
+        var winH = window.innerHeight;
+        var maxScroll = sec.offsetHeight - winH;
+        if (maxScroll <= 0) return;
+
+        var rawProgress = -rect.top / maxScroll;
+        var progress = Math.max(0, Math.min(1, rawProgress));
+
+        var cards = sec.querySelectorAll('.industry-scroll-card');
+        if (!cards.length) return;
+
+        var configs = [
+          { startY: 108, delta: 225 },
+          { startY: 148, delta: 245 },
+          { startY: 192, delta: 265 },
+          { startY: 238, delta: 290 }
+        ];
+
+        cards.forEach(function (card, idx) {
+          var cfg = configs[idx] || configs[0];
+          var currentY = cfg.startY - (progress * cfg.delta);
+          card.style.transform = 'translate3d(0, ' + currentY.toFixed(2) + 'vh, 0)';
+        });
+      }
+
+      window.addEventListener('scroll', function () {
+        initCapScrollAnimation();
+        syncIndustriesScroll();
+      }, { passive: true });
+      window.addEventListener('resize', syncIndustriesScroll, { passive: true });
+      document.addEventListener('DOMContentLoaded', function () {
+        initCapScrollAnimation();
+        syncIndustriesScroll();
+      });
+      window.addEventListener('load', function () {
+        initCapScrollAnimation();
+        syncIndustriesScroll();
+      });
+      setTimeout(function () {
+        initCapScrollAnimation();
+        syncIndustriesScroll();
+      }, 100);
+      setTimeout(function () {
+        initCapScrollAnimation();
+        syncIndustriesScroll();
+      }, 500);
+      setTimeout(function () {
+        initCapScrollAnimation();
+        syncIndustriesScroll();
+      }, 1200);
+    })();
+  </script>
 </body>
 </html>

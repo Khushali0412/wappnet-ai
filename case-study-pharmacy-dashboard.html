@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Dashboard Case Study — Wappnet.AI | Healthcare Analytics & Tableau BI</title>
+  <meta name="description"
+    content="Discover how Wappnet.AI engineered an intuitive Pharmacy Dashboard powered by Tableau and modern data engineering for comprehensive pharmacy reviews, ratings, and analytics.">
+
+  <!-- Google Fonts: Archivo & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./image-slot.js"></script>
+
+  <style>
+    /* Case Study Detail Specific Styles */
+    :root {
+      --theme-orange: #E8541F;
+      --theme-orange-hover: #d24614;
+      --theme-accent: #F4A557;
+      --theme-dark: #0D0D0F;
+      --theme-surface: #FAF9F7;
+      --theme-card-bg: #FFFFFF;
+      --theme-border: #ECEAE5;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #141414;
+      background-color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Archivo', sans-serif;
+    }
+
+    h2 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    .section-eyebrow-tag {
+      font-family: var(--font-family-display, 'Archivo', sans-serif);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-brand-orange, #c2571a);
+      margin-bottom: 16px;
+      display: inline-block;
+      line-height: 1.3;
+    }
+
+    .section-eyebrow-tag.center-tag {
+      display: block;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 16px;
+    }
+
+    .section-eyebrow-tag.dark-tag {
+      color: #f4a557;
+    }
+
+    /* Meta Info Ribbon */
+    .cs-meta-ribbon {
+      background: #FFFFFF;
+      border-bottom: 1px solid #ECEAE5;
+      padding: 28px 0;
+      position: relative;
+      z-index: 4;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .meta-ribbon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .meta-ribbon-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0 20px;
+      border-left: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .meta-ribbon-item:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .meta-ribbon-lbl {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888888;
+    }
+
+    .meta-ribbon-val {
+      font-family: 'Archivo', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: #141414;
+    }
+
+    /* Content Layout Blocks */
+    .cs-detail-section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .cs-detail-section.dark-bg {
+      background-color: #0D0D0F;
+      color: #FFFFFF;
+    }
+
+    .cs-two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .cs-two-col.reverse {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .cs-visual-card {
+      background: #FFFFFF;
+      border: 1px solid #ECEAE5;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cs-visual-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .cs-visual-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Numbered Benefit Cards (Section 2) */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .benefit-item-card {
+      background: #FFFFFF;
+      border: 1px solid #ECEAE5;
+      border-radius: 18px;
+      padding: 0 24px 24px 24px;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+
+    .benefit-item-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+      border-color: #DDD9D2;
+    }
+
+    /* Top-Left Curved Corner Icon */
+    .benefit-corner-icon {
+      width: 60px;
+      height: 54px;
+      margin-left: -24px;
+      border-bottom-right-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 22px;
+      margin-bottom: 20px;
+      background: var(--color-brand-orange, #c2571a);
+    }
+
+    .benefit-card-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #141414;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .benefit-card-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #666666;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    /* Process Dynamics Layout (Section 4 matching Reference Image) */
+    .cs-process-wrapper {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .cs-process-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 24px;
+    }
+
+    .cs-process-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s ease;
+    }
+
+    .cs-process-step-item:hover {
+      transform: translateX(4px);
+    }
+
+    .step-num-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cs-process-step-item:hover .step-num-circle {
+      background: var(--color-brand-orange, #c2571a);
+      border-color: var(--color-brand-orange, #c2571a);
+      box-shadow: 0 4px 16px rgba(194, 87, 26, 0.4);
+    }
+
+    .step-content-body {
+      flex: 1;
+    }
+
+    .step-item-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.015em;
+    }
+
+    .step-item-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+    }
+
+    /* Right Image Card for Section 4 */
+    .cs-process-image-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.14);
+      background: #141419;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    .cs-process-image-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+      border-color: rgba(232, 84, 31, 0.5);
+    }
+
+    .cs-process-image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .cs-process-image-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .telemetry-decor-dots {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      display: grid;
+      grid-template-columns: repeat(4, 5px);
+      gap: 5px;
+      opacity: 0.85;
+      z-index: 3;
+    }
+
+    .telemetry-decor-dots span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-brand-orange, #c2571a);
+    }
+
+    /* =========================================================================
+       Section 5: Executive Overview (Matching Diamond Reference Design)
+       ========================================================================= */
+    .cs-overview-section {
+      background: #FFFFFF;
+      padding: 95px 0 105px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    /* Left Diamond Collage Visual */
+    .cs-diamond-visual-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      height: 460px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Background Halftone Dotted Pattern */
+    .cs-diamond-bg-dots {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: radial-gradient(rgba(20, 20, 20, 0.12) 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+      border-radius: 50%;
+      mask-image: radial-gradient(circle, black 40%, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle, black 40%, transparent 75%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+
+    /* Offset Orange Diamond Outline */
+    .cs-diamond-outline-frame {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 3.5px solid var(--color-brand-orange, #c2571a);
+      border-radius: 36px;
+      transform: rotate(45deg);
+      top: calc(50% - 120px);
+      left: calc(50% - 160px);
+      z-index: 2;
+      pointer-events: none;
+      box-shadow: 0 10px 30px rgba(194, 87, 26, 0.15);
+    }
+
+    /* Main Rotated Diamond Photo Frame */
+    .cs-diamond-photo-frame {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      transform: rotate(45deg);
+      border-radius: 36px;
+      overflow: hidden;
+      z-index: 3;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+      border: 4px solid #FFFFFF;
+      background: #F4F1EA;
+    }
+
+    .cs-diamond-photo-frame img {
+      width: 145%;
+      height: 145%;
+      object-fit: cover;
+      transform: rotate(-44deg) translate(-2%, -21%);
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* 4-Quadrant Segment Overlay */
+    .cs-diamond-crosshair {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .cs-diamond-crosshair::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #FFFFFF;
+      transform: translateX(-50%);
+    }
+
+    .cs-diamond-crosshair::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 4px;
+      background: #FFFFFF;
+      transform: translateY(-50%);
+    }
+
+    /* Right Column Narrative */
+    .cs-overview-right-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Modern Pill Eyebrow Tag with Pill Dash */
+    .cs-overview-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(194, 87, 26, 0.08);
+      color: var(--color-brand-orange, #c2571a);
+      font-family: 'Archivo', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 7px 18px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(194, 87, 26, 0.18);
+    }
+
+    .cs-overview-eyebrow-pill .pill-dash {
+      width: 16px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--color-brand-orange, #c2571a);
+      display: inline-block;
+    }
+
+    .cs-overview-heading {
+      font-family: 'Archivo', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: #141414;
+      margin: 0 0 18px 0;
+    }
+
+    .cs-overview-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #555555;
+      margin: 0 0 24px 0;
+    }
+
+
+    /* Dashed Bullet Items */
+    .cs-overview-dashed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 0;
+      width: 100%;
+    }
+
+    .cs-overview-dashed-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #444444;
+    }
+
+    .cs-overview-dashed-item .item-dash {
+      width: 22px;
+      height: 2.5px;
+      background: var(--color-brand-orange, #c2571a);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Orange Pill Button */
+    .cs-overview-explore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-brand-orange, #c2571a);
+      color: #FFFFFF;
+      font-family: 'Archivo', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 15px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(194, 87, 26, 0.32);
+      transition: all 0.3s ease;
+    }
+
+    .cs-overview-explore-btn:hover {
+      background: #a84610;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(194, 87, 26, 0.45);
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 991px) {
+      .cs-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .cs-diamond-visual-wrap {
+        height: 380px;
+      }
+
+      .cs-diamond-outline-frame,
+      .cs-diamond-photo-frame {
+        width: 240px;
+        height: 240px;
+      }
+
+      .cs-diamond-outline-frame {
+        top: calc(50% - 100px);
+        left: calc(50% - 140px);
+      }
+    }
+
+
+    .cs-overview-heading {
+      font-size: 28px;
+    }
+    }
+
+    /* =========================================================================
+       Section 6: Mission & Excellence Showcase (Angled Banner & Overlapping Cards)
+       ========================================================================= */
+    .cs-mission-banner-section {
+      padding: 90px 0 100px 0 !important;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-mission-inner-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    .cs-mission-img-frame {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      overflow: hidden;
+      clip-path: polygon(52px 0%, 100% 0%, 100% calc(100% - 52px), calc(100% - 52px) 100%, 0% 100%, 0% 52px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+      background: #141414;
+    }
+
+    .cs-mission-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cs-mission-img-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    .cs-mission-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 16, 20, 0.1) 0%, rgba(15, 16, 20, 0.45) 100%);
+      pointer-events: none;
+    }
+
+    /* Cards Wrap - overlapping lower half of the banner */
+    .cs-mission-cards-wrap {
+      max-width: 860px;
+      margin: -160px auto 0 auto;
+      position: relative;
+      z-index: 10;
+      padding: 0 24px;
+    }
+
+    .cs-mission-card {
+      position: relative;
+      overflow: hidden;
+      padding: 46px 44px 44px 44px;
+      display: flex;
+      flex-direction: column;
+      min-height: auto;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .cs-mission-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Orange Brand Card */
+    .cs-mission-card.orange-card {
+      background: var(--color-brand-orange, #c2571a);
+      clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 44px 100%, 0 calc(100% - 44px));
+      box-shadow: 0 20px 45px rgba(194, 87, 26, 0.32);
+    }
+
+    .cs-mission-card.orange-card:hover {
+      box-shadow: 0 26px 55px rgba(194, 87, 26, 0.42);
+    }
+
+    /* Dark Slate Card */
+    .cs-mission-card.dark-card {
+      background: #0B0B0E;
+      clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 44px 100%, 0 calc(100% - 44px));
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .cs-mission-card.dark-card:hover {
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .cs-mission-card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Circular Icon Badge for Dark Card */
+    .cs-mission-icon-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--color-brand-orange, #c2571a);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 6px 18px rgba(194, 87, 26, 0.4);
+    }
+
+    .cs-mission-card-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #FFFFFF;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.025em;
+    }
+
+    .cs-mission-card-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 28px 0;
+    }
+
+    .dark-card .cs-mission-card-desc {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+    }
+
+    /* Start Your Project Pill Button */
+    .cs-mission-btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #FFFFFF;
+      color: #141414;
+      font-family: 'Archivo', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      padding: 8px 8px 8px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+
+    .cs-mission-btn-white .btn-arrow-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--color-brand-orange, #c2571a);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .cs-mission-btn-white:hover {
+      background: #FFFFFF;
+      color: var(--color-brand-orange, #c2571a);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .cs-mission-btn-white:hover .btn-arrow-circle {
+      transform: rotate(45deg);
+      background: #a84610;
+    }
+
+    /* Background Watermarks */
+    .cs-mission-watermark {
+      position: absolute;
+      right: -15px;
+      bottom: -25px;
+      font-size: 180px;
+      color: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+      z-index: 1;
+      line-height: 1;
+      transform: rotate(-6deg);
+    }
+
+    .dark-card .cs-mission-watermark {
+      right: -25px;
+      bottom: -30px;
+      font-size: 190px;
+      color: rgba(255, 255, 255, 0.04);
+      transform: rotate(0deg);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 991px) {
+      .cs-mission-banner-section {
+        padding: 60px 0 80px 0;
+      }
+
+      .cs-mission-img-frame {
+        height: 380px;
+        clip-path: polygon(36px 0%, 100% 0%, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0% 100%, 0% 36px);
+      }
+
+      .cs-mission-cards-wrap {
+        grid-template-columns: 1fr;
+        margin-top: -100px;
+        gap: 24px;
+        padding: 0 16px;
+      }
+
+      .cs-mission-card {
+        padding: 38px 32px;
+        min-height: auto;
+      }
+
+      .cs-mission-card-title {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .cs-mission-img-frame {
+        height: 240px;
+        clip-path: polygon(24px 0%, 100% 0%, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0% 100%, 0% 24px);
+      }
+
+      .cs-mission-cards-wrap {
+        margin-top: -50px;
+        padding: 0 8px;
+      }
+
+      .cs-mission-card {
+        padding: 30px 22px;
+        clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+      }
+
+      .cs-mission-card-title {
+        font-size: 22px;
+      }
+    }
+
+
+
+    /* Bottom CTA Ribbon */
+    .cs-detail-cta {
+      background: radial-gradient(circle at 10% 50%, rgba(200, 48, 36, 0.85) 0%, rgba(135, 26, 52, 0.6) 40%, transparent 70%),
+        radial-gradient(circle at 90% 50%, rgba(24, 48, 145, 0.85) 0%, rgba(55, 20, 85, 0.6) 40%, transparent 70%),
+        linear-gradient(105deg, #9b2229 0%, #6e183d 24%, #3a124a 48%, #1f1446 72%, #142865 100%);
+      padding: 90px 0;
+      color: #FFFFFF;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Precision Showcase Section (Matching Reference Design in Brand Theme) */
+    .cs-precision-section {
+      background-color: #FAF8F4;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(232, 84, 31, 0.03) 0%, transparent 60%),
+        linear-gradient(rgba(20, 20, 20, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 20, 20, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 36px 36px, 36px 36px;
+      padding: 95px 0 105px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-precision-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232, 84, 31, 0.25), transparent);
+    }
+
+    .cs-precision-header {
+      margin-bottom: 40px;
+    }
+
+    .cs-precision-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: #141414;
+      margin: 0;
+    }
+
+    .cs-precision-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* Left Chamfered Card */
+    .cs-chamfer-left-card {
+      position: relative;
+      clip-path: polygon(32% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 22%);
+      background: #EAE6DE;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      min-height: 491px;
+      border-radius: 4px;
+    }
+
+    .cs-chamfer-left-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .cs-chamfer-left-card:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Narrative & Features */
+    .cs-precision-content-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cs-precision-p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #4A4A4A;
+      margin: 0 0 18px 0;
+    }
+
+    .cs-precision-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 18px;
+    }
+
+    .cs-precision-feature-item {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .cs-precision-feature-icon {
+      font-size: 24px;
+      color: #E8541F;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .cs-precision-feature-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #141414;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .cs-precision-feature-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #666666;
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .cs-precision-body-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .cs-chamfer-left-card {
+        min-height: 360px;
+        max-height: 450px;
+      }
+
+      .meta-ribbon-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .meta-ribbon-item:nth-child(odd) {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .benefits-grid,
+      .features-grid-3col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .objectives-tri-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .kpi-badges-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cs-two-col,
+      .cs-two-col.reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .meta-ribbon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid,
+      .features-grid-3col,
+      .audience-grid,
+      .kpi-badges-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       GLOBAL SITE HEADER & MEGA MENU
+       ========================================================================= -->
+  <header class="site-header" id="site-header"
+    style="position:fixed;top:0;left:0;right:0;z-index:9999;height:72px;display:flex;align-items:center;transition:background .25s ease,border-color .25s ease;border-bottom:1px solid transparent">
+    <div class="site-header-container"
+      style="max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="site-logo-link" style="display:inline-flex;align-items:center;text-decoration:none">
+        <img src="uploads/white-logo.png" alt="WAPPNET.Ai Logo" style="height:26px;width:auto;display:block">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="site-nav" style="display:flex;align-items:center;gap:36px">
+        <a href="index.html" class="site-nav-item"
+          style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.9);text-decoration:none;position:relative;padding:12px 0;transition:color .2s">
+          Home
+        </a>
+
+        <!-- Services (Mega Menu Target) -->
+        <div class="site-nav-item-wrapper" style="position:relative">
+          <a href="service.html" class="site-nav-item" data-menu-target="services"
+            style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.9);text-decoration:none;position:relative;padding:12px 0;display:inline-flex;align-items:center;gap:6px;transition:color .2s">
+            Services <i class="fa-solid fa-chevron-down" style="font-size:10px;opacity:.7"></i>
+          </a>
+          <span class="site-nav-bar" data-nav-bar="services"
+            style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#E8541F;transform:scaleX(0);transform-origin:left;transition:transform .2s ease,opacity .2s ease;opacity:0"></span>
+        </div>
+
+        <!-- Our Work (Mega Menu Target) -->
+        <div class="site-nav-item-wrapper" style="position:relative">
+          <a href="case-studies.html" class="site-nav-item" data-menu-target="work"
+            style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;color:#E8541F;text-decoration:none;position:relative;padding:12px 0;display:inline-flex;align-items:center;gap:6px;transition:color .2s">
+            Our Work <i class="fa-solid fa-chevron-down" style="font-size:10px;opacity:.7"></i>
+          </a>
+          <span class="site-nav-bar" data-nav-bar="work"
+            style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#E8541F;transform:scaleX(1);transform-origin:left;transition:transform .2s ease,opacity .2s ease;opacity:1"></span>
+        </div>
+
+        <!-- About Us -->
+        <a href="about.html" class="site-nav-item"
+          style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.9);text-decoration:none;position:relative;padding:12px 0;transition:color .2s">
+          About
+        </a>
+
+        <!-- Contact Us -->
+        <a href="contact.html" class="site-nav-item"
+          style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.9);text-decoration:none;position:relative;padding:12px 0;transition:color .2s">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="site-header-actions" style="display:flex;align-items:center;gap:18px">
+        <a href="contact.html" class="site-btn-quote"
+          style="display:inline-flex;align-items:center;gap:8px;background:#E8541F;color:#fff;border-radius:6px;padding:10px 20px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 14px rgba(232,84,31,.35)"
+          style-hover="transform:translateY(-1px);box-shadow:0 8px 20px rgba(232,84,31,.45)">
+          Get a Quote
+        </a>
+        <button type="button" class="site-mobile-toggle" id="site-mobile-toggle" aria-label="Toggle Menu"
+          style="display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mega Menu Panels -->
+    <div class="site-mega-menu-wrapper" data-menu-panel="services"
+      style="position:absolute;top:72px;left:0;right:0;background:#ffffff;border-bottom:1px solid #E7E4DF;box-shadow:0 30px 60px rgba(0,0,0,.15);display:none;padding:36px 0;color:#141414">
+      <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start">
+          <div
+            style="background:radial-gradient(circle at 10% 20%,#871A34 0%,#2C0D43 50%,#0D0D0F 100%);border-radius:12px;padding:28px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:220px">
+            <div>
+              <span
+                style="display:inline-block;background:rgba(232,84,31,.2);border:1px solid rgba(232,84,31,.4);color:#F4A557;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:12px">Featured
+                Capability</span>
+              <h4 style="font-family:'Archivo',sans-serif;font-size:19px;font-weight:800;line-height:1.2;color:#fff">
+                Enterprise AI Architecture &amp; Data Engineering</h4>
+            </div>
+            <a href="service.html"
+              style="display:inline-flex;align-items:center;gap:6px;color:#F8D06A;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;text-decoration:none;margin-top:16px">Explore
+              all services →</a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px">
+            <div>
+              <h5
+                style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;color:#888;margin-bottom:14px">
+                Core AI</h5>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">AI Consulting</a>
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">Generative AI</a>
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">Computer Vision</a>
+              </div>
+            </div>
+            <div>
+              <h5
+                style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;color:#888;margin-bottom:14px">
+                Engineering</h5>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">Data Engineering</a>
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">Deep Learning</a>
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">Cloud AI Solutions</a>
+              </div>
+            </div>
+            <div>
+              <h5
+                style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;color:#888;margin-bottom:14px">
+                Automation</h5>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">AI Chatbots &amp; Voice</a>
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">Workflow Automation</a>
+                <a href="service.html" style="color:#141414;text-decoration:none;font-size:14.5px;font-weight:700"
+                  style-hover="color:#E8541F">Data Scraping &amp; OCR</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mega Menu Panel for Our Work -->
+    <div class="site-mega-menu-wrapper" data-menu-panel="work"
+      style="position:absolute;top:72px;left:0;right:0;background:#ffffff;border-bottom:1px solid #E7E4DF;box-shadow:0 30px 60px rgba(0,0,0,.15);display:none;padding:36px 0;color:#141414">
+      <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start">
+          <div
+            style="background:radial-gradient(circle at 10% 20%,#871A34 0%,#2C0D43 50%,#0D0D0F 100%);border-radius:12px;padding:28px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:220px">
+            <div>
+              <span
+                style="display:inline-block;background:rgba(232,84,31,.2);border:1px solid rgba(232,84,31,.4);color:#F4A557;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:12px">Client
+                Results</span>
+              <h4 style="font-family:'Archivo',sans-serif;font-size:19px;font-weight:800;line-height:1.2;color:#fff">
+                Outcomes, Not Logos On A Wall</h4>
+            </div>
+            <a href="case-studies.html"
+              style="display:inline-flex;align-items:center;gap:6px;color:#F8D06A;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;text-decoration:none;margin-top:16px">All
+              case studies →</a>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+            <div style="display:flex;flex-direction:column">
+              <a href="case-studies.html"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#E8541F">Case
+                studies<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="case-studies.html"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Client testimonials<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="case-studies.html"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Success metrics<span style="font-size:17px;flex:none">↗</span></a>
+            </div>
+            <div style="display:flex;flex-direction:column">
+              <a href="#"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Blog &amp; Insights<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="#"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">Company News<span style="font-size:17px;flex:none">↗</span></a>
+              <a href="#"
+                style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                style-hover="color:#C2571A">AI Webinars &amp; Events<span style="font-size:17px;flex:none">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="site-mobile-drawer" id="site-mobile-drawer"
+      style="position:fixed;top:72px;left:0;right:0;bottom:0;background:#0D0D0F;padding:24px;overflow-y:auto;display:none">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <a href="index.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">Home</a>
+        <a href="service.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">Services</a>
+        <a href="case-studies.html" style="color:#E8541F;font-size:18px;font-weight:700;text-decoration:none">Our Work
+          (Case Studies)</a>
+        <a href="about.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">About</a>
+        <a href="contact.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">Contact</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- =========================================================================
+       1. HERO BANNER SECTION (Exact Match to Site Theme)
+       ========================================================================= -->
+  <section class="hero-wrapper" id="pharma-hero"
+    style="padding-top:160px;padding-bottom:120px;position:relative;background:radial-gradient(circle at 12% 45%, rgba(200, 48, 36, 0.85) 0%, rgba(135, 26, 52, 0.6) 35%, transparent 68%), radial-gradient(circle at 88% 42%, rgba(24, 48, 145, 0.85) 0%, rgba(55, 20, 85, 0.6) 40%, transparent 70%), linear-gradient(105deg, #9b2229 0%, #6e183d 24%, #3a124a 48%, #1f1446 72%, #142865 100%);display:flex;align-items:center">
+
+    <div class="hero-bg-container">
+      <div class="bg-glow bg-glow-left"></div>
+      <div class="bg-glow bg-glow-center"></div>
+      <div class="bg-glow bg-glow-right"></div>
+      <div class="ai-circuit-grid" aria-hidden="true"></div>
+      <div class="ai-neural-wave wave-2" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-container"
+      style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;width:100%">
+      <div style="max-width:920px;margin:0 auto;text-align:center">
+
+        <h1
+          style="font-family:'Archivo',sans-serif;font-size:clamp(34px, 5.2vw, 62px);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:#fff;text-wrap:pretty;margin-bottom:24px">
+          Navigate Your <span style="color:rgb(248, 208, 106)">Health Journey</span> with Our Pharmacy Dashboard
+        </h1>
+
+        <p
+          style="font-size:clamp(16.5px, 1.4vw, 19.5px);line-height:1.65;color:rgba(255,255,255,0.88);text-wrap:pretty;margin-bottom:38px;max-width:780px;margin-left:auto;margin-right:auto">
+          Your premier destination for comprehensive pharmacy reviews, ratings, and predictive business intelligence
+          powered by Tableau and automated clinical data engineering.
+        </p>
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap">
+          <a href="contact.html" class="btn-talk-expert"
+            style="display:inline-flex;align-items:center;gap:10px;background:rgb(232,84,31);color:#fff;border-radius:8px;padding:14px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(232,84,31,0.35)"
+            style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,84,31,0.45)">
+            Build Similar Solution ↗
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       1B. KEY PROJECT SPECIFICATIONS RIBBON
+       ========================================================================= -->
+  <section class="cs-meta-ribbon">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div class="meta-ribbon-grid">
+        <div class="meta-ribbon-item">
+          <span class="meta-ribbon-lbl">Domain / Industry</span>
+          <span class="meta-ribbon-val">Healthcare &amp; Life Sciences</span>
+        </div>
+        <div class="meta-ribbon-item">
+          <span class="meta-ribbon-lbl">Core Technology</span>
+          <span class="meta-ribbon-val">Tableau &amp; Data Pipeline ETL</span>
+        </div>
+        <div class="meta-ribbon-item">
+          <span class="meta-ribbon-lbl">Deployment Region</span>
+          <span class="meta-ribbon-val">United States Nationwide</span>
+        </div>
+        <div class="meta-ribbon-item">
+          <span class="meta-ribbon-lbl">Impact Milestone</span>
+          <span class="meta-ribbon-val" style="color:var(--theme-orange)">3.8x Faster Decision Velocity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       2. UNVEILING INSIGHTS: PRECISION HEALTHCARE BI (Matching Reference Design)
+       ========================================================================= -->
+  <section class="cs-precision-section" id="about-solution">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2">
+
+      <!-- Section Eyebrow Tag & Main Title -->
+      <div class="cs-precision-header">
+        <div class="section-eyebrow-tag">About Pharmacy Insight</div>
+        <h2 class="cs-precision-title">
+          Delivering Quality Healthcare Intelligence with Precision &amp; Trust
+        </h2>
+      </div>
+
+      <!-- 3-Column Body Grid -->
+      <div class="cs-precision-body-grid">
+
+        <!-- Column 1: Left Chamfered Image Card -->
+        <div class="cs-chamfer-left-card">
+          <img src="images/pharmacy_data_facility.jpg" alt="Pharmacy Data Center and Clinical Analytics Infrastructure">
+        </div>
+
+        <!-- Column 2: Middle Narrative & 3 Feature Points -->
+        <div class="cs-precision-content-col">
+          <p class="cs-precision-p">
+            At Wappnet.AI, we specialize in delivering high-quality healthcare analytics and data visualization
+            solutions tailored to meet modern industry standards. With years of hands-on experience, our team ensures
+            every BI pipeline is completed with precision, durability, and attention to detail.
+          </p>
+          <p class="cs-precision-p">
+            We combine innovative techniques with skilled craftsmanship to create analytical dashboards and reporting
+            frameworks that are not only functional but built to last.
+          </p>
+
+          <div class="cs-precision-features-list">
+            <!-- Feature 1 -->
+            <div class="cs-precision-feature-item">
+              <div class="cs-precision-feature-icon">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
+              <h4 class="cs-precision-feature-title">Architecture Design</h4>
+              <p class="cs-precision-feature-desc">Creative and functional design solutions tailored to your healthcare
+                network's needs.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="cs-precision-feature-item">
+              <div class="cs-precision-feature-icon">
+                <i class="fa-solid fa-sliders"></i>
+              </div>
+              <h4 class="cs-precision-feature-title">Modern Renovation &amp; BI</h4>
+              <p class="cs-precision-feature-desc">Transforming spaces and clinical datasets with innovative
+                modernization techniques and premium finishes.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="cs-precision-feature-item">
+              <div class="cs-precision-feature-icon">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <h4 class="cs-precision-feature-title">24/7 Support</h4>
+              <p class="cs-precision-feature-desc">Reliable support and consultation available whenever you need us.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       3. CLARIFY, PREDICT, AND GROW: 8 KEY POWER PILLARS
+       ========================================================================= -->
+  <section class="cs-detail-section surface-bg">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <div style="text-align:center;max-width:820px;margin:0 auto 40px">
+        <div class="section-eyebrow-tag center-tag">Strategic Advantages</div>
+        <h2
+          style="font-size:36px;font-weight:800;letter-spacing:-0.025em;line-height:1.2;color:#141414;margin-bottom:18px">
+          Clarify, Predict, and Grow: Unlock the Power of Data with Tableau Visualization
+        </h2>
+        <p style="font-size:16px;line-height:1.65;color:#555555;margin:0">
+          Advancements in modern data technology have significantly enhanced the capabilities of data visualization,
+          bolstering business intelligence and operational resilience across healthcare networks:
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <!-- Benefit 1 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <h4 class="benefit-card-title">Clinical Clarity</h4>
+          <p class="benefit-card-desc">Clarifies complex clinical concepts, offering deeper insights into healthcare
+            service coverage and pricing.</p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
+          <h4 class="benefit-card-title">Predictive Velocity</h4>
+          <p class="benefit-card-desc">Enables rapid forecasting and facilitates informed, data-backed administrative
+            and patient decision-making.</p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <h4 class="benefit-card-title">Trend Discovery</h4>
+          <p class="benefit-card-desc">Allows for the rapid identification of customer trends and review patterns within
+            massive nationwide datasets.</p>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-file-invoice"></i>
+          </div>
+          <h4 class="benefit-card-title">Universal Reporting</h4>
+          <p class="benefit-card-desc">Data visualization offers a universal language for conveying critical operational
+            metrics effectively to stakeholders.</p>
+        </div>
+
+        <!-- Benefit 5 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <h4 class="benefit-card-title">Service Optimization</h4>
+          <p class="benefit-card-desc">Pinpoints specific areas within a pharmacy business that require adjustments for
+            improved patient satisfaction.</p>
+        </div>
+
+        <!-- Benefit 6 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <h4 class="benefit-card-title">Enterprise Scalability</h4>
+          <p class="benefit-card-desc">Supports enterprise scalability, effortlessly accommodating millions of expanding
+            transactional and review records.</p>
+        </div>
+
+        <!-- Benefit 7 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h4 class="benefit-card-title">Simplified Analytics</h4>
+          <p class="benefit-card-desc">Simplifies the interpretation of dense datasets, making actionable insights
+            immediately accessible to non-technical staff.</p>
+        </div>
+
+        <!-- Benefit 8 -->
+        <div class="benefit-item-card">
+          <div class="benefit-corner-icon">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h4 class="benefit-card-title">Data Silo Breakdown</h4>
+          <p class="benefit-card-desc">Breaks down data silos between insurers, pharmacy owners, and clinicians, driving
+            integrated care coordination.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. DASHBOARD DYNAMICS: 8 CORE CAPABILITIES (Process Dynamics Layout)
+       ========================================================================= -->
+  <section class="cs-detail-section dark-bg">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- Section Header -->
+      <div style="margin-bottom:36px">
+        <div class="section-eyebrow-tag dark-tag">Architecture &amp; Features</div>
+        <h2
+          style="font-size:36px;font-weight:800;letter-spacing:-0.025em;line-height:1.2;color:#FFFFFF;margin-bottom:14px">
+          Dashboard Dynamics: Elevate Insights with Tableau’s Visual Advantage
+        </h2>
+        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,0.7);margin:0;max-width:760px">
+          Engineered for high-throughput healthcare informatics with specialized interactive controls and automated live
+          data sync.
+        </p>
+      </div>
+
+      <!-- 2-Column Process & Telemetry Layout -->
+      <div class="cs-process-wrapper">
+
+        <!-- Left 2-Column Numbered Steps Grid (8 Core Capabilities) -->
+        <div class="cs-process-steps-grid">
+
+          <!-- 01: Data Visualization -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">01</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Data Visualization</h4>
+              <p class="step-item-desc">Transforming dense clinical records into intuitive interactive visuals, maps,
+                and high-impact dashboards.</p>
+            </div>
+          </div>
+
+          <!-- 02: Data Analysis -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">02</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Data Analysis</h4>
+              <p class="step-item-desc">Multi-dimensional analytical queries that uncover deep patterns across patient
+                ratings and pharmacy services.</p>
+            </div>
+          </div>
+
+          <!-- 03: Interactive Dashboards -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">03</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Interactive Dashboards</h4>
+              <p class="step-item-desc">Real-time filtering by state, review volume, and sentiment score for
+                high-velocity decision exploration.</p>
+            </div>
+          </div>
+
+          <!-- 04: Integration of Data -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">04</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Integration of Data</h4>
+              <p class="step-item-desc">Automated ETL pipelines connecting Yellow Pages pharmacy records with clinical
+                telemetry data.</p>
+            </div>
+          </div>
+
+          <!-- 05: Sharing & Collaboration -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">05</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Sharing &amp; Collaboration</h4>
+              <p class="step-item-desc">Seamless enterprise data distribution across healthcare teams, clinical leaders,
+                and administrators.</p>
+            </div>
+          </div>
+
+          <!-- 06: Scalability -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">06</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Scalability</h4>
+              <p class="step-item-desc">High-throughput Tableau warehouse architecture handling millions of growing
+                review transactions.</p>
+            </div>
+          </div>
+
+          <!-- 07: Device Compatibility -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">07</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Device Compatibility</h4>
+              <p class="step-item-desc">Fully responsive layouts tailored for workstation diagnostics, clinical tablets,
+                and mobile views.</p>
+            </div>
+          </div>
+
+          <!-- 08: Storytelling -->
+          <div class="cs-process-step-item">
+            <div class="step-num-circle">08</div>
+            <div class="step-content-body">
+              <h4 class="step-item-title">Storytelling</h4>
+              <p class="step-item-desc">Compelling visual storylines translating raw medical data into clear, actionable
+                executive insights.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Floating Case Study Analytics Image Card -->
+        <div class="cs-process-image-card">
+          <!-- Decorative Top Left Dots -->
+          <div class="telemetry-decor-dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <img src="images/pharmacy_analytics_showcase.jpg"
+            alt="Pharmacy Operations and Clinical Data Analytics Telemetry Interface">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. HEALTH INSIGHTS AT A GLANCE (Executive Overview Diamond Showcase)
+       ========================================================================= -->
+  <section class="cs-overview-section" id="executive-overview">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div class="cs-overview-grid">
+
+        <!-- Left Diamond Collage Visual -->
+        <div class="cs-diamond-visual-wrap">
+          <!-- Dot grid background -->
+          <div class="cs-diamond-bg-dots" aria-hidden="true"></div>
+          <!-- Decorative Offset Orange Diamond Outline -->
+          <div class="cs-diamond-outline-frame" aria-hidden="true"></div>
+          <!-- Main Rotated Diamond Photo Frame -->
+          <div class="cs-diamond-photo-frame">
+            <img src="images/pharmacy_data_facility.jpg"
+              alt="Dark Modern Pharmacy Clinical Intelligence and Logistics Facility"
+              onerror="this.src='uploads/why-us-1.jpg'">
+            <!-- Quadrant Crosshair lines -->
+            <div class="cs-diamond-crosshair" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Right Narrative & Highlights -->
+        <div class="cs-overview-right-content">
+          <!-- Section Eyebrow Tag -->
+          <div class="section-eyebrow-tag">Executive Overview</div>
+
+          <!-- Section Heading (36px, theme font) -->
+          <h2 class="cs-overview-heading">
+            Health Insights at a Glance: Introducing Your Pharmacy Dashboard
+          </h2>
+
+          <!-- Description Text -->
+          <p class="cs-overview-desc">
+            Pharmacy Insight offers a comprehensive platform for discovering, assessing, and selecting the best
+            pharmacies in the US. Through real user reviews and ratings, our dashboard provides transparent information
+            on pharmacy services.
+          </p>
+
+          <!-- Dashed Bullet Points -->
+          <div class="cs-overview-dashed-list">
+            <div class="cs-overview-dashed-item">
+              <span class="item-dash"></span>
+              <span>Website &amp; Mobile interactive visualization for healthcare networks</span>
+            </div>
+            <div class="cs-overview-dashed-item">
+              <span class="item-dash"></span>
+              <span>Empowering 100,000+ monthly patients &amp; clinical administrators transparently</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       6. SHOWCASE BANNER & MISSION CARDS (Modern Angled Hero Layout)
+       ========================================================================= -->
+  <section class="cs-mission-banner-section" id="mission-showcase" style="padding: 80px 0;">
+    <div class="cs-mission-inner-wrap">
+
+      <!-- Main Showcase Container with Chamfered Frame -->
+      <div class="cs-mission-img-frame">
+        <img src="images/pharmacy_interior_modern_shelves.jpg" alt="Modern Pharmacy Interior and Healthcare Dispensary"
+          loading="lazy">
+        <div class="cs-mission-img-overlay"></div>
+      </div>
+
+      <!-- Overlapping Single Card for Goals -->
+      <div class="cs-mission-cards-wrap">
+
+        <!-- Single Card: Dark Card (Our Goals) -->
+        <div class="cs-mission-card dark-card">
+          <div class="cs-mission-card-content">
+            <div class="cs-mission-icon-badge">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3 class="cs-mission-card-title">Our Goals</h3>
+            <p class="cs-mission-card-desc">
+              To position Pharmacy Insight as the go-to platform for accessing transparent and reliable information
+              about pharmacy services in the United States, empowering users to make informed decisions aligned with
+              their healthcare needs and preferences, ultimately enhancing their overall health and well-being.
+            </p>
+          </div>
+          <!-- Target Watermark Icon -->
+          <div class="cs-mission-watermark">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+  <!-- =========================================================================
+       11. BOTTOM CTA & NEXT CASE STUDY CALLOUT
+       ========================================================================= -->
+  <section class="cs-detail-cta">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2">
+      <div class="section-eyebrow-tag dark-tag center-tag" style="margin-bottom:18px">Next Generation BI</div>
+      <h2
+        style="font-size:36px;font-weight:800;letter-spacing:-0.025em;color:#FFFFFF;margin-bottom:20px;line-height:1.15">
+        Ready to Engineer Your Own Healthcare Analytics Dashboard?
+      </h2>
+      <p style="font-size:18px;line-height:1.65;color:rgba(255,255,255,0.85);max-width:720px;margin:0 auto 38px">
+        Partner with Wappnet.AI’s data architects to transform complex datasets into high-ROI interactive dashboards,
+        predictive pipelines, and automated intelligence.
+      </p>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
+        <a href="contact.html"
+          style="display:inline-flex;align-items:center;gap:10px;background:#E8541F;color:#fff;border-radius:8px;padding:16px 36px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(232,84,31,0.4)"
+          style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,84,31,0.5)">
+          Schedule Discovery Call <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="case-studies.html"
+          style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.35);color:#fff;border-radius:8px;padding:16px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:background .2s"
+          style-hover="background:#fff;color:#141414">
+          ← Back to All Case Studies
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       GLOBAL SITE FOOTER (Exact Match to Other Pages)
+       ========================================================================= -->
+  <footer style="background:#141414;color:#cfcfcf;padding:80px 0 40px;font-family:'DM Sans',sans-serif">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- 1. Top Navigation Grid (5 Columns) -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;align-items:start">
+        <div>
+          <a href="index.html" style="display:inline-block">
+            <img src="uploads/white-logo.png" alt="WAPPNET.Ai" style="height:26px;width:auto;display:block">
+          </a>
+          <p style="margin-top:22px;font-size:14.5px;line-height:1.6;color:#a0a0a0;max-width:28ch">The AI and data
+            engineering side of Wappnet, for companies that have outgrown their reporting stack.</p>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">What
+            we do</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="Wappnet AI Service.dc.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">AI</a>
+            <a href="service.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Applied AI consulting</a>
+            <a href="index.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Data &amp; analytics</a>
+            <a href="index.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Data platform engineering</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Company</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="about.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">About us</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Leadership</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Partners</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Certifications</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Insights</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="index.html#stories" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Success stories</a>
+            <a href="index.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Blog</a>
+            <a href="index.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">News</a>
+            <a href="index.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Events</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Careers</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Life at
+              Wappnet</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Current
+              openings</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Submit
+              your profile</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. GET IN TOUCH Section -->
+      <div style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10)">
+        <h3
+          style="font-family:'Archivo',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:28px">
+          GET IN TOUCH</h3>
+
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:start">
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              OFFICIAL WEBSITE</div>
+            <a href="https://www.wappnet.com" target="_blank" rel="noopener"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color .2s"
+              style-hover="color:#F8D06A">www.wappnet.com <span style="font-size:14px">↗</span></a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              BUSINESS QUERIES</div>
+            <a href="mailto:business@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">business@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              CAREER INQUIRIES</div>
+            <a href="mailto:career@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">career@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              GENERAL INFORMATION</div>
+            <a href="mailto:hr@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">hr@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              HR NUMBER</div>
+            <a href="tel:+919173408554"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">(+91) 9173408554</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Global Offices (5 Columns: USA, CANADA, INDIA, AUSTRALIA, DUBAI) -->
+      <div id="global-offices"
+        style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:grid;grid-template-columns:repeat(5,1fr);gap:28px">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-usa" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">USA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">1440 W Taylor St,
+            Chicago, Illinois 60607, US</p>
+          <a href="tel:+13126983083"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-canada" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">CANADA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">7700 Hurontario St
+            #503 # 2009 Brampton, ON L6Y 4M3 Canada</p>
+          <a href="tel:+13126983083"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-india" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">INDIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">403, iSQUARE
+            Corporate Park, Science City Rd, Sola, Ahmedabad</p>
+          <a href="tel:+916353604125"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+91) 6353604125</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-aus" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">AUSTRALIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Parkway, Pakenham
+            3810 Melbourne, Australia</p>
+          <a href="tel:+61405050017"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+61) 405 050 017</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-dubai" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">DUBAI</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Meydan Grandstand,
+            6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+          <a href="tel:+971541618745"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+971) 54 161 8745</a>
+        </div>
+      </div>
+
+      <!-- 4. Ratings & Industry Certifications Badges -->
+      <div
+        style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+
+        <!-- Left Ratings -->
+        <div style="display:flex;align-items:center;gap:36px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-clutch" shape="rect"
+                placeholder="Clutch 104²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.9
+              <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-goodfirm" shape="rect"
+                placeholder="GoodFirm 104²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.8
+              <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+        </div>
+
+        <!-- Right Certifications -->
+        <div style="display:flex;align-items:center;gap:28px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27701"
+                shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO
+              27701:2019</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27001"
+                shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO
+              27001:2022</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-csm" shape="rect"
+                placeholder="CSM 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">CSM
+              Certified</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-aws" shape="rect"
+                placeholder="AWS 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">AWS
+              Partner</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-dnb" shape="rect"
+                placeholder="D&amp;B 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">D-U-N-S
+              Registered</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 5. Bottom Copyright & Social Row -->
+      <div
+        style="margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:14px;color:#7a7a7a">
+        <span>© 2026 Wappnet Systems Global. All rights reserved.</span>
+
+        <div style="display:flex;align-items:center;gap:32px">
+          <div style="display:flex;gap:24px">
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s" style-hover="color:#fff">Privacy
+              policy</a>
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Disclaimer</a>
+          </div>
+
+          <div style="display:flex;gap:10px">
+            <a href="#" aria-label="Instagram"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="4.6"></rect>
+                <circle cx="12" cy="12" r="3.6"></circle>
+                <circle cx="17.1" cy="6.9" r="1.1" fill="#141414" stroke="none"></circle>
+              </svg></a>
+            <a href="#" aria-label="Facebook"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M14.6 8.2h1.9V5.4h-2.3c-2 0-3.2 1.3-3.2 3.3v1.6H9.1v2.8H11V20h2.9v-6.9h2l.4-2.8h-2.4V9.1c0-.6.3-.9.7-.9z"
+                  stroke="none" fill="#141414"></path>
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.4 10v7.2M7.4 6.9v.1M11.4 17.2V10M11.4 13.2c0-1.4.9-2.4 2.3-2.4s2.4 1 2.4 2.4v4"></path>
+              </svg></a>
+            <a href="#" aria-label="Twitter"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20 6.6c-.6.4-1.3.7-2 .8a3.2 3.2 0 0 0-5.5 2.2v.7A9 9 0 0 1 5.2 6.4s-3.1 7 4 10.1a9.3 9.3 0 0 1-5.6 1.5c7.1 4 15.8 0 15.8-9.2 0-.2 0-.4-.1-.7.6-.6 1.2-1.3 1.5-2.1z">
+                </path>
+              </svg></a>
+            <a href="#" aria-label="WhatsApp"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 11.6a7.7 7.7 0 0 1-11.4 6.8L4.4 19.6l1.2-4.1A7.7 7.7 0 1 1 20 11.6z"></path>
+                <path d="M9.4 9.4c0 3 2.2 5.2 5.2 5.2"></path>
+              </svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       PAGE JAVASCRIPT & INTERACTIONS
+       ========================================================================= -->
+  <script>
+    /* 1. Header Scroll Background & Mega Menu Logic */
+    const siteHeader = document.getElementById('site-header');
+    const navItems = document.querySelectorAll('.site-nav-item');
+    const navBars = document.querySelectorAll('.site-nav-bar');
+    const menuPanels = document.querySelectorAll('.site-mega-menu-wrapper[data-menu-panel]');
+    const mobileToggle = document.getElementById('site-mobile-toggle');
+    const mobileDrawer = document.getElementById('site-mobile-drawer');
+
+    let currentActiveMenu = null;
+
+    function updateHeaderVisualState() {
+      if (!siteHeader) return;
+      const isScrolled = window.scrollY > 20;
+
+      if (isScrolled) {
+        siteHeader.style.background = 'rgba(13, 13, 15, 0.94)';
+        siteHeader.style.backdropFilter = 'saturate(160%) blur(12px)';
+        siteHeader.style.webkitBackdropFilter = 'saturate(160%) blur(12px)';
+        siteHeader.style.borderBottomColor = 'rgba(255, 255, 255, 0.10)';
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.style.background = 'transparent';
+        siteHeader.style.backdropFilter = 'none';
+        siteHeader.style.webkitBackdropFilter = 'none';
+        siteHeader.style.borderBottomColor = 'transparent';
+        siteHeader.classList.remove('scrolled');
+      }
+    }
+
+    function openMenu(menuKey) {
+      currentActiveMenu = menuKey;
+      menuPanels.forEach(panel => {
+        if (panel.getAttribute('data-menu-panel') === menuKey) {
+          panel.classList.add('is-active');
+        } else {
+          panel.classList.remove('is-active');
+        }
+      });
+
+      navBars.forEach(bar => {
+        if (bar.getAttribute('data-nav-bar') === menuKey) {
+          bar.style.opacity = '1';
+          bar.style.transform = 'scaleX(1)';
+        } else {
+          bar.style.opacity = '0';
+          bar.style.transform = 'scaleX(0.4)';
+        }
+      });
+
+      updateHeaderVisualState();
+    }
+
+    function closeMenu() {
+      currentActiveMenu = null;
+      menuPanels.forEach(panel => panel.classList.remove('is-active'));
+      navBars.forEach(bar => {
+        if (bar.getAttribute('data-nav-bar') === 'work') {
+          bar.style.opacity = '1';
+          bar.style.transform = 'scaleX(1)';
+        } else {
+          bar.style.opacity = '0';
+          bar.style.transform = 'scaleX(0.4)';
+        }
+      });
+      updateHeaderVisualState();
+    }
+
+    navItems.forEach(item => {
+      const target = item.getAttribute('data-menu-target');
+      item.addEventListener('mouseenter', () => openMenu(target));
+      item.addEventListener('focus', () => openMenu(target));
+    });
+
+    if (siteHeader) {
+      siteHeader.addEventListener('mouseleave', closeMenu);
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (siteHeader && !siteHeader.contains(e.target)) {
+        closeMenu();
+        if (mobileDrawer) {
+          mobileDrawer.classList.remove('is-open');
+          updateHeaderVisualState();
+        }
+      }
+    });
+
+    if (mobileToggle && mobileDrawer) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileDrawer.classList.toggle('is-open');
+        updateHeaderVisualState();
+      });
+    }
+
+    window.addEventListener('scroll', updateHeaderVisualState, { passive: true });
+    updateHeaderVisualState();
+
+    /* 2. Style-hover support */
+    document.querySelectorAll('[style-hover]').forEach(el => {
+      const originalStyle = el.getAttribute('style') || '';
+      const hoverStyleStr = el.getAttribute('style-hover');
+      const hoverRules = hoverStyleStr.split(';').filter(r => r.trim());
+
+      el.addEventListener('mouseenter', () => {
+        hoverRules.forEach(rule => {
+          const [prop, val] = rule.split(':');
+          if (prop && val) {
+            el.style.setProperty(prop.trim(), val.trim());
+          }
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.setAttribute('style', originalStyle);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
