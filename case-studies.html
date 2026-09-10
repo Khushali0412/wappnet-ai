@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies — Wappnet.AI | AI Success Stories & Enterprise Implementations</title>
+  <meta name="description"
+    content="Explore our case study showcase at Wappnet.ai. Discover real-world examples of our innovative AI, Analytics solutions and their impact on businesses.">
+
+  <!-- Google Fonts: Archivo & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="./image-slot.js"></script>
+
+  <style>
+    /* Case Studies Specific Styles */
+    :root {
+      --theme-orange: #E8541F;
+      --theme-orange-hover: #d24614;
+      --theme-accent: #F4A557;
+      --theme-dark: #0D0D0F;
+      --theme-surface: #FAF9F7;
+      --theme-border: #ECEAE5;
+    }
+
+
+
+    /* Filter Tabs Section */
+    .cs-listing-section {
+      padding: 80px 0 80px;
+      background: #FFFFFF;
+      position: relative;
+    }
+
+    .cs-filter-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 50px;
+    }
+
+    .cs-filter-btn {
+      background: #FAF9F7;
+      color: #555555;
+      border: 1px solid #ECEAE5;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .cs-filter-btn:hover {
+      background: #FDECE4;
+      color: #E8541F;
+      border-color: #F9CFBE;
+    }
+
+    .cs-filter-btn.active {
+      background: #E8541F;
+      color: #ffffff;
+      border-color: #E8541F;
+      box-shadow: 0 6px 18px rgba(232, 84, 31, 0.3);
+    }
+
+    /* 3-Column Cards Grid (Matching User Attached Reference Design) */
+    .cs-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .cs-card-item {
+      background: #FFFFFF;
+      border: 1px solid #ECEAE5;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.035);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .cs-card-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px rgba(232, 84, 31, 0.12), 0 0 0 1px rgba(232, 84, 31, 0.25);
+      border-color: rgba(232, 84, 31, 0.4);
+    }
+
+    /* Thumbnail Area */
+    .cs-thumb-wrapper {
+      position: relative;
+      padding: 14px 14px 0 14px;
+      overflow: visible;
+    }
+
+    .cs-thumb-img-box {
+      border-radius: 14px;
+      overflow: hidden;
+      height: 220px;
+      background: #0D0D0F;
+      position: relative;
+    }
+
+    .cs-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .cs-card-item:hover .cs-thumb-img {
+      transform: scale(1.06);
+    }
+
+    /* Floating Date Badge (Theme Orange Brand Palette) */
+    .cs-date-badge {
+      position: absolute;
+      bottom: -14px;
+      left: 28px;
+      z-index: 3;
+      background: linear-gradient(135deg, #F99E38 0%, #E8541F 100%);
+      color: #FFFFFF;
+      border-radius: 10px;
+      padding: 6px 14px 5px 14px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(232, 84, 31, 0.38);
+      min-width: 52px;
+      transition: transform 0.3s ease;
+    }
+
+    .cs-card-item:hover .cs-date-badge {
+      transform: scale(1.05);
+    }
+
+    .cs-date-num {
+      font-family: 'Archivo', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1;
+      display: block;
+    }
+
+    .cs-date-month {
+      font-family: 'Archivo', sans-serif;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.25;
+      display: block;
+      opacity: 0.95;
+    }
+
+    /* Card Content */
+    .cs-content-box {
+      padding: 28px 22px 24px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cs-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .cs-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #E8541F;
+    }
+
+    .cs-meta-item i {
+      font-size: 12px;
+    }
+
+    .cs-card-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      color: #141414;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px 0;
+      transition: color 0.2s ease;
+    }
+
+    .cs-card-item:hover .cs-card-title {
+      color: #E8541F;
+    }
+
+    .cs-card-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: #666666;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+      flex: 1;
+    }
+
+    .cs-read-more {
+      font-family: 'Archivo', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #141414;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      transition: all 0.2s ease;
+    }
+
+    .cs-read-more span {
+      color: #E8541F;
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .cs-card-item:hover .cs-read-more {
+      color: #E8541F;
+    }
+
+    .cs-card-item:hover .cs-read-more span {
+      transform: translateX(4px);
+    }
+
+    /* CTA Section */
+    .cs-cta-banner {
+      background: #0D0D0F;
+      border-radius: 28px;
+      padding: 64px 48px;
+      margin-top: 80px;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      box-shadow: 0 30px 70px rgba(13, 13, 15, 0.3);
+    }
+
+    .cs-cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 84, 31, 0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cs-cta-content {
+      max-width: 620px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cs-cta-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(28px, 3.2vw, 38px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+      margin: 0 0 14px 0;
+      letter-spacing: -0.025em;
+    }
+
+    .cs-cta-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .cs-cta-btn {
+      background: #E8541F;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 16px 32px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      box-shadow: 0 10px 30px rgba(232, 84, 31, 0.35);
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 2;
+      flex: none;
+    }
+
+    .cs-cta-btn:hover {
+      background: #d24614;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(232, 84, 31, 0.45);
+      color: #ffffff;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1120px) {
+      .cs-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .cs-metrics-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cs-hero-section {
+        padding: 130px 0 60px;
+      }
+
+      .cs-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .cs-cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .cs-cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cs-metrics-bar {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       HEADER NAVIGATION (Consistent across Wappnet.AI)
+       ========================================================================= -->
+  <header id="site-header" class="site-header"
+    style="position:fixed;top:0;left:0;right:0;z-index:80;background:transparent;border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease">
+    <div
+      style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="index.html" style="display:flex;align-items:center;flex:none"><img src="uploads/white-logo.png"
+          alt="Wappnet.ai" style="height:26px;width:auto;display:block"></a>
+
+      <nav class="site-desktop-nav" style="margin-left:auto">
+        <div style="display:flex;align-items:center;gap:2px">
+          <div data-menu-target="services" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Services<span class="site-nav-bar" data-nav-bar="services"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="solutions" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Solutions<span class="site-nav-bar" data-nav-bar="solutions"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="consulting" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Consulting<span class="site-nav-bar" data-nav-bar="consulting"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="industries" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Industries<span class="site-nav-bar" data-nav-bar="industries"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <div data-menu-target="work" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:600;color:#fff;cursor:default;white-space:nowrap;transition:color .2s ease"
+            style-hover="color:#fff">Our Work<span class="site-nav-bar" data-nav-bar="work"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:1;transform:scaleX(1);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span>
+          </div>
+          <a href="about.html" data-menu-target="company" class="site-nav-item"
+            style="position:relative;padding:24px 13px;font-size:14.5px;font-weight:500;color:#fff;cursor:pointer;white-space:nowrap;transition:color .2s ease;text-decoration:none"
+            style-hover="color:#fff">About<span class="site-nav-bar" data-nav-bar="company"
+              style="position:absolute;left:13px;right:13px;bottom:20px;height:2px;background:#fff;border-radius:2px;opacity:0;transform:scaleX(.4);transform-origin:center;transition:opacity .2s ease,transform .25s cubic-bezier(.16,1,.3,1)"></span></a>
+        </div>
+      </nav>
+
+      <a class="site-nav-contact-btn" href="contact.html"
+        style="flex:none;background:#fff;color:#0D0D0F;border-radius:6px;padding:11px 20px;font-size:14.5px;font-weight:700;font-family:'Archivo',sans-serif;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease;text-decoration:none"
+        style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);color:#0D0D0F">Contact us</a>
+
+      <button class="site-mobile-menu-btn" id="site-mobile-toggle" aria-label="Toggle Navigation Menu"
+        style="margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;color:#fff;padding:9px 14px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Menu</button>
+    </div>
+
+    <!-- Mega Menu Panels -->
+    <div class="site-mega-menu-wrapper" data-menu-panel="services">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div id="svc-panel-container"
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:18px;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:14px 24px;align-items:start;max-height:calc(100vh - 92px);overflow-y:auto;animation:panelIn .2s ease-out both">
+            <div data-promo
+              style="background:#0D0D0F;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0;position:sticky;top:0">
+              <div style="padding:22px 22px 18px">
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:#fff;text-wrap:pretty">
+                  AI, Data &amp; ML systems that make it to <span style="color:#E8541F">production.</span></h3>
+                <p
+                  style="margin-top:12px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.66);text-wrap:pretty">
+                  From strategy and prototype to integration, analytics, security and scale — senior engineers working
+                  inside your existing technology ecosystem.</p>
+                <a href="service.html"
+                  style="margin-top:16px;display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:10px 16px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                  style-hover="background:#fff;color:#0D0D0F">Explore AI services <span
+                    style="font-size:16px;flex:none">→</span></a>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 26px;min-width:0">
+              <div
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0">
+                <a href="service.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span style="display:flex;align-items:center;gap:8px">
+                      <span
+                        style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;color:#141414">AI
+                        Consulting &amp; Dev</span>
+                    </span>
+                    <span
+                      style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45">End-to-end
+                      strategic AI engineering &amp; intelligence platforms.</span>
+                  </span>
+                </a>
+              </div>
+              <div
+                style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;padding:11px 0">
+                <a href="service.html"
+                  style="grid-column:1/-1;display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;color:#141414;text-decoration:none">
+                  <span
+                    style="width:40px;height:40px;border-radius:9px;background:#FDECE4;display:inline-flex;align-items:center;justify-content:center;flex:none"><svg
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8541F" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="6" y="9" width="12" height="9" rx="2.4"></rect>
+                      <path d="M12 6V4.2"></path>
+                      <circle cx="12" cy="3.4" r="1.1"></circle>
+                    </svg></span>
+                  <span style="display:block;min-width:0">
+                    <span
+                      style="display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.25;color:#141414">Generative
+                      AI Solutions</span>
+                    <span style="display:block;margin-top:5px;font-size:12.5px;color:#7a7a7a;line-height:1.45">Custom
+                      LLMs, prompt engineering &amp; multi-modal systems.</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Work Mega Menu (Active Link to case-studies.html) -->
+    <div class="site-mega-menu-wrapper" data-menu-panel="work">
+      <div style="position:relative;padding:12px 0 34px">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+          <div
+            style="background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(13,13,15,.34);padding:36px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:32px 40px;align-items:start;animation:panelIn .2s ease-out both">
+            <div
+              style="background:#141414;border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+              <div>
+                <h3
+                  style="font-family:'Archivo',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.18;color:#fff;text-wrap:pretty">
+                  Outcomes, not logos on a wall</h3>
+                <p style="margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);text-wrap:pretty">
+                  Every case study leads with the number that changed and how long it took.</p>
+              </div>
+              <a href="case-studies.html"
+                style="align-self:flex-start;border:1.5px solid rgba(255,255,255,.55);border-radius:6px;padding:12px 22px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s ease,color .2s ease"
+                style-hover="background:#fff;color:#141414">All case studies</a>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+              <div style="display:flex;flex-direction:column">
+                <a href="case-studies.html"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#E8541F"
+                  style-hover="color:#E8541F">Case studies<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="case-studies.html"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Client testimonials<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="case-studies.html"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Success metrics<span style="font-size:17px;flex:none">↗</span></a>
+              </div>
+              <div style="display:flex;flex-direction:column">
+                <a href="#"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Blog &amp; Insights<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="#"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">Company News<span style="font-size:17px;flex:none">↗</span></a>
+                <a href="#"
+                  style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #E7E4DF;font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;color:#141414"
+                  style-hover="color:#C2571A">AI Webinars &amp; Events<span
+                    style="font-size:17px;flex:none">↗</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="site-mobile-drawer" id="site-mobile-drawer"
+      style="position:fixed;top:72px;left:0;right:0;bottom:0;background:#0D0D0F;padding:24px;overflow-y:auto;display:none">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <a href="index.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">Home</a>
+        <a href="service.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">Services</a>
+        <a href="case-studies.html" style="color:#E8541F;font-size:18px;font-weight:700;text-decoration:none">Our Work
+          (Case Studies)</a>
+        <a href="about.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">About</a>
+        <a href="contact.html" style="color:#fff;font-size:18px;font-weight:700;text-decoration:none">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       1. CASE STUDIES HERO / BANNER SECTION (Exact Match to Other Pages)
+       ========================================================================= -->
+  <section class="hero-wrapper" id="case-studies-hero"
+    style="padding-top:150px;padding-bottom:150px;position:relative;background:radial-gradient(circle at 12% 45%, rgba(200, 48, 36, 0.85) 0%, rgba(135, 26, 52, 0.6) 35%, transparent 68%), radial-gradient(circle at 88% 42%, rgba(24, 48, 145, 0.85) 0%, rgba(55, 20, 85, 0.6) 40%, transparent 70%), linear-gradient(105deg, #9b2229 0%, #6e183d 24%, #3a124a 48%, #1f1446 72%, #142865 100%);display:flex;align-items:center">
+
+    <div class="hero-bg-container">
+      <div class="bg-glow bg-glow-left"></div>
+      <div class="bg-glow bg-glow-center"></div>
+      <div class="bg-glow bg-glow-right"></div>
+      <div class="ai-circuit-grid" aria-hidden="true"></div>
+      <div class="ai-neural-wave wave-2" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-container"
+      style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;width:100%">
+      <div style="max-width:880px;margin:0 auto;text-align:center">
+
+        <h1
+          style="font-family:'Archivo',sans-serif;font-size:clamp(34px, 5.6vw, 68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:#fff;text-wrap:pretty;margin-bottom:24px">
+          Case <span style="color:rgb(248, 208, 106)">Studies</span>
+        </h1>
+
+        <p
+          style="font-size:clamp(16.5px, 1.4vw, 19.5px);line-height:1.65;color:rgba(255,255,255,0.88);text-wrap:pretty;margin-bottom:38px;max-width:760px;margin-left:auto;margin-right:auto">
+          Discover how our AI solutions have transformed businesses and unlocked new opportunities for growth.
+        </p>
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px">
+          <a href="contact.html" class="btn-talk-expert"
+            style="display:inline-flex;align-items:center;gap:10px;background:rgb(232,84,31);color:#fff;border-radius:8px;padding:14px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(232,84,31,0.35)"
+            style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,84,31,0.45)">
+            Talk to our expert <i class="fa-solid fa-arrow-right" style="font-size:14px"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- =========================================================================
+       2. CASE STUDIES LISTING & FILTER SECTION
+       ========================================================================= -->
+  <section class="cs-listing-section">
+    <div class="container-wide" style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- Category Filter Tabs -->
+      <div class="cs-filter-wrapper">
+        <button type="button" class="cs-filter-btn active" data-filter="all">All</button>
+        <button type="button" class="cs-filter-btn" data-filter="ai-solutions">AI Solutions</button>
+        <button type="button" class="cs-filter-btn" data-filter="computer-vision">Computer Vision &amp; OCR</button>
+        <button type="button" class="cs-filter-btn" data-filter="data-analytics">Data Analytics</button>
+        <button type="button" class="cs-filter-btn" data-filter="healthcare-ai">Healthcare AI</button>
+      </div>
+
+      <!-- 3-Column Card Grid (Matching User Attached Design) -->
+      <div class="cs-cards-grid" id="csGrid">
+
+        <!-- Card 1: Pharmacy Dashboard -->
+        <article class="cs-card-item" data-category="data-analytics">
+          <div class="cs-thumb-wrapper">
+            <a href="case-study-pharmacy-dashboard.html" class="cs-thumb-img-box" style="display:block">
+              <img src="https://wappnet.ai/wp-content/uploads/2026/05/pharmacy-dashboard.png" alt="Pharmacy Dashboard"
+                class="cs-thumb-img" onerror="this.src='images/ml_neural_mesh.jpg'">
+            </a>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">20</span>
+              <span class="cs-date-month">JUNE</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> Data Analytics</span>
+            </div>
+            <h3 class="cs-card-title">
+              <a href="case-study-pharmacy-dashboard.html" style="color:inherit;text-decoration:none">Pharmacy Dashboard &amp; Analytics</a>
+            </h3>
+            <p class="cs-card-desc">
+              Pharmacy Insight offers a comprehensive platform for discovering, assessing, and selecting the best
+              pharmacies in the US with real-time predictive insights.
+            </p>
+            <a href="case-study-pharmacy-dashboard.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 2: AI Sales Coach -->
+        <article class="cs-card-item" data-category="ai-solutions">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="https://wappnet.ai/wp-content/uploads/2026/05/ai-sales-coach.png" alt="AI Sales Coach"
+                class="cs-thumb-img" onerror="this.src='images/case_study_sales_coach.jpg'">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">24</span>
+              <span class="cs-date-month">MAY</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> AI Solutions</span>
+            </div>
+            <h3 class="cs-card-title">AI Sales Coach &amp; Call Intelligence</h3>
+            <p class="cs-card-desc">
+              AI Sales Coach specializes in providing AI-driven solutions to sales teams for improving their call
+              handling, objection resolution, and closing velocity.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 3: Invoice OCR -->
+        <article class="cs-card-item" data-category="computer-vision">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="https://wappnet.ai/wp-content/uploads/2026/05/invoice-ocr.png" alt="Invoice OCR"
+                class="cs-thumb-img" onerror="this.src='images/art_card_cyber.png'">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">02</span>
+              <span class="cs-date-month">JUN</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> Computer Vision</span>
+            </div>
+            <h3 class="cs-card-title">Automated Invoice OCR Parsing</h3>
+            <p class="cs-card-desc">
+              Invoice parsing software crafted to analyze and decode multi-layout invoice documents, extracting
+              structured financial records with 99.4% accuracy.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 4: Hospitality Chatbot -->
+        <article class="cs-card-item" data-category="ai-solutions">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="https://wappnet.ai/wp-content/uploads/2026/05/chatbot.png" alt="Chatbot" class="cs-thumb-img"
+                onerror="this.src='images/case_study_hospitality_chatbot.jpg'">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">11</span>
+              <span class="cs-date-month">JUN</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> AI Chatbots</span>
+            </div>
+            <h3 class="cs-card-title">Hospitality Concierge Chatbot</h3>
+            <p class="cs-card-desc">
+              In the highly competitive hospitality industry, providing excellent multilingual guest service and
+              automated reservation workflows that drive direct booking revenue.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 5: Medical Data Scraping -->
+        <article class="cs-card-item" data-category="healthcare-ai">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="https://wappnet.ai/wp-content/uploads/2026/05/medical-data-scraping.png"
+                alt="Medical Data Scraping" class="cs-thumb-img" onerror="this.src='uploads/why-us-1.jpg'">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">20</span>
+              <span class="cs-date-month">JUNE</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> Healthcare AI</span>
+            </div>
+            <h3 class="cs-card-title">Medical Clinical Data Scraping</h3>
+            <p class="cs-card-desc">
+              Automated clinical data pipelines extracting diagnostic descriptions and research metrics across diverse
+              healthcare sources within strict HIPAA compliance.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 6: AI-Powered Recommendation System -->
+        <article class="cs-card-item" data-category="ai-solutions">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="https://wappnet.ai/wp-content/uploads/2026/05/ai-powered-recommendation-system.png"
+                alt="AI-Powered Recommendation System" class="cs-thumb-img" onerror="this.src='uploads/why-us-2.jpg'">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">05</span>
+              <span class="cs-date-month">JULY</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> Machine Learning</span>
+            </div>
+            <h3 class="cs-card-title">AI-Powered Recommendation Engine</h3>
+            <p class="cs-card-desc">
+              Enhance user engagement and average basket size with our high-throughput vector recommendation system
+              utilizing elastic services and neural re-ranking.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 7: Data Driven Recruitment System Healthcare -->
+        <article class="cs-card-item" data-category="healthcare-ai">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="https://wappnet.ai/wp-content/uploads/2026/05/data-driven-recruitment-system-healthcare.png"
+                alt="Data Driven Recruitment" class="cs-thumb-img" onerror="this.src='uploads/why-us-3.jpg'">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">15</span>
+              <span class="cs-date-month">JULY</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> Healthcare AI</span>
+            </div>
+            <h3 class="cs-card-title">AI Healthcare Recruitment Engine</h3>
+            <p class="cs-card-desc">
+              Streamline healthcare staffing with our intelligent matching agent that cross-references clinical
+              credentials, shifts, and candidate availability seamlessly.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 8: Real-Time Fraud & Anomaly Detection -->
+        <article class="cs-card-item" data-category="data-analytics">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="images/ml_neural_mesh.jpg" alt="Financial Fraud Detection" class="cs-thumb-img">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">28</span>
+              <span class="cs-date-month">JULY</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> Data Analytics</span>
+            </div>
+            <h3 class="cs-card-title">Real-Time Financial Anomaly Detection</h3>
+            <p class="cs-card-desc">
+              Deployed high-throughput streaming anomaly detection pipelines processing over 20,000 transactions/sec
+              with sub-50ms latency for tier-1 financial fintechs.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Card 9: Supply Chain Demand Forecasting -->
+        <article class="cs-card-item" data-category="ai-solutions">
+          <div class="cs-thumb-wrapper">
+            <div class="cs-thumb-img-box">
+              <img src="images/art_card_cyber.png" alt="Supply Chain AI" class="cs-thumb-img">
+            </div>
+            <!-- Floating Date Badge in Theme Orange -->
+            <div class="cs-date-badge">
+              <span class="cs-date-num">10</span>
+              <span class="cs-date-month">AUG</span>
+            </div>
+          </div>
+          <div class="cs-content-box">
+            <div class="cs-meta-row">
+              <span class="cs-meta-item"><i class="fa-regular fa-user"></i> By Admin</span>
+              <span class="cs-meta-item"><i class="fa-solid fa-tag"></i> AI Solutions</span>
+            </div>
+            <h3 class="cs-card-title">Intelligent Supply Chain Forecasting</h3>
+            <p class="cs-card-desc">
+              Deep recurrent neural network forecasting model that reduced stockout rates by 34% across 45 distributed
+              warehouse distribution nodes.
+            </p>
+            <a href="contact.html" class="cs-read-more">Keep Reading <span>→</span></a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- 3. Bottom CTA Banner -->
+      <div class="cs-cta-banner">
+        <div class="cs-cta-content">
+          <div class="section-eyebrow-tag" style="margin-bottom:12px;color:#F4A557;border-color:rgba(255,255,255,0.2);">
+            Let's Build Together</div>
+          <h2 class="cs-cta-title">Ready to Engineer Your Own AI Success Story?</h2>
+          <p class="cs-cta-desc">
+            Partner with our senior artificial intelligence consultants and data architects to build a high-ROI proof of
+            concept tailored to your enterprise systems.
+          </p>
+        </div>
+        <a href="contact.html" class="cs-cta-btn">
+          <span>Schedule Scoping Call</span> <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION
+       ========================================================================= -->
+  <section class="faq-section" id="faq" style="padding: 80px 0; background: #FAF9F7; border-top: 1px solid #ECEAE5;">
+    <div class="container-wide" style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- Top Header Area (Centered) -->
+      <div class="faq-header-center" style="text-align:center;margin-bottom:48px;">
+        <div class="section-eyebrow-tag center-tag" style="margin-bottom:14px;">Case Study FAQ</div>
+        <h2 class="faq-main-title"
+          style="font-family:'Archivo',sans-serif;font-size:36px;font-weight:800;letter-spacing:-.02em;color:#141414;line-height:1.2;margin:0 0 14px 0">
+          Frequently Asked Questions.
+        </h2>
+        <p class="faq-subtitle"
+          style="font-family:'DM Sans',sans-serif;font-size:16px;color:#555555;line-height:1.65;margin:0 auto;max-width:620px">
+          Learn how our case studies translate into guaranteed production outcomes, IP ownership, and measurable
+          business KPIs.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion List -->
+      <div class="faq-content-wrapper" style="max-width:860px;margin:0 auto;">
+        <div class="faq-accordion-list">
+
+          <!-- Item 1 -->
+          <div class="faq-item active" id="faq-item-1"
+            style="background:#fff;border:1px solid #ECEAE5;border-radius:14px;margin-bottom:14px;overflow:hidden;padding:18px 24px;">
+            <button class="faq-question-btn"
+              style="width:100%;background:none;border:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;padding:0;">
+              <span style="font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:800;color:#141414;">How do you
+                validate metrics presented in these case studies?</span>
+              <i class="fa-solid fa-chevron-down" style="color:#E8541F;font-size:14px;"></i>
+            </button>
+            <div class="faq-answer-wrap"
+              style="margin-top:12px;font-family:'DM Sans',sans-serif;font-size:15px;color:#555;line-height:1.65;">
+              All production metrics, latency benchmarks, and accuracy scores are measured directly from post-launch
+              production telemetry under realistic user traffic loads.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item" id="faq-item-2"
+            style="background:#fff;border:1px solid #ECEAE5;border-radius:14px;margin-bottom:14px;overflow:hidden;padding:18px 24px;">
+            <button class="faq-question-btn"
+              style="width:100%;background:none;border:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;padding:0;">
+              <span style="font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:800;color:#141414;">Can we sign
+                an NDA before discussing proprietary use cases?</span>
+              <i class="fa-solid fa-chevron-down" style="color:#E8541F;font-size:14px;"></i>
+            </button>
+            <div class="faq-answer-wrap"
+              style="margin-top:12px;font-family:'DM Sans',sans-serif;font-size:15px;color:#555;line-height:1.65;">
+              Yes, absolutely. We regularly execute bilateral non-disclosure agreements (NDAs) prior to any
+              architectural review or data discovery sessions.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item" id="faq-item-3"
+            style="background:#fff;border:1px solid #ECEAE5;border-radius:14px;margin-bottom:14px;overflow:hidden;padding:18px 24px;">
+            <button class="faq-question-btn"
+              style="width:100%;background:none;border:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;padding:0;">
+              <span style="font-family:'Archivo',sans-serif;font-size:17.5px;font-weight:800;color:#141414;">Who owns
+                the custom IP and fine-tuned models created?</span>
+              <i class="fa-solid fa-chevron-down" style="color:#E8541F;font-size:14px;"></i>
+            </button>
+            <div class="faq-answer-wrap"
+              style="margin-top:12px;font-family:'DM Sans',sans-serif;font-size:15px;color:#555;line-height:1.65;">
+              You own 100% of the intellectual property, model weights, training scripts, data pipelines, and
+              infrastructure code from day one.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. FOOTER (Exact Match to Other Pages)
+       ========================================================================= -->
+  <footer style="background:#141414;color:#cfcfcf;padding:80px 0 40px;font-family:'DM Sans',sans-serif">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+
+      <!-- 1. Top Navigation Grid (5 Columns) -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;align-items:start">
+        <div>
+          <a href="index.html" style="display:inline-block">
+            <img src="uploads/white-logo.png" alt="WAPPNET.Ai" style="height:26px;width:auto;display:block">
+          </a>
+          <p style="margin-top:22px;font-size:14.5px;line-height:1.6;color:#a0a0a0;max-width:28ch">The AI and data
+            engineering side of Wappnet, for companies that have outgrown their reporting stack.</p>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">What
+            we do</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="Wappnet AI Service.dc.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">AI</a>
+            <a href="service.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Applied AI consulting</a>
+            <a href="index.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Data &amp; analytics</a>
+            <a href="index.html#capabilities" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Data platform engineering</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Company</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="about.html" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">About us</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Leadership</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Partners</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Certifications</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Insights</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="index.html#stories" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Success stories</a>
+            <a href="index.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Blog</a>
+            <a href="index.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">News</a>
+            <a href="index.html#insights" style="color:#a0a0a0;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Events</a>
+          </div>
+        </div>
+        <div>
+          <h5 style="color:#fff;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;margin-bottom:18px">
+            Careers</h5>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Life at
+              Wappnet</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Current
+              openings</a>
+            <a href="#" style="color:#a0a0a0;text-decoration:none;transition:color .2s" style-hover="color:#fff">Submit
+              your profile</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. GET IN TOUCH Section -->
+      <div style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10)">
+        <h3
+          style="font-family:'Archivo',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:28px">
+          GET IN TOUCH</h3>
+
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:start">
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              OFFICIAL WEBSITE</div>
+            <a href="https://www.wappnet.com" target="_blank" rel="noopener"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:color .2s"
+              style-hover="color:#F8D06A">www.wappnet.com <span style="font-size:14px">↗</span></a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              BUSINESS QUERIES</div>
+            <a href="mailto:business@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">business@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              CAREER INQUIRIES</div>
+            <a href="mailto:career@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">career@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              GENERAL INFORMATION</div>
+            <a href="mailto:hr@wappnet.com"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">hr@wappnet.com</a>
+          </div>
+          <div>
+            <div
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7a7a;margin-bottom:10px">
+              HR NUMBER</div>
+            <a href="tel:+919173408554"
+              style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#F4A557;text-decoration:none;transition:color .2s"
+              style-hover="color:#F8D06A">(+91) 9173408554</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Global Offices (5 Columns: USA, CANADA, INDIA, AUSTRALIA, DUBAI) -->
+      <div id="global-offices"
+        style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:grid;grid-template-columns:repeat(5,1fr);gap:28px">
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-usa" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">USA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">1440 W Taylor St,
+            Chicago, Illinois 60607, US</p>
+          <a href="tel:+13126983083"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-canada" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">CANADA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">7700 Hurontario St
+            #503 # 2009 Brampton, ON L6Y 4M3 Canada</p>
+          <a href="tel:+13126983083"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+1) 312-698-3083</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-india" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">INDIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">403, iSQUARE
+            Corporate Park, Science City Rd, Sola, Ahmedabad</p>
+          <a href="tel:+916353604125"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+91) 6353604125</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-aus" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">AUSTRALIA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Parkway, Pakenham
+            3810 Melbourne, Australia</p>
+          <a href="tel:+61405050017"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+61) 405 050 017</a>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+            <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;position:relative">
+              <image-slot id="flag-dubai" shape="circle" placeholder="Flag 60²"></image-slot>
+            </div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff">DUBAI</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#a0a0a0;text-wrap:pretty;min-height:65px">Meydan Grandstand,
+            6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E</p>
+          <a href="tel:+971541618745"
+            style="margin-top:12px;display:inline-block;font-size:14.5px;font-weight:600;color:#F4A557;white-space:nowrap;text-decoration:none;transition:color .2s"
+            style-hover="color:#F8D06A">(+971) 54 161 8745</a>
+        </div>
+      </div>
+
+      <!-- 4. Ratings & Industry Certifications Badges -->
+      <div
+        style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+
+        <!-- Left Ratings -->
+        <div style="display:flex;align-items:center;gap:36px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-clutch" shape="rect"
+                placeholder="Clutch 104²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.9
+              <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-goodfirm" shape="rect"
+                placeholder="GoodFirm 104²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff">4.8
+              <span style="color:#F4A557;font-size:18px">★</span></span>
+          </div>
+        </div>
+
+        <!-- Right Certifications -->
+        <div style="display:flex;align-items:center;gap:28px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27701"
+                shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO
+              27701:2019</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-iso-27001"
+                shape="rect" placeholder="ISO 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">ISO
+              27001:2022</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-csm" shape="rect"
+                placeholder="CSM 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">CSM
+              Certified</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-aws" shape="rect"
+                placeholder="AWS 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">AWS
+              Partner</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+            <div style="width:60px;height:60px;position:relative;flex:none"><image-slot id="badge-dnb" shape="rect"
+                placeholder="D&amp;B 128²"></image-slot></div>
+            <span
+              style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#a0a0a0;white-space:nowrap">D-U-N-S
+              Registered</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 5. Bottom Copyright & Social Row -->
+      <div
+        style="margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.10);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:14px;color:#7a7a7a">
+        <span>© 2026 Wappnet Systems Global. All rights reserved.</span>
+
+        <div style="display:flex;align-items:center;gap:32px">
+          <div style="display:flex;gap:24px">
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s" style-hover="color:#fff">Privacy
+              policy</a>
+            <a href="#" style="color:#7a7a7a;text-decoration:none;transition:color .2s"
+              style-hover="color:#fff">Disclaimer</a>
+          </div>
+
+          <div style="display:flex;gap:10px">
+            <a href="#" aria-label="Instagram"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="4.6"></rect>
+                <circle cx="12" cy="12" r="3.6"></circle>
+                <circle cx="17.1" cy="6.9" r="1.1" fill="#141414" stroke="none"></circle>
+              </svg></a>
+            <a href="#" aria-label="Facebook"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M14.6 8.2h1.9V5.4h-2.3c-2 0-3.2 1.3-3.2 3.3v1.6H9.1v2.8H11V20h2.9v-6.9h2l.4-2.8h-2.4V9.1c0-.6.3-.9.7-.9z"
+                  stroke="none" fill="#141414"></path>
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.4 10v7.2M7.4 6.9v.1M11.4 17.2V10M11.4 13.2c0-1.4.9-2.4 2.3-2.4s2.4 1 2.4 2.4v4"></path>
+              </svg></a>
+            <a href="#" aria-label="Twitter"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20 6.6c-.6.4-1.3.7-2 .8a3.2 3.2 0 0 0-5.5 2.2v.7A9 9 0 0 1 5.2 6.4s-3.1 7 4 10.1a9.3 9.3 0 0 1-5.6 1.5c7.1 4 15.8 0 15.8-9.2 0-.2 0-.4-.1-.7.6-.6 1.2-1.3 1.5-2.1z">
+                </path>
+              </svg></a>
+            <a href="#" aria-label="WhatsApp"
+              style="width:38px;height:38px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;transition:transform .2s ease"
+              style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 11.6a7.7 7.7 0 0 1-11.4 6.8L4.4 19.6l1.2-4.1A7.7 7.7 0 1 1 20 11.6z"></path>
+                <path d="M9.4 9.4c0 3 2.2 5.2 5.2 5.2"></path>
+              </svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       PAGE JAVASCRIPT & INTERACTIONS
+       ========================================================================= -->
+  <script>
+    /* 1. Header Scroll Background & Mega Menu Logic */
+    const siteHeader = document.getElementById('site-header');
+    const navItems = document.querySelectorAll('.site-nav-item');
+    const navBars = document.querySelectorAll('.site-nav-bar');
+    const menuPanels = document.querySelectorAll('.site-mega-menu-wrapper[data-menu-panel]');
+    const mobileToggle = document.getElementById('site-mobile-toggle');
+    const mobileDrawer = document.getElementById('site-mobile-drawer');
+
+    let currentActiveMenu = null;
+
+    function updateHeaderVisualState() {
+      if (!siteHeader) return;
+      const isScrolled = window.scrollY > 20;
+
+      if (isScrolled) {
+        siteHeader.style.background = 'rgba(13, 13, 15, 0.94)';
+        siteHeader.style.backdropFilter = 'saturate(160%) blur(12px)';
+        siteHeader.style.webkitBackdropFilter = 'saturate(160%) blur(12px)';
+        siteHeader.style.borderBottomColor = 'rgba(255, 255, 255, 0.10)';
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.style.background = 'transparent';
+        siteHeader.style.backdropFilter = 'none';
+        siteHeader.style.webkitBackdropFilter = 'none';
+        siteHeader.style.borderBottomColor = 'transparent';
+        siteHeader.classList.remove('scrolled');
+      }
+    }
+
+    function openMenu(menuKey) {
+      currentActiveMenu = menuKey;
+      menuPanels.forEach(panel => {
+        if (panel.getAttribute('data-menu-panel') === menuKey) {
+          panel.classList.add('is-active');
+        } else {
+          panel.classList.remove('is-active');
+        }
+      });
+
+      navBars.forEach(bar => {
+        if (bar.getAttribute('data-nav-bar') === menuKey) {
+          bar.style.opacity = '1';
+          bar.style.transform = 'scaleX(1)';
+        } else {
+          bar.style.opacity = '0';
+          bar.style.transform = 'scaleX(0.4)';
+        }
+      });
+
+      updateHeaderVisualState();
+    }
+
+    function closeMenu() {
+      currentActiveMenu = null;
+      menuPanels.forEach(panel => panel.classList.remove('is-active'));
+      navBars.forEach(bar => {
+        if (bar.getAttribute('data-nav-bar') === 'work') {
+          bar.style.opacity = '1';
+          bar.style.transform = 'scaleX(1)';
+        } else {
+          bar.style.opacity = '0';
+          bar.style.transform = 'scaleX(0.4)';
+        }
+      });
+      updateHeaderVisualState();
+    }
+
+    navItems.forEach(item => {
+      const target = item.getAttribute('data-menu-target');
+      item.addEventListener('mouseenter', () => openMenu(target));
+      item.addEventListener('focus', () => openMenu(target));
+    });
+
+    if (siteHeader) {
+      siteHeader.addEventListener('mouseleave', closeMenu);
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (siteHeader && !siteHeader.contains(e.target)) {
+        closeMenu();
+        if (mobileDrawer) {
+          mobileDrawer.classList.remove('is-open');
+          updateHeaderVisualState();
+        }
+      }
+    });
+
+    if (mobileToggle && mobileDrawer) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileDrawer.classList.toggle('is-open');
+        updateHeaderVisualState();
+      });
+    }
+
+    window.addEventListener('scroll', updateHeaderVisualState, { passive: true });
+    updateHeaderVisualState();
+
+    /* 2. Interactive Category Filter */
+    const filterBtns = document.querySelectorAll('.cs-filter-btn');
+    const csCards = document.querySelectorAll('.cs-card-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        csCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterValue === 'all' || category === filterValue) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    /* 3. FAQ Accordion Interaction */
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item) => {
+      const btn = item.querySelector('.faq-question-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach((other) => {
+            other.classList.remove('active');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+
+    /* 4. Style-hover support */
+    document.querySelectorAll('[style-hover]').forEach(el => {
+      const originalStyle = el.getAttribute('style') || '';
+      const hoverStyleStr = el.getAttribute('style-hover');
+      const hoverRules = hoverStyleStr.split(';').filter(r => r.trim());
+
+      el.addEventListener('mouseenter', () => {
+        hoverRules.forEach(rule => {
+          const [prop, val] = rule.split(':');
+          if (prop && val) {
+            el.style.setProperty(prop.trim(), val.trim());
+          }
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.setAttribute('style', originalStyle);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

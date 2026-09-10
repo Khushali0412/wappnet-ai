@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Green top -->
+  <rect x="128" y="0" width="384" height="170.66" fill="#00732F"/>
+  <!-- White middle -->
+  <rect x="128" y="170.66" width="384" height="170.66" fill="#FFFFFF"/>
+  <!-- Black bottom -->
+  <rect x="128" y="341.33" width="384" height="170.66" fill="#000000"/>
+  <!-- Red vertical bar -->
+  <rect x="0" y="0" width="128" height="512" fill="#FF0000"/>
+</svg>
